@@ -104,13 +104,15 @@ describe("AI workflow guards", () => {
 
   it("normalizes a structured relay patch for human review", () => {
     const candidate = parseRepairCandidate(JSON.stringify({
-      root_cause: "Null guard missing",
-      affected_files: ["Source/Deal.cs"],
+      root_cause: { summary: "Null guard missing", method: "Deal.Accept" },
+      affected_files: [{ path: "Source/Deal.cs", method: "Deal.Accept" }],
       patch: { file: "Source/Deal.cs", changes: ["add null guard"] },
-      tests: ["Run smoke test"],
-      risks: ["May hide invalid state"]
+      tests: [{ name: "smoke", command: "run-smoke" }],
+      risks: [{ severity: "medium", detail: "May hide invalid state" }]
     }));
 
+    expect(candidate.root_cause).toContain('"summary": "Null guard missing"');
+    expect(candidate.affected_files[0]).toContain('"path": "Source/Deal.cs"');
     expect(candidate.patch).toContain('"file": "Source/Deal.cs"');
   });
 });

@@ -76,18 +76,30 @@ function boundedStringArray(value: unknown, maximumItems: number, maximumCharact
   return value as string[];
 }
 
-function boundedPatch(value: unknown): string {
+function boundedTextOrJson(value: unknown, maximum: number, field: string): string {
   if (typeof value === "string") {
-    return boundedText(value, 200_000, "patch");
+    return boundedText(value, maximum, field);
   }
   const isNonEmptyArray = Array.isArray(value) && value.length > 0;
   const isNonEmptyObject = typeof value === "object" && value !== null && !Array.isArray(value)
     && Object.keys(value).length > 0;
   if (!isNonEmptyArray && !isNonEmptyObject) {
-    throw new AiProviderError("invalid_patch", "Invalid patch in model response", false);
+    throw new AiProviderError(`invalid_${field}`, `Invalid ${field} in model response`, false);
   }
   const serialized = JSON.stringify(value, null, 2);
-  return boundedText(serialized, 200_000, "patch");
+  return boundedText(serialized, maximum, field);
+}
+
+function boundedCandidateArray(
+  value: unknown,
+  maximumItems: number,
+  maximumCharacters: number,
+  field: string
+): string[] {
+  if (!Array.isArray(value) || value.length === 0 || value.length > maximumItems) {
+    throw new AiProviderError(`invalid_${field}`, `Invalid ${field} in model response`, false);
+  }
+  return value.map(item => boundedTextOrJson(item, maximumCharacters, field));
 }
 
 function parseJsonObject(text: string): Record<string, unknown> {
@@ -138,13 +150,12 @@ function parseTriageDecision(text: string): TriageDecision {
 
 export function parseRepairCandidate(text: string): RepairCandidate {
   const object = parseJsonObject(text);
-  const patch = boundedPatch(object.patch);
   return {
-    root_cause: boundedText(object.root_cause, 8_192, "root_cause"),
-    affected_files: boundedStringArray(object.affected_files, 32, 512, "affected_files"),
-    patch,
-    tests: boundedStringArray(object.tests, 32, 2_048, "tests"),
-    risks: boundedStringArray(object.risks, 32, 2_048, "risks")
+    root_cause: boundedTextOrJson(object.root_cause, 8_192, "root_cause"),
+    affected_files: boundedCandidateArray(object.affected_files, 32, 512, "affected_files"),
+    patch: boundedTextOrJson(object.patch, 200_000, "patch"),
+    tests: boundedCandidateArray(object.tests, 32, 2_048, "tests"),
+    risks: boundedCandidateArray(object.risks, 32, 2_048, "risks")
   };
 }
 
