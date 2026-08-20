@@ -377,7 +377,7 @@ export async function runRepairRetries(env: Env): Promise<void> {
     return;
   }
   const issues = await queryRepairQueue(env, parseLimit(env.REPAIR_ATTEMPTS_PER_RUN, 1, 5));
-  const dailyMaximum = parseLimit(env.REPAIR_MAX_ATTEMPTS_PER_DAY, 6, 100);
+  const dailyMaximum = parseLimit(env.REPAIR_MAX_ATTEMPTS_PER_DAY, 24, 100);
   for (const issue of issues) {
     const owner = crypto.randomUUID();
     const jobKey = `repair:${issue.hash}`;

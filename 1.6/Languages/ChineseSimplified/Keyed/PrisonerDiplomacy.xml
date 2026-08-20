@@ -563,11 +563,14 @@
   <PD_AiAdvisoryApplied>应用于此实时还盘的有界 AI 咨询：{0}</PD_AiAdvisoryApplied>
   <PD_DebugAdvisoryApplied>应用了调试 AI 建议：{0}</PD_DebugAdvisoryApplied>
   <PD_DebugAdvisoryNoCounteroffer>此咨询测试没有可用的有效还盘。</PD_DebugAdvisoryNoCounteroffer>
-  <PD_SettingErrorTelemetry>发送匿名错误报告前先询问</PD_SettingErrorTelemetry>
-  <PD_SettingErrorTelemetryDesc>启用后，模组会在发送经过清理的错误报告前询问。你选择前不会发送任何报告。</PD_SettingErrorTelemetryDesc>
+  <PD_SettingErrorTelemetry>启用匿名错误报告</PD_SettingErrorTelemetry>
+  <PD_SettingErrorTelemetryDesc>启用后，模组可在获得你的同意后发送经过清理的错误报告。你选择前不会发送任何报告。</PD_SettingErrorTelemetryDesc>
+  <PD_SettingErrorTelemetryAlways>始终发送经过清理的错误报告</PD_SettingErrorTelemetryAlways>
+  <PD_SettingErrorTelemetryAlwaysDesc>跳过今后的询问窗口并自动发送经过清理的报告。你随时可以在此关闭。</PD_SettingErrorTelemetryAlwaysDesc>
   <PD_ErrorTelemetryDialogTitle>战俘外交检测到错误</PD_ErrorTelemetryDialogTitle>
   <PD_ErrorTelemetryDialogText>模组检测到一次意外运行。你愿意发送匿名且已清理的错误报告，帮助改进《战俘外交》吗？不会上传存档；本地路径和可识别的秘密信息会被移除。</PD_ErrorTelemetryDialogText>
   <PD_ErrorTelemetryAllowOnce>发送这次报告</PD_ErrorTelemetryAllowOnce>
   <PD_ErrorTelemetryAllowSession>本次游戏期间允许</PD_ErrorTelemetryAllowSession>
+  <PD_ErrorTelemetryAllowAlways>今后始终发送</PD_ErrorTelemetryAllowAlways>
   <PD_ErrorTelemetryReject>拒绝</PD_ErrorTelemetryReject>
 </LanguageData>

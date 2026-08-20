@@ -96,10 +96,11 @@ function boundedCandidateArray(
   maximumCharacters: number,
   field: string
 ): string[] {
-  if (!Array.isArray(value) || value.length === 0 || value.length > maximumItems) {
+  const items = Array.isArray(value) ? value : [value];
+  if (items.length > maximumItems) {
     throw new AiProviderError(`invalid_${field}`, `Invalid ${field} in model response`, false);
   }
-  return value.map(item => boundedTextOrJson(item, maximumCharacters, field));
+  return items.map(item => boundedTextOrJson(item, maximumCharacters, field));
 }
 
 function parseJsonObject(text: string): Record<string, unknown> {

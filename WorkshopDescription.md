@@ -19,7 +19,7 @@ After a prisoner is safely held, their faction may contact the colony with a ran
 - Race adapters can add fixed special item rewards that are priced, validated, persisted, and delivered by the core
 - Neutral exchanges create a persistent world-map exchange point. A player Caravan must carry the specified prisoner to the point; arrival validates the event and hands the Pawn to the receiving faction before the core fulfills rewards
 - A dedicated event-history tab records event state, stage, retries, source deal, and intermediary
-- Optional anonymous error reporting is explicitly consent-gated, never uploads save files, removes local paths and recognized secrets, and remains offline until the receiver endpoint is configured
+- Optional anonymous error reporting is explicitly consent-gated, never uploads save files, applies client/server redaction, and uses fixed 30/180-day retention
 
 ## 1.2 release-candidate settings
 
@@ -45,7 +45,7 @@ The vanilla comms console and Prisoner Diplomacy deterministic state machine are
 
 ## Feedback
 
-When reporting an issue, enable developer mode and use `Prisoner Diplomacy -> Copy diagnostic report`. Include the copied report, the save schema, the exact deal state, the active mod list, and the relevant `Player.log` excerpt. Never include API Keys. Error telemetry is optional and asks before sending; declining it does not affect gameplay.
+When reporting an issue, enable developer mode and use `Prisoner Diplomacy -> Copy diagnostic report`. Include the copied report, the save schema, the exact deal state, the active mod list, and the relevant `Player.log` excerpt. Never include API Keys. Error telemetry is optional and asks before first sending; persistent consent can be revoked in the mod settings, and declining it does not affect gameplay. Production AI analysis is currently disabled; when enabled, Google Gemini performs triage and only qualifying internal defects go through the third-party AI-HUB relay for a GPT 5.6 Sol repair candidate. See `Docs/TelemetryPrivacy.md` for exact fields, redaction limits, providers, processing and retention.
 
 ## Open source and community
 

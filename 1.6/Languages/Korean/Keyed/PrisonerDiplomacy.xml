@@ -563,11 +563,14 @@
   <PD_AiAdvisoryApplied>이 라이브 반대 제안에 적용된 제한된 AI 권고: {0}</PD_AiAdvisoryApplied>
   <PD_DebugAdvisoryApplied>디버그 AI 권고 적용: {0}</PD_DebugAdvisoryApplied>
   <PD_DebugAdvisoryNoCounteroffer>이 자문 테스트에는 유효한 반대 제안이 없습니다.</PD_DebugAdvisoryNoCounteroffer>
-  <PD_SettingErrorTelemetry>익명 오류 보고서 전송 전에 묻기</PD_SettingErrorTelemetry>
-  <PD_SettingErrorTelemetryDesc>활성화하면 정리된 오류 보고서를 보내기 전에 확인합니다. 선택하기 전에는 보고서가 전송되지 않습니다.</PD_SettingErrorTelemetryDesc>
+  <PD_SettingErrorTelemetry>익명 오류 보고서 사용</PD_SettingErrorTelemetry>
+  <PD_SettingErrorTelemetryDesc>활성화하면 동의를 받은 후 정리된 오류 보고서를 보낼 수 있습니다. 옵션을 선택하기 전에는 전송되지 않습니다.</PD_SettingErrorTelemetryDesc>
+  <PD_SettingErrorTelemetryAlways>정리된 오류 보고서 항상 보내기</PD_SettingErrorTelemetryAlways>
+  <PD_SettingErrorTelemetryAlwaysDesc>앞으로 확인 창을 건너뛰고 정리된 보고서를 자동으로 보냅니다. 언제든지 이 설정을 끌 수 있습니다.</PD_SettingErrorTelemetryAlwaysDesc>
   <PD_ErrorTelemetryDialogTitle>죄수 외교에서 오류를 감지했습니다</PD_ErrorTelemetryDialogTitle>
   <PD_ErrorTelemetryDialogText>예상하지 못한 작업을 감지했습니다. 죄수 외교 개선을 위해 익명으로 정리된 오류 보고서를 보내시겠습니까? 저장 파일은 전송하지 않으며 로컬 경로와 인식 가능한 비밀 정보는 제거됩니다.</PD_ErrorTelemetryDialogText>
   <PD_ErrorTelemetryAllowOnce>이 보고서 보내기</PD_ErrorTelemetryAllowOnce>
   <PD_ErrorTelemetryAllowSession>이번 세션 동안 허용</PD_ErrorTelemetryAllowSession>
+  <PD_ErrorTelemetryAllowAlways>앞으로 항상 보내기</PD_ErrorTelemetryAllowAlways>
   <PD_ErrorTelemetryReject>거부</PD_ErrorTelemetryReject>
 </LanguageData>

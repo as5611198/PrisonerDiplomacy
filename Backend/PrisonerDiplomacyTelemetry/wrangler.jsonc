@@ -5,6 +5,7 @@
   "compatibility_date": "2026-08-20",
   "compatibility_flags": ["nodejs_compat"],
   "workers_dev": true,
+  "preview_urls": false,
   "observability": {
     "enabled": true,
     "head_sampling_rate": 1
@@ -14,13 +15,18 @@
     "ENVIRONMENT": "local",
     "MAX_REPORTS_PER_IP_PER_MINUTE": "30",
     "MAX_BODY_BYTES": "262144",
+    "DETAIL_LOG_RETENTION_DAYS": "30",
+    "AGGREGATE_RETENTION_DAYS": "180",
+    "RETENTION_BATCH_SIZE": "100",
+    "RETENTION_MAX_BATCHES_PER_RUN": "10",
     "TRIAGE_ENABLED": "false",
     "TRIAGE_MODEL": "gemini-3.7-flash",
     "TRIAGE_MAX_ISSUES_PER_DAY": "20",
     "TRIAGE_MIN_CONFIDENCE": "0.80",
     "REPAIR_ENABLED": "false",
+    "REPAIR_AI_PROVIDER": "AI-HUB",
     "REPAIR_MODEL": "gpt-5.6-sol",
-    "REPAIR_MAX_ATTEMPTS_PER_DAY": "6",
+    "REPAIR_MAX_ATTEMPTS_PER_DAY": "24",
     "REPAIR_ATTEMPTS_PER_RUN": "1",
     "REPAIR_RETRY_MINUTES": "30",
     "AI_REQUEST_TIMEOUT_MS": "30000"
@@ -45,17 +51,23 @@
   "env": {
     "staging": {
       "name": "prisoner-diplomacy-telemetry-staging",
+      "preview_urls": false,
       "vars": {
         "ENVIRONMENT": "staging",
         "MAX_REPORTS_PER_IP_PER_MINUTE": "30",
         "MAX_BODY_BYTES": "262144",
+        "DETAIL_LOG_RETENTION_DAYS": "30",
+        "AGGREGATE_RETENTION_DAYS": "180",
+        "RETENTION_BATCH_SIZE": "100",
+        "RETENTION_MAX_BATCHES_PER_RUN": "10",
         "TRIAGE_ENABLED": "true",
         "TRIAGE_MODEL": "gemini-3.7-flash",
         "TRIAGE_MAX_ISSUES_PER_DAY": "20",
         "TRIAGE_MIN_CONFIDENCE": "0.80",
         "REPAIR_ENABLED": "true",
+        "REPAIR_AI_PROVIDER": "AI-HUB",
         "REPAIR_MODEL": "gpt-5.6-sol",
-        "REPAIR_MAX_ATTEMPTS_PER_DAY": "6",
+        "REPAIR_MAX_ATTEMPTS_PER_DAY": "24",
         "REPAIR_ATTEMPTS_PER_RUN": "1",
         "REPAIR_RETRY_MINUTES": "30",
         "AI_REQUEST_TIMEOUT_MS": "30000"
@@ -81,17 +93,23 @@
     },
     "production": {
       "name": "prisoner-diplomacy-telemetry-production",
+      "preview_urls": false,
       "vars": {
         "ENVIRONMENT": "production",
         "MAX_REPORTS_PER_IP_PER_MINUTE": "30",
         "MAX_BODY_BYTES": "262144",
+        "DETAIL_LOG_RETENTION_DAYS": "30",
+        "AGGREGATE_RETENTION_DAYS": "180",
+        "RETENTION_BATCH_SIZE": "100",
+        "RETENTION_MAX_BATCHES_PER_RUN": "10",
         "TRIAGE_ENABLED": "false",
         "TRIAGE_MODEL": "gemini-3.7-flash",
         "TRIAGE_MAX_ISSUES_PER_DAY": "20",
         "TRIAGE_MIN_CONFIDENCE": "0.80",
         "REPAIR_ENABLED": "false",
+        "REPAIR_AI_PROVIDER": "AI-HUB",
         "REPAIR_MODEL": "gpt-5.6-sol",
-        "REPAIR_MAX_ATTEMPTS_PER_DAY": "6",
+        "REPAIR_MAX_ATTEMPTS_PER_DAY": "24",
         "REPAIR_ATTEMPTS_PER_RUN": "1",
         "REPAIR_RETRY_MINUTES": "30",
         "AI_REQUEST_TIMEOUT_MS": "30000"
@@ -101,7 +119,7 @@
         {
           "binding": "DB",
           "database_name": "prisoner-diplomacy-telemetry-production",
-          "database_id": "00000000-0000-0000-0000-000000000000",
+          "database_id": "96a73929-dc53-4484-9596-f3cb88169dc9",
           "migrations_dir": "migrations"
         }
       ],

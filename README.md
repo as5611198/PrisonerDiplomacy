@@ -4,7 +4,7 @@ Prisoner Diplomacy is a RimWorld 1.6 mod for deterministic prisoner ransom, exch
 
 **Current version:** `1.2.0`  
 **Save schema:** `17`  
-**Status:** local release candidate; Workshop publication still requires the author's final manual gameplay pass.
+**Status:** release-ready candidate. The author accepts remaining edge-case risk for post-release community QA; automated build, localization, smoke, and telemetry gates remain mandatory.
 
 ## What it does
 
@@ -18,7 +18,7 @@ Prisoner Diplomacy is a RimWorld 1.6 mod for deterministic prisoner ransom, exch
 - Save migration and conservative compatibility repair across older save schemas.
 - Optional AI narrative replies. AI is asynchronous, cancellable, and privacy-gated. Narrative output is presentation-only by default; an explicit opt-in can let it return bounded categorical advisory signals for live counteroffers, which the deterministic core clamps and re-validates.
 - Optional RimChat coexistence with safe owner selection and isolation guards.
-- Opt-in, PrisonerDiplomacy-only anonymous error reports with a bounded offline queue and no upload until a receiver endpoint is configured.
+- Opt-in, PrisonerDiplomacy-only anonymous error reports with a bounded queue, explicit per-report/session consent, and fixed 30/180-day retention.
 - A compact themed negotiation UI, persistent faction browser, agreement/history/event tabs, and developer-mode diagnostics.
 - A versioned extension API for race adapters, special item rewards, event definitions, read-only snapshots, and community add-ons.
 
@@ -33,7 +33,7 @@ The repository's build output targets `1.6/Assemblies`. The checked-in XML defin
 
 ## Localization
 
-The mod ships complete keyed localization for English, Traditional Chinese, Simplified Chinese, Japanese, and Korean. All language files contain the same 570 keys, including negotiation UI, reward-value hints, debug tools, AI advisory text, strategic agreements, extension events, and telemetry consent text. Run `pwsh -NoProfile -ExecutionPolicy Bypass -File .\Tools\ValidateLocalization.ps1` after changing a keyed file. `Tools/GenerateLocalization.ps1` can regenerate the three additional translations from the English source when needed.
+The mod ships complete keyed localization for English, Traditional Chinese, Simplified Chinese, Japanese, and Korean. All language files contain the same 573 keys, including negotiation UI, reward-value hints, debug tools, AI advisory text, strategic agreements, extension events, and telemetry consent text. Run `pwsh -NoProfile -ExecutionPolicy Bypass -File .\Tools\ValidateLocalization.ps1` after changing a keyed file. `Tools/GenerateLocalization.ps1` can regenerate the three additional translations from the English source when needed.
 
 ## Player entry points
 
@@ -65,7 +65,7 @@ The assembly contains an isolated command-line smoke test. It does not send exte
   -popupwindow
 ```
 
-A healthy run ends with `Prisoner Diplomacy SmokeTest] PASS cases=127`. The smoke suite covers reward delivery, exchanges, ceasefire/intelligence, pirate risk, counteroffers, event persistence, neutral trade points, migration, diagnostics, AI guards, RimChat isolation, API registration, and the offline error-telemetry contract. Manual checks are still required for visual layout, translated long labels, UI scaling, button reachability, consent dialog layout, and real caravan/event playthroughs.
+A healthy run ends with `Prisoner Diplomacy SmokeTest] PASS cases=127`. The smoke suite covers reward delivery, exchanges, ceasefire/intelligence, pirate risk, counteroffers, event persistence, neutral trade points, migration, diagnostics, AI guards, RimChat isolation, API registration, and the offline-safe error-telemetry contract. Manual checks are still required for visual layout, translated long labels, UI scaling, button reachability, consent dialog layout, and real caravan/event playthroughs.
 
 Use [`Docs/ReleaseChecklist.md`](Docs/ReleaseChecklist.md) as the upload gate. It keeps automated package evidence separate from the author's final visual and gameplay acceptance pass.
 
@@ -85,7 +85,7 @@ See [`Source/README.md`](Source/README.md) for the folder map and authoritative 
 
 ## Modder documentation
 
-[`PrisonerDiplomacyApi.md`](PrisonerDiplomacyApi.md) is the public v1.2 guide. It documents registration, version checks, read-only snapshots, race and special-reward adapters, persona providers, bounded AI advisory signals, deterministic validation, and event add-ons. [`Compatibility.md`](Compatibility.md) covers optional DefModExtensions and integration boundaries. [`FAQ.md`](FAQ.md), [`KnownIssues.md`](KnownIssues.md), and [`WorkshopDescription.md`](WorkshopDescription.md) contain player-facing release material.
+[`PrisonerDiplomacyApi.md`](PrisonerDiplomacyApi.md) is the public v1.2 guide. It documents registration, version checks, read-only snapshots, race and special-reward adapters, persona providers, bounded AI advisory signals, deterministic validation, and event add-ons. [`Compatibility.md`](Compatibility.md) covers optional DefModExtensions and integration boundaries. [`Docs/TelemetryPrivacy.md`](Docs/TelemetryPrivacy.md) documents optional error-report contents, Google Gemini and AI-HUB processing, and retention. The local telemetry repair verifier creates isolated, tested review candidates and never marks an issue resolved automatically. [`FAQ.md`](FAQ.md), [`KnownIssues.md`](KnownIssues.md), and [`WorkshopDescription.md`](WorkshopDescription.md) contain player-facing release material.
 
 The reward catalog is documented in [`Docs/RewardCatalog.md`](Docs/RewardCatalog.md). New authors can start with the step-by-step [`Docs/AddonQuickstart.md`](Docs/AddonQuickstart.md), then use sections 10-14 of the API guide for the complete adapter, event, persona, and compatibility contract. The project is open source on [GitHub](https://github.com/as5611198/PrisonerDiplomacy); the Steam Workshop release will link back to this canonical repository.
 

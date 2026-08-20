@@ -8,6 +8,7 @@ namespace PrisonerDiplomacy.Telemetry
     {
         AllowOnce,
         AllowSession,
+        AllowAlways,
         Reject
     }
 
@@ -27,33 +28,58 @@ namespace PrisonerDiplomacy.Telemetry
             forcePause = false;
         }
 
-        public override Vector2 InitialSize => new Vector2(720f, 250f);
+        public override Vector2 InitialSize => new Vector2(720f, 330f);
 
         public override void DoWindowContents(Rect inRect)
         {
-            Text.Font = GameFont.Medium;
-            Widgets.Label(new Rect(inRect.x, inRect.y, inRect.width, 34f),
-                "PD_ErrorTelemetryDialogTitle".Translate());
-            Text.Font = GameFont.Small;
+            PrisonerDiplomacyUiTheme.ResetText();
+            Widgets.DrawBoxSolid(inRect, PrisonerDiplomacyUiTheme.Canvas);
 
-            Rect messageRect = new Rect(inRect.x, inRect.y + 44f, inRect.width, 86f);
-            Widgets.Label(messageRect, "PD_ErrorTelemetryDialogText".Translate());
+            Rect headerRect = new Rect(inRect.x, inRect.y, inRect.width, 56f);
+            PrisonerDiplomacyUiTheme.DrawPanel(headerRect, true);
+            Text.Font = GameFont.Medium;
+            Text.Anchor = TextAnchor.MiddleLeft;
+            Widgets.Label(headerRect.ContractedBy(16f, 6f),
+                "PD_ErrorTelemetryDialogTitle".Translate());
+            PrisonerDiplomacyUiTheme.ResetText();
+
+            Rect messageRect = new Rect(inRect.x, headerRect.yMax + 10f, inRect.width, 96f);
+            PrisonerDiplomacyUiTheme.DrawNotice(messageRect, DiplomacyUiTone.Neutral);
+            GUI.color = PrisonerDiplomacyUiTheme.TextMuted;
+            Text.Anchor = TextAnchor.MiddleLeft;
+            Widgets.Label(messageRect.ContractedBy(16f, 10f), "PD_ErrorTelemetryDialogText".Translate());
+            PrisonerDiplomacyUiTheme.ResetText();
 
             const float gap = 10f;
-            float buttonWidth = (inRect.width - gap * 2f) / 3f;
-            float buttonY = inRect.yMax - 42f;
-            if (Widgets.ButtonText(new Rect(inRect.x, buttonY, buttonWidth, 38f),
-                "PD_ErrorTelemetryAllowOnce".Translate()))
+            const float buttonHeight = 42f;
+            float buttonWidth = (inRect.width - gap) * 0.5f;
+            float firstRowY = inRect.yMax - buttonHeight * 2f - gap;
+            if (PrisonerDiplomacyUiTheme.DrawButton(
+                new Rect(inRect.x, firstRowY, buttonWidth, buttonHeight),
+                "PD_ErrorTelemetryAllowOnce".Translate(),
+                DiplomacyUiButtonStyle.Secondary))
             {
                 Resolve(ErrorTelemetryConsentDecision.AllowOnce);
             }
-            if (Widgets.ButtonText(new Rect(inRect.x + buttonWidth + gap, buttonY, buttonWidth, 38f),
-                "PD_ErrorTelemetryAllowSession".Translate()))
+            if (PrisonerDiplomacyUiTheme.DrawButton(
+                new Rect(inRect.x + buttonWidth + gap, firstRowY, buttonWidth, buttonHeight),
+                "PD_ErrorTelemetryAllowSession".Translate(),
+                DiplomacyUiButtonStyle.Secondary))
             {
                 Resolve(ErrorTelemetryConsentDecision.AllowSession);
             }
-            if (Widgets.ButtonText(new Rect(inRect.x + (buttonWidth + gap) * 2f, buttonY, buttonWidth, 38f),
-                "PD_ErrorTelemetryReject".Translate()))
+            float secondRowY = firstRowY + buttonHeight + gap;
+            if (PrisonerDiplomacyUiTheme.DrawButton(
+                new Rect(inRect.x, secondRowY, buttonWidth, buttonHeight),
+                "PD_ErrorTelemetryAllowAlways".Translate(),
+                DiplomacyUiButtonStyle.Primary))
+            {
+                Resolve(ErrorTelemetryConsentDecision.AllowAlways);
+            }
+            if (PrisonerDiplomacyUiTheme.DrawButton(
+                new Rect(inRect.x + buttonWidth + gap, secondRowY, buttonWidth, buttonHeight),
+                "PD_ErrorTelemetryReject".Translate(),
+                DiplomacyUiButtonStyle.Danger))
             {
                 Resolve(ErrorTelemetryConsentDecision.Reject);
             }

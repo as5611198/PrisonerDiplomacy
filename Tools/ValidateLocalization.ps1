@@ -17,7 +17,7 @@ function Get-NewlineCount([string]$value) {
 $source = [xml](Get-Content -Raw -Encoding UTF8 $sourcePath)
 $sourceElements = Get-Elements $source
 $sourceKeys = @($sourceElements | ForEach-Object Name)
-if ($sourceKeys.Count -ne 570) { throw "English source has $($sourceKeys.Count) keys; expected 570." }
+if ($sourceKeys.Count -ne 573) { throw "English source has $($sourceKeys.Count) keys; expected 573." }
 
 $failed = $false
 foreach ($language in $languages) {

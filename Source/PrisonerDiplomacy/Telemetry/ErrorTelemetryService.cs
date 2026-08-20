@@ -17,9 +17,9 @@ namespace PrisonerDiplomacy.Telemetry
 {
     internal static class ErrorTelemetryService
     {
-        // Filled when the Cloudflare receiver is deployed. An empty endpoint keeps
-        // the Workshop build completely offline without changing capture behavior.
-        internal const string ProductionReportEndpoint = "";
+        // Reports require explicit one-time, session, or persistent player consent.
+        internal const string ProductionReportEndpoint =
+            "https://prisoner-diplomacy-telemetry-production.g402111111.workers.dev/api/report-error";
 
         private const int MaximumPendingErrors = 32;
         private const int MaximumReportsPerSession = 20;
@@ -65,7 +65,9 @@ namespace PrisonerDiplomacy.Telemetry
 
         internal static void Initialize()
         {
-            mainThreadId = Thread.CurrentThread.ManagedThreadId;
+            // Mod construction can run on RimWorld's loading thread. Bind the
+            // game thread on the first DrainMainThread call instead.
+            mainThreadId = 0;
             configuredEndpoint = ResolveReportEndpoint();
         }
 
@@ -127,7 +129,7 @@ namespace PrisonerDiplomacy.Telemetry
                     continue;
                 }
 
-                if (sessionConsent)
+                if (sessionConsent || PrisonerDiplomacyMod.Settings.AlwaysSendErrorTelemetry)
                 {
                     QueueUpload(payload);
                 }
@@ -153,7 +155,9 @@ namespace PrisonerDiplomacy.Telemetry
 
         private static void TryShowConsentDialog()
         {
-            if (consentDialogOpen || sessionConsent || PendingConsent.Count == 0
+            if (consentDialogOpen || sessionConsent
+                || PrisonerDiplomacyMod.Settings?.AlwaysSendErrorTelemetry == true
+                || PendingConsent.Count == 0
                 || Find.WindowStack == null)
             {
                 return;
@@ -172,7 +176,21 @@ namespace PrisonerDiplomacy.Telemetry
             }
 
             ErrorTelemetryPayload current = PendingConsent.Dequeue();
-            if (decision == ErrorTelemetryConsentDecision.AllowSession)
+            if (decision == ErrorTelemetryConsentDecision.AllowAlways)
+            {
+                sessionConsent = true;
+                if (PrisonerDiplomacyMod.Settings != null)
+                {
+                    PrisonerDiplomacyMod.Settings.AlwaysSendErrorTelemetry = true;
+                    PrisonerDiplomacyMod.SaveSettingsNow();
+                }
+                QueueUpload(current);
+                while (PendingConsent.Count > 0 && reportsQueued < MaximumReportsPerSession)
+                {
+                    QueueUpload(PendingConsent.Dequeue());
+                }
+            }
+            else if (decision == ErrorTelemetryConsentDecision.AllowSession)
             {
                 sessionConsent = true;
                 QueueUpload(current);
@@ -187,6 +205,11 @@ namespace PrisonerDiplomacy.Telemetry
             }
 
             TryShowConsentDialog();
+        }
+
+        internal static void RevokePersistentConsent()
+        {
+            sessionConsent = false;
         }
 
         private static ErrorTelemetryPayload BuildPayload(PendingTelemetryError pending)
@@ -505,6 +528,12 @@ namespace PrisonerDiplomacy.Telemetry
         internal static bool TryRunSelfTest(out string failure)
         {
             failure = null;
+            if (mainThreadId == 0 || mainThreadId != Thread.CurrentThread.ManagedThreadId)
+            {
+                failure = "main_thread_not_bound";
+                return false;
+            }
+
             string sanitized = Sanitize(
                 @"C:\Users\TelemetryTester\save api_key=super-secret /home/tester/config",
                 1024);

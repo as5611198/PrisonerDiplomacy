@@ -3,6 +3,8 @@ node_modules/
 .dev.vars
 .staging-admin-token
 .staging-rate-limit-salt
+.production-admin-token
+.production-rate-limit-salt
 worker-configuration.d.ts
 coverage/
 *.cpuprofile

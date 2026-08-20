@@ -110,6 +110,18 @@ namespace PrisonerDiplomacy
                 "PD_SettingErrorTelemetry".Translate(),
                 ref Settings.EnableErrorTelemetryPrompts,
                 "PD_SettingErrorTelemetryDesc".Translate());
+            bool alwaysSendTelemetryBefore = Settings.AlwaysSendErrorTelemetry;
+            bool previousGuiEnabled = GUI.enabled;
+            GUI.enabled = previousGuiEnabled && Settings.EnableErrorTelemetryPrompts;
+            listing.CheckboxLabeled(
+                "PD_SettingErrorTelemetryAlways".Translate(),
+                ref Settings.AlwaysSendErrorTelemetry,
+                "PD_SettingErrorTelemetryAlwaysDesc".Translate());
+            GUI.enabled = previousGuiEnabled;
+            if (alwaysSendTelemetryBefore && !Settings.AlwaysSendErrorTelemetry)
+            {
+                ErrorTelemetryService.RevokePersistentConsent();
+            }
             listing.CheckboxLabeled(
                 "PD_SettingReduceUiMotion".Translate(),
                 ref Settings.ReduceUiMotion,
@@ -538,6 +550,11 @@ namespace PrisonerDiplomacy
                 PrisonerDiplomacyGameComponent.Current?.DisableAiNarratives();
                 AiProviderSettingsService.CancelOperations();
             }
+            instance?.WriteSettings();
+        }
+
+        internal static void SaveSettingsNow()
+        {
             instance?.WriteSettings();
         }
 

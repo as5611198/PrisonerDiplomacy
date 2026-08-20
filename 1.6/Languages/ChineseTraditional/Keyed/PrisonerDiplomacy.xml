@@ -563,11 +563,14 @@
   <PD_AiAdvisoryApplied>已將受限 AI 建議套用至目前還價：{0}</PD_AiAdvisoryApplied>
   <PD_DebugAdvisoryApplied>已套用 Debug AI 建議：{0}</PD_DebugAdvisoryApplied>
   <PD_DebugAdvisoryNoCounteroffer>目前沒有可供測試的進行中還價。</PD_DebugAdvisoryNoCounteroffer>
-  <PD_SettingErrorTelemetry>傳送匿名錯誤回報前先詢問</PD_SettingErrorTelemetry>
-  <PD_SettingErrorTelemetryDesc>啟用後，模組會在傳送經過清理的錯誤回報前詢問。你選擇前不會傳送任何回報。</PD_SettingErrorTelemetryDesc>
+  <PD_SettingErrorTelemetry>啟用匿名錯誤回報</PD_SettingErrorTelemetry>
+  <PD_SettingErrorTelemetryDesc>啟用後，模組可在取得你的同意後傳送經過清理的錯誤回報。你選擇前不會傳送任何回報。</PD_SettingErrorTelemetryDesc>
+  <PD_SettingErrorTelemetryAlways>一律傳送經過清理的錯誤回報</PD_SettingErrorTelemetryAlways>
+  <PD_SettingErrorTelemetryAlwaysDesc>略過之後的詢問視窗並自動傳送經過清理的回報。你隨時可以在此關閉。</PD_SettingErrorTelemetryAlwaysDesc>
   <PD_ErrorTelemetryDialogTitle>戰俘外交偵測到錯誤</PD_ErrorTelemetryDialogTitle>
   <PD_ErrorTelemetryDialogText>模組偵測到一次非預期的運作。你願意傳送匿名且已清理的錯誤回報，協助改善《戰俘外交》嗎？不會上傳存檔；本機路徑與可辨識的秘密資訊會被移除。</PD_ErrorTelemetryDialogText>
   <PD_ErrorTelemetryAllowOnce>傳送這次回報</PD_ErrorTelemetryAllowOnce>
   <PD_ErrorTelemetryAllowSession>本次遊戲期間允許</PD_ErrorTelemetryAllowSession>
+  <PD_ErrorTelemetryAllowAlways>之後一律傳送</PD_ErrorTelemetryAllowAlways>
   <PD_ErrorTelemetryReject>拒絕</PD_ErrorTelemetryReject>
 </LanguageData>

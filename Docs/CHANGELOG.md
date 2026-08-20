@@ -1,6 +1,6 @@
 # Prisoner Diplomacy
 
-RimWorld 1.6 mod implementing Prisoner Diplomacy 1.2.0: ransom, exchange, strategic ceasefire and intelligence, causal follow-up events, pirate-risk, faction-memory, dynamic deadlines, a versioned extension API, staged neutral handoffs, core-fulfilled special rewards, infiltration, public trials, RimChat coexistence, and optional AI narratives. Steam Workshop publication remains intentionally deferred until the 1.2 event and reward pass receives manual gameplay validation.
+RimWorld 1.6 mod implementing Prisoner Diplomacy 1.2.0: ransom, exchange, strategic ceasefire and intelligence, causal follow-up events, pirate-risk, faction-memory, dynamic deadlines, a versioned extension API, staged neutral handoffs, core-fulfilled special rewards, infiltration, public trials, RimChat coexistence, and optional AI narratives. The automated release gates are complete; remaining edge cases are accepted for post-release community QA.
 
 ## 1.2 formal release candidate (offline)
 
@@ -76,8 +76,11 @@ The repair pass is conservative: it never edits vanilla Pawn ownership, removes 
 - Adds developer actions for exact Pawn valuation, accepting or rejecting a selected deal, forcing expiry, simulating death/escape/recruitment failure, adjusting memory, refilling a reserve, and copying a sanitized diagnostic report.
 - Diagnostic reports include mod version, save schema, active deal counts, maps, RimChat status, priority compatibility mods, and sanitized settings. API Keys are never included.
 - Migrates schema 16 and older saves to schema 17 without changing existing transaction outcomes. New staged-event and special-reward fields use conservative defaults and are stored in the normal save data.
-- Expands deterministic smoke coverage to `PASS cases=127`, including physical special-reward delivery, duplicate-delivery protection, refusal cooldowns, permanent transaction history, persistent comms access, diagnostic privacy, the offline error-telemetry contract, and the versioned extension registry/event snapshot contract.
-- Adds opt-in, PrisonerDiplomacy-only error telemetry with explicit transaction sentinels, sanitized snapshots, bounded session deduplication, and asynchronous finite-retry upload. The Workshop build remains offline until the Cloudflare receiver endpoint is configured; unrelated global RimWorld log errors are not intercepted.
+- Expands deterministic smoke coverage to `PASS cases=127`, including physical special-reward delivery, duplicate-delivery protection, refusal cooldowns, permanent transaction history, persistent comms access, diagnostic privacy, the offline-safe error-telemetry contract, and the versioned extension registry/event snapshot contract.
+- Adds opt-in, PrisonerDiplomacy-only error telemetry with explicit transaction sentinels, sanitized snapshots, bounded session deduplication, asynchronous finite-retry upload, and documented 30/180-day retention. Unrelated global RimWorld log errors are not intercepted.
+- Restyles the telemetry consent dialog with the Prisoner Diplomacy theme and adds persistent "always send" consent. Players can revoke that choice at any time in the mod settings; report deduplication and session limits still apply.
+- Adds daily Gemini 3.7 Flash triage, GPT 5.6 Sol repair candidates through AI-HUB, 30-minute persisted relay retries, and a hard 24-attempt daily repair ceiling. Production AI remains independently disabled until production credentials are installed.
+- Adds an admin-only repair queue/provider summary and a local isolated verifier that accepts only bounded mod-path unified diffs, runs Release build/localization/RimWorld Smoke Test, opens `codex/telemetry-*` review PRs, and never marks an issue resolved automatically.
 - Keeps the 0.6.5 AI provider implementation and RimChat isolation contract unchanged apart from the explicit external-context consent gate.
 
 Release documents are in `WorkshopDescription.md`, `FAQ.md`, `Compatibility.md`, and `KnownIssues.md`.
@@ -250,6 +253,6 @@ The assembly includes a command-line-only smoke test. It does not run during nor
   -popupwindow
 ```
 
-A passing run writes `Prisoner Diplomacy SmokeTest] PASS cases=127` after validating physical silver, supply, and adapter-defined special-reward delivery; goodwill and mixed rewards; ceasefire and intelligence; exactly-once guards; refusal cooldowns; permanent transaction and event history contracts; persistent comms access; proactive-raid suppression; causal follow-ups; pirate risks; counteroffers; exchanges; medical deadlines; memory and migration; faction behavior; AI guards; save repair; diagnostic privacy; the offline error-telemetry contract; RimChat isolation; and the versioned extension API. The smoke test never performs an external AI request.
+A passing run writes `Prisoner Diplomacy SmokeTest] PASS cases=127` after validating physical silver, supply, and adapter-defined special-reward delivery; goodwill and mixed rewards; ceasefire and intelligence; exactly-once guards; refusal cooldowns; permanent transaction and event history contracts; persistent comms access; proactive-raid suppression; causal follow-ups; pirate risks; counteroffers; exchanges; medical deadlines; memory and migration; faction behavior; AI guards; save repair; diagnostic privacy; the offline-safe error-telemetry contract; RimChat isolation; and the versioned extension API. The smoke test never performs an external AI request.
 
 For an existing save, start with the same `-savedatafolder` and use `-pdloadtest=SaveName`. The mod logs the loaded schema, record/deal counts, active deal state, compatibility report, and any repair summary. The load test does not invent a transaction result: missing or unresolvable transaction data is retained or cancelled safely.

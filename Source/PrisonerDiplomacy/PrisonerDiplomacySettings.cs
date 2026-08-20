@@ -42,6 +42,7 @@ namespace PrisonerDiplomacy
         public bool EnableCompatibilityLogging = true;
         public bool EnablePerformanceLogging;
         public bool EnableErrorTelemetryPrompts = true;
+        public bool AlwaysSendErrorTelemetry;
         public bool ReduceUiMotion;
         public PrisonerDiplomacyMessageDetail MessageDetail = PrisonerDiplomacyMessageDetail.Standard;
         public PrisonerRansomSystemOwner RansomSystemOwner = PrisonerRansomSystemOwner.PrisonerDiplomacy;
@@ -74,6 +75,7 @@ namespace PrisonerDiplomacy
             Scribe_Values.Look(ref EnableCompatibilityLogging, "enableCompatibilityLogging", true);
             Scribe_Values.Look(ref EnablePerformanceLogging, "enablePerformanceLogging", false);
             Scribe_Values.Look(ref EnableErrorTelemetryPrompts, "enableErrorTelemetryPrompts", true);
+            Scribe_Values.Look(ref AlwaysSendErrorTelemetry, "alwaysSendErrorTelemetry", false);
             Scribe_Values.Look(ref ReduceUiMotion, "reduceUiMotion", false);
             Scribe_Values.Look(ref MessageDetail, "messageDetail", PrisonerDiplomacyMessageDetail.Standard);
             Scribe_Values.Look(ref RansomSystemOwner, "ransomSystemOwner", PrisonerRansomSystemOwner.PrisonerDiplomacy);

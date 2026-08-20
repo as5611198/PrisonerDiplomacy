@@ -1,3 +1,9 @@
+## 2026-08-21 implementation status
+
+P0 and P1 are implemented: explicit Prisoner Diplomacy sentinels, themed consent with one-time/session/persistent choices, bounded asynchronous upload, SHA-256 grouping, event idempotency, Cloudflare Workers validation, D1 aggregation, R2 detail storage, rate limiting, and 30/180-day retention. P2 is also implemented through Gemini 3.7 Flash triage, GPT 5.6 Sol repair candidates via AI-HUB, persisted 30-minute retry, a 24-attempt daily ceiling, and the isolated `Tools/Invoke-TelemetryRepair.ps1` verifier. The verifier accepts only bounded unified diffs in approved mod paths, builds and runs Smoke Test in a temporary worktree, and can open a review PR. It never patches a player's game and never marks an issue resolved without human approval.
+
+The original feasibility assessment is retained below as design rationale.
+
 結論：整體可行，但原規格不建議直接照字面實作。Cloudflare Workers + D1 + R2 適合做接收、索引與詳細日誌保存；真正需要調整的是客戶端錯誤來源判定、同意狀態、重試去重，以及 Codex 自動修復的權限邊界。
 
 

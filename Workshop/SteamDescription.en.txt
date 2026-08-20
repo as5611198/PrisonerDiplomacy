@@ -61,9 +61,11 @@ The mod exposes a versioned public API for race and faction adapters, special `T
 
 [h2]Privacy-first error reporting[/h2]
 
-Anonymous error reporting is optional. A choice dialog can appear only when a receiver is available, prompts are enabled, and the mod detects a relevant error. You may send that report once, allow reports for the current session, or decline. Nothing is uploaded before you choose.
+Anonymous error reporting is optional. A choice dialog can appear only when a receiver is available, reporting is enabled, and the mod detects a relevant error. You may send that report once, allow reports for the current session, always send future reports, or decline. Persistent consent can be revoked at any time in the mod settings. Nothing is uploaded before you first choose.
 
-A report may contain sanitized error details, game and mod versions, anonymous deal state, and active mod Package IDs with versions. Save names, Pawn names, local paths, API keys, tokens, and other secrets are excluded. Upload runs in the background, failure does not interrupt gameplay, and the system never modifies code or saves on the player's computer.
+A report may contain sanitized error details, game and mod versions, anonymous deal state, and active mod Package IDs with versions. The mod does not intentionally collect saves, Pawn records, colony data, or hardware IDs. It attempts to remove local paths, system user/machine names, API keys, tokens, and other recognized secrets, but exception text can contain unexpected text created by game or mod code. Upload runs in the background, failure does not interrupt gameplay, and the system never modifies code or saves on the player's computer.
+
+Detailed reports are automatically removed after 30 days; aggregate statistics and repair audit data are removed after 180 days. Production AI analysis is currently disabled. When enabled, representative samples go first to the official Google Gemini API (Gemini 3.7 Flash); only high-confidence internal defects go to the third-party AI-HUB relay (`ai.aiyuhub.com`) for a GPT 5.6 Sol repair candidate. AI-HUB may forward requests to upstream model infrastructure. Full privacy details are included in Docs/TelemetryPrivacy.md in the mod package.
 
 [h2]Requirements and compatibility[/h2]
 [list]

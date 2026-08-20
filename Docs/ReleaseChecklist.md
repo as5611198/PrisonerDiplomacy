@@ -6,15 +6,19 @@ This checklist separates repository and package checks from the final in-game ac
 
 - [x] Release build completes with zero warnings and zero errors.
 - [x] Deployed `1.6/Assemblies/PrisonerDiplomacy.dll` matches the release build hash.
-- [x] Isolated `-quicktest -pdsmoketest` reaches `PASS cases=127`, including the offline telemetry contract self-test.
+- [x] Isolated `-quicktest -pdsmoketest` reaches `PASS cases=127`, including the offline-safe telemetry contract self-test.
 - [x] Smoke log has no `SmokeTest FAIL`, Prisoner Diplomacy exception, or missing required Def.
-- [x] English, Traditional Chinese, Simplified Chinese, Japanese, and Korean keyed files each contain 570 keys with matching placeholders and newline markers (`Tools/ValidateLocalization.ps1`).
+- [x] English, Traditional Chinese, Simplified Chinese, Japanese, and Korean keyed files each contain 573 keys with matching placeholders and newline markers (`Tools/ValidateLocalization.ps1`).
 - [x] About, Def, and language XML files parse successfully.
 - [x] Source is organized by responsibility and contains no remaining `Widgets.ButtonText` calls.
 - [x] Apache 2.0 source notice, Non-Commercial Exception, and CC BY-NC-ND 4.0 asset notice are present.
+- [x] The bilingual telemetry privacy notice documents collected fields, redaction limits, Cloudflare processing, Google Gemini triage, the AI-HUB repair relay, current production AI state, and 30/180-day retention.
+- [x] The repair verifier rejects non-unified or unsafe candidates, stores private review context outside Git, uses an isolated worktree, and requires human approval before `resolved`; its staging rejection path was verified with the synthetic smoke candidate.
 - [x] English and Traditional Chinese promotional covers are prepared under `Workshop/Artwork`; the English cover is synchronized to `About/Preview.png` and can be regenerated with `Tools/GenerateWorkshopPreview.ps1`.
 
-## Required author acceptance before Workshop upload
+## Author acceptance and post-release QA
+
+The author completed the primary gameplay pass and accepted the remaining edge-case checks for post-release community QA on 2026-08-21. Unchecked items below are tracked release risks, not Workshop upload blockers.
 
 - [ ] Open the negotiation window from the vanilla comms console with active prisoner cases.
 - [ ] Open the persistent faction browser when a faction has no prisoners; verify agreements, history, and event tabs remain usable.
@@ -26,7 +30,8 @@ This checklist separates repository and package checks from the final in-game ac
 - [ ] Exercise a staged follow-up event and confirm the choice letter, retry state, and final consequence.
 - [ ] Test a clean save and a migrated older save with the intended full mod list.
 - [ ] Inspect the final Workshop page, screenshots, credits, and load-order instructions before publishing.
+- [x] In a developer-mode test save, run `Prisoner Diplomacy -> Telemetry: test consent prompt`, choose `Send this report`, and confirm one sanitized event appears in the production Worker; the verified synthetic report was subsequently marked `ignored` so it will not consume AI budget.
 
 ## Upload gate
 
-Upload only after every item in the author acceptance section is checked. Keep the smoke log, build hash, and final manual-test notes with the release record.
+Upload after the automated checks above pass on the final package and the Workshop page, credits, and privacy text are reviewed. Keep unchecked edge cases visible for post-release QA instead of marking them as tested. Production telemetry ingestion is ready, but production AI remains disabled until its separate Gemini and AI-HUB credentials are installed; this does not block the Workshop upload.

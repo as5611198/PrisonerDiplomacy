@@ -1,6 +1,6 @@
 # Prisoner Diplomacy telemetry Worker
 
-This is an independent Cloudflare Worker project. It does not change the RimWorld mod assembly. The current Workshop build intentionally has an empty telemetry endpoint, so no player traffic is sent until a backend is deployed and explicitly configured in a later mod release.
+This is the independent Cloudflare Worker project used by the RimWorld mod assembly. The production receiver is deployed, but the mod still sends no report until it detects a guarded Prisoner Diplomacy exception and the player explicitly allows that report or the current session.
 
 ## Current scope
 
@@ -11,12 +11,16 @@ This is an independent Cloudflare Worker project. It does not change the RimWorl
 - R2 JSON objects at `logs/{error_hash}/{timestamp}-{event_id}.json`.
 - D1-backed per-IP rate limiting using a salted one-minute bucket. The raw IP is never stored.
 - Admin-only pending issue query, issue detail, event detail, and status/triage patch endpoints.
-- A daily maintenance Cron that removes expired rate-limit buckets.
+- Admin-only repair-candidate queue and provider metadata endpoints. Provider metadata exposes only model names, configuration flags, and the public relay host.
+- Short-lived rate-limit and job-lock cleanup on every Cron invocation.
+- Daily retention cleanup: detailed event/R2 logs after 30 days and aggregate/AI records after 180 days.
 - Optional daily Gemini 3.7 Flash triage, guarded by a daily issue budget and confidence/severity gate.
 - Optional GPT 5.6 Sol repair-candidate generation through an OpenAI-compatible relay.
 - Bounded immediate provider retries plus a persisted 30-minute retry schedule for relay failures.
 
-The AI workflow is deliberately separate from ingestion. The public endpoint never waits for a provider, and AI is disabled by default. A successful repair response is stored as `fix_candidate`; it never edits the repository, runs a build, or marks an issue `resolved` automatically.
+The AI workflow is deliberately separate from ingestion. The public endpoint never waits for a provider, and AI is disabled by default. A successful repair response is stored as `fix_candidate`. The Worker itself never edits the repository or marks an issue `resolved`. The separate local verifier can apply a bounded unified diff in an isolated Git worktree, build it, run localization and RimWorld Smoke Test, and open a review PR; human approval is still required before `resolved`.
+
+The production environment launches with both AI stages disabled. The disclosed providers are the official Google Gemini API for triage and AI-HUB (`ai.aiyuhub.com`) as the OpenAI-compatible repair relay. See [`../../Docs/TelemetryPrivacy.md`](../../Docs/TelemetryPrivacy.md) before enabling AI or changing data processing.
 
 ## AI workflow configuration
 
@@ -25,7 +29,9 @@ The Worker has two Cron schedules:
 - `0 3 * * *`: selects the most frequent untriaged issues and calls the official Gemini API (`TRIAGE_MODEL`, default `gemini-3.7-flash`).
 - `*/30 * * * *`: retries queued repair candidates through `REPAIR_AI_ENDPOINT` using `REPAIR_MODEL`, default `gpt-5.6-sol`.
 
-Enable each stage explicitly with `TRIAGE_ENABLED=true` or `REPAIR_ENABLED=true`. The default limits are 20 triage issues/day, 6 repair runs/day, one repair issue per 30-minute run, and a 30-minute retry delay. Immediate transient failures are retried once in the same run; persistent failures remain in D1 and are retried by Cron on later runs without an automatic stop date.
+The daily schedule also removes detailed reports older than `DETAIL_LOG_RETENTION_DAYS` (30), then removes aggregate statistics and related AI records older than `AGGREGATE_RETENTION_DAYS` (180). Retention uses the server receipt time, not the client clock. Cleanup is bounded by `RETENTION_BATCH_SIZE` and `RETENTION_MAX_BATCHES_PER_RUN` and safely resumes on the next run.
+
+Enable each stage explicitly with `TRIAGE_ENABLED=true` or `REPAIR_ENABLED=true`. The default limits are 20 triage issues/day, 24 repair runs/day, one repair issue per 30-minute run, and a 30-minute retry delay. Immediate transient failures are retried once in the same run; persistent failures remain in D1 and are retried by Cron on later runs without an automatic stop date.
 
 Required secrets when the corresponding stage is enabled:
 
@@ -36,6 +42,25 @@ REPAIR_AI_API_KEY          # relay credential
 ```
 
 The repair relay may be configured as a host, a `/v1` base URL, or a complete `/chat/completions` URL. It must return an OpenAI-compatible JSON response with `choices[0].message.content` containing an object with `root_cause`, `affected_files`, `patch`, `tests`, and `risks`. Keep the relay credential server-side; it is never sent to the mod.
+
+## Isolated repair verification
+
+Run the local verifier from the repository root. Production uses the ignored `.production-admin-token`; staging reads `ADMIN_TOKEN` from the ignored backend `.dev.vars` file:
+
+```powershell
+pwsh -NoProfile -ExecutionPolicy Bypass -File .\Tools\Invoke-TelemetryRepair.ps1 -Environment staging
+pwsh -NoProfile -ExecutionPolicy Bypass -File .\Tools\Invoke-TelemetryRepair.ps1 -Environment production -PublishPullRequest
+```
+
+The verifier downloads the candidate and up to three sanitized event samples into ignored `TelemetryRepairReports`, requires a Git unified diff, permits changes only under `Source/PrisonerDiplomacy`, selected `1.6/Defs`, or the keyed localization files, and rejects common process, reflection, network, registry, and direct filesystem additions. It uses a detached temporary worktree, runs Release build and localization checks, temporarily swaps only the exact candidate test files into the known local RimWorld mod install for `PASS cases=127`, and restores them in `finally`. A successful run creates `codex/telemetry-*`; `-PublishPullRequest` pushes it and opens a PR. The D1 issue remains `analyzing` until a human approves it. Invalid or failed candidates become `needs_repro`, not `resolved`.
+
+Install the production checker as a hidden current-user Windows task running every 30 minutes:
+
+```powershell
+pwsh -NoProfile -ExecutionPolicy Bypass -File .\Tools\Install-TelemetryRepairTask.ps1 -Environment production
+```
+
+`-CandidateFile <fixture.json> -ValidationOnly` runs the same patch/build/Smoke path without an API call, branch, PR, or D1 status change.
 
 ## Local smoke
 
@@ -82,6 +107,13 @@ npx wrangler deploy --env staging
 
 Only add the AI secrets and set the two enable flags after provider access has been tested. A staging deployment with both flags set to `false` is a safe backend-only smoke target.
 
+To replace the OpenAI-compatible repair relay in staging, rerun the same-named secret commands. Wrangler overwrites the previous values; enter each value only at the interactive prompt so credentials do not enter shell history:
+
+```powershell
+npx wrangler secret put REPAIR_AI_ENDPOINT --env staging
+npx wrangler secret put REPAIR_AI_API_KEY --env staging
+```
+
 Production follows the same sequence with `--env production`. Verify `/healthz`, then send one synthetic report before any mod endpoint is enabled.
 
 ## Admin API
@@ -89,10 +121,13 @@ Production follows the same sequence with `--env production`. Verify `/healthz`,
 Admin requests require `Authorization: Bearer <ADMIN_TOKEN>`:
 
 - `GET /api/admin/pending-top?limit=3`
+- `GET /api/admin/fix-candidates?limit=3`
+- `GET /api/admin/provider-info`
 - `GET /api/admin/issues/{error_hash}`
 - `GET /api/admin/events/{event_id}`
 - `PATCH /api/admin/issues/{error_hash}` with a bounded status or triage JSON object
 - `POST /api/admin/jobs/triage` to run the budgeted triage job immediately
 - `POST /api/admin/jobs/repair` to run the budgeted repair job immediately
+- `POST /api/admin/jobs/maintenance` to run transient and retention cleanup and return deletion counts
 
 The admin token is never accepted on the public report endpoint and is never embedded in the mod.

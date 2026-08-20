@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using LudeonTK;
+using PrisonerDiplomacy.Telemetry;
 using RimWorld;
 using RimWorld.Planet;
 using UnityEngine;
@@ -395,6 +397,35 @@ namespace PrisonerDiplomacy
             }
 
             Messages.Message("RimChat ransom guard rejected the test action.", MessageTypeDefOf.PositiveEvent, false);
+        }
+
+        [DebugAction("Prisoner Diplomacy", "Telemetry: test consent prompt", allowedGameStates = AllowedGameStates.Playing)]
+        private static void TestErrorTelemetryConsent()
+        {
+            if (!ErrorTelemetryService.IsUploadConfigured
+                || PrisonerDiplomacyMod.Settings?.EnableErrorTelemetryPrompts != true)
+            {
+                Messages.Message(
+                    "Error telemetry receiver or consent prompts are disabled.",
+                    MessageTypeDefOf.RejectInput,
+                    false);
+                return;
+            }
+
+            try
+            {
+                throw new InvalidOperationException("Synthetic Prisoner Diplomacy telemetry connectivity test.");
+            }
+            catch (Exception exception)
+            {
+                ErrorTelemetryService.CaptureException(
+                    exception,
+                    "DebugActions.TestErrorTelemetryConsent",
+                    source: "debug_action");
+                // Debug actions can run while the debug menu is being torn down;
+                // drain immediately so the consent window is visible in the same UI turn.
+                ErrorTelemetryService.DrainMainThread();
+            }
         }
 
         [DebugAction("Prisoner Diplomacy", "Complete selected ransom delivery", actionType = DebugActionType.ToolMapForPawns, allowedGameStates = AllowedGameStates.PlayingOnMap)]

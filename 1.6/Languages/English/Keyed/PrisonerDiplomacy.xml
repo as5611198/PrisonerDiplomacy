@@ -563,11 +563,14 @@
   <PD_AiAdvisoryApplied>Bounded AI advisory applied to this live counteroffer: {0}</PD_AiAdvisoryApplied>
   <PD_DebugAdvisoryApplied>Applied the debug AI advisory: {0}</PD_DebugAdvisoryApplied>
   <PD_DebugAdvisoryNoCounteroffer>No active counteroffer is available for this advisory test.</PD_DebugAdvisoryNoCounteroffer>
-  <PD_SettingErrorTelemetry>Ask before sending anonymous error reports</PD_SettingErrorTelemetry>
-  <PD_SettingErrorTelemetryDesc>When enabled, the mod asks before sending a sanitized error report. No report is sent until you choose an option.</PD_SettingErrorTelemetryDesc>
+  <PD_SettingErrorTelemetry>Enable anonymous error reports</PD_SettingErrorTelemetry>
+  <PD_SettingErrorTelemetryDesc>When enabled, the mod can send sanitized error reports after receiving your consent. No report is sent before you choose an option.</PD_SettingErrorTelemetryDesc>
+  <PD_SettingErrorTelemetryAlways>Always send sanitized error reports</PD_SettingErrorTelemetryAlways>
+  <PD_SettingErrorTelemetryAlwaysDesc>Skip future prompts and automatically send sanitized reports. You can turn this off at any time.</PD_SettingErrorTelemetryAlwaysDesc>
   <PD_ErrorTelemetryDialogTitle>Prisoner Diplomacy detected an error</PD_ErrorTelemetryDialogTitle>
   <PD_ErrorTelemetryDialogText>The mod detected an unexpected operation. Would you like to send an anonymous, sanitized error report to help improve Prisoner Diplomacy? Save files are never uploaded; local paths and recognized secrets are removed.</PD_ErrorTelemetryDialogText>
   <PD_ErrorTelemetryAllowOnce>Send this report</PD_ErrorTelemetryAllowOnce>
   <PD_ErrorTelemetryAllowSession>Allow for this session</PD_ErrorTelemetryAllowSession>
+  <PD_ErrorTelemetryAllowAlways>Always send future reports</PD_ErrorTelemetryAllowAlways>
   <PD_ErrorTelemetryReject>Decline</PD_ErrorTelemetryReject>
 </LanguageData>

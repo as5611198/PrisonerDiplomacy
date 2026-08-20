@@ -563,11 +563,14 @@
   <PD_AiAdvisoryApplied>このライブカウンターオファーに適用される制限付き AI アドバイザリー: {0}</PD_AiAdvisoryApplied>
   <PD_DebugAdvisoryApplied>デバッグ AI アドバイザリを適用しました: {0}</PD_DebugAdvisoryApplied>
   <PD_DebugAdvisoryNoCounteroffer>この勧告テストには有効な対抗案はありません。</PD_DebugAdvisoryNoCounteroffer>
-  <PD_SettingErrorTelemetry>匿名エラーレポートの送信前に確認する</PD_SettingErrorTelemetry>
-  <PD_SettingErrorTelemetryDesc>有効にすると、匿名化したエラーレポートを送信する前に確認します。選択するまで送信されません。</PD_SettingErrorTelemetryDesc>
+  <PD_SettingErrorTelemetry>匿名エラーレポートを有効にする</PD_SettingErrorTelemetry>
+  <PD_SettingErrorTelemetryDesc>有効にすると、同意を得た後に匿名化したエラーレポートを送信できます。選択するまでは送信されません。</PD_SettingErrorTelemetryDesc>
+  <PD_SettingErrorTelemetryAlways>匿名化したエラーレポートを常に送信する</PD_SettingErrorTelemetryAlways>
+  <PD_SettingErrorTelemetryAlwaysDesc>今後の確認を省略し、匿名化したレポートを自動送信します。この設定はいつでも無効にできます。</PD_SettingErrorTelemetryAlwaysDesc>
   <PD_ErrorTelemetryDialogTitle>囚人外交がエラーを検出しました</PD_ErrorTelemetryDialogTitle>
   <PD_ErrorTelemetryDialogText>予期しない処理を検出しました。囚人外交の改善に役立つ匿名化済みエラーレポートを送信しますか？セーブファイルは送信せず、ローカルパスと認識できる秘密情報を削除します。</PD_ErrorTelemetryDialogText>
   <PD_ErrorTelemetryAllowOnce>このレポートを送信</PD_ErrorTelemetryAllowOnce>
   <PD_ErrorTelemetryAllowSession>このセッションで許可</PD_ErrorTelemetryAllowSession>
+  <PD_ErrorTelemetryAllowAlways>今後は常に送信</PD_ErrorTelemetryAllowAlways>
   <PD_ErrorTelemetryReject>拒否</PD_ErrorTelemetryReject>
 </LanguageData>

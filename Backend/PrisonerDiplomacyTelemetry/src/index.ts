@@ -6,6 +6,8 @@ import {
   parsePositiveLimit
 } from "./validation";
 import { runDailyTriage, runRepairRetries } from "./workflows";
+import { runRetentionCleanup, runTransientMaintenance } from "./maintenance";
+import { describeAiProviders } from "./admin";
 
 const ALLOWED_STATUSES = new Set([
   "pending",
@@ -53,6 +55,7 @@ interface PendingIssueRow {
   repair_last_error: string | null;
   repair_candidate_json: string | null;
   repair_candidate_r2_key: string | null;
+  last_received_at: string | null;
   created_at: string;
   updated_at: string;
 }
@@ -252,10 +255,10 @@ async function ingestReport(payload: TelemetryPayload, env: Env): Promise<Respon
     `INSERT INTO error_reports
        (hash, error_message, exception_type, operation, source, trust_level,
         mod_version, game_version, occurrence_count, first_seen, last_seen,
-        r2_log_key, status, created_at, updated_at)
+        r2_log_key, status, last_received_at, created_at, updated_at)
      VALUES (?, ?, ?, ?, ?, ?, ?, ?,
         (SELECT COUNT(*) FROM error_report_events WHERE error_hash = ?),
-        ?, ?, ?, 'pending', ?, ?)
+        ?, ?, ?, 'pending', ?, ?, ?)
      ON CONFLICT(hash) DO UPDATE SET
        error_message = excluded.error_message,
        exception_type = excluded.exception_type,
@@ -268,6 +271,8 @@ async function ingestReport(payload: TelemetryPayload, env: Env): Promise<Respon
        first_seen = MIN(error_reports.first_seen, excluded.first_seen),
        last_seen = MAX(error_reports.last_seen, excluded.last_seen),
        r2_log_key = excluded.r2_log_key,
+       last_received_at = CASE WHEN ? = 1 THEN excluded.last_received_at
+                               ELSE error_reports.last_received_at END,
        status = CASE WHEN ? = 0 THEN error_reports.status
                      WHEN error_reports.status = 'ignored' THEN 'ignored'
                      ELSE 'pending' END,
@@ -285,8 +290,10 @@ async function ingestReport(payload: TelemetryPayload, env: Env): Promise<Respon
     payload.captured_at_utc,
     payload.captured_at_utc,
     r2LogKey,
+    receivedAt,
     aggregateNow,
     aggregateNow,
+    inserted ? 1 : 0,
     inserted ? 1 : 0
   ).run();
 
@@ -339,7 +346,7 @@ async function handlePendingTop(request: Request, env: Env): Promise<Response> {
             triage_last_error, triage_last_attempt_at, triage_retry_after,
             repair_status, repair_attempt_count, repair_last_attempt_at,
             repair_next_attempt_at, repair_last_error, repair_candidate_json,
-            repair_candidate_r2_key,
+            repair_candidate_r2_key, last_received_at,
             created_at, updated_at
        FROM error_reports
       WHERE status = 'pending'
@@ -347,6 +354,44 @@ async function handlePendingTop(request: Request, env: Env): Promise<Response> {
       LIMIT ?`
   ).bind(limit).all<PendingIssueRow>();
   return jsonResponse({ generated_at: new Date().toISOString(), issues: result.results });
+}
+
+async function handleFixCandidates(request: Request, env: Env): Promise<Response> {
+  if (!(await verifyAdmin(request, env))) {
+    return jsonResponse({ error: "unauthorized" }, env.ADMIN_TOKEN ? 401 : 503);
+  }
+  const url = new URL(request.url);
+  const limit = parsePositiveLimit(url.searchParams.get("limit") ?? undefined, 3, 20);
+  const result = await env.DB.prepare(
+    `SELECT hash, error_message, exception_type, operation, source, trust_level,
+            mod_version, game_version, occurrence_count, first_seen, last_seen,
+            r2_log_key, status, triage_classification, triage_confidence,
+            triage_severity, triage_evidence_json, triage_provider, triaged_at,
+            triage_last_error, triage_last_attempt_at, triage_retry_after,
+            repair_status, repair_attempt_count, repair_last_attempt_at,
+            repair_next_attempt_at, repair_last_error, repair_candidate_json,
+            repair_candidate_r2_key, last_received_at, created_at, updated_at
+       FROM error_reports
+      WHERE status = 'fix_candidate' AND repair_status = 'candidate'
+      ORDER BY CASE triage_severity
+                 WHEN 'critical' THEN 4
+                 WHEN 'high' THEN 3
+                 WHEN 'medium' THEN 2
+                 WHEN 'low' THEN 1
+                 ELSE 0
+               END DESC,
+               occurrence_count DESC,
+               updated_at ASC
+      LIMIT ?`
+  ).bind(limit).all<PendingIssueRow>();
+  return jsonResponse({ generated_at: new Date().toISOString(), issues: result.results });
+}
+
+async function handleProviderInfo(request: Request, env: Env): Promise<Response> {
+  if (!(await verifyAdmin(request, env))) {
+    return jsonResponse({ error: "unauthorized" }, env.ADMIN_TOKEN ? 401 : 503);
+  }
+  return jsonResponse(describeAiProviders(env));
 }
 
 async function handleIssue(request: Request, env: Env, hash: string): Promise<Response> {
@@ -473,12 +518,6 @@ async function handleStatusPatch(request: Request, env: Env, hash: string): Prom
   return jsonResponse({ issue: updated });
 }
 
-async function runMaintenance(env: Env): Promise<void> {
-  const now = Date.now();
-  await env.DB.prepare("DELETE FROM ingest_rate_limits WHERE expires_at < ?").bind(now).run();
-  console.log(JSON.stringify({ message: "maintenance_complete", environment: env.ENVIRONMENT ?? "unknown" }));
-}
-
 async function handleAiJob(
   request: Request,
   env: Env,
@@ -497,6 +536,15 @@ async function handleAiJob(
     });
   }));
   return jsonResponse({ accepted: true, job, requested_at: requestedAt }, 202);
+}
+
+async function handleMaintenanceJob(request: Request, env: Env): Promise<Response> {
+  if (!(await verifyAdmin(request, env))) {
+    return jsonResponse({ error: "unauthorized" }, env.ADMIN_TOKEN ? 401 : 503);
+  }
+  await runTransientMaintenance(env);
+  const summary = await runRetentionCleanup(env);
+  return jsonResponse({ ok: true, ...summary });
 }
 
 async function route(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
@@ -519,6 +567,18 @@ async function route(request: Request, env: Env, ctx: ExecutionContext): Promise
     }
     return handlePendingTop(request, env);
   }
+  if (url.pathname === "/api/admin/fix-candidates") {
+    if (request.method !== "GET") {
+      return methodNotAllowed("GET");
+    }
+    return handleFixCandidates(request, env);
+  }
+  if (url.pathname === "/api/admin/provider-info") {
+    if (request.method !== "GET") {
+      return methodNotAllowed("GET");
+    }
+    return handleProviderInfo(request, env);
+  }
 
   const aiJobMatch = /^\/api\/admin\/jobs\/(triage|repair)$/.exec(url.pathname);
   if (aiJobMatch) {
@@ -526,6 +586,13 @@ async function route(request: Request, env: Env, ctx: ExecutionContext): Promise
       return methodNotAllowed("POST");
     }
     return handleAiJob(request, env, ctx, aiJobMatch[1] as "triage" | "repair");
+  }
+
+  if (url.pathname === "/api/admin/jobs/maintenance") {
+    if (request.method !== "POST") {
+      return methodNotAllowed("POST");
+    }
+    return handleMaintenanceJob(request, env);
   }
 
   const issueMatch = /^\/api\/admin\/issues\/([^/]+)$/.exec(url.pathname);
@@ -570,9 +637,9 @@ export default {
   },
 
   async scheduled(controller: ScheduledController, env: Env, ctx: ExecutionContext): Promise<void> {
-    const jobs: Promise<void>[] = [runMaintenance(env)];
+    const jobs: Promise<void>[] = [runTransientMaintenance(env)];
     if (controller.cron === "0 3 * * *") {
-      jobs.push(runDailyTriage(env));
+      jobs.push(runRetentionCleanup(env).then(() => runDailyTriage(env)));
     }
     if (controller.cron === "*/30 * * * *") {
       jobs.push(runRepairRetries(env));
