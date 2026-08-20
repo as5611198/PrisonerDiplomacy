@@ -7,7 +7,7 @@ RimWorld 1.6 mod implementing Prisoner Diplomacy 1.2.0: ransom, exchange, strate
 - Delivers the complete deterministic transaction loop: enemy proposals, comms-console player demands, acceptance, rejection, counteroffers, marked vanilla release, safe map exit, and exactly-once fulfillment.
 - Supports up to three reward types in one deal: silver, faction supplies, goodwill, ceasefire, or one-use early-warning intelligence, subject to legality, budget, reserve, and material-cap checks.
 - Expands the built-in faction-supply catalog by technology tier: medicine, meals, kibble, components, chemfuel, steel, cloth, plasteel, uranium, synthread, and hyperweave. Optional missing definitions are skipped safely.
-- Documents the core reward catalog and a standalone add-on quickstart for race/faction adapters and special item rewards. The repository now includes the project authorship statement and QQ community link for the planned GitHub open-source release.
+- Documents the core reward catalog and a standalone add-on quickstart for race/faction adapters and special item rewards. The public repository includes the project authorship statement, QQ community link, and open-source contribution guidance.
 - Supports one-for-one kidnapped-colonist exchanges with optional player compensation, without duplicating or losing either Pawn.
 - Keeps hidden `Reliability`, `Treatment`, and `Resentment` memory causal and readable through messages without exposing raw values.
 - Distinguishes diplomatic factions, transactional pirate factions, and non-negotiating factions, with disclosed pirate risk and deterministic mitigation.
