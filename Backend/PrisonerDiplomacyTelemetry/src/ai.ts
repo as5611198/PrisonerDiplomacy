@@ -76,6 +76,20 @@ function boundedStringArray(value: unknown, maximumItems: number, maximumCharact
   return value as string[];
 }
 
+function boundedPatch(value: unknown): string {
+  if (typeof value === "string") {
+    return boundedText(value, 200_000, "patch");
+  }
+  const isNonEmptyArray = Array.isArray(value) && value.length > 0;
+  const isNonEmptyObject = typeof value === "object" && value !== null && !Array.isArray(value)
+    && Object.keys(value).length > 0;
+  if (!isNonEmptyArray && !isNonEmptyObject) {
+    throw new AiProviderError("invalid_patch", "Invalid patch in model response", false);
+  }
+  const serialized = JSON.stringify(value, null, 2);
+  return boundedText(serialized, 200_000, "patch");
+}
+
 function parseJsonObject(text: string): Record<string, unknown> {
   const unfenced = text.replace(/^\s*```(?:json)?\s*/i, "").replace(/\s*```\s*$/i, "").trim();
   const start = unfenced.indexOf("{");
@@ -122,9 +136,9 @@ function parseTriageDecision(text: string): TriageDecision {
   };
 }
 
-function parseRepairCandidate(text: string): RepairCandidate {
+export function parseRepairCandidate(text: string): RepairCandidate {
   const object = parseJsonObject(text);
-  const patch = boundedText(object.patch, 200_000, "patch");
+  const patch = boundedPatch(object.patch);
   return {
     root_cause: boundedText(object.root_cause, 8_192, "root_cause"),
     affected_files: boundedStringArray(object.affected_files, 32, 512, "affected_files"),
