@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <LetterDef ParentName="CustomChoiceLetterBase">
+    <defName>PD_PrisonerRansomOffer</defName>
+    <letterClass>PrisonerDiplomacy.ChoiceLetter_PrisonerRansomOffer</letterClass>
+    <label>prisoner ransom offer</label>
+  </LetterDef>
+  <LetterDef ParentName="CustomChoiceLetterBase">
+    <defName>PD_PrisonerDiplomacyEvent</defName>
+    <letterClass>PrisonerDiplomacy.ChoiceLetter_PrisonerDiplomacyEvent</letterClass>
+    <label>prisoner diplomacy event</label>
+  </LetterDef>
+</Defs>

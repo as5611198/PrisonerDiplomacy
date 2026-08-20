@@ -1,0 +1,119 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "prisoner-diplomacy-telemetry",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-08-20",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  },
+  "secrets": { "required": ["ADMIN_TOKEN", "RATE_LIMIT_SALT"] },
+  "vars": {
+    "ENVIRONMENT": "local",
+    "MAX_REPORTS_PER_IP_PER_MINUTE": "30",
+    "MAX_BODY_BYTES": "262144",
+    "TRIAGE_ENABLED": "false",
+    "TRIAGE_MODEL": "gemini-3.7-flash",
+    "TRIAGE_MAX_ISSUES_PER_DAY": "20",
+    "TRIAGE_MIN_CONFIDENCE": "0.80",
+    "REPAIR_ENABLED": "false",
+    "REPAIR_MODEL": "gpt-5.6-sol",
+    "REPAIR_MAX_ATTEMPTS_PER_DAY": "6",
+    "REPAIR_ATTEMPTS_PER_RUN": "1",
+    "REPAIR_RETRY_MINUTES": "30",
+    "AI_REQUEST_TIMEOUT_MS": "30000"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "prisoner-diplomacy-telemetry",
+      "database_id": "00000000-0000-0000-0000-000000000000",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "LOGS",
+      "bucket_name": "prisoner-diplomacy-telemetry-logs"
+    }
+  ],
+  "triggers": {
+    "crons": ["0 3 * * *", "*/30 * * * *"]
+  },
+  "env": {
+    "staging": {
+      "name": "prisoner-diplomacy-telemetry-staging",
+      "vars": {
+        "ENVIRONMENT": "staging",
+        "MAX_REPORTS_PER_IP_PER_MINUTE": "30",
+        "MAX_BODY_BYTES": "262144",
+        "TRIAGE_ENABLED": "true",
+        "TRIAGE_MODEL": "gemini-3.7-flash",
+        "TRIAGE_MAX_ISSUES_PER_DAY": "20",
+        "TRIAGE_MIN_CONFIDENCE": "0.80",
+        "REPAIR_ENABLED": "true",
+        "REPAIR_MODEL": "gpt-5.6-sol",
+        "REPAIR_MAX_ATTEMPTS_PER_DAY": "6",
+        "REPAIR_ATTEMPTS_PER_RUN": "1",
+        "REPAIR_RETRY_MINUTES": "30",
+        "AI_REQUEST_TIMEOUT_MS": "30000"
+      },
+      "secrets": { "required": ["ADMIN_TOKEN", "RATE_LIMIT_SALT"] },
+      "d1_databases": [
+        {
+          "binding": "DB",
+          "database_name": "prisoner-diplomacy-telemetry-staging",
+          "database_id": "1ef37edb-fac5-4379-a60a-b26c411f0065",
+          "migrations_dir": "migrations"
+        }
+      ],
+      "r2_buckets": [
+        {
+          "binding": "LOGS",
+          "bucket_name": "prisoner-diplomacy-telemetry-logs-staging"
+        }
+      ],
+      "triggers": {
+        "crons": ["0 3 * * *", "*/30 * * * *"]
+      }
+    },
+    "production": {
+      "name": "prisoner-diplomacy-telemetry-production",
+      "vars": {
+        "ENVIRONMENT": "production",
+        "MAX_REPORTS_PER_IP_PER_MINUTE": "30",
+        "MAX_BODY_BYTES": "262144",
+        "TRIAGE_ENABLED": "false",
+        "TRIAGE_MODEL": "gemini-3.7-flash",
+        "TRIAGE_MAX_ISSUES_PER_DAY": "20",
+        "TRIAGE_MIN_CONFIDENCE": "0.80",
+        "REPAIR_ENABLED": "false",
+        "REPAIR_MODEL": "gpt-5.6-sol",
+        "REPAIR_MAX_ATTEMPTS_PER_DAY": "6",
+        "REPAIR_ATTEMPTS_PER_RUN": "1",
+        "REPAIR_RETRY_MINUTES": "30",
+        "AI_REQUEST_TIMEOUT_MS": "30000"
+      },
+      "secrets": { "required": ["ADMIN_TOKEN", "RATE_LIMIT_SALT"] },
+      "d1_databases": [
+        {
+          "binding": "DB",
+          "database_name": "prisoner-diplomacy-telemetry-production",
+          "database_id": "00000000-0000-0000-0000-000000000000",
+          "migrations_dir": "migrations"
+        }
+      ],
+      "r2_buckets": [
+        {
+          "binding": "LOGS",
+          "bucket_name": "prisoner-diplomacy-telemetry-logs-production"
+        }
+      ],
+      "triggers": {
+        "crons": ["0 3 * * *", "*/30 * * * *"]
+      }
+    }
+  }
+}

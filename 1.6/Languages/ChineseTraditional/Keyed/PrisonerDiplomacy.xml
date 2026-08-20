@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PD_RansomOfferLabel>戰俘贖金提案：{0}</PD_RansomOfferLabel>
+  <PD_RansomOfferText>{0} 願意提供 {1}，換取 {2} 安全返回。\n\n接受後，此戰俘會保留給本交易。請選取戰俘並使用「為贖金釋放」，在期限前完成交付。一般釋放、逃脫、出售、招募、奴役或死亡都會取消交易，且不會付款。\n\n戰俘分類：{3}\n外交價值：{4}\n提案期限：{5}</PD_RansomOfferText>
+  <PD_AcceptOffer>接受提案</PD_AcceptOffer>
+  <PD_RejectOffer>拒絕提案</PD_RejectOffer>
+  <PD_RejectAndMuteFaction>拒絕並暫停此派系聯絡</PD_RejectAndMuteFaction>
+  <PD_OfferUnavailable>這項提案已失效。</PD_OfferUnavailable>
+  <PD_DealAccepted>已接受 {0} 的贖金交易。請在期限前下達專用的贖金釋放命令。</PD_DealAccepted>
+  <PD_DealRejected>已拒絕關於 {0} 的贖金提案。</PD_DealRejected>
+  <PD_DealRejectedAndFactionMuted>已拒絕關於 {0} 的贖金提案。此派系將在 60 天內不再主動寄送提案。</PD_DealRejectedAndFactionMuted>
+  <PD_ReleaseForRansom>為贖金釋放</PD_ReleaseForRansom>
+  <PD_ReleaseForRansomDesc>將 {0} 標記為本次贖金交易的交付對象，並切換到原版「釋放」互動。只有原版釋放完成且戰俘安全離圖後才會付款。</PD_ReleaseForRansomDesc>
+  <PD_ReleaseAlreadyOrdered>已下達贖金釋放</PD_ReleaseAlreadyOrdered>
+  <PD_ReleaseAlreadyOrderedDesc>此戰俘已標記為贖金釋放。條件允許時，原版獄卒工作會將其押送離開。</PD_ReleaseAlreadyOrderedDesc>
+  <PD_NoSafeMap>這筆交易目前沒有有效的玩家地圖。</PD_NoSafeMap>
+  <PD_RansomReleaseOrdered>已將 {0} 標記為贖金釋放。</PD_RansomReleaseOrdered>
+  <PD_DealDeadlineExtended>{0} 的傷勢仍重到無法離開。由於你的醫生正在治療，該派系同意將釋放期限延長 {1} 天。</PD_DealDeadlineExtended>
+  <PD_DealCompletedLabel>贖金交易完成：{0}</PD_DealCompletedLabel>
+  <PD_DealCompletedText>{0} 已依贖金協議安全離開殖民地。{1} 交付了 {2} 銀幣。</PD_DealCompletedText>
+  <PD_DealFailedLabel>贖金交易取消：{0}</PD_DealFailedLabel>
+  <PD_DealFailedText>{0} 的贖金交易已結束，且不會付款。\n\n原因：{1}</PD_DealFailedText>
+  <PD_ReasonExpired>協議已逾期</PD_ReasonExpired>
+  <PD_ReasonDead>戰俘已死亡</PD_ReasonDead>
+  <PD_ReasonEscaped>戰俘逃脫，或未依贖金釋放流程離開</PD_ReasonEscaped>
+  <PD_ReasonRecruited>戰俘已加入玩家派系</PD_ReasonRecruited>
+  <PD_ReasonEnslaved>戰俘已被奴役</PD_ReasonEnslaved>
+  <PD_ReasonSold>戰俘已被出售或轉移</PD_ReasonSold>
+  <PD_ReasonFactionInvalid>原屬派系已無法進行交易</PD_ReasonFactionInvalid>
+  <PD_ReasonHostageInvalid>由該派系扣押的我方人物已無法進行交換</PD_ReasonHostageInvalid>
+  <PD_ReasonPrisonerInvalid>戰俘已不再符合資格</PD_ReasonPrisonerInvalid>
+  <PD_ReasonCancelled>交易已取消</PD_ReasonCancelled>
+  <PD_ClassRegular>普通成員</PD_ClassRegular>
+  <PD_ClassSpecialist>關鍵專家</PD_ClassSpecialist>
+  <PD_ClassNotable>地方要人</PD_ClassNotable>
+  <PD_ClassCore>派系核心人物</PD_ClassCore>
+  <PD_ClassLeader>派系領袖</PD_ClassLeader>
+  <PD_DebugNoEligible>目前沒有符合資格的戰俘。</PD_DebugNoEligible>
+  <PD_DebugOfferCreated>已為 {0} 建立贖金提案。</PD_DebugOfferCreated>
+  <PD_DebugRecords>戰俘外交：{0} 筆戰俘紀錄，{1} 筆有效交易。</PD_DebugRecords>
+  <PD_IntroLabel>已啟用戰俘外交</PD_IntroLabel>
+  <PD_IntroText>當你關押符合資格的戰俘時，其原屬派系可能會在數日後主動聯絡，提出贖金提案。\n\n建造並供電給通訊台，即可立即開始交涉並自行決定贖金要求；你也可以等待對方先提出條件。\n\n註：這段機制說明只會顯示一次。之後取得的戰俘仍適用此機制，但不會再次跳出這封訊息。</PD_IntroText>
+  <PD_CommTargetLabel>開啟戰俘外交：{0}</PD_CommTargetLabel>
+  <PD_CommTargetInfo>開啟與 {0} 的戰俘外交，可查看進行中的贖金交易與策略協議。</PD_CommTargetInfo>
+  <PD_NegotiationTitle>戰俘贖金交涉：{0}</PD_NegotiationTitle>
+  <PD_NegotiatorSummary>談判者：{0}｜社交：{1}</PD_NegotiatorSummary>
+  <PD_UiCases>案件</PD_UiCases>
+  <PD_UiFactionType>交涉類型</PD_UiFactionType>
+  <PD_UiSignal>派系財力</PD_UiSignal>
+  <PD_UiPrisonerList>俘虜案件</PD_UiPrisonerList>
+  <PD_UiWorkspace>交涉工作區</PD_UiWorkspace>
+  <PD_UiStatus>狀態：{0}</PD_UiStatus>
+  <PD_UiAgreementSummary>策略協議</PD_UiAgreementSummary>
+  <PD_UiNoActiveAgreements>目前沒有生效中的策略協議。</PD_UiNoActiveAgreements>
+  <PD_UiFactionStanding>派系關係</PD_UiFactionStanding>
+  <PD_UiAgreementReviewStatus>查看派系協議</PD_UiAgreementReviewStatus>
+  <PD_UiAgreementsTab>協議</PD_UiAgreementsTab>
+  <PD_UiHistoryTab>歷史</PD_UiHistoryTab>
+  <PD_UiHistoryTitle>交易歷史</PD_UiHistoryTitle>
+  <PD_UiHistoryEmpty>這個派系目前沒有已完成或已拒絕的交易紀錄。</PD_UiHistoryEmpty>
+  <PD_UiHistoryEntry>{0}｜{1}｜{2}\n{3}</PD_UiHistoryEntry>
+  <PD_UiHistoryMeta>{0}｜{1}｜{2}</PD_UiHistoryMeta>
+  <PD_HistoryFactionOffer>派系提案</PD_HistoryFactionOffer>
+  <PD_HistoryPlayerDemand>玩家要求</PD_HistoryPlayerDemand>
+  <PD_HistoryAgo>{0} 前</PD_HistoryAgo>
+  <PD_HistoryUnknownDate>日期不可用</PD_HistoryUnknownDate>
+  <PD_UiAgreementAlertLabel>有效中的戰俘外交協議</PD_UiAgreementAlertLabel>
+  <PD_UiAgreementAlertExplanation>查看生效中的停火、情報、照護信用與待履約戰俘外交交易。</PD_UiAgreementAlertExplanation>
+  <PD_UiPortableTerminal>開啟便攜式外交終端</PD_UiPortableTerminal>
+  <PD_UiPortableTerminalDesc>查看已知派系、有效協議與交易歷史。</PD_UiPortableTerminalDesc>
+  <PD_UiFactionContactsTitle>已知外交聯絡</PD_UiFactionContactsTitle>
+  <PD_UiFactionContactsEmpty>目前還沒有建立任何派系聯絡。</PD_UiFactionContactsEmpty>
+  <PD_UiFactionContactSummary>{0}\n案件：{1}｜歷史：{2}</PD_UiFactionContactSummary>
+  <PD_UiReadOnly>唯讀檢視</PD_UiReadOnly>
+  <PD_HistoryExchangeSupplies>人質 {0}、{1} {2}</PD_HistoryExchangeSupplies>
+  <PD_HistoryExchangeSilver>人質 {0}、{1} 銀</PD_HistoryExchangeSilver>
+  <PD_UiNoCases>目前沒有這個派系可交涉的俘虜案件。</PD_UiNoCases>
+  <PD_UiPrisonerProfile>俘虜資料</PD_UiPrisonerProfile>
+  <PD_UiHealth>健康 {0}</PD_UiHealth>
+  <PD_UiFactionContext>派系脈絡</PD_UiFactionContext>
+  <PD_UiDealProgress>交易進度</PD_UiDealProgress>
+  <PD_UiAgreedTerms>約定條件：{0}</PD_UiAgreedTerms>
+  <PD_UiOfferDeadline>提案剩餘 {0}</PD_UiOfferDeadline>
+  <PD_UiFulfillmentDeadline>履約期限剩餘 {0}｜醫療展延 {1} 次</PD_UiFulfillmentDeadline>
+  <PD_UiPaymentDeadline>預計付款剩餘 {0}</PD_UiPaymentDeadline>
+  <PD_UiPirateRisk>海盜交易風險</PD_UiPirateRisk>
+  <PD_UiPirateRiskMitigated>已降低</PD_UiPirateRiskMitigated>
+  <PD_UiPirateRiskDisclosed>釋放前已揭露</PD_UiPirateRiskDisclosed>
+  <PD_UiMaterialRewards>財產型報酬</PD_UiMaterialRewards>
+  <PD_UiDiplomaticRewards>外交報酬</PD_UiDiplomaticRewards>
+  <PD_UiStrategicRewards>戰略報酬</PD_UiStrategicRewards>
+  <PD_UiExchangeGive>我方交付</PD_UiExchangeGive>
+  <PD_UiExchangeReceive>我方取回</PD_UiExchangeReceive>
+  <PD_UiExchangeGiveText>{0}\n外交價值：{1}</PD_UiExchangeGiveText>
+  <PD_UiExchangeReceiveText>{0}\n交換成本：{1}</PD_UiExchangeReceiveText>
+  <PD_UiExchangeBalance>追加補償：{0}</PD_UiExchangeBalance>
+  <PD_Ui_PrisonerProfile>俘虜資料</PD_Ui_PrisonerProfile>
+  <PD_Ui_Health>健康 {0}</PD_Ui_Health>
+  <PD_Ui_FactionContext>派系脈絡</PD_Ui_FactionContext>
+  <PD_Ui_MaterialRewards>財產型報酬</PD_Ui_MaterialRewards>
+  <PD_Ui_DiplomaticRewards>外交報酬</PD_Ui_DiplomaticRewards>
+  <PD_Ui_StrategicRewards>戰略報酬</PD_Ui_StrategicRewards>
+  <PD_UiEnabled>已啟用</PD_UiEnabled>
+  <PD_UiDisabled>未啟用</PD_UiDisabled>
+  <PD_ValueCompact>價值 {0}</PD_ValueCompact>
+  <PD_SelectPrisoner>選擇一名符合資格的戰俘，準備提出贖金要求。</PD_SelectPrisoner>
+  <PD_NegotiationPrisonerDetails>人物分類：{0}\n預估外交價值：{1}\n健康：{2}</PD_NegotiationPrisonerDetails>
+  <PD_DemandSilver>要求銀幣</PD_DemandSilver>
+  <PD_AssessmentText>談判評估：{0}\n{1}</PD_AssessmentText>
+  <PD_AssessmentVeryFavorable>對對方非常有利</PD_AssessmentVeryFavorable>
+  <PD_AssessmentReasonable>合理</PD_AssessmentReasonable>
+  <PD_AssessmentAmbitious>偏高</PD_AssessmentAmbitious>
+  <PD_AssessmentExtreme>極端</PD_AssessmentExtreme>
+  <PD_PreviewExact>估計接受機率：{0}</PD_PreviewExact>
+  <PD_PreviewApproximate>估計接受機率：約 {0}%</PD_PreviewApproximate>
+  <PD_PreviewUncertain>談判者無法提供可靠的機率判斷。</PD_PreviewUncertain>
+  <PD_SubmitDemand>要求 {0} 銀幣</PD_SubmitDemand>
+  <PD_SubmitDemandInvalid>請輸入有效的銀幣要求</PD_SubmitDemandInvalid>
+  <PD_InvalidDemand>請輸入 {0} 至 {1} 之間的整數銀幣金額。</PD_InvalidDemand>
+  <PD_PlayerDemandAccepted>{0} 的派系接受了 {1} 銀幣要求。請完成專用的贖金釋放。</PD_PlayerDemandAccepted>
+  <PD_PlayerDemandRejected>{0} 的派系拒絕了 {1} 銀幣要求。</PD_PlayerDemandRejected>
+  <PD_PlayerDemandAcceptedRewards>{0} 的派系接受了以下條件：{1}。請完成專用的贖金釋放。</PD_PlayerDemandAcceptedRewards>
+  <PD_PlayerDemandRejectedRewards>{0} 的派系拒絕了以下條件：{1}。</PD_PlayerDemandRejectedRewards>
+  <PD_PlayerDemandCountered>{0} 的派系提出還價：{1}。你可以直接在目前的交涉畫面回覆。</PD_PlayerDemandCountered>
+  <PD_PlayerDemandFinalCounter>對方提出最終還價：{0}</PD_PlayerDemandFinalCounter>
+  <PD_CounterOfferRejected>關於 {0} 的交涉已結束。</PD_CounterOfferRejected>
+  <PD_CounterNoLongerAffordable>此派系目前已無力支付這份還價。請修正條件或結束交涉。</PD_CounterNoLongerAffordable>
+  <PD_NegotiationUnavailable>目前無法進行戰俘交涉。</PD_NegotiationUnavailable>
+  <PD_NegotiationActiveDeal>此戰俘已有一筆有效的贖金交易。</PD_NegotiationActiveDeal>
+  <PD_NegotiationPrisonerCooldown>此戰俘還需等待 {0} 才能再次交涉。</PD_NegotiationPrisonerCooldown>
+  <PD_NegotiationFactionCooldown>此派系還需等待 {0} 才會考慮另一項要求。</PD_NegotiationFactionCooldown>
+  <PD_NegotiationSuspended>由於多次不合理要求，此派系暫停交涉 {0}。</PD_NegotiationSuspended>
+  <PD_NegotiationCounterPending>目前有一項派系還價等待你的回覆。</PD_NegotiationCounterPending>
+  <PD_NegotiationNoRewards>請至少選擇一種報酬。</PD_NegotiationNoRewards>
+  <PD_NegotiationTooManyRewards>單筆交易最多只能包含兩種報酬。</PD_NegotiationTooManyRewards>
+  <PD_NegotiationInvalidRewards>請輸入有效的報酬數量。</PD_NegotiationInvalidRewards>
+  <PD_NegotiationInvalidSupplies>此派系無法提供所選物資。</PD_NegotiationInvalidSupplies>
+  <PD_NegotiationGoodwillUnavailable>此派系無法以好感作為報酬。</PD_NegotiationGoodwillUnavailable>
+  <PD_NegotiationGoodwillTooHigh>要求的好感會超過原版關係上限。</PD_NegotiationGoodwillTooHigh>
+  <PD_DemandSupplies>物資</PD_DemandSupplies>
+  <PD_DemandGoodwill>好感</PD_DemandGoodwill>
+  <PD_SelectSupplies>選擇物資</PD_SelectSupplies>
+  <PD_RewardUnitValue>交涉單件價值：{0} 白銀</PD_RewardUnitValue>
+  <PD_RewardTotalValue>目前總價值：{0} 白銀</PD_RewardTotalValue>
+  <PD_InvalidSilverReward>請輸入大於零的銀幣數量。</PD_InvalidSilverReward>
+  <PD_InvalidSupplyReward>請選擇物資並輸入大於零的數量。</PD_InvalidSupplyReward>
+  <PD_InvalidGoodwillReward>請輸入大於零的好感點數。</PD_InvalidGoodwillReward>
+  <PD_SubmitRewardDemand>送出條件</PD_SubmitRewardDemand>
+  <PD_SubmitRevisedDemand>送出修正條件</PD_SubmitRevisedDemand>
+  <PD_ReviseDemand>修正一次你的條件</PD_ReviseDemand>
+  <PD_AcceptCounterOffer>接受還價</PD_AcceptCounterOffer>
+  <PD_RejectCounterOffer>結束交涉</PD_RejectCounterOffer>
+  <PD_FinalCounterOnly>這是對方的最終條件。你只能接受或結束交涉。</PD_FinalCounterOnly>
+  <PD_CounterOfferDetails>派系還價：{0}\n談判輪次：{1}/2</PD_CounterOfferDetails>
+  <PD_CounterOfferHeading>對方提出的還價</PD_CounterOfferHeading>
+  <PD_CounterOfferRound>第 {0}/2 輪</PD_CounterOfferRound>
+  <PD_CounterRevisionHint>以對方還價為基準快速加價，或在下方自行調整報酬。</PD_CounterRevisionHint>
+  <PD_UseFactionOffer>對方原價</PD_UseFactionOffer>
+  <PD_AddSilverToCounter>白銀 +{0}</PD_AddSilverToCounter>
+  <PD_CounterShortcutUnavailable>這份還價已有兩種非白銀報酬，或加價後會超過白銀上限。</PD_CounterShortcutUnavailable>
+  <PD_ModeRansom>贖金條件</PD_ModeRansom>
+  <PD_ModeExchange>俘虜交換</PD_ModeExchange>
+  <PD_ExchangeHostageLabel>要取回的我方人物</PD_ExchangeHostageLabel>
+  <PD_ExchangeSelectHostage>選擇被綁架的殖民者</PD_ExchangeSelectHostage>
+  <PD_ExchangeHostageOption>{0}｜交換價值 {1}</PD_ExchangeHostageOption>
+  <PD_ExchangeNoHostages>此派系目前沒有扣押符合交換資格的我方人物。</PD_ExchangeNoHostages>
+  <PD_ExchangeTerms>我方交付：{0}（價值 {1}）\n對方返還：{2}（交換成本 {3}）\n需要追加補償：{4}</PD_ExchangeTerms>
+  <PD_ExchangePaymentMethod>補償方式</PD_ExchangePaymentMethod>
+  <PD_ExchangePaySilver>白銀</PD_ExchangePaySilver>
+  <PD_ExchangeCompensationSilver>{0} 白銀</PD_ExchangeCompensationSilver>
+  <PD_ExchangeCompensationSupplies>{0} 個{1}</PD_ExchangeCompensationSupplies>
+  <PD_ExchangeConfirm>確認交換｜支付 {0}</PD_ExchangeConfirm>
+  <PD_ExchangeHostageUnavailable>所選人物已不再由此派系扣押。</PD_ExchangeHostageUnavailable>
+  <PD_ExchangeHostageReserved>所選人物已被另一筆進行中的交換預約。</PD_ExchangeHostageReserved>
+  <PD_ExchangeInsufficientSilver>殖民地沒有足夠的可交易白銀支付交換價差。</PD_ExchangeInsufficientSilver>
+  <PD_ExchangeInsufficientSupplies>殖民地沒有足夠的所選物資支付交換價差。</PD_ExchangeInsufficientSupplies>
+  <PD_ExchangeSupplyGapTooLarge>所選物資無法在交換數量上限內補足這筆價差。</PD_ExchangeSupplyGapTooLarge>
+  <PD_ExchangeAccepted>交換協議已成立：請使用專用命令釋放 {0}，安全離場後將返還 {1}。已託管補償：{2}。</PD_ExchangeAccepted>
+  <PD_ReleaseForExchange>為俘虜交換釋放</PD_ReleaseForExchange>
+  <PD_ReleaseForExchangeDesc>依交換協議釋放 {0}。安全離場後，{1} 將搭乘空投艙返回殖民地。</PD_ReleaseForExchangeDesc>
+  <PD_ExchangeCompletedLabel>俘虜交換完成：{0}</PD_ExchangeCompletedLabel>
+  <PD_ExchangeCompletedText>{0} 已依交換協議安全離開，{1} 已返回殖民地。追加支付補償：{2}。</PD_ExchangeCompletedText>
+  <PD_ExchangeCompensationRefunded>失敗交換中託管的 {0} 白銀已返還。</PD_ExchangeCompensationRefunded>
+  <PD_ExchangeCompensationRefundedSupplies>失敗交換中託管的 {0} 個{1}已返還。</PD_ExchangeCompensationRefundedSupplies>
+  <PD_HistoryExchangeCompleted>以 {0} 換回 {1}</PD_HistoryExchangeCompleted>
+  <PD_AssessmentRewardsText>評估：{0}\n{1}\n要求報酬：{2}\n財產型報酬上限：價值 {3}</PD_AssessmentRewardsText>
+  <PD_FactionNegotiationSummary>派系財力：{0}\n{1}</PD_FactionNegotiationSummary>
+  <PD_FinancesStrong>財力充裕</PD_FinancesStrong>
+  <PD_FinancesCapable>有能力交涉</PD_FinancesCapable>
+  <PD_FinancesLimited>資源有限</PD_FinancesLimited>
+  <PD_FinancesDepleted>目前無力支付有意義的條件</PD_FinancesDepleted>
+  <PD_HistoryNone>目前沒有與此派系完成過戰俘交易。</PD_HistoryNone>
+  <PD_HistorySummary>已完成交易：{0}；已結束交涉：{1}。\n最近結果：{2}</PD_HistorySummary>
+  <PD_HistoryCompleted>以 {1} 換回 {0}</PD_HistoryCompleted>
+  <PD_HistorySummaryWithMemory>已完成交易：{0}；已結束交涉：{1}。\n最近結果：{2}\n{3}</PD_HistorySummaryWithMemory>
+  <PD_HistoryNoneWithMemory>目前沒有與此派系完成過戰俘交易。\n{0}</PD_HistoryNoneWithMemory>
+  <PD_MemoryNeutral>此派系尚未形成明確的戰俘外交印象。</PD_MemoryNeutral>
+  <PD_MemorySummary>協議信任：{0}\n戰俘待遇：{1}\n累積積怨：{2}</PD_MemorySummary>
+  <PD_ReliabilityTrusted>他們相信你會履行已接受的協議</PD_ReliabilityTrusted>
+  <PD_ReliabilityNeutral>他們尚未確定你的承諾是否可信</PD_ReliabilityNeutral>
+  <PD_ReliabilityDoubtful>他們對你的承諾抱持懷疑</PD_ReliabilityDoubtful>
+  <PD_ReliabilityDistrusted>他們認為你的戰俘協議不值得信任</PD_ReliabilityDistrusted>
+  <PD_TreatmentHonorable>他們認為你會克制且妥善地對待戰俘</PD_TreatmentHonorable>
+  <PD_TreatmentNeutral>他們對你的一般戰俘待遇沒有強烈看法</PD_TreatmentNeutral>
+  <PD_TreatmentConcerned>有關不良待遇的消息令他們擔憂</PD_TreatmentConcerned>
+  <PD_TreatmentCruel>你殘酷對待該派系戰俘的消息已經傳開</PD_TreatmentCruel>
+  <PD_ResentmentLow>目前沒有多少私人積怨</PD_ResentmentLow>
+  <PD_ResentmentLasting>他們仍保留長期積怨</PD_ResentmentLasting>
+  <PD_ResentmentSevere>他們懷有強烈的政治與私人怨恨</PD_ResentmentSevere>
+  <PD_FactionMemorySection>戰俘外交\n{0}</PD_FactionMemorySection>
+  <PD_FactionMemorySectionWithEvent>戰俘外交\n{0}\n最近原因：{1}</PD_FactionMemorySectionWithEvent>
+  <PD_MemoryChanged>{0} 對戰俘外交的看法發生變化：{1}</PD_MemoryChanged>
+  <PD_MemoryEventCaptured>{0} 被玩家俘虜。</PD_MemoryEventCaptured>
+  <PD_MemoryEventEscaped>{0} 逃離了玩家的羈押。</PD_MemoryEventEscaped>
+  <PD_MemoryEventCriticalRecovery>{0} 在玩家羈押期間從病危狀態恢復。</PD_MemoryEventCriticalRecovery>
+  <PD_MemoryEventMalnutrition>{0} 在玩家羈押期間長期挨餓。</PD_MemoryEventMalnutrition>
+  <PD_MemoryEventPermanentHarm>{0} 在羈押期間受到玩家造成的永久傷害。</PD_MemoryEventPermanentHarm>
+  <PD_MemoryEventOrganHarvested>玩家在羈押期間移除了 {0} 的身體部位。</PD_MemoryEventOrganHarvested>
+  <PD_MemoryEventUnconditionalRelease>{0} 未附帶付款條件便被釋放。</PD_MemoryEventUnconditionalRelease>
+  <PD_MemoryEventReleasedAfterTreatment>{0} 從病危狀態獲得治療後，被無條件釋放。</PD_MemoryEventReleasedAfterTreatment>
+  <PD_MemoryEventAgreementCompleted>玩家履行了關於 {0} 的已接受協議。</PD_MemoryEventAgreementCompleted>
+  <PD_MemoryEventExchangeCompleted>涉及 {0} 的交換依約完成。</PD_MemoryEventExchangeCompleted>
+  <PD_MemoryEventDeathBreach>{0} 在玩家接受返還協議後死亡。</PD_MemoryEventDeathBreach>
+  <PD_MemoryEventExecution>{0} 在羈押期間因玩家行為死亡。</PD_MemoryEventExecution>
+  <PD_MemoryEventPrisonerDeath>{0} 在玩家羈押期間死亡。</PD_MemoryEventPrisonerDeath>
+  <PD_MemoryEventEnslavedBreach>{0} 在玩家接受返還協議後遭到奴役。</PD_MemoryEventEnslavedBreach>
+  <PD_MemoryEventEnslaved>{0} 在玩家羈押期間遭到奴役。</PD_MemoryEventEnslaved>
+  <PD_MemoryEventRecruitedBreach>{0} 在玩家接受返還協議後遭到招募。</PD_MemoryEventRecruitedBreach>
+  <PD_MemoryEventRecruited>{0} 從戰俘身分被招募。</PD_MemoryEventRecruited>
+  <PD_MemoryEventSoldBreach>{0} 在玩家接受返還協議後被出售或轉移。</PD_MemoryEventSoldBreach>
+  <PD_MemoryEventSold>{0} 從玩家羈押中被出售或轉移。</PD_MemoryEventSold>
+  <PD_MemoryEventAgreementExpired>關於 {0} 的已接受協議在交付前逾期。</PD_MemoryEventAgreementExpired>
+  <PD_MemoryEventImproperRelease>{0} 未完成已接受的釋放流程便離場。</PD_MemoryEventImproperRelease>
+  <PD_MemoryEventAbsurdDemand>極端要求被視為一次外交侮辱。</PD_MemoryEventAbsurdDemand>
+  <PD_RewardSilver>{0} 銀幣</PD_RewardSilver>
+  <PD_RewardSupplies>{0} 個{1}</PD_RewardSupplies>
+  <PD_RewardGoodwill>+{0} 好感</PD_RewardGoodwill>
+  <PD_RewardNone>無報酬</PD_RewardNone>
+  <PD_PrisonerStatus>外交狀態</PD_PrisonerStatus>
+  <PD_PrisonerStatusDesc>查看此戰俘的原屬派系、外交價值與贖金交易狀態。</PD_PrisonerStatusDesc>
+  <PD_PrisonerStatusText>{0}\n\n原屬派系：{1}\n人物分類：{2}\n外交價值：{3}\n贖金狀態：{4}</PD_PrisonerStatusText>
+  <PD_StatusNoDeal>目前沒有有效交易</PD_StatusNoDeal>
+  <PD_StatusEstimatedContact>預計派系聯絡時間：{0}</PD_StatusEstimatedContact>
+  <PD_StatusContactImminent>預計派系很快就會聯絡。</PD_StatusContactImminent>
+  <PD_StatusOffered>等待回覆派系提案</PD_StatusOffered>
+  <PD_StatusNegotiating>等待回覆派系還價</PD_StatusNegotiating>
+  <PD_StatusAccepted>已接受，等待下達贖金釋放</PD_StatusAccepted>
+  <PD_StatusReleaseOrdered>已下達贖金釋放</PD_StatusReleaseOrdered>
+  <PD_StatusPendingPayment>已確認交付，等待付款</PD_StatusPendingPayment>
+  <PD_StatusExchange>{0}；交換返還：{1}</PD_StatusExchange>
+  <PD_StatusCompleted>已完成</PD_StatusCompleted>
+  <PD_StatusRejected>已拒絕</PD_StatusRejected>
+  <PD_StatusExpired>已逾期</PD_StatusExpired>
+  <PD_StatusCancelled>已取消</PD_StatusCancelled>
+  <PD_StatusDownedRelease>此戰俘目前倒地。原版獄卒必須等其恢復移動能力後才能押送離場。</PD_StatusDownedRelease>
+  <PD_DealCompletedRewardsText>{0} 已依贖金協議安全離開殖民地。{1} 交付了：{2}。</PD_DealCompletedRewardsText>
+  <PD_SettingsCategory>戰俘外交</PD_SettingsCategory>
+  <PD_SettingPermanentEnemyNegotiation>允許永久敵對的人類派系交涉</PD_SettingPermanentEnemyNegotiation>
+  <PD_SettingPermanentEnemyNegotiationDesc>啟用後，永久敵對的人類派系會使用利益型戰俘外交。</PD_SettingPermanentEnemyNegotiationDesc>
+  <PD_SettingPirateRisks>啟用海盜交易風險</PD_SettingPirateRisks>
+  <PD_SettingPirateRisksDesc>有風險的海盜交易會在釋放前揭露可能延遲付款，且玩家可以取消。</PD_SettingPirateRisksDesc>
+  <PD_SettingFactionOverrides>派系交涉類型覆寫</PD_SettingFactionOverrides>
+  <PD_SettingFactionOverridesDesc>一般使用自動判定；只有相容性需要時才指定派系類型。</PD_SettingFactionOverridesDesc>
+  <PD_FactionTypeAutomatic>自動判定</PD_FactionTypeAutomatic>
+  <PD_FactionTypeNonNegotiating>不進行交涉</PD_FactionTypeNonNegotiating>
+  <PD_FactionTypeTransactional>利益型交涉</PD_FactionTypeTransactional>
+  <PD_FactionTypeDiplomatic>外交型交涉</PD_FactionTypeDiplomatic>
+  <PD_FactionNegotiationProfile>交涉類型：{0}\n財力概況：{1}</PD_FactionNegotiationProfile>
+  <PD_StatusFactionType>派系交涉類型：{0}</PD_StatusFactionType>
+  <PD_StatusPirateRiskDelayed>海盜條件包含已揭露的延遲付款風險。</PD_StatusPirateRiskDelayed>
+  <PD_StatusPiratePaymentPending>海盜付款將在 {0} 後到期。</PD_StatusPiratePaymentPending>
+  <PD_PirateReleaseConfirmation>{0} 提供的報酬是「{1}」，但已揭露以下風險：{2}。仍要釋放俘虜嗎？</PD_PirateReleaseConfirmation>
+  <PD_CancelRiskyDeal>取消高風險交易</PD_CancelRiskyDeal>
+  <PD_CancelRiskyDealDesc>在釋放俘虜前取消這筆已接受的海盜交易。</PD_CancelRiskyDealDesc>
+  <PD_CancelRiskyDealConfirmation>要取消 {0} 的已接受交易嗎？俘虜會留在殖民地，且不會收到付款。</PD_CancelRiskyDealConfirmation>
+  <PD_DealCancelledByPlayer>已取消 {0} 的已接受交易。</PD_DealCancelledByPlayer>
+  <PD_PiratePaymentDelayed>{0} 已確認俘虜安全離場，但會延遲 {1} 付款。這項風險已在釋放前揭露。</PD_PiratePaymentDelayed>
+  <PD_RimChatCompatibilityHeading>RimChat 共存設定</PD_RimChatCompatibilityHeading>
+  <PD_RimChatDetectedStatus>已偵測 RimChat {0}。相容狀態：{1}</PD_RimChatDetectedStatus>
+  <PD_RimChatEffectiveMode>實際安全模式：{0}</PD_RimChatEffectiveMode>
+  <PD_RimChatStatusNotInstalled>未啟用 RimChat。戰俘外交會正常獨立運作。</PD_RimChatStatusNotInstalled>
+  <PD_RimChatStatusCompatible>可使用嚴格版本的贖金衝突防護</PD_RimChatStatusCompatible>
+  <PD_RimChatStatusUnverified>已偵測，但沒有可驗證的贖金整合</PD_RimChatStatusUnverified>
+  <PD_RimChatStatusIncompatible>未知或不相容版本；橋接已停用</PD_RimChatStatusIncompatible>
+  <PD_RansomOwnerSetting>俘虜贖金系統所有者</PD_RansomOwnerSetting>
+  <PD_RansomOwnerPrisonerDiplomacy>戰俘外交</PD_RansomOwnerPrisonerDiplomacy>
+  <PD_RansomOwnerRimChat>RimChat</PD_RansomOwnerRimChat>
+  <PD_RansomOwnerSafeIsolation>安全隔離</PD_RansomOwnerSafeIsolation>
+  <PD_RansomOwnerPrisonerDiplomacyDesc>由戰俘外交建立所有贖金交易。RimChat 版本可驗證時，只阻止重疊的贖金 Action，其他 RimChat 功能不受影響。</PD_RansomOwnerPrisonerDiplomacyDesc>
+  <PD_RansomOwnerRimChatDesc>允許 RimChat 建立新的贖金付款。戰俘外交會停止新增主動提案與通訊台交易，但會保留並完成既有交易。</PD_RansomOwnerRimChatDesc>
+  <PD_RansomOwnerSafeIsolationDesc>戰俘外交仍可正常使用，但不嘗試未經驗證的 RimChat 橋接。請勿透過 RimChat 交涉同一名俘虜。</PD_RansomOwnerSafeIsolationDesc>
+  <PD_RimChatRequired>未啟用 RimChat</PD_RimChatRequired>
+  <PD_RimChatSafeIsolationWarning>目前安裝的 RimChat 版本無法安全橋接。既有戰俘外交交易仍然有效；請勿為這些俘虜另行建立 RimChat 贖金。</PD_RimChatSafeIsolationWarning>
+  <PD_NegotiationOwnedByRimChat>目前由 RimChat 管理俘虜贖金。戰俘外交不會建立新的交易。</PD_NegotiationOwnedByRimChat>
+  <PD_RimChatBlockedActiveDeal>此俘虜已有進行中的戰俘外交協議。為避免重複付款與期限衝突，已阻止 RimChat 贖金付款。</PD_RimChatBlockedActiveDeal>
+  <PD_RimChatBlockedOwnedByPD>目前由戰俘外交管理俘虜贖金。請改用原版通訊台的戰俘外交交涉。</PD_RimChatBlockedOwnedByPD>
+  <PD_RimChatBlockedSafeIsolation>安全隔離模式已停用 RimChat 俘虜贖金整合。</PD_RimChatBlockedSafeIsolation>
+  <PD_RimChatWarningLabel>RimChat 贖金相容性</PD_RimChatWarningLabel>
+  <PD_RimChatWarningText>已偵測到 RimChat {0}，但無法驗證其俘虜贖金橋接。戰俘外交已保留自己的交易與原版通訊台入口。請勿透過 RimChat 交涉已經存在戰俘外交有效交易的俘虜。你可以在模組設定中選擇贖金系統所有者。註：此警告每個殖民地只會出現一次。</PD_RimChatWarningText>
+  <PD_AiSettingsHeading>AI 敘事原型（實驗功能）</PD_AiSettingsHeading>
+  <PD_SettingEnableAiNarratives>啟用 AI 生成的派系回覆</PD_SettingEnableAiNarratives>
+  <PD_SettingEnableAiNarrativesDesc>AI 只負責撰寫氣氛文案。接受、拒絕、還價、條件、付款、期限與所有遊戲效果仍由戰俘外交決定。</PD_SettingEnableAiNarrativesDesc>
+  <PD_AiProviderOpenAiCompatible>服務類型：OpenAI-compatible Chat Completions</PD_AiProviderOpenAiCompatible>
+  <PD_AiProvider>AI 服務商</PD_AiProvider>
+  <PD_AiBaseUrl>Base URL</PD_AiBaseUrl>
+  <PD_AiEndpoint>Endpoint</PD_AiEndpoint>
+  <PD_AiModel>模型</PD_AiModel>
+  <PD_AiApiKey>API Key</PD_AiApiKey>
+  <PD_AiShowKey>顯示</PD_AiShowKey>
+  <PD_AiHideKey>隱藏</PD_AiHideKey>
+  <PD_AiEndpointRequiresKey>此 Endpoint 需要 API Key</PD_AiEndpointRequiresKey>
+  <PD_AiEndpointRequiresKeyDesc>只有使用可信任的本機服務或確定不需要金鑰的 OpenAI 相容服務時才關閉。</PD_AiEndpointRequiresKeyDesc>
+  <PD_AiTimeout>請求逾時：{0} 秒</PD_AiTimeout>
+  <PD_AiResolvedEndpoint>實際請求網址：{0}</PD_AiResolvedEndpoint>
+  <PD_AiFetchModels>取得模型清單</PD_AiFetchModels>
+  <PD_AiFetchingModels>正在取得模型...</PD_AiFetchingModels>
+  <PD_AiTestConnection>測試連線</PD_AiTestConnection>
+  <PD_AiTestingConnection>正在測試連線...</PD_AiTestingConnection>
+  <PD_AiNoModels>目前沒有已取得的模型清單。請先取得模型，或直接手動輸入模型名稱。</PD_AiNoModels>
+  <PD_AiFetchModelsSuccess>已取得 {0} 個相容模型。</PD_AiFetchModelsSuccess>
+  <PD_AiConnectionSuccess>{0} 連線測試成功。</PD_AiConnectionSuccess>
+  <PD_AiOperationFailed>AI 服務操作失敗：{0}</PD_AiOperationFailed>
+  <PD_AiFailureMissingKey>尚未輸入 API Key</PD_AiFailureMissingKey>
+  <PD_AiFailureMissingModel>尚未選擇模型</PD_AiFailureMissingModel>
+  <PD_AiFailureInvalidEndpoint>Base URL 格式無效</PD_AiFailureInvalidEndpoint>
+  <PD_AiFailureInsecureEndpoint>已阻止遠端未加密的 HTTP 網址</PD_AiFailureInsecureEndpoint>
+  <PD_AiFailureTimeout>請求逾時或已取消</PD_AiFailureTimeout>
+  <PD_AiFailureEmptyModels>服務沒有回傳可用的相容模型</PD_AiFailureEmptyModels>
+  <PD_AiFailureInvalidResponse>已連線，但服務回傳的資料大小或格式無效</PD_AiFailureInvalidResponse>
+  <PD_AiFailureIncompatibleResponse>已成功連線，但模型沒有依要求回傳可用的 JSON 格式</PD_AiFailureIncompatibleResponse>
+  <PD_AiFailureRequestRejected>服務已連線，但拒絕了模型或請求格式</PD_AiFailureRequestRejected>
+  <PD_AiFailureInternal>模組無法建立 AI 請求，請查看遊戲日誌中的失敗代碼</PD_AiFailureInternal>
+  <PD_AiFailureUnauthorized>API Key 遭到拒絕</PD_AiFailureUnauthorized>
+  <PD_AiFailureRateLimit>已達服務的請求速率限制</PD_AiFailureRateLimit>
+  <PD_AiFailureServer>服務商回報伺服器錯誤</PD_AiFailureServer>
+  <PD_AiFailureNetwork>無法連線到服務</PD_AiFailureNetwork>
+  <PD_AiShowTechnicalErrors>顯示技術性回退原因</PD_AiShowTechnicalErrors>
+  <PD_AiShowTechnicalErrorsDesc>啟用後，AI 回退時會顯示簡短且已過濾的原因；API Key 與完整回應內容不會寫入日誌。</PD_AiShowTechnicalErrorsDesc>
+  <PD_AiStatusReady>AI 敘事設定已就緒。只有正式談判結果確定後才會送出請求。</PD_AiStatusReady>
+  <PD_AiStatusDisabled>AI 敘事目前關閉；所有外交文案使用標準翻譯模板。</PD_AiStatusDisabled>
+  <PD_AiStatusMissingKey>AI 敘事已開啟，但必要的 API Key 是空白；將使用標準模板。</PD_AiStatusMissingKey>
+  <PD_AiStatusMissingModel>AI 敘事已開啟，但尚未設定模型；將使用標準模板。</PD_AiStatusMissingModel>
+  <PD_AiStatusInvalidEndpoint>AI 敘事已開啟，但 Endpoint 不是有效的 HTTP 或 HTTPS 網址；將使用標準模板。</PD_AiStatusInvalidEndpoint>
+  <PD_AiStatusInsecureEndpoint>為保護談判資料與 API Key，已阻止非本機的 HTTP 網址。請使用 HTTPS，或以本機回環網址連接本機模型服務。</PD_AiStatusInsecureEndpoint>
+  <PD_AiPrivacyNotice>只會傳送本次派系、信仰訊號、俘虜身分與健康分類、近期戰場細節、關係資訊、定性記憶、可選的角色扮演附言，以及已經決定的結果。API Key 會保存在本機 RimWorld 模組設定中。</PD_AiPrivacyNotice>
+  <PD_AiPlayerNoteLabel>給派系回覆的角色扮演附言（只影響 AI 語氣，不會改變交易）</PD_AiPlayerNoteLabel>
+  <PD_AiNarrativeHeading>AI 生成的派系回覆</PD_AiNarrativeHeading>
+  <PD_AiDisableNow>關閉 AI</PD_AiDisableNow>
+  <PD_AiNarrativeWaiting>正在等待敘事文案。下方正式還價已經固定，現在就可以正常操作。</PD_AiNarrativeWaiting>
+  <PD_AiNarrativeGenerated>{0}\n\n此文字只供敘事使用；下方正式條件與按鈕才是實際遊戲協議。</PD_AiNarrativeGenerated>
+  <PD_AiNarrativeFallback>AI 回覆無法使用，或已不符合目前交涉內容；本次已改用標準外交回覆。</PD_AiNarrativeFallback>
+  <PD_AiNarrativeReady>{0} 的 AI 敘事回覆已準備完成；正式交易條件仍以遊戲結果為準。</PD_AiNarrativeReady>
+  <PD_AiNarrativeArrived>來自 {0} 的 AI 派系回覆：\n{1}\n\n正式遊戲結果：{2}\n此文字只供敘事使用，不會建立額外付款、期限、承諾或遊戲效果。</PD_AiNarrativeArrived>
+  <PD_AiOfferLetterText>AI 生成的派系回覆：\n{0}\n\n正式提案：\n{1}\n\n此文字只供敘事使用；正式提案與信件按鈕才是實際遊戲協議。</PD_AiOfferLetterText>
+  <PD_AiFallbackTechnical>AI 敘事已改用標準模板：{0}</PD_AiFallbackTechnical>
+  <PD_RewardCeasefire>{0} 天停火</PD_RewardCeasefire>
+  <PD_RewardEarlyWarningIntel>60 天預警情報</PD_RewardEarlyWarningIntel>
+  <PD_RewardSpecial>{0} 個 {1}</PD_RewardSpecial>
+  <PD_DemandCeasefire>停火天數（5～30）</PD_DemandCeasefire>
+  <PD_DemandEarlyWarningIntel>預警情報</PD_DemandEarlyWarningIntel>
+  <PD_DemandSpecialReward>特殊報酬</PD_DemandSpecialReward>
+  <PD_SelectSpecialReward>選擇特殊報酬</PD_SelectSpecialReward>
+  <PD_SpecialRewardOption>{0} 個 {1}</PD_SpecialRewardOption>
+  <PD_NegotiationInvalidSpecialReward>選定的特殊報酬無效，或核心無法安全交付。</PD_NegotiationInvalidSpecialReward>
+  <PD_NegotiationSpecialRewardUnavailable>這名俘虜已不再符合選定特殊報酬的條件。</PD_NegotiationSpecialRewardUnavailable>
+  <PD_InvalidCeasefireReward>請輸入 5～30 天的停火期限。</PD_InvalidCeasefireReward>
+  <PD_NegotiationStrategicDisabled>模組設定已停用停火與情報報酬。</PD_NegotiationStrategicDisabled>
+  <PD_SettingStrategicConsequences>啟用停火、情報與後續事件</PD_SettingStrategicConsequences>
+  <PD_SettingStrategicConsequencesDesc>啟用確定性的策略報酬與有因果來源的俘虜後續事件。已經談妥的策略報酬仍會履行。</PD_SettingStrategicConsequencesDesc>
+  <PD_PirateRiskNone>未辨識出特殊風險。</PD_PirateRiskNone>
+  <PD_PirateRiskDelayed>俘虜離場後，對方可能故意延遲付款。</PD_PirateRiskDelayed>
+  <PD_PirateRiskRescue>談判可能是武裝救援行動的掩護，並會在交人前發動。</PD_PirateRiskRescue>
+  <PD_PirateRiskJailbreak>該派系可能煽動指定俘虜發起越獄。</PD_PirateRiskJailbreak>
+  <PD_PirateRiskAmbush>交易完成後可能發生武裝伏擊，但不會取消已交付的報酬。</PD_PirateRiskAmbush>
+  <PD_StatusPirateRisk>已揭露的海盜風險：{0}</PD_StatusPirateRisk>
+  <PD_SecurePirateDeal>改談安全條件</PD_SecurePirateDeal>
+  <PD_SecurePirateDealDesc>在釋放前把報酬降低約 20%，換取排除已揭露的海盜風險。</PD_SecurePirateDealDesc>
+  <PD_SecurePirateDealConfirmation>要要求較安全的交付安排嗎？目前報酬為「{0}」；安全條件會降低這份報酬。</PD_SecurePirateDealConfirmation>
+  <PD_SecurePirateDealUnavailable>目前條件無法降低成有效的安全協議。請取消交易，或接受已揭露的風險。</PD_SecurePirateDealUnavailable>
+  <PD_SecurePirateDealSucceeded>對方接受安全交付條件。原條件：{0}。新條件：{1}。</PD_SecurePirateDealSucceeded>
+  <PD_CeasefireRaidBlocked>{0} 試圖發動受管制的主動襲擊，但被有效停火阻止。停火剩餘：{1}。</PD_CeasefireRaidBlocked>
+  <PD_CeasefireExpired>與 {0} 的暫時停火已到期。</PD_CeasefireExpired>
+  <PD_CeasefireBrokenLabel>停火遭破壞：{0}</PD_CeasefireBrokenLabel>
+  <PD_CeasefireBrokenText>你的部隊攻擊了 {0} 的成員或財產（{1}）。透過 {2}、交易 {3} 取得的停火已終止；你的信用嚴重下降，對方怨恨也已提高。</PD_CeasefireBrokenText>
+  <PD_MemoryEventCeasefireBroken>攻擊 {0}，破壞已承諾的停火</PD_MemoryEventCeasefireBroken>
+  <PD_IntelWarningLabel>襲擊預警：{0}</PD_IntelWarningLabel>
+  <PD_IntelWarningText>透過交易 {6} 送回 {5} 所取得的情報，已發現 {0} 正在準備襲擊。\n\n預估威脅：{1}\n主要兵力或進攻方式：{2}\n大致方向：{3}\n預估抵達：{4}\n\n這份情報已使用並消耗。敵軍的精確裝備與出生位置仍然未知。</PD_IntelWarningText>
+  <PD_IntelThreatLow>有限</PD_IntelThreatLow>
+  <PD_IntelThreatMedium>可觀</PD_IntelThreatMedium>
+  <PD_IntelThreatHigh>重大</PD_IntelThreatHigh>
+  <PD_IntelStyleTribal>部落戰士與近距離突擊</PD_IntelStyleTribal>
+  <PD_IntelStyleIndustrial>工業武器與常規進攻</PD_IntelStyleIndustrial>
+  <PD_IntelStyleAdvanced>先進武器與專業攻擊人員</PD_IntelStyleAdvanced>
+  <PD_IntelDirectionUnknown>目前無法判定</PD_IntelDirectionUnknown>
+  <PD_IntelDirectionNorth>北方</PD_IntelDirectionNorth>
+  <PD_IntelDirectionSouth>南方</PD_IntelDirectionSouth>
+  <PD_IntelDirectionEast>東方</PD_IntelDirectionEast>
+  <PD_IntelDirectionWest>西方</PD_IntelDirectionWest>
+  <PD_IntelExpired>針對 {0} 的預警情報在 60 天內未使用，現已失效。</PD_IntelExpired>
+  <PD_StrategicStatus>策略協議：\n{0}</PD_StrategicStatus>
+  <PD_StrategicStatusCeasefire>停火：剩餘 {0}（俘虜 {1}，交易 {2}）</PD_StrategicStatusCeasefire>
+  <PD_StrategicStatusIntel>預警情報：剩餘 {0}（俘虜 {1}，交易 {2}）</PD_StrategicStatusIntel>
+  <PD_StrategicStatusWarnedRaid>已預警的襲擊預計約 {0} 後抵達</PD_StrategicStatusWarnedRaid>
+  <PD_StrategicStatusCareCredit>照護信用：下一次交涉可獲得一次性 10% 預算加成（俘虜 {0}，交易 {1}）</PD_StrategicStatusCareCredit>
+  <PD_PirateRescueRaidLabel>海盜救援行動：{0}</PD_PirateRescueRaidLabel>
+  <PD_PirateRescueRaidText>{0} 利用交易 {2} 掩護針對 {1} 的武裝救援。這項可能性已在釋放前揭露。</PD_PirateRescueRaidText>
+  <PD_PirateJailbreakLabel>越獄煽動：{0}</PD_PirateJailbreakLabel>
+  <PD_PirateJailbreakText>{0} 利用交易 {2} 向 {1} 傳遞指示，煽動其發起越獄。這項可能性已在釋放前揭露。</PD_PirateJailbreakText>
+  <PD_PositiveReturnLabel>昔日俘虜的回報：{0}</PD_PositiveReturnLabel>
+  <PD_PositiveReturnText>{0} 表示，{1} 仍記得被俘期間受到的醫療照護。作為交易 {2} 的後續回報，該派系送來了 {3} 白銀。</PD_PositiveReturnText>
+  <PD_CareCreditLabel>來自 {0} 的照護信用</PD_CareCreditLabel>
+  <PD_CareCreditGrantedText>{0} 承認 {1} 在被俘期間確實獲得妥善醫療照護。由於雙方仍處於永久敵對，他們不會送來實體禮物，但下一次交涉將獲得一次性 10% 預算讓步（交易 {2}）。</PD_CareCreditGrantedText>
+  <PD_RescueRaidLabel>救援行動：{0}</PD_RescueRaidLabel>
+  <PD_RescueRaidText>{0} 發動了專門行動，試圖救出重要俘虜 {1}。</PD_RescueRaidText>
+  <PD_ImportantDeathWarningLabel>重要人物死亡警告：{0}</PD_ImportantDeathWarningLabel>
+  <PD_ImportantDeathWarningText>{0} 認定你的殖民地應為重要俘虜 {1} 的死亡負責。來源交易：{2}。{3} 已偵測到對方正在準備報復。</PD_ImportantDeathWarningText>
+  <PD_DeathWarningAgreementBroken>玩家破壞了已接受的協議。</PD_DeathWarningAgreementBroken>
+  <PD_DeathWarningPlayerResponsible>死亡原因可追溯至玩家行為。</PD_DeathWarningPlayerResponsible>
+  <PD_RetaliationRaidLabel>為 {0} 復仇</PD_RetaliationRaidLabel>
+  <PD_RetaliationRaidText>{0} 為 {1} 的死亡發動報復襲擊。這項仇怨可追溯至交易 {2}。</PD_RetaliationRaidText>
+  <PD_PirateAmbushLabel>已揭露的海盜伏擊：{0}</PD_PirateAmbushLabel>
+  <PD_PirateAmbushText>{0} 發動了交易 {2} 中曾被懷疑的伏擊，目標與 {1} 有關。俘虜已經交付，所有約定報酬也都維持已交付狀態。</PD_PirateAmbushText>
+  <PD_DebugCeasefireGranted>已給予與 {0} 的除錯用 10 天停火。</PD_DebugCeasefireGranted>
+  <PD_DebugStrategicStateLogged>已將選定派系的停火與策略狀態寫入遊戲日誌。</PD_DebugStrategicStateLogged>
+  <PD_DebugIntelGranted>已給予針對 {0} 的除錯用預警情報。</PD_DebugIntelGranted>
+  <PD_DebugPositiveGiftForced>已立即觸發選定派系的康復回報禮物測試，請查看白銀空投與信件。</PD_DebugPositiveGiftForced>
+  <PD_DebugCareCreditGranted>已給予選定永久敵對派系的一次性照護信用，請查看派系策略狀態。</PD_DebugCareCreditGranted>
+  <PD_DebugRaidSuppressed>測試襲擊已被阻止或無法生成。有效停火或情報攔截期間，這是預期結果。</PD_DebugRaidSuppressed>
+  <PD_DebugRaidNoPawnGroupMaker>{0} 沒有符合目前條件的可用戰鬥兵力組合，測試襲擊已安全取消。</PD_DebugRaidNoPawnGroupMaker>
+  <PD_DebugRaidFactionNotHostile>派系 {0} 目前不是玩家的敵對派系，原版不會用它生成敵方襲擊；沃芬族等支援派系會被原版改為支援事件。請使用敵對派系測試實際襲擊。</PD_DebugRaidFactionNotHostile>
+  <PD_SettingCompatibilityLogging>啟用詳細相容性日誌</PD_SettingCompatibilityLogging>
+  <PD_SettingCompatibilityLoggingDesc>記錄主要相容模組、多殖民地狀態、被排除的特殊 Pawn、已隔離的例外及自動存檔修復；不會記錄 API Key 或 AI 完整回應。</PD_SettingCompatibilityLoggingDesc>
+  <PD_SettingPerformanceLogging>記錄過慢的外交掃描</PD_SettingPerformanceLogging>
+  <PD_SettingPerformanceLoggingDesc>定期俘虜外交掃描耗時至少 100 毫秒時，寫入有頻率限制的警告。除非正在診斷大型存檔，否則建議保持關閉。</PD_SettingPerformanceLoggingDesc>
+  <PD_SettingReduceUiMotion>減少介面動態效果</PD_SettingReduceUiMotion>
+  <PD_SettingReduceUiMotionDesc>關閉 AI 訊號脈動與結果淡入，使用更靜態的介面。</PD_SettingReduceUiMotionDesc>
+  <PD_CompatibilityRepairApplied>載入時已修復不相容或失效的 Prisoner Diplomacy 存檔資料。詳細內容：{0}</PD_CompatibilityRepairApplied>
+  <PD_DebugCompatibilityLogged>已將 Prisoner Diplomacy 相容性報告寫入遊戲日誌。</PD_DebugCompatibilityLogged>
+  <PD_DebugRepairApplied>已修復失效的 Prisoner Diplomacy 存檔資料。詳細內容：{0}</PD_DebugRepairApplied>
+  <PD_DebugRepairNotNeeded>沒有發現失效的 Prisoner Diplomacy 存檔資料。</PD_DebugRepairNotNeeded>
+  <PD_SettingsGameplayHeading>戰俘外交遊戲設定</PD_SettingsGameplayHeading>
+  <PD_SettingEnemyInitiatedRansoms>啟用敵方主動贖金提案</PD_SettingEnemyInitiatedRansoms>
+  <PD_SettingEnemyInitiatedRansomsDesc>關閉後不會再產生新的敵方主動提案；已存在的交易仍會照原條件完成或結束。</PD_SettingEnemyInitiatedRansomsDesc>
+  <PD_SettingOfferFrequency>敵方提案頻率：{0} 倍</PD_SettingOfferFrequency>
+  <PD_SettingRansomValue>贖金估值倍率：{0} 倍</PD_SettingRansomValue>
+  <PD_SettingFactionReserves>啟用派系外交儲備</PD_SettingFactionReserves>
+  <PD_SettingFactionReservesDesc>關閉後派系仍受殖民地報酬上限限制，但不會因外交儲備枯竭而拒絕合法交易。</PD_SettingFactionReservesDesc>
+  <PD_SettingFactionMemory>啟用派系待遇與可靠性記憶</PD_SettingFactionMemory>
+  <PD_SettingFactionMemoryDesc>關閉後不再套用可靠性、待遇與怨恨對報價和風險的影響；既有記憶資料會保留，不會被刪除。</PD_SettingFactionMemoryDesc>
+  <PD_SettingMessageDetail>派系記憶訊息詳細程度</PD_SettingMessageDetail>
+  <PD_MessageDetailEssential>只顯示重大變化</PD_MessageDetailEssential>
+  <PD_MessageDetailStandard>標準</PD_MessageDetailStandard>
+  <PD_MessageDetailDetailed>顯示較多變化</PD_MessageDetailDetailed>
+  <PD_CopyDiagnosticReport>複製診斷報告</PD_CopyDiagnosticReport>
+  <PD_DiagnosticReportCopied>診斷報告已複製到剪貼簿，也已寫入遊戲日誌。</PD_DiagnosticReportCopied>
+  <PD_MemoryDisabled>派系待遇與可靠性記憶目前已停用。</PD_MemoryDisabled>
+  <PD_FinancesDisabled>外交儲備目前已停用，派系仍受其他報酬上限限制。</PD_FinancesDisabled>
+  <PD_DebugNoActiveDeal>選定 Pawn 沒有可操作的活動交易。</PD_DebugNoActiveDeal>
+  <PD_DebugNoMap>選定 Pawn 目前不在任何地圖上。</PD_DebugNoMap>
+  <PD_DebugNoNegotiatingFaction>找不到可見且有基本成員 PawnKind 的可交涉派系。</PD_DebugNoNegotiatingFaction>
+  <PD_DebugNoHumanFaction>找不到可交涉的活動派系，無法生成原版人類測試 Pawn。</PD_DebugNoHumanFaction>
+  <PD_DebugNoRoyaltySupport>找不到帝國王族 PawnKind 或帝國派系。請確認 Royalty DLC 已啟用並且地圖上存在帝國。</PD_DebugNoRoyaltySupport>
+  <PD_DebugSpawnFailed>無法安全生成除錯用 Pawn。</PD_DebugSpawnFailed>
+  <PD_DebugNoHostageFaction>選定 Pawn 的派系無法持有被綁架殖民者。</PD_DebugNoHostageFaction>
+  <PD_DebugNoNegotiator>沒有可用的自由殖民者可擔任除錯談判者。</PD_DebugNoNegotiator>
+  <PD_DebugDemandRejectedByState>除錯開價被目前的談判狀態拒絕。</PD_DebugDemandRejectedByState>
+  <PD_DebugCounterUnavailable>找不到能讓此 Pawn 產生還價的確定性開價。</PD_DebugCounterUnavailable>
+  <PD_DebugNoCounteroffer>選定 Pawn 沒有活動中的還價。</PD_DebugNoCounteroffer>
+  <PD_DebugPrisonerSpawned>已從 {1} 生成測試俘虜 {0}。</PD_DebugPrisonerSpawned>
+  <PD_DebugRoyalPrisonerSpawned>已從 {1} 生成王族測試俘虜 {0}（重要性：{2}）。</PD_DebugRoyalPrisonerSpawned>
+  <PD_DebugHostageGenerated>已為 {1} 生成測試被綁架殖民者 {0}。</PD_DebugHostageGenerated>
+  <PD_DebugCustomRacePrisonerSpawned>已從 {1} 生成自訂種族測試俘虜 {0}（{2}）。</PD_DebugCustomRacePrisonerSpawned>
+  <PD_DebugCustomRaceHostageGenerated>已為 {1} 生成自訂種族被綁架殖民者 {0}（{2}）。</PD_DebugCustomRaceHostageGenerated>
+  <PD_DebugCustomRacesLogged>已將偵測到的自訂種族寫入遊戲日誌。</PD_DebugCustomRacesLogged>
+  <PD_DebugNoMatchingRaceFaction>目前沒有符合此自訂種族且可交涉的活動派系。</PD_DebugNoMatchingRaceFaction>
+  <PD_DebugInvalidRaceKind>此自訂種族沒有可用的人形 PawnKind。</PD_DebugInvalidRaceKind>
+  <PD_DebugCooldownReset>已重置選定 Pawn 的俘虜與派系談判冷卻。</PD_DebugCooldownReset>
+  <PD_DebugDemandResult>除錯談判：{0}；玩家要求 {1}；對方還價 {2}；接受機率 {3}。</PD_DebugDemandResult>
+  <PD_DebugReserveEmptied>已清空選定派系的外交儲備。</PD_DebugReserveEmptied>
+  <PD_DebugDeliveryPending>已將選定俘虜標記為已交付，但付款仍待處理。</PD_DebugDeliveryPending>
+  <PD_DebugReleaseOrdered>已下達選定俘虜的贖金釋放，但沒有模擬離開地圖。</PD_DebugReleaseOrdered>
+  <PD_DebugTreatmentRecorded>已為選定俘虜加入可治療傷勢，並記錄玩家完成治療。</PD_DebugTreatmentRecorded>
+  <PD_DebugDealCancelled>已取消選定的已接受交易，且沒有付款。</PD_DebugDealCancelled>
+  <PD_DebugPartialReward>只發放了下一項待交付報酬：{0}。交易仍維持部分完成狀態。</PD_DebugPartialReward>
+  <PD_DebugNoRewardPending>選定交易沒有可發放的待交付報酬。</PD_DebugNoRewardPending>
+  <PD_DebugPaymentCompleted>已強制完成選定交易的待付款項。</PD_DebugPaymentCompleted>
+  <PD_DebugNoPendingPayment>選定交易沒有可完成的待付款項。</PD_DebugNoPendingPayment>
+  <PD_DebugSaleFailed>已模擬選定俘虜被出售或轉移而導致交易失敗。</PD_DebugSaleFailed>
+  <PD_DebugEnslavementFailed>已模擬選定俘虜被奴役而導致交易失敗。</PD_DebugEnslavementFailed>
+  <PD_DebugDealAccepted>已接受選定 Pawn 的提案或還價。</PD_DebugDealAccepted>
+  <PD_DebugDealRejected>已拒絕選定 Pawn 的提案或還價。</PD_DebugDealRejected>
+  <PD_DebugDealExpired>已將選定 Pawn 的交易推進到逾期處理。</PD_DebugDealExpired>
+  <PD_DebugDealFailed>已模擬交易失敗：{0}</PD_DebugDealFailed>
+  <PD_DebugMemoryAdjusted>已調整選定 Pawn 原派系的待遇記憶。</PD_DebugMemoryAdjusted>
+  <PD_DebugReserveRefilled>已補滿選定 Pawn 原派系的外交儲備。</PD_DebugReserveRefilled>
+  <PD_MemoryEventDebugAdjustment>除錯工具調整了 {0} 的俘虜待遇記憶</PD_MemoryEventDebugAdjustment>
+  <PD_MemoryEventInfiltration>{0} 被用作蓄意滲透行動。</PD_MemoryEventInfiltration>
+  <PD_SettingAiAllowExternalContext>允許將談判摘要傳送到外部 AI 服務</PD_SettingAiAllowExternalContext>
+  <PD_SettingAiAllowExternalContextDesc>只有開啟後，AI 敘事才會把已裁切的派系、俘虜健康分類、定性記憶與正式結果送到外部服務。API Key 不會寫入報告。</PD_SettingAiAllowExternalContextDesc>
+  <PD_AiStatusExternalContextDisabled>AI 敘事已開啟，但外部談判摘要傳送被停用；所有文案會使用標準模板。</PD_AiStatusExternalContextDisabled>
+  <PD_EventUnavailable>這個外交事件已經無法處理。</PD_EventUnavailable>
+  <PD_EventAccept>接受提案</PD_EventAccept>
+  <PD_EventReject>拒絕</PD_EventReject>
+  <PD_SampleAddonEventLabel>中立交易點提案</PD_SampleAddonEventLabel>
+  <PD_SampleAddonEventDescription>透過 Prisoner Diplomacy 1.2 API 註冊的最小 Add-on 事件範例。</PD_SampleAddonEventDescription>
+  <PD_SampleAddonRewardLabel>工業零件庫</PD_SampleAddonRewardLabel>
+  <PD_SampleAddonRewardDescription>由範例種族 Adapter 提供的特殊報酬。</PD_SampleAddonRewardDescription>
+  <PD_EventNeutralTradeLabel>中立換俘點</PD_EventNeutralTradeLabel>
+  <PD_EventNeutralTradeText>{0} 提議在中立交易點處理 {1}。換俘仍會遵守 Prisoner Diplomacy 原有的釋放與付款檢查。</PD_EventNeutralTradeText>
+  <PD_EventNeutralMediator>中立仲介方</PD_EventNeutralMediator>
+  <PD_EventNeutralTradeCaravanArrived>{0} 已抵達並監督交接。只有商隊仍在場時，系統才會下達釋放指令。</PD_EventNeutralTradeCaravanArrived>
+  <PD_EventNeutralTradeReleaseOrdered>{0} 正透過原版俘虜釋放流程接受護送。</PD_EventNeutralTradeReleaseOrdered>
+  <PD_EventNeutralTradeCompletedLabel>中立交接完成</PD_EventNeutralTradeCompletedLabel>
+  <PD_EventNeutralTradeCompletedText>{0} 已確認 {1} 完成受監督的交接；後續仍由正常交易履約流程處理。</PD_EventNeutralTradeCompletedText>
+  <PD_EventNeutralTradePointCreated>已在世界地圖 Tile {1} 為 {0} 建立交易點。請派遣包含該俘虜的商隊前往交接。</PD_EventNeutralTradePointCreated>
+  <PD_EventNeutralTradePointArrived>{0} 已在世界地圖中立交易點交給 {1}。</PD_EventNeutralTradePointArrived>
+  <PD_EventInfiltrationLabel>假投降警報</PD_EventInfiltrationLabel>
+  <PD_EventInfiltrationText>{0} 故意讓特務 {1} 投降。該俘虜可能在行動被控制前煽動越獄，或破壞一份藍圖。</PD_EventInfiltrationText>
+  <PD_EventTrialLabel>公開戰犯審判</PD_EventTrialLabel>
+  <PD_EventTrialText>被捕的首領 {0} 可以接受公開審判。盟友會記住判決，而原派系可能發動報復。</PD_EventTrialText>
+  <PD_EventAmbushLabel>贖金伏擊報復</PD_EventAmbushLabel>
+  <PD_EventAmbushText>{0} 為了奪回 {1} 違反贖金交易，並針對交易 {2} 發動伏擊報復。</PD_EventAmbushText>
+  <PD_UnknownPrisoner>未知俘虜</PD_UnknownPrisoner>
+  <PD_UnknownDeal>未知交易</PD_UnknownDeal>
+  <PD_UiEventsTab>事件</PD_UiEventsTab>
+  <PD_UiEventsTitle>外交事件紀錄</PD_UiEventsTitle>
+  <PD_UiEventsEmpty>這個派系目前沒有外交擴充事件紀錄。</PD_UiEventsEmpty>
+  <PD_UiEventDueIn>{0} 後觸發</PD_UiEventDueIn>
+  <PD_UiEventMeta>俘虜：{0}｜交易：{1}｜{2}</PD_UiEventMeta>
+  <PD_UiEventTechnical>階段 {0}｜重試 {1}｜仲介：{2}</PD_UiEventTechnical>
+  <PD_UiEventStateScheduled>已排程</PD_UiEventStateScheduled>
+  <PD_UiEventStateOffered>等待決定</PD_UiEventStateOffered>
+  <PD_UiEventStateActive>進行中</PD_UiEventStateActive>
+  <PD_UiEventStateCompleted>已完成</PD_UiEventStateCompleted>
+  <PD_UiEventStateFailed>失敗</PD_UiEventStateFailed>
+  <PD_UiEventStateCancelled>已取消</PD_UiEventStateCancelled>
+  <PD_DebugEventAlreadyActive>選定俘虜已經有相同類型的進行中事件。</PD_DebugEventAlreadyActive>
+  <PD_DebugEventNeedsAcceptedDeal>中立交接測試需要已接受的贖金交易，工具無法自動準備交易。</PD_DebugEventNeedsAcceptedDeal>
+  <PD_DebugEventScheduleFailed>無法排程外交事件。</PD_DebugEventScheduleFailed>
+  <PD_DebugEventForced>已強制建立事件 {0}；目前狀態：{1}。</PD_DebugEventForced>
+  <PD_DebugEventAdvanced>已推進 {0}；狀態：{1}；階段：{2}。</PD_DebugEventAdvanced>
+  <PD_DebugNoActiveEvent>選定俘虜目前沒有進行中的外交事件。</PD_DebugNoActiveEvent>
+  <PD_DebugEventsCancelled>已取消 {0} 個進行中的外交事件。</PD_DebugEventsCancelled>
+  <PD_DebugEventsLogged>外交事件狀態已寫入遊戲日誌。</PD_DebugEventsLogged>
+  <PD_DebugSpecialRewardToggled>測試特殊報酬：{0}</PD_DebugSpecialRewardToggled>
+  <PD_WorldTradePointLabel>中立俘虜交易點</PD_WorldTradePointLabel>
+  <PD_WorldTradePointInspect>目標俘虜：{0}\n接收派系：{1}</PD_WorldTradePointInspect>
+  <PD_WorldTradePointVisit>在 {0} 進行交接</PD_WorldTradePointVisit>
+  <PD_DebugWorldTradePointForced>已在 Tile {1} 為 {2} 強制建立世界交易點 {0}。</PD_DebugWorldTradePointForced>
+  <PD_DebugWorldTradePointsLogged>世界交易點狀態已寫入遊戲日誌。</PD_DebugWorldTradePointsLogged>
+  <PD_DebugWorldTradePointCompleted>已完成選定的世界交易點交接。</PD_DebugWorldTradePointCompleted>
+  <PD_DebugWorldTradePointNeedsCaravan>該交易點沒有包含目標俘虜的商隊。</PD_DebugWorldTradePointNeedsCaravan>
+  <PD_DebugWorldTradeCaravanSent>已將 {0} 放入原版商隊，前往 Tile {1}。</PD_DebugWorldTradeCaravanSent>
+  <PD_DebugWorldTradeCaravanFailed>無法建立或安排測試商隊前往世界交易點。</PD_DebugWorldTradeCaravanFailed>
+  <PD_DebugNeutralTradeArrivalRejected>中立交接無法接受這支商隊。請確認事件、目標俘虜與活動中的交易仍有效。</PD_DebugNeutralTradeArrivalRejected>
+  <PD_SettingEnableAiNegotiationAdjustments>啟用受限的 AI 談判調整</PD_SettingEnableAiNegotiationAdjustments>
+  <PD_SettingEnableAiNegotiationAdjustmentsDesc>允許 AI 為進行中的還價回傳急迫性與籌碼反應訊號。所有變更仍由核心依派系儲備、庫存、報酬規則與過期脈絡限制；預設關閉。</PD_SettingEnableAiNegotiationAdjustmentsDesc>
+  <PD_AiPersonaHeading>派系 Persona 脈絡</PD_AiPersonaHeading>
+  <PD_AiPersonaDescription>可選的非信任角色扮演脈絡，只用來改變 AI 語氣，不能改動交易規則或報酬。最多 500 字元。</PD_AiPersonaDescription>
+  <PD_AiDefaultFactionPersona>全域 Persona 備用設定</PD_AiDefaultFactionPersona>
+  <PD_AiFactionPersonaOverride>Persona 覆寫</PD_AiFactionPersonaOverride>
+  <PD_DebugAiContextCopied>AI 脈絡預覽已複製到剪貼簿並寫入記錄。</PD_DebugAiContextCopied>
+  <PD_AiAdvisoryApplied>已將受限 AI 建議套用至目前還價：{0}</PD_AiAdvisoryApplied>
+  <PD_DebugAdvisoryApplied>已套用 Debug AI 建議：{0}</PD_DebugAdvisoryApplied>
+  <PD_DebugAdvisoryNoCounteroffer>目前沒有可供測試的進行中還價。</PD_DebugAdvisoryNoCounteroffer>
+  <PD_SettingErrorTelemetry>傳送匿名錯誤回報前先詢問</PD_SettingErrorTelemetry>
+  <PD_SettingErrorTelemetryDesc>啟用後，模組會在傳送經過清理的錯誤回報前詢問。你選擇前不會傳送任何回報。</PD_SettingErrorTelemetryDesc>
+  <PD_ErrorTelemetryDialogTitle>戰俘外交偵測到錯誤</PD_ErrorTelemetryDialogTitle>
+  <PD_ErrorTelemetryDialogText>模組偵測到一次非預期的運作。你願意傳送匿名且已清理的錯誤回報，協助改善《戰俘外交》嗎？不會上傳存檔；本機路徑與可辨識的秘密資訊會被移除。</PD_ErrorTelemetryDialogText>
+  <PD_ErrorTelemetryAllowOnce>傳送這次回報</PD_ErrorTelemetryAllowOnce>
+  <PD_ErrorTelemetryAllowSession>本次遊戲期間允許</PD_ErrorTelemetryAllowSession>
+  <PD_ErrorTelemetryReject>拒絕</PD_ErrorTelemetryReject>
+</LanguageData>

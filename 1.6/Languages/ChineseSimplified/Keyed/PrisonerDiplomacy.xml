@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PD_RansomOfferLabel>赎金报价：{0}</PD_RansomOfferLabel>
+  <PD_RansomOfferText>{0} 已向 {1} 提出安全返回 {2} 的要求。\n\n 接受保留该囚犯的交易。选择囚犯并使用“释放赎金”在截止日期前完成兑换。普通释放、逃跑、出售、招募、奴役或死亡将取消交易，无需付款。\n\n囚犯分类：{3}\n外交价值：{4}\n优惠到期时间：{5}</PD_RansomOfferText>
+  <PD_AcceptOffer>接受报价</PD_AcceptOffer>
+  <PD_RejectOffer>拒绝报价</PD_RejectOffer>
+  <PD_RejectAndMuteFaction>拒绝并暂停该派系</PD_RejectAndMuteFaction>
+  <PD_OfferUnavailable>此优惠不再可用。</PD_OfferUnavailable>
+  <PD_DealAccepted>已接受 {0} 的赎金交易。在截止日期之前订购专门的赎金释放。</PD_DealAccepted>
+  <PD_DealRejected>{0} 的赎金提议被拒绝。</PD_DealRejected>
+  <PD_DealRejectedAndFactionMuted>{0} 的赎金提议被拒绝。该派别在 60 天内不会再主动发送报价。</PD_DealRejectedAndFactionMuted>
+  <PD_ReleaseForRansom>释放赎金</PD_ReleaseForRansom>
+  <PD_ReleaseForRansomDesc>标记 {0} 接受赎金交易，并将他们的普通囚犯互动切换为释放。仅在释放完成并且囚犯安全退出地图后才会发放付款。</PD_ReleaseForRansomDesc>
+  <PD_ReleaseAlreadyOrdered>下令释放赎金</PD_ReleaseAlreadyOrdered>
+  <PD_ReleaseAlreadyOrderedDesc>该囚犯已被标记为可以通过赎金释放。香草典狱长的工作会尽可能护送他们出去。</PD_ReleaseAlreadyOrderedDesc>
+  <PD_NoSafeMap>该交易未分配给有效的玩家地图。</PD_NoSafeMap>
+  <PD_RansomReleaseOrdered>{0} 被标记为释放赎金。</PD_RansomReleaseOrdered>
+  <PD_DealDeadlineExtended>{0} 伤势过重，无法出行。该派系已将释放截止日期延长了 {1} 天，因为您的医生正在治疗他们。</PD_DealDeadlineExtended>
+  <PD_DealCompletedLabel>赎金已完成：{0}</PD_DealCompletedLabel>
+  <PD_DealCompletedText>{0} 根据赎金协议安全离开了殖民地。 {1} 交付 {2} 银色。</PD_DealCompletedText>
+  <PD_DealFailedLabel>赎金取消：{0}</PD_DealFailedLabel>
+  <PD_DealFailedText>{0} 的赎金交易在未付款的情况下结束。\n\n原因：{1}</PD_DealFailedText>
+  <PD_ReasonExpired>协议已过期</PD_ReasonExpired>
+  <PD_ReasonDead>囚犯死了</PD_ReasonDead>
+  <PD_ReasonEscaped>囚犯逃跑或离开而没有获得赎金</PD_ReasonEscaped>
+  <PD_ReasonRecruited>囚犯加入玩家阵营</PD_ReasonRecruited>
+  <PD_ReasonEnslaved>囚犯被奴役</PD_ReasonEnslaved>
+  <PD_ReasonSold>囚犯被出售或转移</PD_ReasonSold>
+  <PD_ReasonFactionInvalid>原始派系不再有效</PD_ReasonFactionInvalid>
+  <PD_ReasonHostageInvalid>该派系持有的殖民者不再可用于交换</PD_ReasonHostageInvalid>
+  <PD_ReasonPrisonerInvalid>囚犯不再符合资格</PD_ReasonPrisonerInvalid>
+  <PD_ReasonCancelled>交易被取消</PD_ReasonCancelled>
+  <PD_ClassRegular>正式会员</PD_ClassRegular>
+  <PD_ClassSpecialist>关键专家</PD_ClassSpecialist>
+  <PD_ClassNotable>当地著名的</PD_ClassNotable>
+  <PD_ClassCore>核心人物</PD_ClassCore>
+  <PD_ClassLeader>派系领袖</PD_ClassLeader>
+  <PD_DebugNoEligible>没有符合资格的囚犯。</PD_DebugNoEligible>
+  <PD_DebugOfferCreated>为 {0} 创建了赎金。</PD_DebugOfferCreated>
+  <PD_DebugRecords>囚徒外交：{0} 记录，{1} 活跃交易。</PD_DebugRecords>
+  <PD_IntroLabel>囚徒外交可用</PD_IntroLabel>
+  <PD_IntroText>当您扣留符合条件的囚犯时，他们的原始派系可能会在几天后与您联系并提出赎金要求。\n\n构建并启动通信控制台以立即进行谈判并设置您自己的赎金要求。您也可以等待派系首次报价。\n\n注：此说明仅出现一次。未来的囚犯仍然使用这个系统，但这个信息不会再出现。</PD_IntroText>
+  <PD_CommTargetLabel>开放囚徒外交：{0}</PD_CommTargetLabel>
+  <PD_CommTargetInfo>与 {0} 开展囚犯外交，包括积极的赎金交易和战略协议。</PD_CommTargetInfo>
+  <PD_NegotiationTitle>囚犯赎金谈判：{0}</PD_NegotiationTitle>
+  <PD_NegotiatorSummary>谈判者：{0} |社交：{1}</PD_NegotiatorSummary>
+  <PD_UiCases>案例</PD_UiCases>
+  <PD_UiFactionType>渠道</PD_UiFactionType>
+  <PD_UiSignal>派系容量</PD_UiSignal>
+  <PD_UiPrisonerList>囚犯案件</PD_UiPrisonerList>
+  <PD_UiWorkspace>谈判工作区</PD_UiWorkspace>
+  <PD_UiStatus>状态：{0}</PD_UiStatus>
+  <PD_UiAgreementSummary>战略协议</PD_UiAgreementSummary>
+  <PD_UiNoActiveAgreements>没有有效的战略协议。</PD_UiNoActiveAgreements>
+  <PD_UiFactionStanding>派系地位</PD_UiFactionStanding>
+  <PD_UiAgreementReviewStatus>审查派系协议</PD_UiAgreementReviewStatus>
+  <PD_UiAgreementsTab>协议</PD_UiAgreementsTab>
+  <PD_UiHistoryTab>历史</PD_UiHistoryTab>
+  <PD_UiHistoryTitle>交易记录</PD_UiHistoryTitle>
+  <PD_UiHistoryEmpty>该派系没有记录已完成或已拒绝的交易。</PD_UiHistoryEmpty>
+  <PD_UiHistoryEntry>{0} | {1} | {2}\n{3}</PD_UiHistoryEntry>
+  <PD_UiHistoryMeta>{0} | {1} | {2}</PD_UiHistoryMeta>
+  <PD_HistoryFactionOffer>派系报价</PD_HistoryFactionOffer>
+  <PD_HistoryPlayerDemand>玩家需求</PD_HistoryPlayerDemand>
+  <PD_HistoryAgo>{0} 前</PD_HistoryAgo>
+  <PD_HistoryUnknownDate>日期不可用</PD_HistoryUnknownDate>
+  <PD_UiAgreementAlertLabel>有效的囚犯外交协议</PD_UiAgreementAlertLabel>
+  <PD_UiAgreementAlertExplanation>审查有效的停火、情报、护理信贷和悬而未决的囚犯外交协议。</PD_UiAgreementAlertExplanation>
+  <PD_UiPortableTerminal>打开便携式外交终端</PD_UiPortableTerminal>
+  <PD_UiPortableTerminalDesc>查看已知的派系联系人、有效协议和交易历史记录。</PD_UiPortableTerminalDesc>
+  <PD_UiFactionContactsTitle>已知的外交联系</PD_UiFactionContactsTitle>
+  <PD_UiFactionContactsEmpty>尚未建立派别联系。</PD_UiFactionContactsEmpty>
+  <PD_UiFactionContactSummary>{0}\n案例：{1} |历史记录：{2}</PD_UiFactionContactSummary>
+  <PD_UiReadOnly>只读评论</PD_UiReadOnly>
+  <PD_HistoryExchangeSupplies>人质 {0}、{1} {2}</PD_HistoryExchangeSupplies>
+  <PD_HistoryExchangeSilver>人质 {0}、{1} 银色</PD_HistoryExchangeSilver>
+  <PD_UiNoCases>该派系没有符合条件的囚犯案件。</PD_UiNoCases>
+  <PD_UiPrisonerProfile>囚犯简介</PD_UiPrisonerProfile>
+  <PD_UiHealth>健康 {0}</PD_UiHealth>
+  <PD_UiFactionContext>派系背景</PD_UiFactionContext>
+  <PD_UiDealProgress>交易进展</PD_UiDealProgress>
+  <PD_UiAgreedTerms>条款：{0}</PD_UiAgreedTerms>
+  <PD_UiOfferDeadline>优惠将于 {0} 后到期</PD_UiOfferDeadline>
+  <PD_UiFulfillmentDeadline>发布截止日期： 剩余 {0} |医疗扩展：{1}</PD_UiFulfillmentDeadline>
+  <PD_UiPaymentDeadline>预计付款金额为 {0}</PD_UiPaymentDeadline>
+  <PD_UiPirateRisk>盗版交易风险</PD_UiPirateRisk>
+  <PD_UiPirateRiskMitigated>减轻</PD_UiPirateRiskMitigated>
+  <PD_UiPirateRiskDisclosed>发布前披露</PD_UiPirateRiskDisclosed>
+  <PD_UiMaterialRewards>物质奖励</PD_UiMaterialRewards>
+  <PD_UiDiplomaticRewards>外交奖励</PD_UiDiplomaticRewards>
+  <PD_UiStrategicRewards>战略奖励</PD_UiStrategicRewards>
+  <PD_UiExchangeGive>你释放</PD_UiExchangeGive>
+  <PD_UiExchangeReceive>你康复了</PD_UiExchangeReceive>
+  <PD_UiExchangeGiveText>{0}\n外交值：{1}</PD_UiExchangeGiveText>
+  <PD_UiExchangeReceiveText>{0}\n兑换费用：{1}</PD_UiExchangeReceiveText>
+  <PD_UiExchangeBalance>附加补偿：{0}</PD_UiExchangeBalance>
+  <PD_Ui_PrisonerProfile>囚犯简介</PD_Ui_PrisonerProfile>
+  <PD_Ui_Health>健康 {0}</PD_Ui_Health>
+  <PD_Ui_FactionContext>派系背景</PD_Ui_FactionContext>
+  <PD_Ui_MaterialRewards>物质奖励</PD_Ui_MaterialRewards>
+  <PD_Ui_DiplomaticRewards>外交奖励</PD_Ui_DiplomaticRewards>
+  <PD_Ui_StrategicRewards>战略奖励</PD_Ui_StrategicRewards>
+  <PD_UiEnabled>启用</PD_UiEnabled>
+  <PD_UiDisabled>残疾人</PD_UiDisabled>
+  <PD_ValueCompact>值 {0}</PD_ValueCompact>
+  <PD_SelectPrisoner>选择一名符合条件的囚犯来准备赎金要求。</PD_SelectPrisoner>
+  <PD_NegotiationPrisonerDetails>分类：{0}\n预计外交价值：{1}\n健康：{2}</PD_NegotiationPrisonerDetails>
+  <PD_DemandSilver>白银需求</PD_DemandSilver>
+  <PD_AssessmentText>评估：{0}\n{1}</PD_AssessmentText>
+  <PD_AssessmentVeryFavorable>对派别非常有利</PD_AssessmentVeryFavorable>
+  <PD_AssessmentReasonable>合理的</PD_AssessmentReasonable>
+  <PD_AssessmentAmbitious>雄心勃勃的</PD_AssessmentAmbitious>
+  <PD_AssessmentExtreme>极端</PD_AssessmentExtreme>
+  <PD_PreviewExact>预计接受机会：{0}</PD_PreviewExact>
+  <PD_PreviewApproximate>预计录取几率：约{0}%</PD_PreviewApproximate>
+  <PD_PreviewUncertain>谈判者无法提供可靠的概率。</PD_PreviewUncertain>
+  <PD_SubmitDemand>需求 {0} 白银</PD_SubmitDemand>
+  <PD_SubmitDemandInvalid>输入有效的白银需求</PD_SubmitDemandInvalid>
+  <PD_InvalidDemand>输入从 {0} 到 {1} 的总白银数量。</PD_InvalidDemand>
+  <PD_PlayerDemandAccepted>{0} 的派系接受了对 {1} 白银的需求。完成专用赎金释放。</PD_PlayerDemandAccepted>
+  <PD_PlayerDemandRejected>{0} 派拒绝了对 {1} 白银的需求。</PD_PlayerDemandRejected>
+  <PD_PlayerDemandAcceptedRewards>{0} 的派系接受了这些条款：{1}。完成专用赎金释放。</PD_PlayerDemandAcceptedRewards>
+  <PD_PlayerDemandRejectedRewards>{0} 的派系拒绝了这些条款：{1}。</PD_PlayerDemandRejectedRewards>
+  <PD_PlayerDemandCountered>{0} 派系提出还价：{1}。您可以在当前的谈判中立即做出回应。</PD_PlayerDemandCountered>
+  <PD_PlayerDemandFinalCounter>该派系做出最后还价：{0}</PD_PlayerDemandFinalCounter>
+  <PD_CounterOfferRejected>关于{0}的谈判已经结束。</PD_CounterOfferRejected>
+  <PD_CounterNoLongerAffordable>该派系无法再为此次还盘提供资金。修改或结束谈判。</PD_CounterNoLongerAffordable>
+  <PD_NegotiationUnavailable>目前无法进行囚犯谈判。</PD_NegotiationUnavailable>
+  <PD_NegotiationActiveDeal>该囚犯已经达成了一项有效的赎金交易。</PD_NegotiationActiveDeal>
+  <PD_NegotiationPrisonerCooldown>该囚犯不能再为 {0} 进行谈判。</PD_NegotiationPrisonerCooldown>
+  <PD_NegotiationFactionCooldown>该派系不会考虑对 {0} 的其他需求。</PD_NegotiationFactionCooldown>
+  <PD_NegotiationSuspended>该派在多次提出无理要求后，已暂停了{0}的谈判。</PD_NegotiationSuspended>
+  <PD_NegotiationCounterPending>派系还价正在等待您的回应。</PD_NegotiationCounterPending>
+  <PD_NegotiationNoRewards>至少选择一项奖励。</PD_NegotiationNoRewards>
+  <PD_NegotiationTooManyRewards>一笔交易最多可以包含两种奖励类型。</PD_NegotiationTooManyRewards>
+  <PD_NegotiationInvalidRewards>输入有效的奖励金额。</PD_NegotiationInvalidRewards>
+  <PD_NegotiationInvalidSupplies>所选补给品无法从该派系获得。</PD_NegotiationInvalidSupplies>
+  <PD_NegotiationGoodwillUnavailable>该派系不能提供善意作为奖励。</PD_NegotiationGoodwillUnavailable>
+  <PD_NegotiationGoodwillTooHigh>所要求的商誉将超过正常关系的限制。</PD_NegotiationGoodwillTooHigh>
+  <PD_DemandSupplies>补给品</PD_DemandSupplies>
+  <PD_DemandGoodwill>善意</PD_DemandGoodwill>
+  <PD_SelectSupplies>选择耗材</PD_SelectSupplies>
+  <PD_RewardUnitValue>交涉单件价值：{0} 白银</PD_RewardUnitValue>
+  <PD_RewardTotalValue>当前总价值：{0} 白银</PD_RewardTotalValue>
+  <PD_InvalidSilverReward>输入正的白银数量。</PD_InvalidSilverReward>
+  <PD_InvalidSupplyReward>选择供应类型并输入正数量。</PD_InvalidSupplyReward>
+  <PD_InvalidGoodwillReward>输入正商誉金额。</PD_InvalidGoodwillReward>
+  <PD_SubmitRewardDemand>提交条款</PD_SubmitRewardDemand>
+  <PD_SubmitRevisedDemand>提交修改后的条款</PD_SubmitRevisedDemand>
+  <PD_ReviseDemand>修改您的条款一次</PD_ReviseDemand>
+  <PD_AcceptCounterOffer>接受还盘</PD_AcceptCounterOffer>
+  <PD_RejectCounterOffer>结束谈判</PD_RejectCounterOffer>
+  <PD_FinalCounterOnly>这是该派系的最终提议。您可以接受或结束谈判。</PD_FinalCounterOnly>
+  <PD_CounterOfferDetails>派系还价：{0}\n谈判回合：{1}/2</PD_CounterOfferDetails>
+  <PD_CounterOfferHeading>派系还价</PD_CounterOfferHeading>
+  <PD_CounterOfferRound>圆形 {0}/2</PD_CounterOfferRound>
+  <PD_CounterRevisionHint>修改他们的报价，或调整下面的奖励。</PD_CounterRevisionHint>
+  <PD_UseFactionOffer>确切的报价</PD_UseFactionOffer>
+  <PD_AddSilverToCounter>+{0} 银</PD_AddSilverToCounter>
+  <PD_CounterShortcutUnavailable>此优惠已包含两种非银币奖励类型，否则添加的银币将超出限制。</PD_CounterShortcutUnavailable>
+  <PD_ModeRansom>赎金条款</PD_ModeRansom>
+  <PD_ModeExchange>交换囚犯</PD_ModeExchange>
+  <PD_ExchangeHostageLabel>殖民者恢复</PD_ExchangeHostageLabel>
+  <PD_ExchangeSelectHostage>选择一名被绑架的殖民者</PD_ExchangeSelectHostage>
+  <PD_ExchangeHostageOption>{0} - 交换价值 {1}</PD_ExchangeHostageOption>
+  <PD_ExchangeNoHostages>该派系目前没有合格的殖民者。</PD_ExchangeNoHostages>
+  <PD_ExchangeTerms>报价：{0}（价值{1}）\n恢复：{2}（兑换成本{3}）\n额外补偿：{4}</PD_ExchangeTerms>
+  <PD_ExchangePaymentMethod>赔偿</PD_ExchangePaymentMethod>
+  <PD_ExchangePaySilver>银</PD_ExchangePaySilver>
+  <PD_ExchangeCompensationSilver>{0} 银色</PD_ExchangeCompensationSilver>
+  <PD_ExchangeCompensationSupplies>{0} {1}</PD_ExchangeCompensationSupplies>
+  <PD_ExchangeConfirm>接受换货-支付{0}</PD_ExchangeConfirm>
+  <PD_ExchangeHostageUnavailable>选定的殖民者不再属于该派系。</PD_ExchangeHostageUnavailable>
+  <PD_ExchangeHostageReserved>所选的殖民者已被另一个活跃的交易所保留。</PD_ExchangeHostageReserved>
+  <PD_ExchangeInsufficientSilver>殖民地没有足够的可交易白银来进行这种交换。</PD_ExchangeInsufficientSilver>
+  <PD_ExchangeInsufficientSupplies>该殖民地没有足够的选定补给品来进行此次交换。</PD_ExchangeInsufficientSupplies>
+  <PD_ExchangeSupplyGapTooLarge>所选供应无法在交换数量限制内弥补此价值差距。</PD_ExchangeSupplyGapTooLarge>
+  <PD_ExchangeAccepted>交换接受：通过专用命令释放{0}，恢复{1}。托管补偿：{2}。</PD_ExchangeAccepted>
+  <PD_ReleaseForExchange>释放交换囚犯</PD_ReleaseForExchange>
+  <PD_ReleaseForExchangeDesc>通过交换协议释放{0}。一旦囚犯安全离开，{1} 将乘坐空投舱返回。</PD_ReleaseForExchangeDesc>
+  <PD_ExchangeCompletedLabel>囚犯交换完成：{0}</PD_ExchangeCompletedLabel>
+  <PD_ExchangeCompletedText>{0} 根据交换协议安全离开。 {1} 已返回殖民地。支付的额外补偿：{2}。</PD_ExchangeCompletedText>
+  <PD_ExchangeCompensationRefunded>{0} 兑换失败的银币已被退回。</PD_ExchangeCompensationRefunded>
+  <PD_ExchangeCompensationRefundedSupplies>{0} {1} 从失败的交换中被返回。</PD_ExchangeCompensationRefundedSupplies>
+  <PD_HistoryExchangeCompleted>将 {0} 交换为 {1}</PD_HistoryExchangeCompleted>
+  <PD_AssessmentRewardsText>评估：{0}\n{1}\n请求奖励：{2}\n物质奖励限额：{3}值</PD_AssessmentRewardsText>
+  <PD_FactionNegotiationSummary>派系财务： {0}\n{1}</PD_FactionNegotiationSummary>
+  <PD_FinancesStrong>资金充足</PD_FinancesStrong>
+  <PD_FinancesCapable>能够谈判</PD_FinancesCapable>
+  <PD_FinancesLimited>资源有限</PD_FinancesLimited>
+  <PD_FinancesDepleted>目前无法为有意义的交易提供资金</PD_FinancesDepleted>
+  <PD_HistoryNone>以前没有囚犯与这个派系打交道。</PD_HistoryNone>
+  <PD_HistorySummary>已完成交易：{0}；谈判结束：{1}.\n最后结果：{2}</PD_HistorySummary>
+  <PD_HistoryCompleted>{0} 返回为 {1}</PD_HistoryCompleted>
+  <PD_HistorySummaryWithMemory>已完成交易：{0}；谈判结束：{1}.\n最后结果：{2}\n{3}</PD_HistorySummaryWithMemory>
+  <PD_HistoryNoneWithMemory>之前没有囚犯与该派系打交道。\n{0}</PD_HistoryNoneWithMemory>
+  <PD_MemoryNeutral>该派尚未形成强烈的俘虏外交印象。</PD_MemoryNeutral>
+  <PD_MemorySummary>协议信任：{0}\n囚犯待遇：{1}\n挥之不去的怨恨：{2}</PD_MemorySummary>
+  <PD_ReliabilityTrusted>他们希望你遵守已接受的协议</PD_ReliabilityTrusted>
+  <PD_ReliabilityNeutral>他们对你的承诺仍然犹豫不决</PD_ReliabilityNeutral>
+  <PD_ReliabilityDoubtful>他们怀疑你的承诺</PD_ReliabilityDoubtful>
+  <PD_ReliabilityDistrusted>他们认为你的囚犯协议不可靠</PD_ReliabilityDistrusted>
+  <PD_TreatmentHonorable>他们相信你对待囚犯是克制和关心的</PD_TreatmentHonorable>
+  <PD_TreatmentNeutral>他们对你的一般治疗没有强烈的看法</PD_TreatmentNeutral>
+  <PD_TreatmentConcerned>有关待遇不佳的报告令他们感到担忧</PD_TreatmentConcerned>
+  <PD_TreatmentCruel>关于虐待囚犯的报道已经传开</PD_TreatmentCruel>
+  <PD_ResentmentLow>个人怨恨已所剩无几</PD_ResentmentLow>
+  <PD_ResentmentLasting>他们保留着持久的怨恨</PD_ResentmentLasting>
+  <PD_ResentmentSevere>他们怀有强烈的政治和个人怨恨</PD_ResentmentSevere>
+  <PD_FactionMemorySection>囚徒外交\n{0}</PD_FactionMemorySection>
+  <PD_FactionMemorySectionWithEvent>囚徒外交\n{0}\n近期原因：{1}</PD_FactionMemorySectionWithEvent>
+  <PD_MemoryChanged>{0}的囚徒外交印象改变：{1}</PD_MemoryChanged>
+  <PD_MemoryEventCaptured>{0}被俘虏。</PD_MemoryEventCaptured>
+  <PD_MemoryEventEscaped>{0} 越狱。</PD_MemoryEventEscaped>
+  <PD_MemoryEventCriticalRecovery>{0} 在您的监护下已从危及生命的状况中恢复过来。</PD_MemoryEventCriticalRecovery>
+  <PD_MemoryEventMalnutrition>{0} 在您的监护下遭受了长期饥饿。</PD_MemoryEventMalnutrition>
+  <PD_MemoryEventPermanentHarm>{0} 在拘留期间遭受了玩家造成的永久性伤害。</PD_MemoryEventPermanentHarm>
+  <PD_MemoryEventOrganHarvested>在您的监护下，{0} 的身体部位被移除。</PD_MemoryEventOrganHarvested>
+  <PD_MemoryEventUnconditionalRelease>{0} 无需付费即可发布。</PD_MemoryEventUnconditionalRelease>
+  <PD_MemoryEventReleasedAfterTreatment>{0} 病情危重后接受治疗并无偿出院。</PD_MemoryEventReleasedAfterTreatment>
+  <PD_MemoryEventAgreementCompleted>{0} 已接受的协议已兑现。</PD_MemoryEventAgreementCompleted>
+  <PD_MemoryEventExchangeCompleted>涉及{0}的交换已按约定完成。</PD_MemoryEventExchangeCompleted>
+  <PD_MemoryEventDeathBreach>{0} 在您接受归还协议后死亡。</PD_MemoryEventDeathBreach>
+  <PD_MemoryEventExecution>{0} 因玩家在拘留期间的行为而死亡。</PD_MemoryEventExecution>
+  <PD_MemoryEventPrisonerDeath>{0} 在您拘留期间死亡。</PD_MemoryEventPrisonerDeath>
+  <PD_MemoryEventEnslavedBreach>{0} 在接受返回协议后被奴役。</PD_MemoryEventEnslavedBreach>
+  <PD_MemoryEventEnslaved>{0} 在您拘留期间被奴役。</PD_MemoryEventEnslaved>
+  <PD_MemoryEventRecruitedBreach>{0} 在接受返回协议后被招募。</PD_MemoryEventRecruitedBreach>
+  <PD_MemoryEventRecruited>{0} 是从圈养中招募的。</PD_MemoryEventRecruited>
+  <PD_MemoryEventSoldBreach>{0} 在接受退货协议后被出售或转让。</PD_MemoryEventSoldBreach>
+  <PD_MemoryEventSold>{0} 已被出售或从您的保管中转移。</PD_MemoryEventSold>
+  <PD_MemoryEventAgreementExpired>{0} 已接受的协议在交付前已过期。</PD_MemoryEventAgreementExpired>
+  <PD_MemoryEventImproperRelease>{0} 未完成已接受的发布程序就离开了。</PD_MemoryEventImproperRelease>
+  <PD_MemoryEventAbsurdDemand>极端的要求被视为一种侮辱。</PD_MemoryEventAbsurdDemand>
+  <PD_RewardSilver>{0} 银色</PD_RewardSilver>
+  <PD_RewardSupplies>{0} {1}</PD_RewardSupplies>
+  <PD_RewardGoodwill>+{0} 商誉</PD_RewardGoodwill>
+  <PD_RewardNone>没有奖励</PD_RewardNone>
+  <PD_PrisonerStatus>外交地位</PD_PrisonerStatus>
+  <PD_PrisonerStatusDesc>查看该囚犯的派系、外交价值和赎金状态。</PD_PrisonerStatusDesc>
+  <PD_PrisonerStatusText>{0}\n\n起源派系：{1}\n分类：{2}\n外交价值：{3}\n赎金状态：{4}</PD_PrisonerStatusText>
+  <PD_StatusNoDeal>没有活跃交易</PD_StatusNoDeal>
+  <PD_StatusEstimatedContact>估计派系联系人：{0}</PD_StatusEstimatedContact>
+  <PD_StatusContactImminent>预计很快就会发生派系接触。</PD_StatusContactImminent>
+  <PD_StatusOffered>派系报价等待回复</PD_StatusOffered>
+  <PD_StatusNegotiating>还盘等待回复</PD_StatusNegotiating>
+  <PD_StatusAccepted>公认;等待赎金释放令</PD_StatusAccepted>
+  <PD_StatusReleaseOrdered>下令释放赎金</PD_StatusReleaseOrdered>
+  <PD_StatusPendingPayment>交货确认；待付款</PD_StatusPendingPayment>
+  <PD_StatusExchange>{0}；换货退货：{1}</PD_StatusExchange>
+  <PD_StatusCompleted>完全的</PD_StatusCompleted>
+  <PD_StatusRejected>被拒绝</PD_StatusRejected>
+  <PD_StatusExpired>已到期</PD_StatusExpired>
+  <PD_StatusCancelled>取消</PD_StatusCancelled>
+  <PD_StatusDownedRelease>囚犯被击倒了。在他们能够再次移动之前，香草典狱长无法护送他们出去。</PD_StatusDownedRelease>
+  <PD_DealCompletedRewardsText>{0} 根据赎金协议安全离开了殖民地。 {1} 交付：{2}。</PD_DealCompletedRewardsText>
+  <PD_SettingsCategory>囚徒外交</PD_SettingsCategory>
+  <PD_SettingPermanentEnemyNegotiation>允许永久敌对的人类派系进行谈判</PD_SettingPermanentEnemyNegotiation>
+  <PD_SettingPermanentEnemyNegotiationDesc>启用后，永久敌对的人类派系会使用交易性囚犯外交。</PD_SettingPermanentEnemyNegotiationDesc>
+  <PD_SettingPirateRisks>启用盗版交易风险</PD_SettingPirateRisks>
+  <PD_SettingPirateRisksDesc>有风险的盗版交易可能会在发布前延迟付款，并且可以取消。</PD_SettingPirateRisksDesc>
+  <PD_SettingFactionOverrides>派系协商类型覆盖</PD_SettingFactionOverrides>
+  <PD_SettingFactionOverridesDesc>使用自动，除非派系 mod 需要特定的协商类型。</PD_SettingFactionOverridesDesc>
+  <PD_FactionTypeAutomatic>自动的</PD_FactionTypeAutomatic>
+  <PD_FactionTypeNonNegotiating>不谈判</PD_FactionTypeNonNegotiating>
+  <PD_FactionTypeTransactional>交易性</PD_FactionTypeTransactional>
+  <PD_FactionTypeDiplomatic>外交</PD_FactionTypeDiplomatic>
+  <PD_FactionNegotiationProfile>谈判类型：{0}\n财务能力：{1}</PD_FactionNegotiationProfile>
+  <PD_StatusFactionType>派系协商类型：{0}</PD_StatusFactionType>
+  <PD_StatusPirateRiskDelayed>盗版条款存在已披露的延迟付款风险。</PD_StatusPirateRiskDelayed>
+  <PD_StatusPiratePaymentPending>海盗付款的金额为 {0}。</PD_StatusPiratePaymentPending>
+  <PD_PirateReleaseConfirmation>{0} 交易提供 {1} 并承担此已披露的风险：{2}。还是释放囚犯？</PD_PirateReleaseConfirmation>
+  <PD_CancelRiskyDeal>取消有风险的交易</PD_CancelRiskyDeal>
+  <PD_CancelRiskyDealDesc>在释放囚犯之前取消这项已接受的海盗协议。</PD_CancelRiskyDealDesc>
+  <PD_CancelRiskyDealConfirmation>取消已接受的 {0} 交易吗？囚犯将留在监狱内，不会得到任何报酬。</PD_CancelRiskyDealConfirmation>
+  <PD_DealCancelledByPlayer>取消了已接受的 {0} 交易。</PD_DealCancelledByPlayer>
+  <PD_PiratePaymentDelayed>{0} 确认安全释放，但将延迟支付 {1}。发布前已披露风险。</PD_PiratePaymentDelayed>
+  <PD_RimChatCompatibilityHeading>RimChat 共存</PD_RimChatCompatibilityHeading>
+  <PD_RimChatDetectedStatus>检测到 RimChat {0}。兼容性：{1}</PD_RimChatDetectedStatus>
+  <PD_RimChatEffectiveMode>有效安全模式：{0}</PD_RimChatEffectiveMode>
+  <PD_RimChatStatusNotInstalled>RimChat 未激活。囚徒外交正常进行。</PD_RimChatStatusNotInstalled>
+  <PD_RimChatStatusCompatible>提供特定版本的勒索保护</PD_RimChatStatusCompatible>
+  <PD_RimChatStatusUnverified>已检测到，但没有经过验证的赎金集成可用</PD_RimChatStatusUnverified>
+  <PD_RimChatStatusIncompatible>版本未知或不兼容；桥禁用</PD_RimChatStatusIncompatible>
+  <PD_RansomOwnerSetting>囚犯赎金系统所有者</PD_RansomOwnerSetting>
+  <PD_RansomOwnerPrisonerDiplomacy>囚徒外交</PD_RansomOwnerPrisonerDiplomacy>
+  <PD_RansomOwnerRimChat>边缘聊天</PD_RansomOwnerRimChat>
+  <PD_RansomOwnerSafeIsolation>安全隔离</PD_RansomOwnerSafeIsolation>
+  <PD_RansomOwnerPrisonerDiplomacyDesc>囚犯外交创造了所有赎金交易。在经过验证的 RimChat 版本上，其重叠的勒索操作会被阻止，而其他 RimChat 功能仍然可用。</PD_RansomOwnerPrisonerDiplomacyDesc>
+  <PD_RansomOwnerRimChatDesc>RimChat 可能会创建新的赎金付款。囚徒外交停止创建新的报价和通讯控制台交易，但保留并完成其现有交易。</PD_RansomOwnerRimChatDesc>
+  <PD_RansomOwnerSafeIsolationDesc>囚徒外交仍然可用，但不会尝试未经验证的 RimChat 桥接。不要通过 RimChat 与同一名囚犯谈判。</PD_RansomOwnerSafeIsolationDesc>
+  <PD_RimChatRequired>RimChat 未激活</PD_RimChatRequired>
+  <PD_RimChatSafeIsolationWarning>无法安全桥接已安装的 RimChat 版本。现有的囚犯外交协议仍然有效；避免为这些囚犯启动重叠的 RimChat 赎金。</PD_RimChatSafeIsolationWarning>
+  <PD_NegotiationOwnedByRimChat>RimChat 目前被选为囚犯赎金系统所有者。囚徒外交不会创造新的协议。</PD_NegotiationOwnedByRimChat>
+  <PD_RimChatBlockedActiveDeal>该囚犯已经拥有有效的囚犯外交协议。 RimChat 赎金付款被阻止，以防止重复付款和期限冲突。</PD_RimChatBlockedActiveDeal>
+  <PD_RimChatBlockedOwnedByPD>囚犯外交目前拥有囚犯赎金交易。请改用普通的通信控制台“囚徒外交”谈判。</PD_RimChatBlockedOwnedByPD>
+  <PD_RimChatBlockedSafeIsolation>RimChat 囚犯赎金集成已通过安全隔离禁用。</PD_RimChatBlockedSafeIsolation>
+  <PD_RimChatWarningLabel>RimChat 赎金兼容性</PD_RimChatWarningLabel>
+  <PD_RimChatWarningText>RimChat {0} 已检测到，但其囚犯赎金桥无法验证。囚徒外交保留了自己的交易和普通的通讯控制台条目。请勿为已签订有效囚犯外交协议的囚犯谈判 RimChat 赎金。您可以在 Mod 设置中选择系统所有者。注意：此警告每个菌落仅出现一次。</PD_RimChatWarningText>
+  <PD_AiSettingsHeading>AI叙事原型（实验）</PD_AiSettingsHeading>
+  <PD_SettingEnableAiNarratives>启用人工智能生成的派系回复</PD_SettingEnableAiNarratives>
+  <PD_SettingEnableAiNarrativesDesc>AI 只写风味文本。囚徒外交仍然决定每一个结果、期限、付款、期限和游戏效果。</PD_SettingEnableAiNarrativesDesc>
+  <PD_AiProviderOpenAiCompatible>提供商：OpenAI 兼容的聊天完成</PD_AiProviderOpenAiCompatible>
+  <PD_AiProvider>人工智能提供商</PD_AiProvider>
+  <PD_AiBaseUrl>基本网址</PD_AiBaseUrl>
+  <PD_AiEndpoint>端点</PD_AiEndpoint>
+  <PD_AiModel>模型</PD_AiModel>
+  <PD_AiApiKey>API密钥</PD_AiApiKey>
+  <PD_AiShowKey>展示</PD_AiShowKey>
+  <PD_AiHideKey>隐藏</PD_AiHideKey>
+  <PD_AiEndpointRequiresKey>端点需要 API 密钥</PD_AiEndpointRequiresKey>
+  <PD_AiEndpointRequiresKeyDesc>仅针对受信任的本地或无密钥 OpenAI 兼容服务禁用此功能。</PD_AiEndpointRequiresKeyDesc>
+  <PD_AiTimeout>请求超时：{0} 秒</PD_AiTimeout>
+  <PD_AiResolvedEndpoint>请求端点：{0}</PD_AiResolvedEndpoint>
+  <PD_AiFetchModels>获取模型</PD_AiFetchModels>
+  <PD_AiFetchingModels>正在获取模型...</PD_AiFetchingModels>
+  <PD_AiTestConnection>测试连接</PD_AiTestConnection>
+  <PD_AiTestingConnection>测试连接...</PD_AiTestingConnection>
+  <PD_AiNoModels>没有获取的型号列表可用。首先获取模型，或手动输入模型名称。</PD_AiNoModels>
+  <PD_AiFetchModelsSuccess>已获取 {0} 兼容型号。</PD_AiFetchModelsSuccess>
+  <PD_AiConnectionSuccess>{0} 连接测试成功。</PD_AiConnectionSuccess>
+  <PD_AiOperationFailed>AI 提供程序操作失败：{0}</PD_AiOperationFailed>
+  <PD_AiFailureMissingKey>API 密钥为空</PD_AiFailureMissingKey>
+  <PD_AiFailureMissingModel>没有选择型号</PD_AiFailureMissingModel>
+  <PD_AiFailureInvalidEndpoint>基本 URL 无效</PD_AiFailureInvalidEndpoint>
+  <PD_AiFailureInsecureEndpoint>远程纯文本 HTTP 端点被阻止</PD_AiFailureInsecureEndpoint>
+  <PD_AiFailureTimeout>请求超时或被取消</PD_AiFailureTimeout>
+  <PD_AiFailureEmptyModels>该服务返回没有兼容的型号</PD_AiFailureEmptyModels>
+  <PD_AiFailureInvalidResponse>已到达服务，但返回无效的响应大小或格式</PD_AiFailureInvalidResponse>
+  <PD_AiFailureIncompatibleResponse>已到达服务，但模型未返回所需的 JSON 格式</PD_AiFailureIncompatibleResponse>
+  <PD_AiFailureRequestRejected>已到达服务，但拒绝模型或请求格式</PD_AiFailureRequestRejected>
+  <PD_AiFailureInternal>mod无法构建AI请求；检查游戏日志中已清理的故障代码</PD_AiFailureInternal>
+  <PD_AiFailureUnauthorized>API 密钥被拒绝</PD_AiFailureUnauthorized>
+  <PD_AiFailureRateLimit>已达到服务速率限制</PD_AiFailureRateLimit>
+  <PD_AiFailureServer>提供商报告了服务器错误</PD_AiFailureServer>
+  <PD_AiFailureNetwork>无法访问该服务</PD_AiFailureNetwork>
+  <PD_AiShowTechnicalErrors>显示技术回退原因</PD_AiShowTechnicalErrors>
+  <PD_AiShowTechnicalErrorsDesc>启用后，AI 请求回落后会显示简短的清理原因。 API 密钥和响应正文永远不会被记录。</PD_AiShowTechnicalErrorsDesc>
+  <PD_AiStatusReady>AI叙事配置已准备就绪。仅在正式谈判结果存在后才会提出请求。</PD_AiStatusReady>
+  <PD_AiStatusDisabled>AI叙述被禁用。所有外交都使用标准翻译模板。</PD_AiStatusDisabled>
+  <PD_AiStatusMissingKey>AI 叙述已启用，但所需的 API 密钥为空。将使用标准模板。</PD_AiStatusMissingKey>
+  <PD_AiStatusMissingModel>已启用 AI 叙述，但未配置模型。将使用标准模板。</PD_AiStatusMissingModel>
+  <PD_AiStatusInvalidEndpoint>AI 叙述已启用，但端点不是有效的 HTTP 或 HTTPS URL。将使用标准模板。</PD_AiStatusInvalidEndpoint>
+  <PD_AiStatusInsecureEndpoint>远程 HTTP 端点被阻止以保护协商数据和 API 密钥。使用 HTTPS 或本地模型服务的环回地址。</PD_AiStatusInsecureEndpoint>
+  <PD_AiPrivacyNotice>仅发送当前派系、意识形态信号、囚犯身份和健康类别、最近的战斗背景、关系背景、定性记忆、可选的角色扮演注释和已决定的结果。 API 密钥本地存储在 RimWorld 的 mod 设置中。</PD_AiPrivacyNotice>
+  <PD_AiPlayerNoteLabel>派系回复的角色扮演注释（仅限 AI 提示音；不会改变交易）</PD_AiPlayerNoteLabel>
+  <PD_AiNarrativeHeading>AI生成的派系回复</PD_AiNarrativeHeading>
+  <PD_AiDisableNow>禁用人工智能</PD_AiDisableNow>
+  <PD_AiNarrativeWaiting>等待叙述文字。下面的正式还盘已经确定并且可以使用。</PD_AiNarrativeWaiting>
+  <PD_AiNarrativeGenerated>{0}\n\n仅叙述。下面的正式条款和按钮是实际的游戏协议。</PD_AiNarrativeGenerated>
+  <PD_AiNarrativeFallback>AI 回复不可用或不再匹配此协商。标准外交答复生效。</PD_AiNarrativeFallback>
+  <PD_AiNarrativeReady>{0}的AI叙事回复已准备就绪；正式的游戏条款仍然具有权威性。</PD_AiNarrativeReady>
+  <PD_AiNarrativeArrived>来自 {0} 的 AI 生成派系回复：\n{1}\n\n 正式游戏结果：{2}\n 仅叙述；该文本不会产生额外的付款、截止日期、承诺或游戏效果。</PD_AiNarrativeArrived>
+  <PD_AiOfferLetterText>AI生成的派系回复：\n{0}\n\n正式报价：\n{1}\n\n仅叙述。正式报价和字母按钮是实际的游戏协议。</PD_AiOfferLetterText>
+  <PD_AiFallbackTechnical>AI叙事回归标准模板：{0}</PD_AiFallbackTechnical>
+  <PD_RewardCeasefire>{0}日停火</PD_RewardCeasefire>
+  <PD_RewardEarlyWarningIntel>60天预警情报</PD_RewardEarlyWarningIntel>
+  <PD_RewardSpecial>{0}x {1}</PD_RewardSpecial>
+  <PD_DemandCeasefire>停火天数（5-30）</PD_DemandCeasefire>
+  <PD_DemandEarlyWarningIntel>预警情报</PD_DemandEarlyWarningIntel>
+  <PD_DemandSpecialReward>特别奖励</PD_DemandSpecialReward>
+  <PD_SelectSpecialReward>选择特殊奖励</PD_SelectSpecialReward>
+  <PD_SpecialRewardOption>{0}x {1}</PD_SpecialRewardOption>
+  <PD_NegotiationInvalidSpecialReward>所选的特别奖励无效或无法安全送达。</PD_NegotiationInvalidSpecialReward>
+  <PD_NegotiationSpecialRewardUnavailable>该囚犯不再有资格获得所选的特殊奖励。</PD_NegotiationSpecialRewardUnavailable>
+  <PD_InvalidCeasefireReward>输入 5 至 30 天的停火期限。</PD_InvalidCeasefireReward>
+  <PD_NegotiationStrategicDisabled>停火和情报奖励在模组设置中被禁用。</PD_NegotiationStrategicDisabled>
+  <PD_SettingStrategicConsequences>实现停火、情报和后续事件</PD_SettingStrategicConsequences>
+  <PD_SettingStrategicConsequencesDesc>实现确定性的战略奖励和因果囚犯后续事件。现有商定的战略奖励仍然有效。</PD_SettingStrategicConsequencesDesc>
+  <PD_PirateRiskNone>没有发现特殊风险。</PD_PirateRiskNone>
+  <PD_PirateRiskDelayed>囚犯离开后，付款可能会故意延迟。</PD_PirateRiskDelayed>
+  <PD_PirateRiskRescue>谈判可能会掩盖交付前的武装救援尝试。</PD_PirateRiskRescue>
+  <PD_PirateRiskJailbreak>该派系可能会煽动指定的囚犯开始越狱。</PD_PirateRiskJailbreak>
+  <PD_PirateRiskAmbush>交换完成后可能会发生武装伏击，但无法取消已交付的奖励。</PD_PirateRiskAmbush>
+  <PD_StatusPirateRisk>已披露的盗版风险：{0}</PD_StatusPirateRisk>
+  <PD_SecurePirateDeal>协商更安全的条款</PD_SecurePirateDeal>
+  <PD_SecurePirateDealDesc>将约定的奖励减少约 20%，以换取发布前消除已披露的盗版风险。</PD_SecurePirateDealDesc>
+  <PD_SecurePirateDealConfirmation>要求更安全的送货安排？当前奖励为{0}；接受更安全的条款会减少这种情况。</PD_SecurePirateDealConfirmation>
+  <PD_SecurePirateDealUnavailable>这些条款不能简化为有效的、更安全的协议。取消或接受已披露的风险。</PD_SecurePirateDealUnavailable>
+  <PD_SecurePirateDealSucceeded>接受更安全的交货条款。原件：{0}。修订：{1}。</PD_SecurePirateDealSucceeded>
+  <PD_CeasefireRaidBlocked>{0} 试图进行受控突袭，但主动停火阻止了它。剩余期限：{1}。</PD_CeasefireRaidBlocked>
+  <PD_CeasefireExpired>与 {0} 的临时停火已到期。</PD_CeasefireExpired>
+  <PD_CeasefireBrokenLabel>停火被打破：{0}</PD_CeasefireBrokenLabel>
+  <PD_CeasefireBrokenText>你的部队攻击了 {0} 成员或财产 ({1})。通过 {2} 协议 {3} 达成的停火协议已结束。你的可靠性受到严重损害，怨恨情绪也随之增加。</PD_CeasefireBrokenText>
+  <PD_MemoryEventCeasefireBroken>攻击 {0} 违反了停火承诺</PD_MemoryEventCeasefireBroken>
+  <PD_IntelWarningLabel>预警：{0} 突袭</PD_IntelWarningLabel>
+  <PD_IntelWarningText>与根据 {6} 协议返回 {5} 相关的情报已确定 {0} 袭击的准备工作。\n\n预计威胁：{1}\n可能的武力或攻击方式：{2}\n大致方向：{3}\n预计到达：{4}\n\n该情报现已消耗。确切的装备和生成位置仍然未知。</PD_IntelWarningText>
+  <PD_IntelThreatLow>有限的</PD_IntelThreatLow>
+  <PD_IntelThreatMedium>重大的</PD_IntelThreatMedium>
+  <PD_IntelThreatHigh>主要的</PD_IntelThreatHigh>
+  <PD_IntelStyleTribal>部落战士和近距离攻击</PD_IntelStyleTribal>
+  <PD_IntelStyleIndustrial>工业武器和常规攻击</PD_IntelStyleIndustrial>
+  <PD_IntelStyleAdvanced>先进武器和专业攻击者</PD_IntelStyleAdvanced>
+  <PD_IntelDirectionUnknown>尚不清楚</PD_IntelDirectionUnknown>
+  <PD_IntelDirectionNorth>北</PD_IntelDirectionNorth>
+  <PD_IntelDirectionSouth>南</PD_IntelDirectionSouth>
+  <PD_IntelDirectionEast>东方</PD_IntelDirectionEast>
+  <PD_IntelDirectionWest>西方</PD_IntelDirectionWest>
+  <PD_IntelExpired>{0} 未使用的预警情报已在 60 天后过期。</PD_IntelExpired>
+  <PD_StrategicStatus>战略协议：\n{0}</PD_StrategicStatus>
+  <PD_StrategicStatusCeasefire>停火：剩余 {0}（囚犯 {1}，交易 {2}）</PD_StrategicStatusCeasefire>
+  <PD_StrategicStatusIntel>预警情报：剩余{0}（囚犯{1}，成交{2}）</PD_StrategicStatusIntel>
+  <PD_StrategicStatusWarnedRaid>警告袭击预计在 {0} 左右</PD_StrategicStatusWarnedRaid>
+  <PD_StrategicStatusCareCredit>护理积分：一次性 10% 谈判预算奖金（囚犯 {0}，交易 {1}）</PD_StrategicStatusCareCredit>
+  <PD_PirateRescueRaidLabel>海盗营救尝试：{0}</PD_PirateRescueRaidLabel>
+  <PD_PirateRescueRaidText>{0} 使用交易 {2} 作为掩护，武装企图营救 {1}。这种可能性在发布之前就已被披露。</PD_PirateRescueRaidText>
+  <PD_PirateJailbreakLabel>越狱煽动：{0}</PD_PirateJailbreakLabel>
+  <PD_PirateJailbreakText>{0}已使用交易{2}向{1}传递指令，煽动越狱。这种可能性在发布之前就已被披露。</PD_PirateJailbreakText>
+  <PD_PositiveReturnLabel>一位前囚犯回忆道：{0}</PD_PositiveReturnLabel>
+  <PD_PositiveReturnText>{0} 报告说，{1} 记得在圈养期间接受的医疗护理。作为交易 {2} 的后续回报，该派系已发送 {3} 银币。</PD_PositiveReturnText>
+  <PD_CareCreditLabel>来自 {0} 的护理积分</PD_CareCreditLabel>
+  <PD_CareCreditGrantedText>{0} 承认 {1} 在圈养期间得到了适当的医疗护理。当敌对行动持续存在时，他们不会送出实物礼物，但下一次谈判会获得一次性 10% 的预算让步（交易 {2}）。</PD_CareCreditGrantedText>
+  <PD_RescueRaidLabel>救援行动：{0}</PD_RescueRaidLabel>
+  <PD_RescueRaidText>{0}专门发起了营救重要囚犯{1}的行动。</PD_RescueRaidText>
+  <PD_ImportantDeathWarningLabel>{0} 死亡后发出警告</PD_ImportantDeathWarningLabel>
+  <PD_ImportantDeathWarningText>{0} 要求您的殖民地对重要囚犯 {1} 的死亡负责。来源交易：{2}。 {3} 已检测到报复准备。</PD_ImportantDeathWarningText>
+  <PD_DeathWarningAgreementBroken>一项已接受的协议被打破了。</PD_DeathWarningAgreementBroken>
+  <PD_DeathWarningPlayerResponsible>死亡被追溯到玩家的行为。</PD_DeathWarningPlayerResponsible>
+  <PD_RetaliationRaidLabel>对 {0} 的报复</PD_RetaliationRaidLabel>
+  <PD_RetaliationRaidText>{0} 正在发起攻击，以报复 {1} 的死亡。该申诉与交易 {2} 相关。</PD_RetaliationRaidText>
+  <PD_PirateAmbushLabel>已公开的海盗伏击：{0}</PD_PirateAmbushLabel>
+  <PD_PirateAmbushText>{0} 已开始在 {1} 交易 {2} 期间进行伏击。囚犯已经被交付，所有约定的奖励仍然交付。</PD_PirateAmbushText>
+  <PD_DebugCeasefireGranted>与 {0} 达成为期 10 天的调试停火。</PD_DebugCeasefireGranted>
+  <PD_DebugStrategicStateLogged>所选派系的停火和战略状态被写入游戏日志中。</PD_DebugStrategicStateLogged>
+  <PD_DebugIntelGranted>授予 {0} 调试预警智能。</PD_DebugIntelGranted>
+  <PD_DebugPositiveGiftForced>强制所选派系进行正回报礼物测试。检查银滴和字母。</PD_DebugPositiveGiftForced>
+  <PD_DebugCareCreditGranted>授予选定的永久敌人一次性护理信用。检查派系战略状况。</PD_DebugCareCreditGranted>
+  <PD_DebugRaidSuppressed>测试raid被阻止或无法生成。这是在主动停火或情报拦截期间预计会出现的情况。</PD_DebugRaidSuppressed>
+  <PD_DebugRaidNoPawnGroupMaker>{0}目前没有可用的战斗群，因此测试突袭被安全取消。</PD_DebugRaidNoPawnGroupMaker>
+  <PD_DebugRaidFactionNotHostile>派系 {0} 目前对玩家没有敌意，因此原版不会将其用于敌人的突袭；像沃尔芬这样的支持派系可能会被解决为支持事件。使用敌对派系来测试实际的突袭。</PD_DebugRaidFactionNotHostile>
+  <PD_SettingCompatibilityLogging>启用详细的兼容性日志记录</PD_SettingCompatibilityLogging>
+  <PD_SettingCompatibilityLoggingDesc>记录活动优先级 mod、多殖民地状态、排除的特殊 pawn、孤立的异常和自动保存修复。 API 密钥和 AI 响应主体从未包含在内。</PD_SettingCompatibilityLoggingDesc>
+  <PD_SettingPerformanceLogging>记录缓慢的外交扫描</PD_SettingPerformanceLogging>
+  <PD_SettingPerformanceLoggingDesc>当定期俘虏外交扫描至少需要 100 毫秒时，写入速率限制警告。除非诊断出大型保存，否则保持禁用状态。</PD_SettingPerformanceLoggingDesc>
+  <PD_SettingReduceUiMotion>减少界面运动</PD_SettingReduceUiMotion>
+  <PD_SettingReduceUiMotionDesc>禁用 AI 信号脉冲和结果淡出以获得更静态的界面。</PD_SettingReduceUiMotionDesc>
+  <PD_CompatibilityRepairApplied>囚徒外交修复了加载时不兼容或陈旧的保存数据。详细信息：{0}</PD_CompatibilityRepairApplied>
+  <PD_DebugCompatibilityLogged>囚徒外交兼容性报告已写入游戏日志。</PD_DebugCompatibilityLogged>
+  <PD_DebugRepairApplied>无效的囚犯外交保存数据已修复。详细信息：{0}</PD_DebugRepairApplied>
+  <PD_DebugRepairNotNeeded>未找到无效的囚徒外交保存数据。</PD_DebugRepairNotNeeded>
+  <PD_SettingsGameplayHeading>囚徒外交游戏设置</PD_SettingsGameplayHeading>
+  <PD_SettingEnemyInitiatedRansoms>启用敌人发起的赎金提议</PD_SettingEnemyInitiatedRansoms>
+  <PD_SettingEnemyInitiatedRansomsDesc>禁用后，不会创建新的派系发起的优惠。现有交易仍将根据其原始条款完成或到期。</PD_SettingEnemyInitiatedRansomsDesc>
+  <PD_SettingOfferFrequency>敌人报价频率：{0}x</PD_SettingOfferFrequency>
+  <PD_SettingRansomValue>赎金估值乘数：{0}x</PD_SettingRansomValue>
+  <PD_SettingFactionReserves>启用派系外交储备</PD_SettingFactionReserves>
+  <PD_SettingFactionReservesDesc>禁用后，派系仍受殖民地奖励上限的约束，但不会因为外交储备耗尽而拒绝合法交易。</PD_SettingFactionReservesDesc>
+  <PD_SettingFactionMemory>启用派系处理和可靠性记忆</PD_SettingFactionMemory>
+  <PD_SettingFactionMemoryDesc>禁用后，可靠性、待遇和怨恨不再影响报价或风险。现有内存数据将被保留而不是被删除。</PD_SettingFactionMemoryDesc>
+  <PD_SettingMessageDetail>派系记忆消息详情</PD_SettingMessageDetail>
+  <PD_MessageDetailEssential>仅重大变更</PD_MessageDetailEssential>
+  <PD_MessageDetailStandard>标准</PD_MessageDetailStandard>
+  <PD_MessageDetailDetailed>更多变化</PD_MessageDetailDetailed>
+  <PD_CopyDiagnosticReport>复印诊断报告</PD_CopyDiagnosticReport>
+  <PD_DiagnosticReportCopied>诊断报告被复制到剪贴板并写入游戏日志。</PD_DiagnosticReportCopied>
+  <PD_MemoryDisabled>派系处理和可靠性记忆当前被禁用。</PD_MemoryDisabled>
+  <PD_FinancesDisabled>外交储备金目前已停用；其他奖励上限仍然适用。</PD_FinancesDisabled>
+  <PD_DebugNoActiveDeal>所选典当没有可操作的有效交易。</PD_DebugNoActiveDeal>
+  <PD_DebugNoMap>所选 Pawn 未保存在地图上。</PD_DebugNoMap>
+  <PD_DebugNoNegotiatingFaction>未发现与基本成员 PawnKind 存在明显谈判派别。</PD_DebugNoNegotiatingFaction>
+  <PD_DebugNoHumanFaction>对于普通的人类调试 pawn，没有发现活跃的谈判派别。</PD_DebugNoHumanFaction>
+  <PD_DebugNoRoyaltySupport>未发现帝国贵族 PawnKind 或帝国派系。确认皇室 DLC 已启用并且帝国存在于该地图上。</PD_DebugNoRoyaltySupport>
+  <PD_DebugSpawnFailed>无法安全生成调试 Pawn。</PD_DebugSpawnFailed>
+  <PD_DebugNoHostageFaction>所选 Pawn 的派系不能持有被绑架的 Pawn。</PD_DebugNoHostageFaction>
+  <PD_DebugNoNegotiator>没有自由玩家殖民者可以作为调试谈判者。</PD_DebugNoNegotiator>
+  <PD_DebugDemandRejectedByState>调试请求被当前协商状态拒绝。</PD_DebugDemandRejectedByState>
+  <PD_DebugCounterUnavailable>没有确定性需求产生对此 Pawn 的还价。</PD_DebugCounterUnavailable>
+  <PD_DebugNoCounteroffer>所选 Pawn 没有有效还盘。</PD_DebugNoCounteroffer>
+  <PD_DebugPrisonerSpawned>从 {1} 中生成测试囚犯 {0}。</PD_DebugPrisonerSpawned>
+  <PD_DebugRoyalPrisonerSpawned>从 {1} 生成皇家测试囚犯 {0}（重要性：{2}）。</PD_DebugRoyalPrisonerSpawned>
+  <PD_DebugHostageGenerated>为 {1} 生成测试绑架殖民者 {0}。</PD_DebugHostageGenerated>
+  <PD_DebugCustomRacePrisonerSpawned>从 {1} ({2}) 中生成定制种族​​测试囚犯 {0}。</PD_DebugCustomRacePrisonerSpawned>
+  <PD_DebugCustomRaceHostageGenerated>为 {1} ({2}) 生成自定义种族被绑架殖民者 {0}。</PD_DebugCustomRaceHostageGenerated>
+  <PD_DebugCustomRacesLogged>检测到的自定义比赛已写入游戏日志。</PD_DebugCustomRacesLogged>
+  <PD_DebugNoMatchingRaceFaction>没有活跃的谈判派系与此自定义竞赛相匹配。</PD_DebugNoMatchingRaceFaction>
+  <PD_DebugInvalidRaceKind>这个自定义种族没有可用的类人 PawnKind。</PD_DebugInvalidRaceKind>
+  <PD_DebugCooldownReset>重置所选 Pawn 的囚犯和派系谈判冷却时间。</PD_DebugCooldownReset>
+  <PD_DebugDemandResult>调试协商：{0}；请求{1}；还价{2}；接受机会{3}。</PD_DebugDemandResult>
+  <PD_DebugReserveEmptied>清空所选派系的外交储备。</PD_DebugReserveEmptied>
+  <PD_DebugDeliveryPending>将选定的囚犯标记为已交付且待付款。</PD_DebugDeliveryPending>
+  <PD_DebugReleaseOrdered>在没有模拟退出地图的情况下下令释放选定囚犯的赎金。</PD_DebugReleaseOrdered>
+  <PD_DebugTreatmentRecorded>为选定的囚犯添加了可处理的伤害并记录了玩家的治疗情况。</PD_DebugTreatmentRecorded>
+  <PD_DebugDealCancelled>取消了选定的已接受交易且未付款。</PD_DebugDealCancelled>
+  <PD_DebugPartialReward>仅发放下一个待定奖励：{0}。该交易仍部分履行。</PD_DebugPartialReward>
+  <PD_DebugNoRewardPending>所选交易没有可用的待处理奖励。</PD_DebugNoRewardPending>
+  <PD_DebugPaymentCompleted>强制完成所选交易的待处理付款。</PD_DebugPaymentCompleted>
+  <PD_DebugNoPendingPayment>所选交易没有可以完成的待付款。</PD_DebugNoPendingPayment>
+  <PD_DebugSaleFailed>模拟所选囚犯的出售或转让失败。</PD_DebugSaleFailed>
+  <PD_DebugEnslavementFailed>模拟所选囚犯的奴役失败。</PD_DebugEnslavementFailed>
+  <PD_DebugDealAccepted>接受所选典当的要约或还价。</PD_DebugDealAccepted>
+  <PD_DebugDealRejected>拒绝了所选典当的报价或还价。</PD_DebugDealRejected>
+  <PD_DebugDealExpired>将所选典当的交易推进到到期处理。</PD_DebugDealExpired>
+  <PD_DebugDealFailed>模拟交易失败：{0}</PD_DebugDealFailed>
+  <PD_DebugMemoryAdjusted>调整了所选棋子的原始派系记忆。</PD_DebugMemoryAdjusted>
+  <PD_DebugReserveRefilled>补充所选棋子原有的派系外交储备。</PD_DebugReserveRefilled>
+  <PD_MemoryEventDebugAdjustment>调试工具将囚犯待遇内存调整为{0}</PD_MemoryEventDebugAdjustment>
+  <PD_MemoryEventInfiltration>{0} 被用作蓄意渗透尝试。</PD_MemoryEventInfiltration>
+  <PD_SettingAiAllowExternalContext>允许将谈判摘要发送到外部 AI 服务</PD_SettingAiAllowExternalContext>
+  <PD_SettingAiAllowExternalContextDesc>只有启用后，人工智能叙述才会将修剪后的派系、囚犯健康带、定性记忆和正式结果发送到外部服务。 API 密钥永远不会包含在报告中。</PD_SettingAiAllowExternalContextDesc>
+  <PD_AiStatusExternalContextDisabled>启用人工智能叙述，但禁用外部谈判摘要传输。将使用标准模板。</PD_AiStatusExternalContextDisabled>
+  <PD_EventUnavailable>此外交活动不再可用。</PD_EventUnavailable>
+  <PD_EventAccept>接受建议</PD_EventAccept>
+  <PD_EventReject>衰退</PD_EventReject>
+  <PD_SampleAddonEventLabel>中性贸易点提案</PD_SampleAddonEventLabel>
+  <PD_SampleAddonEventDescription>通过囚徒外交 1.2 API 注册的示例附加事件。</PD_SampleAddonEventDescription>
+  <PD_SampleAddonRewardLabel>工业元件缓存</PD_SampleAddonRewardLabel>
+  <PD_SampleAddonRewardDescription>由示例竞赛适配器提供的特殊奖励。</PD_SampleAddonRewardDescription>
+  <PD_EventNeutralTradeLabel>中立交换点</PD_EventNeutralTradeLabel>
+  <PD_EventNeutralTradeText>{0} 为 {1} 提出一个中性交易点。交换仍将遵守正常的囚犯外交释放和付款支票。</PD_EventNeutralTradeText>
+  <PD_EventNeutralMediator>中立中介</PD_EventNeutralMediator>
+  <PD_EventNeutralTradeCaravanArrived>{0}已抵达监督交易所。仅当大篷车仍在场时才会下令释放。</PD_EventNeutralTradeCaravanArrived>
+  <PD_EventNeutralTradeReleaseOrdered>{0} 现在正在护送下通过正常的囚犯释放工作流程。</PD_EventNeutralTradeReleaseOrdered>
+  <PD_EventNeutralTradeCompletedLabel>中立兑换完成</PD_EventNeutralTradeCompletedLabel>
+  <PD_EventNeutralTradeCompletedText>{0} 确认 {1} 完成了监督切换。正常的交易履行仍然具有权威性。</PD_EventNeutralTradeCompletedText>
+  <PD_EventNeutralTradePointCreated>在 {1} 瓷砖上为 {0} 创建了一个世界地图交换点。派出一支商队运载囚犯开始交接。</PD_EventNeutralTradePointCreated>
+  <PD_EventNeutralTradePointArrived>{0}在中立世界地图交换点被移交给{1}。</PD_EventNeutralTradePointArrived>
+  <PD_EventInfiltrationLabel>虚假投降警告</PD_EventInfiltrationLabel>
+  <PD_EventInfiltrationText>{0}故意交出{1}作为渗透者。在行动被遏制之前，囚犯可能会煽动逃跑或破坏蓝图。</PD_EventInfiltrationText>
+  <PD_EventTrialLabel>公开战争罪审判</PD_EventTrialLabel>
+  <PD_EventTrialText>被俘的首领{0}可以公开受审。同盟观察者会记住判决，而原派可能会进行报复。</PD_EventTrialText>
+  <PD_EventAmbushLabel>赎金伏击报复</PD_EventAmbushLabel>
+  <PD_EventAmbushText>{0} 违反赎金交换要求收回 {1}，并发起了与交易 {2} 相关的伏击报复。</PD_EventAmbushText>
+  <PD_UnknownPrisoner>未知囚犯</PD_UnknownPrisoner>
+  <PD_UnknownDeal>未知交易</PD_UnknownDeal>
+  <PD_UiEventsTab>活动</PD_UiEventsTab>
+  <PD_UiEventsTitle>外交事件史</PD_UiEventsTitle>
+  <PD_UiEventsEmpty>该派系没有外交延期事件记录。</PD_UiEventsEmpty>
+  <PD_UiEventDueIn>到期日为 {0}</PD_UiEventDueIn>
+  <PD_UiEventMeta>囚犯：{0} |交易：{1} | {2}</PD_UiEventMeta>
+  <PD_UiEventTechnical>舞台 {0} |重试 {1} |中介：{2}</PD_UiEventTechnical>
+  <PD_UiEventStateScheduled>预定</PD_UiEventStateScheduled>
+  <PD_UiEventStateOffered>等待决定</PD_UiEventStateOffered>
+  <PD_UiEventStateActive>积极的</PD_UiEventStateActive>
+  <PD_UiEventStateCompleted>完全的</PD_UiEventStateCompleted>
+  <PD_UiEventStateFailed>失败的</PD_UiEventStateFailed>
+  <PD_UiEventStateCancelled>取消</PD_UiEventStateCancelled>
+  <PD_DebugEventAlreadyActive>所选囚犯已存在此类活动事件。</PD_DebugEventAlreadyActive>
+  <PD_DebugEventNeedsAcceptedDeal>中立交易所调试事件需要接受赎金交易。该工具无法准备一个。</PD_DebugEventNeedsAcceptedDeal>
+  <PD_DebugEventScheduleFailed>外交活动无法安排。</PD_DebugEventScheduleFailed>
+  <PD_DebugEventForced>强制事件{0}；当前状态：{1}。</PD_DebugEventForced>
+  <PD_DebugEventAdvanced>高级{0}；状态：{1}；阶段：{2}。</PD_DebugEventAdvanced>
+  <PD_DebugNoActiveEvent>没有任何活跃的外交活动与所选囚犯相关。</PD_DebugNoActiveEvent>
+  <PD_DebugEventsCancelled>取消了 {0} 主动外交活动。</PD_DebugEventsCancelled>
+  <PD_DebugEventsLogged>外交事件状态被写入游戏日志中。</PD_DebugEventsLogged>
+  <PD_DebugSpecialRewardToggled>调试特别奖励：{0}</PD_DebugSpecialRewardToggled>
+  <PD_WorldTradePointLabel>中立囚犯交换点</PD_WorldTradePointLabel>
+  <PD_WorldTradePointInspect>目标囚犯：{0}\n接收阵营：{1}</PD_WorldTradePointInspect>
+  <PD_WorldTradePointVisit>在{0}进行交换</PD_WorldTradePointVisit>
+  <PD_DebugWorldTradePointForced>强制在区块 {1} 处将 {0} 世界交换为 {2}。</PD_DebugWorldTradePointForced>
+  <PD_DebugWorldTradePointsLogged>世界交换点状态被写入游戏日志中。</PD_DebugWorldTradePointsLogged>
+  <PD_DebugWorldTradePointCompleted>完成选定的世界交换点。</PD_DebugWorldTradePointCompleted>
+  <PD_DebugWorldTradePointNeedsCaravan>此交换点没有载有目标囚犯的商队。</PD_DebugWorldTradePointNeedsCaravan>
+  <PD_DebugWorldTradeCaravanSent>用普通商队将 {0} 送往瓦片 {1}。</PD_DebugWorldTradeCaravanSent>
+  <PD_DebugWorldTradeCaravanFailed>测试商队无法创建或路由至世界交换点。</PD_DebugWorldTradeCaravanFailed>
+  <PD_DebugNeutralTradeArrivalRejected>中立交易所无法接受这支商队。验证事件、目标囚犯和有效交易。</PD_DebugNeutralTradeArrivalRejected>
+  <PD_SettingEnableAiNegotiationAdjustments>启用有界 AI 协商调整</PD_SettingEnableAiNegotiationAdjustments>
+  <PD_SettingEnableAiNegotiationAdjustmentsDesc>允许人工智能返回紧急情况并利用信号进行实时还价。确定性核心限制了法定储备、库存、奖励和陈旧环境规则的每一次变化。默认禁用。</PD_SettingEnableAiNegotiationAdjustmentsDesc>
+  <PD_AiPersonaHeading>派系人物背景</PD_AiPersonaHeading>
+  <PD_AiPersonaDescription>可选的不受信任的角色扮演环境，仅用于改变 AI 语气。它不能改变交易规则或奖励。最多 500 个字符。</PD_AiPersonaDescription>
+  <PD_AiDefaultFactionPersona>全局角色后备</PD_AiDefaultFactionPersona>
+  <PD_AiFactionPersonaOverride>角色覆盖</PD_AiFactionPersonaOverride>
+  <PD_DebugAiContextCopied>AI 上下文预览复制到剪贴板并写入日志。</PD_DebugAiContextCopied>
+  <PD_AiAdvisoryApplied>应用于此实时还盘的有界 AI 咨询：{0}</PD_AiAdvisoryApplied>
+  <PD_DebugAdvisoryApplied>应用了调试 AI 建议：{0}</PD_DebugAdvisoryApplied>
+  <PD_DebugAdvisoryNoCounteroffer>此咨询测试没有可用的有效还盘。</PD_DebugAdvisoryNoCounteroffer>
+  <PD_SettingErrorTelemetry>发送匿名错误报告前先询问</PD_SettingErrorTelemetry>
+  <PD_SettingErrorTelemetryDesc>启用后，模组会在发送经过清理的错误报告前询问。你选择前不会发送任何报告。</PD_SettingErrorTelemetryDesc>
+  <PD_ErrorTelemetryDialogTitle>战俘外交检测到错误</PD_ErrorTelemetryDialogTitle>
+  <PD_ErrorTelemetryDialogText>模组检测到一次意外运行。你愿意发送匿名且已清理的错误报告，帮助改进《战俘外交》吗？不会上传存档；本地路径和可识别的秘密信息会被移除。</PD_ErrorTelemetryDialogText>
+  <PD_ErrorTelemetryAllowOnce>发送这次报告</PD_ErrorTelemetryAllowOnce>
+  <PD_ErrorTelemetryAllowSession>本次游戏期间允许</PD_ErrorTelemetryAllowSession>
+  <PD_ErrorTelemetryReject>拒绝</PD_ErrorTelemetryReject>
+</LanguageData>

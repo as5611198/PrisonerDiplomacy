@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PD_RansomOfferLabel>Ransom offer: {0}</PD_RansomOfferLabel>
+  <PD_RansomOfferText>{0} has offered {1} for the safe return of {2}.\n\nAccepting reserves this prisoner for the deal. Select the prisoner and use "Release for ransom" to complete the exchange before the deadline. Ordinary release, escape, sale, recruitment, enslavement, or death will cancel the deal without payment.\n\nPrisoner classification: {3}\nDiplomatic value: {4}\nOffer expires in: {5}</PD_RansomOfferText>
+  <PD_AcceptOffer>Accept offer</PD_AcceptOffer>
+  <PD_RejectOffer>Reject offer</PD_RejectOffer>
+  <PD_RejectAndMuteFaction>Reject and pause this faction</PD_RejectAndMuteFaction>
+  <PD_OfferUnavailable>This offer is no longer available.</PD_OfferUnavailable>
+  <PD_DealAccepted>Ransom deal accepted for {0}. Order a dedicated ransom release before the deadline.</PD_DealAccepted>
+  <PD_DealRejected>Ransom offer for {0} rejected.</PD_DealRejected>
+  <PD_DealRejectedAndFactionMuted>Ransom offer for {0} rejected. This faction will not send another unsolicited offer for 60 days.</PD_DealRejectedAndFactionMuted>
+  <PD_ReleaseForRansom>Release for ransom</PD_ReleaseForRansom>
+  <PD_ReleaseForRansomDesc>Mark {0} for the accepted ransom deal and switch their vanilla prisoner interaction to Release. Payment is issued only after the release completes and the prisoner safely exits the map.</PD_ReleaseForRansomDesc>
+  <PD_ReleaseAlreadyOrdered>Ransom release ordered</PD_ReleaseAlreadyOrdered>
+  <PD_ReleaseAlreadyOrderedDesc>This prisoner is already marked for a ransom release. The vanilla warden job will escort them out when possible.</PD_ReleaseAlreadyOrderedDesc>
+  <PD_NoSafeMap>This deal is not assigned to a valid player map.</PD_NoSafeMap>
+  <PD_RansomReleaseOrdered>{0} is marked for ransom release.</PD_RansomReleaseOrdered>
+  <PD_DealDeadlineExtended>{0} remains too injured to travel. The faction has extended the release deadline by {1} days because your doctors are treating them.</PD_DealDeadlineExtended>
+  <PD_DealCompletedLabel>Ransom completed: {0}</PD_DealCompletedLabel>
+  <PD_DealCompletedText>{0} safely left the colony under the ransom agreement. {1} delivered {2} silver.</PD_DealCompletedText>
+  <PD_DealFailedLabel>Ransom cancelled: {0}</PD_DealFailedLabel>
+  <PD_DealFailedText>The ransom deal for {0} ended without payment.\n\nReason: {1}</PD_DealFailedText>
+  <PD_ReasonExpired>the agreement expired</PD_ReasonExpired>
+  <PD_ReasonDead>the prisoner died</PD_ReasonDead>
+  <PD_ReasonEscaped>the prisoner escaped or left without the ransom release</PD_ReasonEscaped>
+  <PD_ReasonRecruited>the prisoner joined the player faction</PD_ReasonRecruited>
+  <PD_ReasonEnslaved>the prisoner was enslaved</PD_ReasonEnslaved>
+  <PD_ReasonSold>the prisoner was sold or transferred</PD_ReasonSold>
+  <PD_ReasonFactionInvalid>the originating faction is no longer valid</PD_ReasonFactionInvalid>
+  <PD_ReasonHostageInvalid>the colonist held by the faction is no longer available for exchange</PD_ReasonHostageInvalid>
+  <PD_ReasonPrisonerInvalid>the prisoner is no longer eligible</PD_ReasonPrisonerInvalid>
+  <PD_ReasonCancelled>the deal was cancelled</PD_ReasonCancelled>
+  <PD_ClassRegular>regular member</PD_ClassRegular>
+  <PD_ClassSpecialist>key specialist</PD_ClassSpecialist>
+  <PD_ClassNotable>local notable</PD_ClassNotable>
+  <PD_ClassCore>core figure</PD_ClassCore>
+  <PD_ClassLeader>faction leader</PD_ClassLeader>
+  <PD_DebugNoEligible>No eligible prisoner is available.</PD_DebugNoEligible>
+  <PD_DebugOfferCreated>Created a ransom offer for {0}.</PD_DebugOfferCreated>
+  <PD_DebugRecords>Prisoner Diplomacy: {0} records, {1} active deals.</PD_DebugRecords>
+  <PD_IntroLabel>Prisoner diplomacy available</PD_IntroLabel>
+  <PD_IntroText>When you hold an eligible prisoner, their originating faction may contact you with a ransom offer after several days.\n\nBuild and power a comms console to negotiate immediately and set your own ransom demand. You can also wait for the faction to make the first offer.\n\nNote: This explanation appears only once. Future prisoners still use this system, but this message will not appear again.</PD_IntroText>
+  <PD_CommTargetLabel>Open prisoner diplomacy: {0}</PD_CommTargetLabel>
+  <PD_CommTargetInfo>Open prisoner diplomacy with {0}, including active ransom deals and strategic agreements.</PD_CommTargetInfo>
+  <PD_NegotiationTitle>Prisoner ransom negotiation: {0}</PD_NegotiationTitle>
+  <PD_NegotiatorSummary>Negotiator: {0} | Social: {1}</PD_NegotiatorSummary>
+  <PD_UiCases>Cases</PD_UiCases>
+  <PD_UiFactionType>Channel</PD_UiFactionType>
+  <PD_UiSignal>Faction capacity</PD_UiSignal>
+  <PD_UiPrisonerList>Prisoner cases</PD_UiPrisonerList>
+  <PD_UiWorkspace>Negotiation workspace</PD_UiWorkspace>
+  <PD_UiStatus>Status: {0}</PD_UiStatus>
+  <PD_UiAgreementSummary>Strategic agreements</PD_UiAgreementSummary>
+  <PD_UiNoActiveAgreements>No active strategic agreements.</PD_UiNoActiveAgreements>
+  <PD_UiFactionStanding>Faction standing</PD_UiFactionStanding>
+  <PD_UiAgreementReviewStatus>Reviewing faction agreements</PD_UiAgreementReviewStatus>
+  <PD_UiAgreementsTab>Agreements</PD_UiAgreementsTab>
+  <PD_UiHistoryTab>History</PD_UiHistoryTab>
+  <PD_UiHistoryTitle>Transaction history</PD_UiHistoryTitle>
+  <PD_UiHistoryEmpty>No completed or rejected transactions are recorded for this faction.</PD_UiHistoryEmpty>
+  <PD_UiHistoryEntry>{0} | {1} | {2}\n{3}</PD_UiHistoryEntry>
+  <PD_UiHistoryMeta>{0} | {1} | {2}</PD_UiHistoryMeta>
+  <PD_HistoryFactionOffer>Faction offer</PD_HistoryFactionOffer>
+  <PD_HistoryPlayerDemand>Player demand</PD_HistoryPlayerDemand>
+  <PD_HistoryAgo>{0} ago</PD_HistoryAgo>
+  <PD_HistoryUnknownDate>date unavailable</PD_HistoryUnknownDate>
+  <PD_UiAgreementAlertLabel>Active prisoner diplomacy agreements</PD_UiAgreementAlertLabel>
+  <PD_UiAgreementAlertExplanation>Review active ceasefires, intelligence, care credits, and pending prisoner diplomacy deals.</PD_UiAgreementAlertExplanation>
+  <PD_UiPortableTerminal>Open portable diplomacy terminal</PD_UiPortableTerminal>
+  <PD_UiPortableTerminalDesc>Review known faction contacts, active agreements, and transaction history.</PD_UiPortableTerminalDesc>
+  <PD_UiFactionContactsTitle>Known diplomatic contacts</PD_UiFactionContactsTitle>
+  <PD_UiFactionContactsEmpty>No faction contacts have been established yet.</PD_UiFactionContactsEmpty>
+  <PD_UiFactionContactSummary>{0}\nCases: {1} | History: {2}</PD_UiFactionContactSummary>
+  <PD_UiReadOnly>Read-only review</PD_UiReadOnly>
+  <PD_HistoryExchangeSupplies>hostage {0}, {1} {2}</PD_HistoryExchangeSupplies>
+  <PD_HistoryExchangeSilver>hostage {0}, {1} silver</PD_HistoryExchangeSilver>
+  <PD_UiNoCases>No eligible prisoner cases are available for this faction.</PD_UiNoCases>
+  <PD_UiPrisonerProfile>Prisoner profile</PD_UiPrisonerProfile>
+  <PD_UiHealth>Health {0}</PD_UiHealth>
+  <PD_UiFactionContext>Faction context</PD_UiFactionContext>
+  <PD_UiDealProgress>Deal progress</PD_UiDealProgress>
+  <PD_UiAgreedTerms>Terms: {0}</PD_UiAgreedTerms>
+  <PD_UiOfferDeadline>Offer expires in {0}</PD_UiOfferDeadline>
+  <PD_UiFulfillmentDeadline>Release deadline: {0} remaining | medical extensions: {1}</PD_UiFulfillmentDeadline>
+  <PD_UiPaymentDeadline>Payment expected in {0}</PD_UiPaymentDeadline>
+  <PD_UiPirateRisk>Pirate deal risk</PD_UiPirateRisk>
+  <PD_UiPirateRiskMitigated>mitigated</PD_UiPirateRiskMitigated>
+  <PD_UiPirateRiskDisclosed>disclosed before release</PD_UiPirateRiskDisclosed>
+  <PD_UiMaterialRewards>Material rewards</PD_UiMaterialRewards>
+  <PD_UiDiplomaticRewards>Diplomatic rewards</PD_UiDiplomaticRewards>
+  <PD_UiStrategicRewards>Strategic rewards</PD_UiStrategicRewards>
+  <PD_UiExchangeGive>You release</PD_UiExchangeGive>
+  <PD_UiExchangeReceive>You recover</PD_UiExchangeReceive>
+  <PD_UiExchangeGiveText>{0}\nDiplomatic value: {1}</PD_UiExchangeGiveText>
+  <PD_UiExchangeReceiveText>{0}\nExchange cost: {1}</PD_UiExchangeReceiveText>
+  <PD_UiExchangeBalance>Additional compensation: {0}</PD_UiExchangeBalance>
+  <PD_Ui_PrisonerProfile>Prisoner profile</PD_Ui_PrisonerProfile>
+  <PD_Ui_Health>Health {0}</PD_Ui_Health>
+  <PD_Ui_FactionContext>Faction context</PD_Ui_FactionContext>
+  <PD_Ui_MaterialRewards>Material rewards</PD_Ui_MaterialRewards>
+  <PD_Ui_DiplomaticRewards>Diplomatic rewards</PD_Ui_DiplomaticRewards>
+  <PD_Ui_StrategicRewards>Strategic rewards</PD_Ui_StrategicRewards>
+  <PD_UiEnabled>Enabled</PD_UiEnabled>
+  <PD_UiDisabled>Disabled</PD_UiDisabled>
+  <PD_ValueCompact>value {0}</PD_ValueCompact>
+  <PD_SelectPrisoner>Select an eligible prisoner to prepare a ransom demand.</PD_SelectPrisoner>
+  <PD_NegotiationPrisonerDetails>Classification: {0}\nEstimated diplomatic value: {1}\nHealth: {2}</PD_NegotiationPrisonerDetails>
+  <PD_DemandSilver>Silver demand</PD_DemandSilver>
+  <PD_AssessmentText>Assessment: {0}\n{1}</PD_AssessmentText>
+  <PD_AssessmentVeryFavorable>very favorable to the faction</PD_AssessmentVeryFavorable>
+  <PD_AssessmentReasonable>reasonable</PD_AssessmentReasonable>
+  <PD_AssessmentAmbitious>ambitious</PD_AssessmentAmbitious>
+  <PD_AssessmentExtreme>extreme</PD_AssessmentExtreme>
+  <PD_PreviewExact>Estimated acceptance chance: {0}</PD_PreviewExact>
+  <PD_PreviewApproximate>Estimated acceptance chance: about {0}%</PD_PreviewApproximate>
+  <PD_PreviewUncertain>The negotiator cannot provide a reliable probability.</PD_PreviewUncertain>
+  <PD_SubmitDemand>Demand {0} silver</PD_SubmitDemand>
+  <PD_SubmitDemandInvalid>Enter a valid silver demand</PD_SubmitDemandInvalid>
+  <PD_InvalidDemand>Enter a whole silver amount from {0} to {1}.</PD_InvalidDemand>
+  <PD_PlayerDemandAccepted>{0}'s faction accepted the demand for {1} silver. Complete the dedicated ransom release.</PD_PlayerDemandAccepted>
+  <PD_PlayerDemandRejected>{0}'s faction rejected the demand for {1} silver.</PD_PlayerDemandRejected>
+  <PD_PlayerDemandAcceptedRewards>{0}'s faction accepted these terms: {1}. Complete the dedicated ransom release.</PD_PlayerDemandAcceptedRewards>
+  <PD_PlayerDemandRejectedRewards>{0}'s faction rejected these terms: {1}.</PD_PlayerDemandRejectedRewards>
+  <PD_PlayerDemandCountered>{0}'s faction made a counteroffer: {1}. You may respond immediately in the current negotiation.</PD_PlayerDemandCountered>
+  <PD_PlayerDemandFinalCounter>The faction made its final counteroffer: {0}</PD_PlayerDemandFinalCounter>
+  <PD_CounterOfferRejected>Negotiations concerning {0} have ended.</PD_CounterOfferRejected>
+  <PD_CounterNoLongerAffordable>The faction can no longer fund this counteroffer. Revise or end the negotiation.</PD_CounterNoLongerAffordable>
+  <PD_NegotiationUnavailable>Prisoner negotiation is currently unavailable.</PD_NegotiationUnavailable>
+  <PD_NegotiationActiveDeal>This prisoner already has an active ransom deal.</PD_NegotiationActiveDeal>
+  <PD_NegotiationPrisonerCooldown>This prisoner cannot be negotiated again for {0}.</PD_NegotiationPrisonerCooldown>
+  <PD_NegotiationFactionCooldown>This faction will not consider another demand for {0}.</PD_NegotiationFactionCooldown>
+  <PD_NegotiationSuspended>This faction has suspended negotiations for {0} after repeated unreasonable demands.</PD_NegotiationSuspended>
+  <PD_NegotiationCounterPending>A faction counteroffer is awaiting your response.</PD_NegotiationCounterPending>
+  <PD_NegotiationNoRewards>Select at least one reward.</PD_NegotiationNoRewards>
+  <PD_NegotiationTooManyRewards>A deal may contain at most two reward types.</PD_NegotiationTooManyRewards>
+  <PD_NegotiationInvalidRewards>Enter valid reward amounts.</PD_NegotiationInvalidRewards>
+  <PD_NegotiationInvalidSupplies>The selected supplies are not available from this faction.</PD_NegotiationInvalidSupplies>
+  <PD_NegotiationGoodwillUnavailable>This faction cannot offer goodwill as a reward.</PD_NegotiationGoodwillUnavailable>
+  <PD_NegotiationGoodwillTooHigh>The requested goodwill would exceed the normal relationship limit.</PD_NegotiationGoodwillTooHigh>
+  <PD_DemandSupplies>Supplies</PD_DemandSupplies>
+  <PD_DemandGoodwill>Goodwill</PD_DemandGoodwill>
+  <PD_SelectSupplies>Select supplies</PD_SelectSupplies>
+  <PD_RewardUnitValue>Negotiation value per unit: {0} silver</PD_RewardUnitValue>
+  <PD_RewardTotalValue>Current total value: {0} silver</PD_RewardTotalValue>
+  <PD_InvalidSilverReward>Enter a positive silver amount.</PD_InvalidSilverReward>
+  <PD_InvalidSupplyReward>Select a supply type and enter a positive quantity.</PD_InvalidSupplyReward>
+  <PD_InvalidGoodwillReward>Enter a positive goodwill amount.</PD_InvalidGoodwillReward>
+  <PD_SubmitRewardDemand>Submit terms</PD_SubmitRewardDemand>
+  <PD_SubmitRevisedDemand>Submit revised terms</PD_SubmitRevisedDemand>
+  <PD_ReviseDemand>Revise your terms once</PD_ReviseDemand>
+  <PD_AcceptCounterOffer>Accept counteroffer</PD_AcceptCounterOffer>
+  <PD_RejectCounterOffer>End negotiations</PD_RejectCounterOffer>
+  <PD_FinalCounterOnly>This is the faction's final offer. You may accept it or end negotiations.</PD_FinalCounterOnly>
+  <PD_CounterOfferDetails>Faction counteroffer: {0}\nNegotiation round: {1}/2</PD_CounterOfferDetails>
+  <PD_CounterOfferHeading>Faction counteroffer</PD_CounterOfferHeading>
+  <PD_CounterOfferRound>Round {0}/2</PD_CounterOfferRound>
+  <PD_CounterRevisionHint>Revise from their offer, or adjust the rewards below.</PD_CounterRevisionHint>
+  <PD_UseFactionOffer>Exact offer</PD_UseFactionOffer>
+  <PD_AddSilverToCounter>+{0} silver</PD_AddSilverToCounter>
+  <PD_CounterShortcutUnavailable>This offer already contains two non-silver reward types, or the added silver would exceed the limit.</PD_CounterShortcutUnavailable>
+  <PD_ModeRansom>Ransom terms</PD_ModeRansom>
+  <PD_ModeExchange>Prisoner exchange</PD_ModeExchange>
+  <PD_ExchangeHostageLabel>Colonist to recover</PD_ExchangeHostageLabel>
+  <PD_ExchangeSelectHostage>Select a kidnapped colonist</PD_ExchangeSelectHostage>
+  <PD_ExchangeHostageOption>{0} - exchange value {1}</PD_ExchangeHostageOption>
+  <PD_ExchangeNoHostages>This faction is not currently holding an eligible colonist.</PD_ExchangeNoHostages>
+  <PD_ExchangeTerms>Offer: {0} (value {1})\nRecover: {2} (exchange cost {3})\nAdditional compensation: {4}</PD_ExchangeTerms>
+  <PD_ExchangePaymentMethod>Compensation</PD_ExchangePaymentMethod>
+  <PD_ExchangePaySilver>Silver</PD_ExchangePaySilver>
+  <PD_ExchangeCompensationSilver>{0} silver</PD_ExchangeCompensationSilver>
+  <PD_ExchangeCompensationSupplies>{0} {1}</PD_ExchangeCompensationSupplies>
+  <PD_ExchangeConfirm>Accept exchange - pay {0}</PD_ExchangeConfirm>
+  <PD_ExchangeHostageUnavailable>The selected colonist is no longer held by this faction.</PD_ExchangeHostageUnavailable>
+  <PD_ExchangeHostageReserved>The selected colonist is already reserved by another active exchange.</PD_ExchangeHostageReserved>
+  <PD_ExchangeInsufficientSilver>The colony does not have enough tradeable silver for this exchange.</PD_ExchangeInsufficientSilver>
+  <PD_ExchangeInsufficientSupplies>The colony does not have enough of the selected supplies for this exchange.</PD_ExchangeInsufficientSupplies>
+  <PD_ExchangeSupplyGapTooLarge>The selected supply cannot cover this value gap within the exchange quantity limit.</PD_ExchangeSupplyGapTooLarge>
+  <PD_ExchangeAccepted>Exchange accepted: release {0} through the dedicated command to recover {1}. Escrowed compensation: {2}.</PD_ExchangeAccepted>
+  <PD_ReleaseForExchange>Release for prisoner exchange</PD_ReleaseForExchange>
+  <PD_ReleaseForExchangeDesc>Release {0} through the exchange agreement. Once the prisoner safely leaves, {1} will return by drop pod.</PD_ReleaseForExchangeDesc>
+  <PD_ExchangeCompletedLabel>Prisoner exchange completed: {0}</PD_ExchangeCompletedLabel>
+  <PD_ExchangeCompletedText>{0} safely left under the exchange agreement. {1} has returned to the colony. Additional compensation paid: {2}.</PD_ExchangeCompletedText>
+  <PD_ExchangeCompensationRefunded>{0} silver from the failed exchange was returned.</PD_ExchangeCompensationRefunded>
+  <PD_ExchangeCompensationRefundedSupplies>{0} {1} from the failed exchange were returned.</PD_ExchangeCompensationRefundedSupplies>
+  <PD_HistoryExchangeCompleted>exchanged {0} for {1}</PD_HistoryExchangeCompleted>
+  <PD_AssessmentRewardsText>Assessment: {0}\n{1}\nRequested rewards: {2}\nMaterial reward limit: {3} value</PD_AssessmentRewardsText>
+  <PD_FactionNegotiationSummary>Faction finances: {0}\n{1}</PD_FactionNegotiationSummary>
+  <PD_FinancesStrong>well funded</PD_FinancesStrong>
+  <PD_FinancesCapable>able to negotiate</PD_FinancesCapable>
+  <PD_FinancesLimited>resources are limited</PD_FinancesLimited>
+  <PD_FinancesDepleted>currently unable to fund a meaningful deal</PD_FinancesDepleted>
+  <PD_HistoryNone>No previous prisoner deals with this faction.</PD_HistoryNone>
+  <PD_HistorySummary>Completed deals: {0}; ended negotiations: {1}.\nLast result: {2}</PD_HistorySummary>
+  <PD_HistoryCompleted>{0} returned for {1}</PD_HistoryCompleted>
+  <PD_HistorySummaryWithMemory>Completed deals: {0}; ended negotiations: {1}.\nLast result: {2}\n{3}</PD_HistorySummaryWithMemory>
+  <PD_HistoryNoneWithMemory>No previous prisoner deals with this faction.\n{0}</PD_HistoryNoneWithMemory>
+  <PD_MemoryNeutral>This faction has not formed a strong prisoner-diplomacy impression yet.</PD_MemoryNeutral>
+  <PD_MemorySummary>Agreement trust: {0}\nPrisoner treatment: {1}\nLingering resentment: {2}</PD_MemorySummary>
+  <PD_ReliabilityTrusted>they expect you to honor accepted agreements</PD_ReliabilityTrusted>
+  <PD_ReliabilityNeutral>they remain undecided about your promises</PD_ReliabilityNeutral>
+  <PD_ReliabilityDoubtful>they have doubts about your promises</PD_ReliabilityDoubtful>
+  <PD_ReliabilityDistrusted>they consider your prisoner agreements unreliable</PD_ReliabilityDistrusted>
+  <PD_TreatmentHonorable>they believe you treat prisoners with restraint and care</PD_TreatmentHonorable>
+  <PD_TreatmentNeutral>they have no strong view of your general treatment</PD_TreatmentNeutral>
+  <PD_TreatmentConcerned>reports of poor treatment concern them</PD_TreatmentConcerned>
+  <PD_TreatmentCruel>reports of cruelty toward their prisoners have spread</PD_TreatmentCruel>
+  <PD_ResentmentLow>little personal resentment remains</PD_ResentmentLow>
+  <PD_ResentmentLasting>they retain lasting resentment</PD_ResentmentLasting>
+  <PD_ResentmentSevere>they hold intense political and personal resentment</PD_ResentmentSevere>
+  <PD_FactionMemorySection>Prisoner diplomacy\n{0}</PD_FactionMemorySection>
+  <PD_FactionMemorySectionWithEvent>Prisoner diplomacy\n{0}\nRecent cause: {1}</PD_FactionMemorySectionWithEvent>
+  <PD_MemoryChanged>{0}'s prisoner-diplomacy impression changed: {1}</PD_MemoryChanged>
+  <PD_MemoryEventCaptured>{0} was taken prisoner.</PD_MemoryEventCaptured>
+  <PD_MemoryEventEscaped>{0} escaped custody.</PD_MemoryEventEscaped>
+  <PD_MemoryEventCriticalRecovery>{0} recovered from a life-threatening condition in your custody.</PD_MemoryEventCriticalRecovery>
+  <PD_MemoryEventMalnutrition>{0} suffered prolonged starvation in your custody.</PD_MemoryEventMalnutrition>
+  <PD_MemoryEventPermanentHarm>{0} suffered player-caused permanent harm in custody.</PD_MemoryEventPermanentHarm>
+  <PD_MemoryEventOrganHarvested>A body part was removed from {0} in your custody.</PD_MemoryEventOrganHarvested>
+  <PD_MemoryEventUnconditionalRelease>{0} was released without demanding payment.</PD_MemoryEventUnconditionalRelease>
+  <PD_MemoryEventReleasedAfterTreatment>{0} was treated after a critical condition and released without payment.</PD_MemoryEventReleasedAfterTreatment>
+  <PD_MemoryEventAgreementCompleted>The accepted agreement for {0} was honored.</PD_MemoryEventAgreementCompleted>
+  <PD_MemoryEventExchangeCompleted>The exchange involving {0} was completed as agreed.</PD_MemoryEventExchangeCompleted>
+  <PD_MemoryEventDeathBreach>{0} died after you accepted an agreement for their return.</PD_MemoryEventDeathBreach>
+  <PD_MemoryEventExecution>{0} died due to player actions while in custody.</PD_MemoryEventExecution>
+  <PD_MemoryEventPrisonerDeath>{0} died while in your custody.</PD_MemoryEventPrisonerDeath>
+  <PD_MemoryEventEnslavedBreach>{0} was enslaved after an agreement for their return was accepted.</PD_MemoryEventEnslavedBreach>
+  <PD_MemoryEventEnslaved>{0} was enslaved while in your custody.</PD_MemoryEventEnslaved>
+  <PD_MemoryEventRecruitedBreach>{0} was recruited after an agreement for their return was accepted.</PD_MemoryEventRecruitedBreach>
+  <PD_MemoryEventRecruited>{0} was recruited from captivity.</PD_MemoryEventRecruited>
+  <PD_MemoryEventSoldBreach>{0} was sold or transferred after an agreement for their return was accepted.</PD_MemoryEventSoldBreach>
+  <PD_MemoryEventSold>{0} was sold or transferred from your custody.</PD_MemoryEventSold>
+  <PD_MemoryEventAgreementExpired>The accepted agreement for {0} expired before delivery.</PD_MemoryEventAgreementExpired>
+  <PD_MemoryEventImproperRelease>{0} left without completing the accepted release procedure.</PD_MemoryEventImproperRelease>
+  <PD_MemoryEventAbsurdDemand>An extreme demand was treated as an insult.</PD_MemoryEventAbsurdDemand>
+  <PD_RewardSilver>{0} silver</PD_RewardSilver>
+  <PD_RewardSupplies>{0} {1}</PD_RewardSupplies>
+  <PD_RewardGoodwill>+{0} goodwill</PD_RewardGoodwill>
+  <PD_RewardNone>no reward</PD_RewardNone>
+  <PD_PrisonerStatus>Diplomatic status</PD_PrisonerStatus>
+  <PD_PrisonerStatusDesc>View this prisoner's faction, diplomatic value, and ransom state.</PD_PrisonerStatusDesc>
+  <PD_PrisonerStatusText>{0}\n\nOriginating faction: {1}\nClassification: {2}\nDiplomatic value: {3}\nRansom state: {4}</PD_PrisonerStatusText>
+  <PD_StatusNoDeal>no active deal</PD_StatusNoDeal>
+  <PD_StatusEstimatedContact>Estimated faction contact: {0}</PD_StatusEstimatedContact>
+  <PD_StatusContactImminent>Faction contact is expected shortly.</PD_StatusContactImminent>
+  <PD_StatusOffered>faction offer awaiting response</PD_StatusOffered>
+  <PD_StatusNegotiating>counteroffer awaiting response</PD_StatusNegotiating>
+  <PD_StatusAccepted>accepted; awaiting ransom release order</PD_StatusAccepted>
+  <PD_StatusReleaseOrdered>ransom release ordered</PD_StatusReleaseOrdered>
+  <PD_StatusPendingPayment>delivery confirmed; payment pending</PD_StatusPendingPayment>
+  <PD_StatusExchange>{0}; exchange return: {1}</PD_StatusExchange>
+  <PD_StatusCompleted>completed</PD_StatusCompleted>
+  <PD_StatusRejected>rejected</PD_StatusRejected>
+  <PD_StatusExpired>expired</PD_StatusExpired>
+  <PD_StatusCancelled>cancelled</PD_StatusCancelled>
+  <PD_StatusDownedRelease>The prisoner is downed. Vanilla wardens cannot escort them out until they can move again.</PD_StatusDownedRelease>
+  <PD_DealCompletedRewardsText>{0} safely left the colony under the ransom agreement. {1} delivered: {2}.</PD_DealCompletedRewardsText>
+  <PD_SettingsCategory>Prisoner Diplomacy</PD_SettingsCategory>
+  <PD_SettingPermanentEnemyNegotiation>Allow permanently hostile human factions to negotiate</PD_SettingPermanentEnemyNegotiation>
+  <PD_SettingPermanentEnemyNegotiationDesc>When enabled, permanently hostile human factions use transactional prisoner diplomacy.</PD_SettingPermanentEnemyNegotiationDesc>
+  <PD_SettingPirateRisks>Enable pirate transaction risks</PD_SettingPirateRisks>
+  <PD_SettingPirateRisksDesc>Risky pirate deals disclose a possible delayed payment before release and can be cancelled.</PD_SettingPirateRisksDesc>
+  <PD_SettingFactionOverrides>Faction negotiation type overrides</PD_SettingFactionOverrides>
+  <PD_SettingFactionOverridesDesc>Use Automatic unless a faction mod needs a specific negotiation type.</PD_SettingFactionOverridesDesc>
+  <PD_FactionTypeAutomatic>Automatic</PD_FactionTypeAutomatic>
+  <PD_FactionTypeNonNegotiating>Does not negotiate</PD_FactionTypeNonNegotiating>
+  <PD_FactionTypeTransactional>Transactional</PD_FactionTypeTransactional>
+  <PD_FactionTypeDiplomatic>Diplomatic</PD_FactionTypeDiplomatic>
+  <PD_FactionNegotiationProfile>Negotiation type: {0}\nFinancial capacity: {1}</PD_FactionNegotiationProfile>
+  <PD_StatusFactionType>Faction negotiation type: {0}</PD_StatusFactionType>
+  <PD_StatusPirateRiskDelayed>Pirate terms carry a disclosed delayed-payment risk.</PD_StatusPirateRiskDelayed>
+  <PD_StatusPiratePaymentPending>Pirate payment is due in {0}.</PD_StatusPiratePaymentPending>
+  <PD_PirateReleaseConfirmation>The {0} deal offers {1} and carries this disclosed risk: {2}. Release the prisoner anyway?</PD_PirateReleaseConfirmation>
+  <PD_CancelRiskyDeal>Cancel risky deal</PD_CancelRiskyDeal>
+  <PD_CancelRiskyDealDesc>Cancel this accepted pirate deal before releasing the prisoner.</PD_CancelRiskyDealDesc>
+  <PD_CancelRiskyDealConfirmation>Cancel the accepted deal for {0}? The prisoner will remain in the colony and no payment will be issued.</PD_CancelRiskyDealConfirmation>
+  <PD_DealCancelledByPlayer>Cancelled the accepted deal for {0}.</PD_DealCancelledByPlayer>
+  <PD_PiratePaymentDelayed>{0} acknowledged the safe release but will delay payment for {1}. The risk was disclosed before release.</PD_PiratePaymentDelayed>
+  <PD_RimChatCompatibilityHeading>RimChat coexistence</PD_RimChatCompatibilityHeading>
+  <PD_RimChatDetectedStatus>Detected RimChat {0}. Compatibility: {1}</PD_RimChatDetectedStatus>
+  <PD_RimChatEffectiveMode>Effective safety mode: {0}</PD_RimChatEffectiveMode>
+  <PD_RimChatStatusNotInstalled>RimChat is not active. Prisoner Diplomacy operates normally.</PD_RimChatStatusNotInstalled>
+  <PD_RimChatStatusCompatible>Version-specific ransom guard available</PD_RimChatStatusCompatible>
+  <PD_RimChatStatusUnverified>Detected, but no verified ransom integration is available</PD_RimChatStatusUnverified>
+  <PD_RimChatStatusIncompatible>Unknown or incompatible version; bridge disabled</PD_RimChatStatusIncompatible>
+  <PD_RansomOwnerSetting>Prisoner ransom system owner</PD_RansomOwnerSetting>
+  <PD_RansomOwnerPrisonerDiplomacy>Prisoner Diplomacy</PD_RansomOwnerPrisonerDiplomacy>
+  <PD_RansomOwnerRimChat>RimChat</PD_RansomOwnerRimChat>
+  <PD_RansomOwnerSafeIsolation>Safe isolation</PD_RansomOwnerSafeIsolation>
+  <PD_RansomOwnerPrisonerDiplomacyDesc>Prisoner Diplomacy creates all ransom deals. On a verified RimChat version, its overlapping ransom Action is blocked while other RimChat features remain available.</PD_RansomOwnerPrisonerDiplomacyDesc>
+  <PD_RansomOwnerRimChatDesc>RimChat may create new ransom payments. Prisoner Diplomacy stops creating new offers and comms-console deals, but preserves and completes its existing deals.</PD_RansomOwnerRimChatDesc>
+  <PD_RansomOwnerSafeIsolationDesc>Prisoner Diplomacy remains usable, but no unverified RimChat bridge is attempted. Do not negotiate the same prisoner through RimChat.</PD_RansomOwnerSafeIsolationDesc>
+  <PD_RimChatRequired>RimChat is not active</PD_RimChatRequired>
+  <PD_RimChatSafeIsolationWarning>The installed RimChat version cannot be safely bridged. Existing Prisoner Diplomacy deals remain valid; avoid starting an overlapping RimChat ransom for those prisoners.</PD_RimChatSafeIsolationWarning>
+  <PD_NegotiationOwnedByRimChat>RimChat is currently selected as the prisoner ransom system owner. Prisoner Diplomacy will not create a new deal.</PD_NegotiationOwnedByRimChat>
+  <PD_RimChatBlockedActiveDeal>This prisoner already has an active Prisoner Diplomacy agreement. RimChat ransom payment was blocked to prevent duplicate payment and conflicting deadlines.</PD_RimChatBlockedActiveDeal>
+  <PD_RimChatBlockedOwnedByPD>Prisoner Diplomacy currently owns prisoner ransom transactions. Use the vanilla comms-console Prisoner Diplomacy negotiation instead.</PD_RimChatBlockedOwnedByPD>
+  <PD_RimChatBlockedSafeIsolation>RimChat prisoner ransom integration is disabled by safe isolation.</PD_RimChatBlockedSafeIsolation>
+  <PD_RimChatWarningLabel>RimChat ransom compatibility</PD_RimChatWarningLabel>
+  <PD_RimChatWarningText>RimChat {0} was detected, but its prisoner ransom bridge could not be verified. Prisoner Diplomacy has kept its own deals and vanilla comms-console entry available. Do not negotiate a RimChat ransom for a prisoner who already has an active Prisoner Diplomacy deal. You can choose the system owner in Mod Settings. Note: this warning appears only once per colony.</PD_RimChatWarningText>
+  <PD_AiSettingsHeading>AI narrative prototype (experimental)</PD_AiSettingsHeading>
+  <PD_SettingEnableAiNarratives>Enable AI-generated faction replies</PD_SettingEnableAiNarratives>
+  <PD_SettingEnableAiNarrativesDesc>AI writes flavor text only. Prisoner Diplomacy still decides every outcome, term, payment, deadline, and game effect.</PD_SettingEnableAiNarrativesDesc>
+  <PD_AiProviderOpenAiCompatible>Provider: OpenAI-compatible Chat Completions</PD_AiProviderOpenAiCompatible>
+  <PD_AiProvider>AI provider</PD_AiProvider>
+  <PD_AiBaseUrl>Base URL</PD_AiBaseUrl>
+  <PD_AiEndpoint>Endpoint</PD_AiEndpoint>
+  <PD_AiModel>Model</PD_AiModel>
+  <PD_AiApiKey>API Key</PD_AiApiKey>
+  <PD_AiShowKey>Show</PD_AiShowKey>
+  <PD_AiHideKey>Hide</PD_AiHideKey>
+  <PD_AiEndpointRequiresKey>Endpoint requires an API Key</PD_AiEndpointRequiresKey>
+  <PD_AiEndpointRequiresKeyDesc>Disable this only for a trusted local or otherwise keyless OpenAI-compatible service.</PD_AiEndpointRequiresKeyDesc>
+  <PD_AiTimeout>Request timeout: {0} seconds</PD_AiTimeout>
+  <PD_AiResolvedEndpoint>Request endpoint: {0}</PD_AiResolvedEndpoint>
+  <PD_AiFetchModels>Fetch models</PD_AiFetchModels>
+  <PD_AiFetchingModels>Fetching models...</PD_AiFetchingModels>
+  <PD_AiTestConnection>Test connection</PD_AiTestConnection>
+  <PD_AiTestingConnection>Testing connection...</PD_AiTestingConnection>
+  <PD_AiNoModels>No fetched model list is available. Fetch models first, or enter a model name manually.</PD_AiNoModels>
+  <PD_AiFetchModelsSuccess>Fetched {0} compatible models.</PD_AiFetchModelsSuccess>
+  <PD_AiConnectionSuccess>{0} connection test succeeded.</PD_AiConnectionSuccess>
+  <PD_AiOperationFailed>AI provider operation failed: {0}</PD_AiOperationFailed>
+  <PD_AiFailureMissingKey>the API Key is empty</PD_AiFailureMissingKey>
+  <PD_AiFailureMissingModel>no model is selected</PD_AiFailureMissingModel>
+  <PD_AiFailureInvalidEndpoint>the Base URL is invalid</PD_AiFailureInvalidEndpoint>
+  <PD_AiFailureInsecureEndpoint>remote plaintext HTTP endpoints are blocked</PD_AiFailureInsecureEndpoint>
+  <PD_AiFailureTimeout>the request timed out or was cancelled</PD_AiFailureTimeout>
+  <PD_AiFailureEmptyModels>the service returned no compatible models</PD_AiFailureEmptyModels>
+  <PD_AiFailureInvalidResponse>the service was reached, but returned an invalid response size or format</PD_AiFailureInvalidResponse>
+  <PD_AiFailureIncompatibleResponse>the service was reached, but the model did not return the required JSON format</PD_AiFailureIncompatibleResponse>
+  <PD_AiFailureRequestRejected>the service was reached, but rejected the model or request format</PD_AiFailureRequestRejected>
+  <PD_AiFailureInternal>the mod could not build the AI request; check the sanitized failure code in the game log</PD_AiFailureInternal>
+  <PD_AiFailureUnauthorized>the API Key was rejected</PD_AiFailureUnauthorized>
+  <PD_AiFailureRateLimit>the service rate limit was reached</PD_AiFailureRateLimit>
+  <PD_AiFailureServer>the provider reported a server error</PD_AiFailureServer>
+  <PD_AiFailureNetwork>the service could not be reached</PD_AiFailureNetwork>
+  <PD_AiShowTechnicalErrors>Show technical fallback reasons</PD_AiShowTechnicalErrors>
+  <PD_AiShowTechnicalErrorsDesc>When enabled, a short sanitized reason is shown after an AI request falls back. API Keys and response bodies are never logged.</PD_AiShowTechnicalErrorsDesc>
+  <PD_AiStatusReady>AI narrative configuration is ready. Requests occur only after a formal negotiation result exists.</PD_AiStatusReady>
+  <PD_AiStatusDisabled>AI narratives are disabled. All diplomacy uses the standard translated templates.</PD_AiStatusDisabled>
+  <PD_AiStatusMissingKey>AI narratives are enabled, but the required API Key is empty. Standard templates will be used.</PD_AiStatusMissingKey>
+  <PD_AiStatusMissingModel>AI narratives are enabled, but no model is configured. Standard templates will be used.</PD_AiStatusMissingModel>
+  <PD_AiStatusInvalidEndpoint>AI narratives are enabled, but the endpoint is not a valid HTTP or HTTPS URL. Standard templates will be used.</PD_AiStatusInvalidEndpoint>
+  <PD_AiStatusInsecureEndpoint>Remote HTTP endpoints are blocked to protect negotiation data and API Keys. Use HTTPS, or a loopback address for a local model service.</PD_AiStatusInsecureEndpoint>
+  <PD_AiPrivacyNotice>Only the current faction, ideology signals, prisoner identity and health category, recent battle context, relationship context, qualitative memory, optional roleplay note, and already-decided result are sent. The API Key is stored locally in RimWorld's mod settings.</PD_AiPrivacyNotice>
+  <PD_AiPlayerNoteLabel>Roleplay note for the faction reply (AI tone only; does not change the deal)</PD_AiPlayerNoteLabel>
+  <PD_AiNarrativeHeading>AI-generated faction reply</PD_AiNarrativeHeading>
+  <PD_AiDisableNow>Disable AI</PD_AiDisableNow>
+  <PD_AiNarrativeWaiting>Waiting for narrative text. The formal counteroffer below is already fixed and usable.</PD_AiNarrativeWaiting>
+  <PD_AiNarrativeGenerated>{0}\n\nNarrative only. The formal terms and buttons below are the actual game agreement.</PD_AiNarrativeGenerated>
+  <PD_AiNarrativeFallback>The AI reply was unavailable or no longer matched this negotiation. The standard diplomatic reply is in effect.</PD_AiNarrativeFallback>
+  <PD_AiNarrativeReady>AI narrative reply from {0} is ready; the formal game terms remain authoritative.</PD_AiNarrativeReady>
+  <PD_AiNarrativeArrived>AI-generated faction reply from {0}:\n{1}\n\nFormal game result: {2}\nNarrative only; this text creates no additional payment, deadline, promise, or game effect.</PD_AiNarrativeArrived>
+  <PD_AiOfferLetterText>AI-generated faction reply:\n{0}\n\nFormal offer:\n{1}\n\nNarrative only. The formal offer and letter buttons are the actual game agreement.</PD_AiOfferLetterText>
+  <PD_AiFallbackTechnical>AI narrative fell back to the standard template: {0}</PD_AiFallbackTechnical>
+  <PD_RewardCeasefire>{0}-day ceasefire</PD_RewardCeasefire>
+  <PD_RewardEarlyWarningIntel>60-day early-warning intelligence</PD_RewardEarlyWarningIntel>
+  <PD_RewardSpecial>{0}x {1}</PD_RewardSpecial>
+  <PD_DemandCeasefire>Ceasefire days (5-30)</PD_DemandCeasefire>
+  <PD_DemandEarlyWarningIntel>Early-warning intelligence</PD_DemandEarlyWarningIntel>
+  <PD_DemandSpecialReward>Special reward</PD_DemandSpecialReward>
+  <PD_SelectSpecialReward>Select special reward</PD_SelectSpecialReward>
+  <PD_SpecialRewardOption>{0}x {1}</PD_SpecialRewardOption>
+  <PD_NegotiationInvalidSpecialReward>The selected special reward is invalid or cannot be delivered safely.</PD_NegotiationInvalidSpecialReward>
+  <PD_NegotiationSpecialRewardUnavailable>This prisoner is no longer eligible for the selected special reward.</PD_NegotiationSpecialRewardUnavailable>
+  <PD_InvalidCeasefireReward>Enter a ceasefire duration from 5 to 30 days.</PD_InvalidCeasefireReward>
+  <PD_NegotiationStrategicDisabled>Ceasefire and intelligence rewards are disabled in mod settings.</PD_NegotiationStrategicDisabled>
+  <PD_SettingStrategicConsequences>Enable ceasefire, intelligence, and follow-up events</PD_SettingStrategicConsequences>
+  <PD_SettingStrategicConsequencesDesc>Enables deterministic strategic rewards and causal prisoner follow-up events. Existing agreed strategic rewards remain valid.</PD_SettingStrategicConsequencesDesc>
+  <PD_PirateRiskNone>No identified special risk.</PD_PirateRiskNone>
+  <PD_PirateRiskDelayed>Payment may be deliberately delayed after the prisoner leaves.</PD_PirateRiskDelayed>
+  <PD_PirateRiskRescue>The negotiation may be cover for an armed rescue attempt before delivery.</PD_PirateRiskRescue>
+  <PD_PirateRiskJailbreak>The faction may incite the named prisoner to start a prison break.</PD_PirateRiskJailbreak>
+  <PD_PirateRiskAmbush>An armed ambush may follow the completed exchange, but cannot cancel delivered rewards.</PD_PirateRiskAmbush>
+  <PD_StatusPirateRisk>Disclosed pirate risk: {0}</PD_StatusPirateRisk>
+  <PD_SecurePirateDeal>Negotiate safer terms</PD_SecurePirateDeal>
+  <PD_SecurePirateDealDesc>Reduce the agreed reward by about 20% in exchange for removing the disclosed pirate risk before release.</PD_SecurePirateDealDesc>
+  <PD_SecurePirateDealConfirmation>Ask for a safer delivery arrangement? The current reward is {0}; accepting safer terms will reduce it.</PD_SecurePirateDealConfirmation>
+  <PD_SecurePirateDealUnavailable>These terms cannot be reduced into a valid safer agreement. Cancel or accept the disclosed risk.</PD_SecurePirateDealUnavailable>
+  <PD_SecurePirateDealSucceeded>Safer delivery terms accepted. Original: {0}. Revised: {1}.</PD_SecurePirateDealSucceeded>
+  <PD_CeasefireRaidBlocked>{0} attempted a controlled raid, but the active ceasefire blocked it. Remaining term: {1}.</PD_CeasefireRaidBlocked>
+  <PD_CeasefireExpired>The temporary ceasefire with {0} has expired.</PD_CeasefireExpired>
+  <PD_CeasefireBrokenLabel>Ceasefire broken: {0}</PD_CeasefireBrokenLabel>
+  <PD_CeasefireBrokenText>Your forces attacked {0} member or property ({1}). The ceasefire obtained through {2}, deal {3}, has ended. Your reliability has suffered severely and resentment has increased.</PD_CeasefireBrokenText>
+  <PD_MemoryEventCeasefireBroken>Broke a promised ceasefire by attacking {0}</PD_MemoryEventCeasefireBroken>
+  <PD_IntelWarningLabel>Early warning: {0} raid</PD_IntelWarningLabel>
+  <PD_IntelWarningText>Intelligence linked to the return of {5} under deal {6} has identified preparations for a {0} raid.\n\nEstimated threat: {1}\nLikely force or attack style: {2}\nApproximate direction: {3}\nEstimated arrival: {4}\n\nThis intelligence has now been consumed. Exact equipment and spawn positions remain unknown.</PD_IntelWarningText>
+  <PD_IntelThreatLow>limited</PD_IntelThreatLow>
+  <PD_IntelThreatMedium>substantial</PD_IntelThreatMedium>
+  <PD_IntelThreatHigh>major</PD_IntelThreatHigh>
+  <PD_IntelStyleTribal>tribal fighters and close assault</PD_IntelStyleTribal>
+  <PD_IntelStyleIndustrial>industrial weapons and a conventional assault</PD_IntelStyleIndustrial>
+  <PD_IntelStyleAdvanced>advanced weapons and specialized attackers</PD_IntelStyleAdvanced>
+  <PD_IntelDirectionUnknown>not yet known</PD_IntelDirectionUnknown>
+  <PD_IntelDirectionNorth>north</PD_IntelDirectionNorth>
+  <PD_IntelDirectionSouth>south</PD_IntelDirectionSouth>
+  <PD_IntelDirectionEast>east</PD_IntelDirectionEast>
+  <PD_IntelDirectionWest>west</PD_IntelDirectionWest>
+  <PD_IntelExpired>Unused early-warning intelligence for {0} has expired after 60 days.</PD_IntelExpired>
+  <PD_StrategicStatus>Strategic agreements:\n{0}</PD_StrategicStatus>
+  <PD_StrategicStatusCeasefire>Ceasefire: {0} remaining (prisoner {1}, deal {2})</PD_StrategicStatusCeasefire>
+  <PD_StrategicStatusIntel>Early-warning intelligence: {0} remaining (prisoner {1}, deal {2})</PD_StrategicStatusIntel>
+  <PD_StrategicStatusWarnedRaid>Warned raid expected in about {0}</PD_StrategicStatusWarnedRaid>
+  <PD_StrategicStatusCareCredit>Care credit: one-time 10% negotiation-budget bonus available (prisoner {0}, deal {1})</PD_StrategicStatusCareCredit>
+  <PD_PirateRescueRaidLabel>Pirate rescue attempt: {0}</PD_PirateRescueRaidLabel>
+  <PD_PirateRescueRaidText>{0} used deal {2} as cover for an armed attempt to rescue {1}. This possibility was disclosed before release.</PD_PirateRescueRaidText>
+  <PD_PirateJailbreakLabel>Jailbreak incitement: {0}</PD_PirateJailbreakLabel>
+  <PD_PirateJailbreakText>{0} has used deal {2} to pass instructions to {1}, inciting a prison break. This possibility was disclosed before release.</PD_PirateJailbreakText>
+  <PD_PositiveReturnLabel>A former prisoner remembers: {0}</PD_PositiveReturnLabel>
+  <PD_PositiveReturnText>{0} reports that {1} remembered the medical care received in captivity. As a later return for deal {2}, the faction has sent {3} silver.</PD_PositiveReturnText>
+  <PD_CareCreditLabel>Care credit from {0}</PD_CareCreditLabel>
+  <PD_CareCreditGrantedText>{0} acknowledges that {1} received proper medical care in captivity. They will not send a physical gift while hostilities remain permanent, but the next negotiation receives a one-time 10% budget concession (deal {2}).</PD_CareCreditGrantedText>
+  <PD_RescueRaidLabel>Rescue operation: {0}</PD_RescueRaidLabel>
+  <PD_RescueRaidText>{0} has launched an operation specifically to rescue the important prisoner {1}.</PD_RescueRaidText>
+  <PD_ImportantDeathWarningLabel>Warning after the death of {0}</PD_ImportantDeathWarningLabel>
+  <PD_ImportantDeathWarningText>{0} holds your colony responsible for the death of the important prisoner {1}. Source deal: {2}. {3} Retaliation preparations have been detected.</PD_ImportantDeathWarningText>
+  <PD_DeathWarningAgreementBroken>An accepted agreement was broken.</PD_DeathWarningAgreementBroken>
+  <PD_DeathWarningPlayerResponsible>The death was traced to player action.</PD_DeathWarningPlayerResponsible>
+  <PD_RetaliationRaidLabel>Retaliation for {0}</PD_RetaliationRaidLabel>
+  <PD_RetaliationRaidText>{0} is attacking in retaliation for the death of {1}. The grievance is linked to deal {2}.</PD_RetaliationRaidText>
+  <PD_PirateAmbushLabel>Disclosed pirate ambush: {0}</PD_PirateAmbushLabel>
+  <PD_PirateAmbushText>{0} has begun the ambush suspected during deal {2} for {1}. The prisoner was already delivered and all agreed rewards remain delivered.</PD_PirateAmbushText>
+  <PD_DebugCeasefireGranted>Granted a debug 10-day ceasefire with {0}.</PD_DebugCeasefireGranted>
+  <PD_DebugStrategicStateLogged>The selected faction's ceasefire and strategic state was written to the game log.</PD_DebugStrategicStateLogged>
+  <PD_DebugIntelGranted>Granted debug early-warning intelligence for {0}.</PD_DebugIntelGranted>
+  <PD_DebugPositiveGiftForced>Forced the selected faction's positive-return gift test. Check the silver drop and letter.</PD_DebugPositiveGiftForced>
+  <PD_DebugCareCreditGranted>Granted the selected permanent enemy's one-time care credit. Check the faction strategic status.</PD_DebugCareCreditGranted>
+  <PD_DebugRaidSuppressed>The test raid was blocked or could not be generated. This is expected during an active ceasefire or intel interception.</PD_DebugRaidSuppressed>
+  <PD_DebugRaidNoPawnGroupMaker>{0} has no usable combat group for the current conditions, so the test raid was safely cancelled.</PD_DebugRaidNoPawnGroupMaker>
+  <PD_DebugRaidFactionNotHostile>Faction {0} is not currently hostile to the player, so vanilla will not use it for an enemy raid; support factions such as Wolfein may be resolved as support events instead. Use a hostile faction to test an actual raid.</PD_DebugRaidFactionNotHostile>
+  <PD_SettingCompatibilityLogging>Enable detailed compatibility logging</PD_SettingCompatibilityLogging>
+  <PD_SettingCompatibilityLoggingDesc>Logs active priority mods, multi-colony state, excluded special pawns, isolated exceptions, and automatic save repairs. API Keys and AI response bodies are never included.</PD_SettingCompatibilityLoggingDesc>
+  <PD_SettingPerformanceLogging>Log slow diplomacy scans</PD_SettingPerformanceLogging>
+  <PD_SettingPerformanceLoggingDesc>Writes a rate-limited warning when a periodic prisoner-diplomacy scan takes at least 100 ms. Leave disabled unless diagnosing a large save.</PD_SettingPerformanceLoggingDesc>
+  <PD_SettingReduceUiMotion>Reduce interface motion</PD_SettingReduceUiMotion>
+  <PD_SettingReduceUiMotionDesc>Disable the AI signal pulse and result fade for a more static interface.</PD_SettingReduceUiMotionDesc>
+  <PD_CompatibilityRepairApplied>Prisoner Diplomacy repaired incompatible or stale save data while loading. Details: {0}</PD_CompatibilityRepairApplied>
+  <PD_DebugCompatibilityLogged>The Prisoner Diplomacy compatibility report was written to the game log.</PD_DebugCompatibilityLogged>
+  <PD_DebugRepairApplied>Invalid Prisoner Diplomacy save data was repaired. Details: {0}</PD_DebugRepairApplied>
+  <PD_DebugRepairNotNeeded>No invalid Prisoner Diplomacy save data was found.</PD_DebugRepairNotNeeded>
+  <PD_SettingsGameplayHeading>Prisoner Diplomacy gameplay settings</PD_SettingsGameplayHeading>
+  <PD_SettingEnemyInitiatedRansoms>Enable enemy-initiated ransom offers</PD_SettingEnemyInitiatedRansoms>
+  <PD_SettingEnemyInitiatedRansomsDesc>When disabled, no new faction-initiated offers are created. Existing deals still finish or expire under their original terms.</PD_SettingEnemyInitiatedRansomsDesc>
+  <PD_SettingOfferFrequency>Enemy offer frequency: {0}x</PD_SettingOfferFrequency>
+  <PD_SettingRansomValue>Ransom valuation multiplier: {0}x</PD_SettingRansomValue>
+  <PD_SettingFactionReserves>Enable faction diplomatic reserves</PD_SettingFactionReserves>
+  <PD_SettingFactionReservesDesc>When disabled, factions remain subject to the colony reward cap but do not reject legal deals because their diplomatic reserve is depleted.</PD_SettingFactionReservesDesc>
+  <PD_SettingFactionMemory>Enable faction treatment and reliability memory</PD_SettingFactionMemory>
+  <PD_SettingFactionMemoryDesc>When disabled, reliability, treatment, and resentment no longer affect offers or risks. Existing memory data is retained rather than deleted.</PD_SettingFactionMemoryDesc>
+  <PD_SettingMessageDetail>Faction memory message detail</PD_SettingMessageDetail>
+  <PD_MessageDetailEssential>Major changes only</PD_MessageDetailEssential>
+  <PD_MessageDetailStandard>Standard</PD_MessageDetailStandard>
+  <PD_MessageDetailDetailed>More changes</PD_MessageDetailDetailed>
+  <PD_CopyDiagnosticReport>Copy diagnostic report</PD_CopyDiagnosticReport>
+  <PD_DiagnosticReportCopied>The diagnostic report was copied to the clipboard and written to the game log.</PD_DiagnosticReportCopied>
+  <PD_MemoryDisabled>Faction treatment and reliability memory is currently disabled.</PD_MemoryDisabled>
+  <PD_FinancesDisabled>Diplomatic reserves are currently disabled; other reward caps still apply.</PD_FinancesDisabled>
+  <PD_DebugNoActiveDeal>The selected pawn has no active deal that can be operated.</PD_DebugNoActiveDeal>
+  <PD_DebugNoMap>The selected Pawn is not held on a map.</PD_DebugNoMap>
+  <PD_DebugNoNegotiatingFaction>No visible negotiating faction with a basic member PawnKind was found.</PD_DebugNoNegotiatingFaction>
+  <PD_DebugNoHumanFaction>No active negotiating faction was found for the vanilla human debug pawn.</PD_DebugNoHumanFaction>
+  <PD_DebugNoRoyaltySupport>No Empire noble PawnKind or Empire faction was found. Confirm that the Royalty DLC is enabled and the Empire exists on this map.</PD_DebugNoRoyaltySupport>
+  <PD_DebugSpawnFailed>The debug Pawn could not be generated safely.</PD_DebugSpawnFailed>
+  <PD_DebugNoHostageFaction>The selected Pawn's faction cannot hold kidnapped Pawns.</PD_DebugNoHostageFaction>
+  <PD_DebugNoNegotiator>No free player colonist is available as a debug negotiator.</PD_DebugNoNegotiator>
+  <PD_DebugDemandRejectedByState>The debug demand was rejected by the current negotiation state.</PD_DebugDemandRejectedByState>
+  <PD_DebugCounterUnavailable>No deterministic demand produced a counteroffer for this Pawn.</PD_DebugCounterUnavailable>
+  <PD_DebugNoCounteroffer>The selected Pawn has no active counteroffer.</PD_DebugNoCounteroffer>
+  <PD_DebugPrisonerSpawned>Spawned test prisoner {0} from {1}.</PD_DebugPrisonerSpawned>
+  <PD_DebugRoyalPrisonerSpawned>Spawned royal test prisoner {0} from {1} (importance: {2}).</PD_DebugRoyalPrisonerSpawned>
+  <PD_DebugHostageGenerated>Generated test kidnapped colonist {0} for {1}.</PD_DebugHostageGenerated>
+  <PD_DebugCustomRacePrisonerSpawned>Spawned custom-race test prisoner {0} from {1} ({2}).</PD_DebugCustomRacePrisonerSpawned>
+  <PD_DebugCustomRaceHostageGenerated>Generated custom-race kidnapped colonist {0} for {1} ({2}).</PD_DebugCustomRaceHostageGenerated>
+  <PD_DebugCustomRacesLogged>Detected custom races were written to the game log.</PD_DebugCustomRacesLogged>
+  <PD_DebugNoMatchingRaceFaction>No active negotiating faction matches this custom race.</PD_DebugNoMatchingRaceFaction>
+  <PD_DebugInvalidRaceKind>This custom race has no usable humanlike PawnKind.</PD_DebugInvalidRaceKind>
+  <PD_DebugCooldownReset>Reset the selected Pawn's prisoner and faction negotiation cooldowns.</PD_DebugCooldownReset>
+  <PD_DebugDemandResult>Debug negotiation: {0}; requested {1}; counteroffer {2}; acceptance chance {3}.</PD_DebugDemandResult>
+  <PD_DebugReserveEmptied>Emptied the selected faction's diplomatic reserve.</PD_DebugReserveEmptied>
+  <PD_DebugDeliveryPending>Marked the selected prisoner as delivered with payment pending.</PD_DebugDeliveryPending>
+  <PD_DebugReleaseOrdered>Ordered the selected prisoner's ransom release without simulating map exit.</PD_DebugReleaseOrdered>
+  <PD_DebugTreatmentRecorded>Added a tendable injury and recorded player treatment for the selected prisoner.</PD_DebugTreatmentRecorded>
+  <PD_DebugDealCancelled>Cancelled the selected accepted deal without payment.</PD_DebugDealCancelled>
+  <PD_DebugPartialReward>Issued only the next pending reward: {0}. The deal remains partially fulfilled.</PD_DebugPartialReward>
+  <PD_DebugNoRewardPending>No pending reward was available for the selected deal.</PD_DebugNoRewardPending>
+  <PD_DebugPaymentCompleted>Forced the selected deal's pending payment to complete.</PD_DebugPaymentCompleted>
+  <PD_DebugNoPendingPayment>The selected deal has no pending payment that can be completed.</PD_DebugNoPendingPayment>
+  <PD_DebugSaleFailed>Simulated sale or transfer failure for the selected prisoner.</PD_DebugSaleFailed>
+  <PD_DebugEnslavementFailed>Simulated enslavement failure for the selected prisoner.</PD_DebugEnslavementFailed>
+  <PD_DebugDealAccepted>Accepted the selected pawn's offer or counteroffer.</PD_DebugDealAccepted>
+  <PD_DebugDealRejected>Rejected the selected pawn's offer or counteroffer.</PD_DebugDealRejected>
+  <PD_DebugDealExpired>Advanced the selected pawn's deal into expiry handling.</PD_DebugDealExpired>
+  <PD_DebugDealFailed>Simulated deal failure: {0}</PD_DebugDealFailed>
+  <PD_DebugMemoryAdjusted>Adjusted the selected pawn's original faction memory.</PD_DebugMemoryAdjusted>
+  <PD_DebugReserveRefilled>Refilled the selected pawn's original faction diplomatic reserve.</PD_DebugReserveRefilled>
+  <PD_MemoryEventDebugAdjustment>The debug tools adjusted prisoner treatment memory for {0}</PD_MemoryEventDebugAdjustment>
+  <PD_MemoryEventInfiltration>{0} was used as a deliberate infiltration attempt.</PD_MemoryEventInfiltration>
+  <PD_SettingAiAllowExternalContext>Allow negotiation summaries to be sent to an external AI service</PD_SettingAiAllowExternalContext>
+  <PD_SettingAiAllowExternalContextDesc>Only when enabled will AI narratives send the trimmed faction, prisoner health band, qualitative memory, and formal result to the external service. API Keys are never included in reports.</PD_SettingAiAllowExternalContextDesc>
+  <PD_AiStatusExternalContextDisabled>AI narratives are enabled, but external negotiation-summary transfer is disabled. Standard templates will be used.</PD_AiStatusExternalContextDisabled>
+  <PD_EventUnavailable>This diplomatic event is no longer available.</PD_EventUnavailable>
+  <PD_EventAccept>Accept the proposal</PD_EventAccept>
+  <PD_EventReject>Decline</PD_EventReject>
+  <PD_SampleAddonEventLabel>Neutral trade-point proposal</PD_SampleAddonEventLabel>
+  <PD_SampleAddonEventDescription>A sample add-on event registered through the Prisoner Diplomacy 1.2 API.</PD_SampleAddonEventDescription>
+  <PD_SampleAddonRewardLabel>Industrial component cache</PD_SampleAddonRewardLabel>
+  <PD_SampleAddonRewardDescription>A special reward supplied by the sample race adapter.</PD_SampleAddonRewardDescription>
+  <PD_EventNeutralTradeLabel>Neutral exchange point</PD_EventNeutralTradeLabel>
+  <PD_EventNeutralTradeText>{0} proposes a neutral trade point for {1}. The exchange will remain subject to the normal Prisoner Diplomacy release and payment checks.</PD_EventNeutralTradeText>
+  <PD_EventNeutralMediator>a neutral intermediary</PD_EventNeutralMediator>
+  <PD_EventNeutralTradeCaravanArrived>{0} has arrived to supervise the exchange. The release will be ordered only while the caravan remains present.</PD_EventNeutralTradeCaravanArrived>
+  <PD_EventNeutralTradeReleaseOrdered>{0} is now being escorted through the normal prisoner-release workflow.</PD_EventNeutralTradeReleaseOrdered>
+  <PD_EventNeutralTradeCompletedLabel>Neutral exchange completed</PD_EventNeutralTradeCompletedLabel>
+  <PD_EventNeutralTradeCompletedText>{0} confirms that {1} completed the supervised handoff. Normal deal fulfillment remains authoritative.</PD_EventNeutralTradeCompletedText>
+  <PD_EventNeutralTradePointCreated>Created a world-map exchange point for {0} at tile {1}. Send a Caravan carrying the prisoner to begin the handoff.</PD_EventNeutralTradePointCreated>
+  <PD_EventNeutralTradePointArrived>{0} was handed over to {1} at the neutral world-map exchange point.</PD_EventNeutralTradePointArrived>
+  <PD_EventInfiltrationLabel>False surrender warning</PD_EventInfiltrationLabel>
+  <PD_EventInfiltrationText>{0} deliberately surrendered {1} as an infiltrator. The prisoner may incite an escape attempt or compromise a blueprint before the operation is contained.</PD_EventInfiltrationText>
+  <PD_EventTrialLabel>Public war-crime trial</PD_EventTrialLabel>
+  <PD_EventTrialText>The captured leader {0} can be tried publicly. Allied observers will remember the verdict, while the original faction may retaliate.</PD_EventTrialText>
+  <PD_EventAmbushLabel>Ransom ambush retaliation</PD_EventAmbushLabel>
+  <PD_EventAmbushText>{0} violated the ransom exchange to reclaim {1} and launched an ambush retaliation linked to deal {2}.</PD_EventAmbushText>
+  <PD_UnknownPrisoner>unknown prisoner</PD_UnknownPrisoner>
+  <PD_UnknownDeal>unknown deal</PD_UnknownDeal>
+  <PD_UiEventsTab>Events</PD_UiEventsTab>
+  <PD_UiEventsTitle>Diplomatic event history</PD_UiEventsTitle>
+  <PD_UiEventsEmpty>No diplomacy extension events are recorded for this faction.</PD_UiEventsEmpty>
+  <PD_UiEventDueIn>due in {0}</PD_UiEventDueIn>
+  <PD_UiEventMeta>Prisoner: {0} | Deal: {1} | {2}</PD_UiEventMeta>
+  <PD_UiEventTechnical>Stage {0} | Retries {1} | Intermediary: {2}</PD_UiEventTechnical>
+  <PD_UiEventStateScheduled>Scheduled</PD_UiEventStateScheduled>
+  <PD_UiEventStateOffered>Awaiting decision</PD_UiEventStateOffered>
+  <PD_UiEventStateActive>Active</PD_UiEventStateActive>
+  <PD_UiEventStateCompleted>Completed</PD_UiEventStateCompleted>
+  <PD_UiEventStateFailed>Failed</PD_UiEventStateFailed>
+  <PD_UiEventStateCancelled>Cancelled</PD_UiEventStateCancelled>
+  <PD_DebugEventAlreadyActive>An active event of this type already exists for the selected prisoner.</PD_DebugEventAlreadyActive>
+  <PD_DebugEventNeedsAcceptedDeal>The neutral exchange debug event requires an accepted ransom deal. The tool could not prepare one.</PD_DebugEventNeedsAcceptedDeal>
+  <PD_DebugEventScheduleFailed>The diplomacy event could not be scheduled.</PD_DebugEventScheduleFailed>
+  <PD_DebugEventForced>Forced event {0}; current state: {1}.</PD_DebugEventForced>
+  <PD_DebugEventAdvanced>Advanced {0}; state: {1}; stage: {2}.</PD_DebugEventAdvanced>
+  <PD_DebugNoActiveEvent>No active diplomacy event is linked to the selected prisoner.</PD_DebugNoActiveEvent>
+  <PD_DebugEventsCancelled>Cancelled {0} active diplomacy event(s).</PD_DebugEventsCancelled>
+  <PD_DebugEventsLogged>Diplomacy event states were written to the game log.</PD_DebugEventsLogged>
+  <PD_DebugSpecialRewardToggled>Debug special reward: {0}</PD_DebugSpecialRewardToggled>
+  <PD_WorldTradePointLabel>Neutral prisoner exchange point</PD_WorldTradePointLabel>
+  <PD_WorldTradePointInspect>Target prisoner: {0}\nReceiving faction: {1}</PD_WorldTradePointInspect>
+  <PD_WorldTradePointVisit>Conduct exchange at {0}</PD_WorldTradePointVisit>
+  <PD_DebugWorldTradePointForced>Forced world exchange {0} at tile {1} for {2}.</PD_DebugWorldTradePointForced>
+  <PD_DebugWorldTradePointsLogged>World exchange point states were written to the game log.</PD_DebugWorldTradePointsLogged>
+  <PD_DebugWorldTradePointCompleted>Completed the selected world exchange point.</PD_DebugWorldTradePointCompleted>
+  <PD_DebugWorldTradePointNeedsCaravan>No Caravan carrying the target prisoner is at this exchange point.</PD_DebugWorldTradePointNeedsCaravan>
+  <PD_DebugWorldTradeCaravanSent>Sent {0} in a vanilla Caravan toward tile {1}.</PD_DebugWorldTradeCaravanSent>
+  <PD_DebugWorldTradeCaravanFailed>The test Caravan could not be created or routed to the world exchange point.</PD_DebugWorldTradeCaravanFailed>
+  <PD_DebugNeutralTradeArrivalRejected>The neutral exchange could not accept this Caravan. Verify the event, target prisoner, and active deal.</PD_DebugNeutralTradeArrivalRejected>
+  <PD_SettingEnableAiNegotiationAdjustments>Enable bounded AI negotiation adjustments</PD_SettingEnableAiNegotiationAdjustments>
+  <PD_SettingEnableAiNegotiationAdjustmentsDesc>Allow AI to return urgency and leverage signals for live counteroffers. The deterministic core clamps every change to legal reserve, inventory, reward, and stale-context rules. Disabled by default.</PD_SettingEnableAiNegotiationAdjustmentsDesc>
+  <PD_AiPersonaHeading>Faction persona context</PD_AiPersonaHeading>
+  <PD_AiPersonaDescription>Optional untrusted roleplay context used only to vary AI tone. It cannot change transaction rules or rewards. Maximum 500 characters.</PD_AiPersonaDescription>
+  <PD_AiDefaultFactionPersona>Global persona fallback</PD_AiDefaultFactionPersona>
+  <PD_AiFactionPersonaOverride>Persona override</PD_AiFactionPersonaOverride>
+  <PD_DebugAiContextCopied>AI context preview copied to the clipboard and written to the log.</PD_DebugAiContextCopied>
+  <PD_AiAdvisoryApplied>Bounded AI advisory applied to this live counteroffer: {0}</PD_AiAdvisoryApplied>
+  <PD_DebugAdvisoryApplied>Applied the debug AI advisory: {0}</PD_DebugAdvisoryApplied>
+  <PD_DebugAdvisoryNoCounteroffer>No active counteroffer is available for this advisory test.</PD_DebugAdvisoryNoCounteroffer>
+  <PD_SettingErrorTelemetry>Ask before sending anonymous error reports</PD_SettingErrorTelemetry>
+  <PD_SettingErrorTelemetryDesc>When enabled, the mod asks before sending a sanitized error report. No report is sent until you choose an option.</PD_SettingErrorTelemetryDesc>
+  <PD_ErrorTelemetryDialogTitle>Prisoner Diplomacy detected an error</PD_ErrorTelemetryDialogTitle>
+  <PD_ErrorTelemetryDialogText>The mod detected an unexpected operation. Would you like to send an anonymous, sanitized error report to help improve Prisoner Diplomacy? Save files are never uploaded; local paths and recognized secrets are removed.</PD_ErrorTelemetryDialogText>
+  <PD_ErrorTelemetryAllowOnce>Send this report</PD_ErrorTelemetryAllowOnce>
+  <PD_ErrorTelemetryAllowSession>Allow for this session</PD_ErrorTelemetryAllowSession>
+  <PD_ErrorTelemetryReject>Decline</PD_ErrorTelemetryReject>
+</LanguageData>

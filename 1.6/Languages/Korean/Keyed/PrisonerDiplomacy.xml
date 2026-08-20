@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PD_RansomOfferLabel>몸값 제안: {0}</PD_RansomOfferLabel>
+  <PD_RansomOfferText>{0}는 {2}의 안전한 귀환을 위해 {1}를 제안했습니다.\n\n수락하면 이 죄수를 거래에 예약합니다. 죄수를 선택하고 "몸값으로 석방"을 사용하여 마감일 전에 교환을 완료하세요. 일반 석방, 탈출, 판매, 모집, 노예화 또는 사망 시 지불 없이 거래가 취소됩니다.\n\n수감자 분류: {3}\n외교적 가치: {4}\n제공 만료 날짜: {5}</PD_RansomOfferText>
+  <PD_AcceptOffer>제안 수락</PD_AcceptOffer>
+  <PD_RejectOffer>제안 거부</PD_RejectOffer>
+  <PD_RejectAndMuteFaction>이 세력을 거부하고 일시중지하세요.</PD_RejectAndMuteFaction>
+  <PD_OfferUnavailable>이 제안은 더 이상 제공되지 않습니다.</PD_OfferUnavailable>
+  <PD_DealAccepted>{0}에 대한 랜섬 거래가 승인되었습니다. 마감일 전에 전용 몸값 릴리스를 주문하십시오.</PD_DealAccepted>
+  <PD_DealRejected>{0}에 대한 몸값 제안이 거부되었습니다.</PD_DealRejected>
+  <PD_DealRejectedAndFactionMuted>{0}에 대한 몸값 제안이 거부되었습니다. 이 세력은 60일 동안 원치 않는 제안을 다시 보내지 않습니다.</PD_DealRejectedAndFactionMuted>
+  <PD_ReleaseForRansom>몸값으로 석방</PD_ReleaseForRansom>
+  <PD_ReleaseForRansomDesc>수락된 몸값 거래를 {0}로 표시하고 바닐라 죄수 상호 작용을 릴리스로 전환합니다. 석방이 완료되고 죄수가 안전하게 맵에서 나온 후에만 지불이 이루어집니다.</PD_ReleaseForRansomDesc>
+  <PD_ReleaseAlreadyOrdered>몸값 석방 명령</PD_ReleaseAlreadyOrdered>
+  <PD_ReleaseAlreadyOrderedDesc>이 죄수는 이미 몸값을 지불한 것으로 표시되었습니다. 바닐라 감시자 직업은 가능하다면 그들을 호위할 것입니다.</PD_ReleaseAlreadyOrderedDesc>
+  <PD_NoSafeMap>이 거래는 유효한 플레이어 맵에 할당되지 않았습니다.</PD_NoSafeMap>
+  <PD_RansomReleaseOrdered>{0}는 몸값 릴리스로 표시됩니다.</PD_RansomReleaseOrdered>
+  <PD_DealDeadlineExtended>{0}는 너무 부상을 입어 여행할 수 없습니다. 당신의 의사가 그들을 치료하고 있기 때문에 파벌은 석방 기한을 {1}일 연장했습니다.</PD_DealDeadlineExtended>
+  <PD_DealCompletedLabel>몸값 완료: {0}</PD_DealCompletedLabel>
+  <PD_DealCompletedText>{0}는 몸값 계약에 따라 안전하게 식민지를 떠났습니다. {1}는 {2} 은을 배송했습니다.</PD_DealCompletedText>
+  <PD_DealFailedLabel>랜섬머니 취소됨: {0}</PD_DealFailedLabel>
+  <PD_DealFailedText>{0}에 대한 몸값 거래가 지불 없이 종료되었습니다.\n\n이유: {1}</PD_DealFailedText>
+  <PD_ReasonExpired>계약이 만료되었습니다</PD_ReasonExpired>
+  <PD_ReasonDead>죄수는 죽었다</PD_ReasonDead>
+  <PD_ReasonEscaped>죄수는 몸값을 지불하지 않고 탈출하거나 떠났습니다.</PD_ReasonEscaped>
+  <PD_ReasonRecruited>죄수가 플레이어 세력에 합류했습니다</PD_ReasonRecruited>
+  <PD_ReasonEnslaved>죄수는 노예가 되었다</PD_ReasonEnslaved>
+  <PD_ReasonSold>죄수는 팔렸거나 이송되었다</PD_ReasonSold>
+  <PD_ReasonFactionInvalid>원래 세력은 더 이상 유효하지 않습니다.</PD_ReasonFactionInvalid>
+  <PD_ReasonHostageInvalid>세력이 보유한 식민지 주민은 더 이상 교환할 수 없습니다.</PD_ReasonHostageInvalid>
+  <PD_ReasonPrisonerInvalid>죄수는 더 이상 자격이 없습니다</PD_ReasonPrisonerInvalid>
+  <PD_ReasonCancelled>거래가 취소되었습니다</PD_ReasonCancelled>
+  <PD_ClassRegular>정회원</PD_ClassRegular>
+  <PD_ClassSpecialist>핵심 전문가</PD_ClassSpecialist>
+  <PD_ClassNotable>지역적으로 유명한</PD_ClassNotable>
+  <PD_ClassCore>핵심 인물</PD_ClassCore>
+  <PD_ClassLeader>세력 지도자</PD_ClassLeader>
+  <PD_DebugNoEligible>적격한 죄수를 사용할 수 없습니다.</PD_DebugNoEligible>
+  <PD_DebugOfferCreated>{0}에 대한 몸값 제안을 만들었습니다.</PD_DebugOfferCreated>
+  <PD_DebugRecords>죄수 외교: {0} 기록, {1} 활성 거래.</PD_DebugRecords>
+  <PD_IntroLabel>포로 외교 가능</PD_IntroLabel>
+  <PD_IntroText>적격 죄수를 구금하면 며칠 후 원래 세력이 몸값 제안으로 연락할 수 있습니다. \n\n통신 콘솔을 구축하고 전원을 공급하여 즉시 협상하고 몸값 요구 사항을 직접 설정하세요. 해당 세력이 첫 번째 제안을 할 때까지 기다릴 수도 있습니다.\n\n참고: 이 설명은 한 번만 나타납니다. 미래의 죄수들은 여전히 ​​이 시스템을 사용하지만 이 메시지는 다시 나타나지 않을 것입니다.</PD_IntroText>
+  <PD_CommTargetLabel>개방형 포로 외교: {0}</PD_CommTargetLabel>
+  <PD_CommTargetInfo>적극적인 몸값 거래 및 전략적 합의를 포함하여 {0}를 통해 포로 외교를 공개하세요.</PD_CommTargetInfo>
+  <PD_NegotiationTitle>죄수 몸값 협상: {0}</PD_NegotiationTitle>
+  <PD_NegotiatorSummary>협상가: {0} | 소셜: {1}</PD_NegotiatorSummary>
+  <PD_UiCases>사례</PD_UiCases>
+  <PD_UiFactionType>채널</PD_UiFactionType>
+  <PD_UiSignal>세력 수용력</PD_UiSignal>
+  <PD_UiPrisonerList>죄수 사건</PD_UiPrisonerList>
+  <PD_UiWorkspace>협상 작업 공간</PD_UiWorkspace>
+  <PD_UiStatus>상태: {0}</PD_UiStatus>
+  <PD_UiAgreementSummary>전략적 합의</PD_UiAgreementSummary>
+  <PD_UiNoActiveAgreements>활성화된 전략적 합의가 없습니다.</PD_UiNoActiveAgreements>
+  <PD_UiFactionStanding>세력의 입지</PD_UiFactionStanding>
+  <PD_UiAgreementReviewStatus>파벌 계약 검토</PD_UiAgreementReviewStatus>
+  <PD_UiAgreementsTab>계약</PD_UiAgreementsTab>
+  <PD_UiHistoryTab>역사</PD_UiHistoryTab>
+  <PD_UiHistoryTitle>거래 내역</PD_UiHistoryTitle>
+  <PD_UiHistoryEmpty>이 팩션에 대해 완료되거나 거부된 거래가 기록되지 않습니다.</PD_UiHistoryEmpty>
+  <PD_UiHistoryEntry>{0} | {1} | {2}\n{3}</PD_UiHistoryEntry>
+  <PD_UiHistoryMeta>{0} | {1} | {2}</PD_UiHistoryMeta>
+  <PD_HistoryFactionOffer>파벌 제안</PD_HistoryFactionOffer>
+  <PD_HistoryPlayerDemand>플레이어 수요</PD_HistoryPlayerDemand>
+  <PD_HistoryAgo>{0} 전</PD_HistoryAgo>
+  <PD_HistoryUnknownDate>날짜를 알 수 없음</PD_HistoryUnknownDate>
+  <PD_UiAgreementAlertLabel>적극적인 수감자 외교 협정</PD_UiAgreementAlertLabel>
+  <PD_UiAgreementAlertExplanation>활성 휴전, 정보, 치료 크레딧 및 보류 중인 포로 외교 거래를 검토합니다.</PD_UiAgreementAlertExplanation>
+  <PD_UiPortableTerminal>휴대용 외교단말기 개방</PD_UiPortableTerminal>
+  <PD_UiPortableTerminalDesc>알려진 세력 연락처, 활성 계약 및 거래 내역을 검토합니다.</PD_UiPortableTerminalDesc>
+  <PD_UiFactionContactsTitle>알려진 외교 접촉</PD_UiFactionContactsTitle>
+  <PD_UiFactionContactsEmpty>아직 파벌 접촉이 확립되지 않았습니다.</PD_UiFactionContactsEmpty>
+  <PD_UiFactionContactSummary>{0}\n사례: {1} | 역사: {2}</PD_UiFactionContactSummary>
+  <PD_UiReadOnly>읽기 전용 검토</PD_UiReadOnly>
+  <PD_HistoryExchangeSupplies>인질 {0}, {1} {2}</PD_HistoryExchangeSupplies>
+  <PD_HistoryExchangeSilver>인질 {0}, {1} 실버</PD_HistoryExchangeSilver>
+  <PD_UiNoCases>이 세력에는 적격한 죄수 사건이 없습니다.</PD_UiNoCases>
+  <PD_UiPrisonerProfile>죄수 프로필</PD_UiPrisonerProfile>
+  <PD_UiHealth>건강 {0}</PD_UiHealth>
+  <PD_UiFactionContext>세력 상황</PD_UiFactionContext>
+  <PD_UiDealProgress>거래 진행</PD_UiDealProgress>
+  <PD_UiAgreedTerms>조건: {0}</PD_UiAgreedTerms>
+  <PD_UiOfferDeadline>제안은 {0}에 만료됩니다.</PD_UiOfferDeadline>
+  <PD_UiFulfillmentDeadline>출시 기한: {0} 남음 | 의료 확장: {1}</PD_UiFulfillmentDeadline>
+  <PD_UiPaymentDeadline>{0}로 결제가 예상됩니다.</PD_UiPaymentDeadline>
+  <PD_UiPirateRisk>해적 거래 위험</PD_UiPirateRisk>
+  <PD_UiPirateRiskMitigated>완화된</PD_UiPirateRiskMitigated>
+  <PD_UiPirateRiskDisclosed>출시 전 공개</PD_UiPirateRiskDisclosed>
+  <PD_UiMaterialRewards>물질적 보상</PD_UiMaterialRewards>
+  <PD_UiDiplomaticRewards>외교적 보상</PD_UiDiplomaticRewards>
+  <PD_UiStrategicRewards>전략적 보상</PD_UiStrategicRewards>
+  <PD_UiExchangeGive>당신은 출시</PD_UiExchangeGive>
+  <PD_UiExchangeReceive>당신은 회복</PD_UiExchangeReceive>
+  <PD_UiExchangeGiveText>{0}\n외교적 값: {1}</PD_UiExchangeGiveText>
+  <PD_UiExchangeReceiveText>{0}\n교환 비용: {1}</PD_UiExchangeReceiveText>
+  <PD_UiExchangeBalance>추가 보상: {0}</PD_UiExchangeBalance>
+  <PD_Ui_PrisonerProfile>죄수 프로필</PD_Ui_PrisonerProfile>
+  <PD_Ui_Health>건강 {0}</PD_Ui_Health>
+  <PD_Ui_FactionContext>세력 상황</PD_Ui_FactionContext>
+  <PD_Ui_MaterialRewards>물질적 보상</PD_Ui_MaterialRewards>
+  <PD_Ui_DiplomaticRewards>외교적 보상</PD_Ui_DiplomaticRewards>
+  <PD_Ui_StrategicRewards>전략적 보상</PD_Ui_StrategicRewards>
+  <PD_UiEnabled>활성화됨</PD_UiEnabled>
+  <PD_UiDisabled>장애가 있는</PD_UiDisabled>
+  <PD_ValueCompact>값 {0}</PD_ValueCompact>
+  <PD_SelectPrisoner>몸값 요구를 준비할 자격이 있는 죄수를 선택하세요.</PD_SelectPrisoner>
+  <PD_NegotiationPrisonerDetails>분류: {0}\n추정 외교적 가치: {1}\n건강: {2}</PD_NegotiationPrisonerDetails>
+  <PD_DemandSilver>은 수요</PD_DemandSilver>
+  <PD_AssessmentText>평가: {0}\n{1}</PD_AssessmentText>
+  <PD_AssessmentVeryFavorable>당파에 매우 유리하다</PD_AssessmentVeryFavorable>
+  <PD_AssessmentReasonable>합리적인</PD_AssessmentReasonable>
+  <PD_AssessmentAmbitious>거창한</PD_AssessmentAmbitious>
+  <PD_AssessmentExtreme>극심한</PD_AssessmentExtreme>
+  <PD_PreviewExact>예상 합격 확률: {0}</PD_PreviewExact>
+  <PD_PreviewApproximate>예상 합격 확률: 약 {0}%</PD_PreviewApproximate>
+  <PD_PreviewUncertain>협상자는 신뢰할 수 있는 확률을 제공할 수 없습니다.</PD_PreviewUncertain>
+  <PD_SubmitDemand>{0} 은 수요</PD_SubmitDemand>
+  <PD_SubmitDemandInvalid>유효한 은 수요를 입력하세요.</PD_SubmitDemandInvalid>
+  <PD_InvalidDemand>{0}부터 {1}까지 전체 은 금액을 입력하세요.</PD_InvalidDemand>
+  <PD_PlayerDemandAccepted>{0} 세력은 {1} 은에 대한 요구를 받아들였습니다. 전용 랜섬웨어 릴리스를 완료하세요.</PD_PlayerDemandAccepted>
+  <PD_PlayerDemandRejected>{0} 세력은 {1} 은에 대한 요구를 거부했습니다.</PD_PlayerDemandRejected>
+  <PD_PlayerDemandAcceptedRewards>{0}의 세력은 다음 조건을 수락했습니다: {1}. 전용 랜섬웨어 릴리스를 완료하세요.</PD_PlayerDemandAcceptedRewards>
+  <PD_PlayerDemandRejectedRewards>{0} 세력은 {1}라는 용어를 거부했습니다.</PD_PlayerDemandRejectedRewards>
+  <PD_PlayerDemandCountered>{0}의 세력은 {1}라는 반대 제안을 했습니다. 현재 협상에서 즉시 응답할 수 있습니다.</PD_PlayerDemandCountered>
+  <PD_PlayerDemandFinalCounter>세력은 최종 반격 제안을 했습니다: {0}</PD_PlayerDemandFinalCounter>
+  <PD_CounterOfferRejected>{0}에 관한 협상이 종료되었습니다.</PD_CounterOfferRejected>
+  <PD_CounterNoLongerAffordable>세력은 더 이상 이 반대 제안에 자금을 조달할 수 없습니다. 협상을 수정하거나 종료합니다.</PD_CounterNoLongerAffordable>
+  <PD_NegotiationUnavailable>현재 죄수 협상은 불가능합니다.</PD_NegotiationUnavailable>
+  <PD_NegotiationActiveDeal>이 죄수는 이미 유효한 몸값 거래를 하고 있습니다.</PD_NegotiationActiveDeal>
+  <PD_NegotiationPrisonerCooldown>이 죄수는 {0}에 대해 다시 협상할 수 없습니다.</PD_NegotiationPrisonerCooldown>
+  <PD_NegotiationFactionCooldown>이 세력은 {0}에 대한 다른 수요를 고려하지 않습니다.</PD_NegotiationFactionCooldown>
+  <PD_NegotiationSuspended>이 세력은 반복되는 부당한 요구로 인해 {0}에 대한 협상을 중단했습니다.</PD_NegotiationSuspended>
+  <PD_NegotiationCounterPending>세력 반대 제안이 귀하의 응답을 기다리고 있습니다.</PD_NegotiationCounterPending>
+  <PD_NegotiationNoRewards>보상을 하나 이상 선택하세요.</PD_NegotiationNoRewards>
+  <PD_NegotiationTooManyRewards>거래에는 최대 두 가지 보상 유형이 포함될 수 있습니다.</PD_NegotiationTooManyRewards>
+  <PD_NegotiationInvalidRewards>유효한 보상 금액을 입력하세요.</PD_NegotiationInvalidRewards>
+  <PD_NegotiationInvalidSupplies>선택한 보급품은 이 팩션에서 사용할 수 없습니다.</PD_NegotiationInvalidSupplies>
+  <PD_NegotiationGoodwillUnavailable>이 세력은 선의를 보상으로 제공할 수 없습니다.</PD_NegotiationGoodwillUnavailable>
+  <PD_NegotiationGoodwillTooHigh>요청된 영업권은 정상적인 관계 한도를 초과합니다.</PD_NegotiationGoodwillTooHigh>
+  <PD_DemandSupplies>용품</PD_DemandSupplies>
+  <PD_DemandGoodwill>친선</PD_DemandGoodwill>
+  <PD_SelectSupplies>소모품 선택</PD_SelectSupplies>
+  <PD_RewardUnitValue>협상 단위 가치: {0} 은</PD_RewardUnitValue>
+  <PD_RewardTotalValue>현재 총 가치: {0} 은</PD_RewardTotalValue>
+  <PD_InvalidSilverReward>양수 은 금액을 입력하세요.</PD_InvalidSilverReward>
+  <PD_InvalidSupplyReward>공급 유형을 선택하고 양수 수량을 입력합니다.</PD_InvalidSupplyReward>
+  <PD_InvalidGoodwillReward>양수 영업권 금액을 입력하세요.</PD_InvalidGoodwillReward>
+  <PD_SubmitRewardDemand>약관 제출</PD_SubmitRewardDemand>
+  <PD_SubmitRevisedDemand>수정된 약관 제출</PD_SubmitRevisedDemand>
+  <PD_ReviseDemand>약관을 한 번 수정해 보세요.</PD_ReviseDemand>
+  <PD_AcceptCounterOffer>반대 제안을 수락하세요</PD_AcceptCounterOffer>
+  <PD_RejectCounterOffer>협상 종료</PD_RejectCounterOffer>
+  <PD_FinalCounterOnly>이것이 세력의 마지막 제안입니다. 이를 수락하거나 협상을 종료할 수 있습니다.</PD_FinalCounterOnly>
+  <PD_CounterOfferDetails>세력 반대 제안: {0}\n협상 라운드: {1}/2</PD_CounterOfferDetails>
+  <PD_CounterOfferHeading>세력 반대 제안</PD_CounterOfferHeading>
+  <PD_CounterOfferRound>원형 {0}/2</PD_CounterOfferRound>
+  <PD_CounterRevisionHint>제안을 수정하거나 아래의 보상을 조정하세요.</PD_CounterRevisionHint>
+  <PD_UseFactionOffer>정확한 제안</PD_UseFactionOffer>
+  <PD_AddSilverToCounter>+{0} 실버</PD_AddSilverToCounter>
+  <PD_CounterShortcutUnavailable>이 제안에는 이미 실버가 아닌 보상 유형 2개가 포함되어 있습니다. 그렇지 않으면 추가된 실버가 한도를 초과합니다.</PD_CounterShortcutUnavailable>
+  <PD_ModeRansom>몸값 조건</PD_ModeRansom>
+  <PD_ModeExchange>포로교환</PD_ModeExchange>
+  <PD_ExchangeHostageLabel>회복할 식민지 주민</PD_ExchangeHostageLabel>
+  <PD_ExchangeSelectHostage>납치된 식민지 주민을 선택하세요</PD_ExchangeSelectHostage>
+  <PD_ExchangeHostageOption>{0} - 교환 가치 {1}</PD_ExchangeHostageOption>
+  <PD_ExchangeNoHostages>이 세력은 현재 적합한 식민지 주민을 보유하고 있지 않습니다.</PD_ExchangeNoHostages>
+  <PD_ExchangeTerms>제안: {0} (값 {1})\n복구: {2} (교환 비용 {3})\n추가 보상: {4}</PD_ExchangeTerms>
+  <PD_ExchangePaymentMethod>보상</PD_ExchangePaymentMethod>
+  <PD_ExchangePaySilver>은</PD_ExchangePaySilver>
+  <PD_ExchangeCompensationSilver>{0} 실버</PD_ExchangeCompensationSilver>
+  <PD_ExchangeCompensationSupplies>{0} {1}</PD_ExchangeCompensationSupplies>
+  <PD_ExchangeConfirm>교환 수락 - {0} 지불</PD_ExchangeConfirm>
+  <PD_ExchangeHostageUnavailable>선택된 식민지 주민은 더 이상 이 세력에 의해 소유되지 않습니다.</PD_ExchangeHostageUnavailable>
+  <PD_ExchangeHostageReserved>선택한 식민지 주민은 이미 다른 활성 거래소에 의해 예약되었습니다.</PD_ExchangeHostageReserved>
+  <PD_ExchangeInsufficientSilver>식민지에는 이 교환에 필요한 거래 가능한 은이 충분하지 않습니다.</PD_ExchangeInsufficientSilver>
+  <PD_ExchangeInsufficientSupplies>이 교환을 위해 선택한 보급품이 식민지에 충분하지 않습니다.</PD_ExchangeInsufficientSupplies>
+  <PD_ExchangeSupplyGapTooLarge>선택한 공급품은 교환 수량 한도 내에서 이 가치 격차를 감당할 수 없습니다.</PD_ExchangeSupplyGapTooLarge>
+  <PD_ExchangeAccepted>교환 승인: 전용 명령을 통해 {0}를 해제하여 {1}를 복구합니다. 에스크로 보상: {2}.</PD_ExchangeAccepted>
+  <PD_ReleaseForExchange>포로교환 석방</PD_ReleaseForExchange>
+  <PD_ReleaseForExchangeDesc>교환협정을 통해 {0}를 출시합니다. 죄수가 안전하게 떠나면 {1}가 드롭 포드를 타고 돌아올 것입니다.</PD_ReleaseForExchangeDesc>
+  <PD_ExchangeCompletedLabel>포로 교환 완료 : {0}</PD_ExchangeCompletedLabel>
+  <PD_ExchangeCompletedText>{0}는 교환 계약에 따라 안전하게 떠났습니다. {1}가 식민지로 돌아왔습니다. 추가 보상 지급: {2}.</PD_ExchangeCompletedText>
+  <PD_ExchangeCompensationRefunded>교환 실패로 인해 {0} 은이 반환되었습니다.</PD_ExchangeCompensationRefunded>
+  <PD_ExchangeCompensationRefundedSupplies>실패한 교환에서 {0} {1}가 반환되었습니다.</PD_ExchangeCompensationRefundedSupplies>
+  <PD_HistoryExchangeCompleted>{0}를 {1}로 교환했습니다.</PD_HistoryExchangeCompleted>
+  <PD_AssessmentRewardsText>평가: {0}\n{1}\n요청 보상: {2}\n재료 보상 한도: {3} 가치</PD_AssessmentRewardsText>
+  <PD_FactionNegotiationSummary>세력 재정: {0}\n{1}</PD_FactionNegotiationSummary>
+  <PD_FinancesStrong>자금이 넉넉한</PD_FinancesStrong>
+  <PD_FinancesCapable>협상할 수 있는</PD_FinancesCapable>
+  <PD_FinancesLimited>자원은 제한되어 있다</PD_FinancesLimited>
+  <PD_FinancesDepleted>현재 의미 있는 거래에 자금을 조달할 수 없음</PD_FinancesDepleted>
+  <PD_HistoryNone>이 세력과 ​​거래한 이전 죄수는 없습니다.</PD_HistoryNone>
+  <PD_HistorySummary>완료된 거래: {0}; 협상 종료: {1}.\n마지막 결과: {2}</PD_HistorySummary>
+  <PD_HistoryCompleted>{1}에 대해 {0}가 반환되었습니다.</PD_HistoryCompleted>
+  <PD_HistorySummaryWithMemory>완료된 거래: {0}; 협상 종료: {1}.\n마지막 결과: {2}\n{3}</PD_HistorySummaryWithMemory>
+  <PD_HistoryNoneWithMemory>이전에 이 세력과 ​​거래한 죄수는 없습니다.\n{0}</PD_HistoryNoneWithMemory>
+  <PD_MemoryNeutral>이 세력은 아직 포로 외교에 대한 강력한 인상을 형성하지 못했습니다.</PD_MemoryNeutral>
+  <PD_MemorySummary>합의 신뢰 : {0}\n수감자 처우 : {1}\n지속되는 원한 : {2}</PD_MemorySummary>
+  <PD_ReliabilityTrusted>그들은 당신이 수락된 계약을 존중하기를 기대합니다</PD_ReliabilityTrusted>
+  <PD_ReliabilityNeutral>그들은 당신의 약속에 대해 아직 결정하지 못했습니다</PD_ReliabilityNeutral>
+  <PD_ReliabilityDoubtful>그들은 당신의 약속에 대해 의심을 가지고 있습니다</PD_ReliabilityDoubtful>
+  <PD_ReliabilityDistrusted>그들은 당신의 죄수 계약을 신뢰할 수 없다고 생각합니다</PD_ReliabilityDistrusted>
+  <PD_TreatmentHonorable>그들은 당신이 죄수들을 자제하고 조심스럽게 대한다고 믿습니다</PD_TreatmentHonorable>
+  <PD_TreatmentNeutral>그들은 당신의 일반적인 치료에 대해 강한 견해를 가지고 있지 않습니다</PD_TreatmentNeutral>
+  <PD_TreatmentConcerned>열악한 대우에 대한 보고가 그들을 우려시킨다</PD_TreatmentConcerned>
+  <PD_TreatmentCruel>수감자들을 잔인하게 대했다는 보고가 퍼졌습니다.</PD_TreatmentCruel>
+  <PD_ResentmentLow>개인적인 원한은 거의 남아 있지 않습니다.</PD_ResentmentLow>
+  <PD_ResentmentLasting>그들은 지속적인 분노를 품고 있다</PD_ResentmentLasting>
+  <PD_ResentmentSevere>그들은 강렬한 정치적, 개인적 원한을 품고 있습니다.</PD_ResentmentSevere>
+  <PD_FactionMemorySection>포로 외교\n{0}</PD_FactionMemorySection>
+  <PD_FactionMemorySectionWithEvent>죄수외교\n{0}\n최근 원인 : {1}</PD_FactionMemorySectionWithEvent>
+  <PD_MemoryChanged>{0}의 포로 외교 인상이 변경되었습니다: {1}</PD_MemoryChanged>
+  <PD_MemoryEventCaptured>{0}가 포로로 잡혔습니다.</PD_MemoryEventCaptured>
+  <PD_MemoryEventEscaped>{0}는 구금에서 탈출했습니다.</PD_MemoryEventEscaped>
+  <PD_MemoryEventCriticalRecovery>{0}는 귀하가 구금한 생명을 위협하는 상태에서 회복되었습니다.</PD_MemoryEventCriticalRecovery>
+  <PD_MemoryEventMalnutrition>{0}는 당신이 구금한 동안 장기간 기아에 시달렸습니다.</PD_MemoryEventMalnutrition>
+  <PD_MemoryEventPermanentHarm>{0}는 구금 중에 플레이어로 인해 영구적인 피해를 입었습니다.</PD_MemoryEventPermanentHarm>
+  <PD_MemoryEventOrganHarvested>귀하가 보관 중인 {0}에서 신체 일부가 제거되었습니다.</PD_MemoryEventOrganHarvested>
+  <PD_MemoryEventUnconditionalRelease>{0}가 결제를 요구하지 않고 출시되었습니다.</PD_MemoryEventUnconditionalRelease>
+  <PD_MemoryEventReleasedAfterTreatment>{0}는 심각한 상태 이후 치료를 받고 지불 없이 석방되었습니다.</PD_MemoryEventReleasedAfterTreatment>
+  <PD_MemoryEventAgreementCompleted>{0}에 대해 승인된 계약이 승인되었습니다.</PD_MemoryEventAgreementCompleted>
+  <PD_MemoryEventExchangeCompleted>{0}와 관련된 교환이 합의된 대로 완료되었습니다.</PD_MemoryEventExchangeCompleted>
+  <PD_MemoryEventDeathBreach>{0}는 귀하가 반품 계약을 수락한 후 사망했습니다.</PD_MemoryEventDeathBreach>
+  <PD_MemoryEventExecution>{0}는 구금된 동안 플레이어의 행동으로 인해 사망했습니다.</PD_MemoryEventExecution>
+  <PD_MemoryEventPrisonerDeath>{0}는 당신이 구금된 동안 사망했습니다.</PD_MemoryEventPrisonerDeath>
+  <PD_MemoryEventEnslavedBreach>{0}는 반환 합의가 승인된 후 노예가 되었습니다.</PD_MemoryEventEnslavedBreach>
+  <PD_MemoryEventEnslaved>{0}는 당신이 구금하는 동안 노예가 되었습니다.</PD_MemoryEventEnslaved>
+  <PD_MemoryEventRecruitedBreach>{0}는 복귀 합의가 승인된 후 채용되었습니다.</PD_MemoryEventRecruitedBreach>
+  <PD_MemoryEventRecruited>{0}는 포로 생활에서 모집되었습니다.</PD_MemoryEventRecruited>
+  <PD_MemoryEventSoldBreach>{0}는 반품 계약이 승인된 후 판매 또는 양도되었습니다.</PD_MemoryEventSoldBreach>
+  <PD_MemoryEventSold>{0}가 판매되었거나 귀하의 관리에서 양도되었습니다.</PD_MemoryEventSold>
+  <PD_MemoryEventAgreementExpired>{0}에 대해 승인된 계약이 배송 전에 만료되었습니다.</PD_MemoryEventAgreementExpired>
+  <PD_MemoryEventImproperRelease>{0}는 승인된 릴리스 절차를 완료하지 않고 떠났습니다.</PD_MemoryEventImproperRelease>
+  <PD_MemoryEventAbsurdDemand>극단적인 요구는 모욕으로 취급됐다.</PD_MemoryEventAbsurdDemand>
+  <PD_RewardSilver>{0} 실버</PD_RewardSilver>
+  <PD_RewardSupplies>{0} {1}</PD_RewardSupplies>
+  <PD_RewardGoodwill>+{0} 영업권</PD_RewardGoodwill>
+  <PD_RewardNone>보상 없음</PD_RewardNone>
+  <PD_PrisonerStatus>외교적 지위</PD_PrisonerStatus>
+  <PD_PrisonerStatusDesc>이 죄수의 세력, 외교적 가치, 몸값 상태를 확인하세요.</PD_PrisonerStatusDesc>
+  <PD_PrisonerStatusText>{0}\n\n원래 세력: {1}\n분류: {2}\n외교적 가치: {3}\n랜섬 상태: {4}</PD_PrisonerStatusText>
+  <PD_StatusNoDeal>활성 거래 없음</PD_StatusNoDeal>
+  <PD_StatusEstimatedContact>예상 세력 접촉: {0}</PD_StatusEstimatedContact>
+  <PD_StatusContactImminent>곧 파벌 접촉이 예상됩니다.</PD_StatusContactImminent>
+  <PD_StatusOffered>응답을 기다리는 세력 제안</PD_StatusOffered>
+  <PD_StatusNegotiating>응답을 기다리는 반대 제안</PD_StatusNegotiating>
+  <PD_StatusAccepted>수락됨; 몸값 석방 명령을 기다리는 중</PD_StatusAccepted>
+  <PD_StatusReleaseOrdered>몸값 석방 명령</PD_StatusReleaseOrdered>
+  <PD_StatusPendingPayment>배송 확인됨; 결제 보류 중</PD_StatusPendingPayment>
+  <PD_StatusExchange>{0}; 교환 반품 : {1}</PD_StatusExchange>
+  <PD_StatusCompleted>완전한</PD_StatusCompleted>
+  <PD_StatusRejected>거부됨</PD_StatusRejected>
+  <PD_StatusExpired>만료됨</PD_StatusExpired>
+  <PD_StatusCancelled>취소</PD_StatusCancelled>
+  <PD_StatusDownedRelease>죄수가 쓰러졌습니다. 바닐라 감시자들은 그들이 다시 움직일 수 있을 때까지 그들을 호위할 수 없습니다.</PD_StatusDownedRelease>
+  <PD_DealCompletedRewardsText>{0}는 몸값 계약에 따라 안전하게 식민지를 떠났습니다. {1} 전달됨: {2}.</PD_DealCompletedRewardsText>
+  <PD_SettingsCategory>포로 외교</PD_SettingsCategory>
+  <PD_SettingPermanentEnemyNegotiation>영구적으로 적대적인 인간 세력이 협상하도록 허용</PD_SettingPermanentEnemyNegotiation>
+  <PD_SettingPermanentEnemyNegotiationDesc>활성화되면 영구적으로 적대적인 인간 세력은 거래 포로 외교를 사용합니다.</PD_SettingPermanentEnemyNegotiationDesc>
+  <PD_SettingPirateRisks>불법 거래 위험 활성화</PD_SettingPirateRisks>
+  <PD_SettingPirateRisksDesc>위험한 불법 복제 거래는 출시 전에 결제가 지연될 수 있음을 공개하고 취소될 수 있습니다.</PD_SettingPirateRisksDesc>
+  <PD_SettingFactionOverrides>파벌 협상 유형 재정의</PD_SettingFactionOverrides>
+  <PD_SettingFactionOverridesDesc>팩션 모드에 특정 협상 유형이 필요한 경우가 아니면 자동을 사용하십시오.</PD_SettingFactionOverridesDesc>
+  <PD_FactionTypeAutomatic>오토매틱</PD_FactionTypeAutomatic>
+  <PD_FactionTypeNonNegotiating>협상하지 않음</PD_FactionTypeNonNegotiating>
+  <PD_FactionTypeTransactional>거래</PD_FactionTypeTransactional>
+  <PD_FactionTypeDiplomatic>외교적</PD_FactionTypeDiplomatic>
+  <PD_FactionNegotiationProfile>협상 유형: {0}\n재정 능력: {1}</PD_FactionNegotiationProfile>
+  <PD_StatusFactionType>세력 협상 유형: {0}</PD_StatusFactionType>
+  <PD_StatusPirateRiskDelayed>불법 복제 조건에는 공개된 지불 지연 위험이 있습니다.</PD_StatusPirateRiskDelayed>
+  <PD_StatusPiratePaymentPending>해적 지불은 {0}로 이루어집니다.</PD_StatusPiratePaymentPending>
+  <PD_PirateReleaseConfirmation>{0} 거래는 {1}를 제공하며 공개된 위험인 {2}를 수반합니다. 어쨌든 죄수를 석방하시겠습니까?</PD_PirateReleaseConfirmation>
+  <PD_CancelRiskyDeal>위험한 거래 취소</PD_CancelRiskyDeal>
+  <PD_CancelRiskyDealDesc>죄수를 석방하기 전에 승인된 해적 거래를 취소하십시오.</PD_CancelRiskyDealDesc>
+  <PD_CancelRiskyDealConfirmation>{0}에 대해 승인된 거래를 취소하시겠습니까? 수감자는 식민지에 남게 되며 지불금은 지급되지 않습니다.</PD_CancelRiskyDealConfirmation>
+  <PD_DealCancelledByPlayer>{0}에 대해 승인된 거래를 취소했습니다.</PD_DealCancelledByPlayer>
+  <PD_PiratePaymentDelayed>{0}는 안전한 해제를 확인했지만 {1}에 대한 지불이 지연됩니다. 출시 전에 위험이 공개되었습니다.</PD_PiratePaymentDelayed>
+  <PD_RimChatCompatibilityHeading>림챗의 공존</PD_RimChatCompatibilityHeading>
+  <PD_RimChatDetectedStatus>RimChat {0}가 감지되었습니다. 호환성: {1}</PD_RimChatDetectedStatus>
+  <PD_RimChatEffectiveMode>효과적인 안전 모드: {0}</PD_RimChatEffectiveMode>
+  <PD_RimChatStatusNotInstalled>RimChat이 활성화되어 있지 않습니다. 죄수 외교는 정상적으로 운영됩니다.</PD_RimChatStatusNotInstalled>
+  <PD_RimChatStatusCompatible>버전별 랜섬 가드 사용 가능</PD_RimChatStatusCompatible>
+  <PD_RimChatStatusUnverified>감지되었지만 확인된 랜섬 통합이 제공되지 않습니다.</PD_RimChatStatusUnverified>
+  <PD_RimChatStatusIncompatible>알 수 없거나 호환되지 않는 버전입니다. 브리지 비활성화</PD_RimChatStatusIncompatible>
+  <PD_RansomOwnerSetting>죄수 몸값 시스템 소유자</PD_RansomOwnerSetting>
+  <PD_RansomOwnerPrisonerDiplomacy>포로 외교</PD_RansomOwnerPrisonerDiplomacy>
+  <PD_RansomOwnerRimChat>림챗</PD_RansomOwnerRimChat>
+  <PD_RansomOwnerSafeIsolation>안전한 격리</PD_RansomOwnerSafeIsolation>
+  <PD_RansomOwnerPrisonerDiplomacyDesc>죄수 외교는 모든 몸값 거래를 생성합니다. 검증된 RimChat 버전에서는 중복되는 랜섬웨어 작업이 차단되지만 다른 RimChat 기능은 계속 사용할 수 있습니다.</PD_RansomOwnerPrisonerDiplomacyDesc>
+  <PD_RansomOwnerRimChatDesc>RimChat은 새로운 몸값 지불을 생성할 수 있습니다. Prisoner Diplomacy는 새로운 제안 및 통신 콘솔 거래 생성을 중단하지만 기존 거래를 보존하고 완료합니다.</PD_RansomOwnerRimChatDesc>
+  <PD_RansomOwnerSafeIsolationDesc>죄수 외교는 계속 사용할 수 있지만 확인되지 않은 RimChat 브리지는 시도되지 않습니다. RimChat을 통해 동일한 죄수를 협상하지 마십시오.</PD_RansomOwnerSafeIsolationDesc>
+  <PD_RimChatRequired>RimChat이 활성화되지 않았습니다</PD_RimChatRequired>
+  <PD_RimChatSafeIsolationWarning>설치된 RimChat 버전을 안전하게 브리지할 수 없습니다. 기존 포로 외교 거래는 계속 유효합니다. 해당 죄수들에 대해 중복되는 RimChat 몸값을 시작하지 마십시오.</PD_RimChatSafeIsolationWarning>
+  <PD_NegotiationOwnedByRimChat>RimChat은 현재 죄수 몸값 시스템 소유자로 선정되었습니다. 죄수 외교는 새로운 거래를 생성하지 않습니다.</PD_NegotiationOwnedByRimChat>
+  <PD_RimChatBlockedActiveDeal>이 죄수는 이미 유효한 죄수 외교 협정을 맺고 있습니다. 중복 결제 및 기한 충돌을 방지하기 위해 RimChat 몸값 결제가 차단되었습니다.</PD_RimChatBlockedActiveDeal>
+  <PD_RimChatBlockedOwnedByPD>Prisoner Diplomacy는 현재 죄수 몸값 거래를 소유하고 있습니다. 대신 바닐라 통신 콘솔 포로 외교 협상을 사용하세요.</PD_RimChatBlockedOwnedByPD>
+  <PD_RimChatBlockedSafeIsolation>RimChat 죄수 몸값 통합은 안전한 격리로 인해 비활성화됩니다.</PD_RimChatBlockedSafeIsolation>
+  <PD_RimChatWarningLabel>RimChat 랜섬웨어 호환성</PD_RimChatWarningLabel>
+  <PD_RimChatWarningText>RimChat {0}가 감지되었지만 포로 몸값 브리지를 확인할 수 없었습니다. Prisoner Diplomacy는 자체 거래와 바닐라 통신 콘솔 항목을 계속 사용 가능하게 유지했습니다. 이미 활성 포로 외교 거래를 체결한 포로에 대해 RimChat 몸값을 협상하지 마십시오. Mod 설정에서 시스템 소유자를 선택할 수 있습니다. 참고: 이 경고는 식민지당 한 번만 나타납니다.</PD_RimChatWarningText>
+  <PD_AiSettingsHeading>AI 내러티브 프로토타입(실험용)</PD_AiSettingsHeading>
+  <PD_SettingEnableAiNarratives>AI 생성 파벌 응답 활성화</PD_SettingEnableAiNarratives>
+  <PD_SettingEnableAiNarrativesDesc>AI는 플레이버 텍스트만 씁니다. 죄수 외교는 여전히 모든 결과, 기간, 지불, 마감일 및 게임 효과를 결정합니다.</PD_SettingEnableAiNarrativesDesc>
+  <PD_AiProviderOpenAiCompatible>제공자: OpenAI 호환 채팅 완료</PD_AiProviderOpenAiCompatible>
+  <PD_AiProvider>AI 제공업체</PD_AiProvider>
+  <PD_AiBaseUrl>기본 URL</PD_AiBaseUrl>
+  <PD_AiEndpoint>엔드포인트</PD_AiEndpoint>
+  <PD_AiModel>모델</PD_AiModel>
+  <PD_AiApiKey>API 키</PD_AiApiKey>
+  <PD_AiShowKey>보여주다</PD_AiShowKey>
+  <PD_AiHideKey>숨다</PD_AiHideKey>
+  <PD_AiEndpointRequiresKey>엔드포인트에는 API 키가 필요합니다</PD_AiEndpointRequiresKey>
+  <PD_AiEndpointRequiresKeyDesc>신뢰할 수 있는 로컬 또는 키가 없는 OpenAI 호환 서비스에 대해서만 이 기능을 비활성화하십시오.</PD_AiEndpointRequiresKeyDesc>
+  <PD_AiTimeout>요청 시간 초과: {0}초</PD_AiTimeout>
+  <PD_AiResolvedEndpoint>요청 엔드포인트: {0}</PD_AiResolvedEndpoint>
+  <PD_AiFetchModels>모델 가져오기</PD_AiFetchModels>
+  <PD_AiFetchingModels>모델을 가져오는 중...</PD_AiFetchingModels>
+  <PD_AiTestConnection>테스트 연결</PD_AiTestConnection>
+  <PD_AiTestingConnection>연결 테스트 중...</PD_AiTestingConnection>
+  <PD_AiNoModels>가져온 모델 목록이 없습니다. 모델을 먼저 가져오거나 모델 이름을 수동으로 입력하세요.</PD_AiNoModels>
+  <PD_AiFetchModelsSuccess>{0} 호환 모델을 가져왔습니다.</PD_AiFetchModelsSuccess>
+  <PD_AiConnectionSuccess>{0} 연결 테스트에 성공했습니다.</PD_AiConnectionSuccess>
+  <PD_AiOperationFailed>AI 공급자 작업 실패: {0}</PD_AiOperationFailed>
+  <PD_AiFailureMissingKey>API 키가 비어 있습니다</PD_AiFailureMissingKey>
+  <PD_AiFailureMissingModel>선택된 모델이 없습니다</PD_AiFailureMissingModel>
+  <PD_AiFailureInvalidEndpoint>기본 URL이 유효하지 않습니다.</PD_AiFailureInvalidEndpoint>
+  <PD_AiFailureInsecureEndpoint>원격 일반 텍스트 HTTP 끝점이 차단되었습니다.</PD_AiFailureInsecureEndpoint>
+  <PD_AiFailureTimeout>요청 시간이 초과되었거나 취소되었습니다.</PD_AiFailureTimeout>
+  <PD_AiFailureEmptyModels>서비스에서 호환되는 모델을 반환하지 않았습니다.</PD_AiFailureEmptyModels>
+  <PD_AiFailureInvalidResponse>서비스에 도달했지만 잘못된 응답 크기 또는 형식을 반환했습니다.</PD_AiFailureInvalidResponse>
+  <PD_AiFailureIncompatibleResponse>서비스에 도달했지만 모델이 필수 JSON 형식을 반환하지 않았습니다.</PD_AiFailureIncompatibleResponse>
+  <PD_AiFailureRequestRejected>서비스에 도달했지만 모델 또는 요청 형식이 거부되었습니다.</PD_AiFailureRequestRejected>
+  <PD_AiFailureInternal>모드가 AI 요청을 작성할 수 없습니다. 게임 로그에서 삭제된 실패 코드를 확인하세요.</PD_AiFailureInternal>
+  <PD_AiFailureUnauthorized>API 키가 거부되었습니다</PD_AiFailureUnauthorized>
+  <PD_AiFailureRateLimit>서비스 요금 한도에 도달했습니다.</PD_AiFailureRateLimit>
+  <PD_AiFailureServer>공급자가 서버 오류를 보고했습니다.</PD_AiFailureServer>
+  <PD_AiFailureNetwork>서비스에 연결할 수 없습니다</PD_AiFailureNetwork>
+  <PD_AiShowTechnicalErrors>기술적인 대체 이유 표시</PD_AiShowTechnicalErrors>
+  <PD_AiShowTechnicalErrorsDesc>활성화하면 AI 요청이 대체된 후 삭제된 짧은 이유가 표시됩니다. API 키와 응답 본문은 기록되지 않습니다.</PD_AiShowTechnicalErrorsDesc>
+  <PD_AiStatusReady>AI 내러티브 구성이 준비되었습니다. 공식적인 협상 결과가 나온 후에만 요청이 발생합니다.</PD_AiStatusReady>
+  <PD_AiStatusDisabled>AI 내러티브가 비활성화되었습니다. 모든 외교는 표준 번역 템플릿을 사용합니다.</PD_AiStatusDisabled>
+  <PD_AiStatusMissingKey>AI 설명이 활성화되어 있지만 필수 API 키가 비어 있습니다. 표준 템플릿이 사용됩니다.</PD_AiStatusMissingKey>
+  <PD_AiStatusMissingModel>AI 내러티브가 활성화되었지만 모델이 구성되지 않았습니다. 표준 템플릿이 사용됩니다.</PD_AiStatusMissingModel>
+  <PD_AiStatusInvalidEndpoint>AI 내러티브가 활성화되었지만 엔드포인트가 유효한 HTTP 또는 HTTPS URL이 아닙니다. 표준 템플릿이 사용됩니다.</PD_AiStatusInvalidEndpoint>
+  <PD_AiStatusInsecureEndpoint>협상 데이터와 API 키를 보호하기 위해 원격 HTTP 엔드포인트가 차단됩니다. 로컬 모델 서비스에는 HTTPS 또는 루프백 주소를 사용하십시오.</PD_AiStatusInsecureEndpoint>
+  <PD_AiPrivacyNotice>현재 세력, 이념 신호, 수감자 신원 및 건강 범주, 최근 전투 상황, 관계 상황, 정성적 기억, 선택적 역할극 메모 및 이미 결정된 결과만 전송됩니다. API 키는 RimWorld의 모드 설정에 로컬로 저장됩니다.</PD_AiPrivacyNotice>
+  <PD_AiPlayerNoteLabel>세력 응답에 대한 역할극 메모(AI 톤만 해당, 거래를 변경하지 않음)</PD_AiPlayerNoteLabel>
+  <PD_AiNarrativeHeading>AI가 생성한 세력 응답</PD_AiNarrativeHeading>
+  <PD_AiDisableNow>AI 비활성화</PD_AiDisableNow>
+  <PD_AiNarrativeWaiting>서술형 텍스트를 기다리고 있습니다. 아래의 공식적인 반대 제안은 이미 수정되어 사용 가능합니다.</PD_AiNarrativeWaiting>
+  <PD_AiNarrativeGenerated>{0}\n\n설명 전용입니다. 아래의 정식 약관과 버튼은 실제 게임 계약입니다.</PD_AiNarrativeGenerated>
+  <PD_AiNarrativeFallback>AI 응답을 사용할 수 없거나 더 이상 이 협상과 일치하지 않습니다. 표준 외교 답변이 적용됩니다.</PD_AiNarrativeFallback>
+  <PD_AiNarrativeReady>{0}의 AI 내러티브 답변이 준비되었습니다. 공식적인 게임 용어는 여전히 권위가 있습니다.</PD_AiNarrativeReady>
+  <PD_AiNarrativeArrived>{0}:\n{1}\n\n에서 AI가 생성한 세력 응답공식적인 게임 결과: {2}\n내러티브 전용; 이 텍스트는 추가 지불, 기한, 약속 또는 게임 효과를 생성하지 않습니다.</PD_AiNarrativeArrived>
+  <PD_AiOfferLetterText>AI 생성 세력 응답:\n{0}\n\n공식 제안:\n{1}\n\n내러티브 전용입니다. 공식적인 제안과 편지 버튼은 실제 게임 계약입니다.</PD_AiOfferLetterText>
+  <PD_AiFallbackTechnical>AI 내러티브는 표준 템플릿인 {0}로 대체되었습니다.</PD_AiFallbackTechnical>
+  <PD_RewardCeasefire>{0}일 휴전</PD_RewardCeasefire>
+  <PD_RewardEarlyWarningIntel>60일 조기 경보 인텔리전스</PD_RewardEarlyWarningIntel>
+  <PD_RewardSpecial>{0}x {1}</PD_RewardSpecial>
+  <PD_DemandCeasefire>휴전일(5~30일)</PD_DemandCeasefire>
+  <PD_DemandEarlyWarningIntel>조기 경보 인텔리전스</PD_DemandEarlyWarningIntel>
+  <PD_DemandSpecialReward>특별 보상</PD_DemandSpecialReward>
+  <PD_SelectSpecialReward>특별 보상을 선택하세요</PD_SelectSpecialReward>
+  <PD_SpecialRewardOption>{0}x {1}</PD_SpecialRewardOption>
+  <PD_NegotiationInvalidSpecialReward>선택한 특별 리워드가 유효하지 않거나 안전하게 배송될 수 없습니다.</PD_NegotiationInvalidSpecialReward>
+  <PD_NegotiationSpecialRewardUnavailable>이 죄수는 더 이상 선택한 특별 보상을 받을 수 없습니다.</PD_NegotiationSpecialRewardUnavailable>
+  <PD_InvalidCeasefireReward>5~30일 사이의 휴전 기간을 입력하세요.</PD_InvalidCeasefireReward>
+  <PD_NegotiationStrategicDisabled>모드 설정에서 휴전 및 정보 보상이 비활성화됩니다.</PD_NegotiationStrategicDisabled>
+  <PD_SettingStrategicConsequences>휴전, 정보 및 후속 이벤트 활성화</PD_SettingStrategicConsequences>
+  <PD_SettingStrategicConsequencesDesc>결정론적인 전략적 보상과 인과관계가 있는 수감자 후속 이벤트를 가능하게 합니다. 기존에 합의된 전략적 보상은 계속 유효합니다.</PD_SettingStrategicConsequencesDesc>
+  <PD_PirateRiskNone>확인된 특별한 위험이 없습니다.</PD_PirateRiskNone>
+  <PD_PirateRiskDelayed>수감자가 떠난 후 의도적으로 지불이 지연될 수 있습니다.</PD_PirateRiskDelayed>
+  <PD_PirateRiskRescue>협상은 배송 전 무장 구출 시도에 대한 은폐일 수 있습니다.</PD_PirateRiskRescue>
+  <PD_PirateRiskJailbreak>해당 세력은 지명된 죄수에게 탈옥을 시작하도록 선동할 수 있습니다.</PD_PirateRiskJailbreak>
+  <PD_PirateRiskAmbush>무장 매복 공격은 완료된 교환 이후에 이루어질 수 있지만 전달된 보상을 취소할 수는 없습니다.</PD_PirateRiskAmbush>
+  <PD_StatusPirateRisk>공개된 해적 위험: {0}</PD_StatusPirateRisk>
+  <PD_SecurePirateDeal>보다 안전한 조건을 협상하세요</PD_SecurePirateDeal>
+  <PD_SecurePirateDealDesc>공개되기 전에 공개된 불법 복제 위험을 제거하는 대가로 합의된 보상을 약 20% 줄입니다.</PD_SecurePirateDealDesc>
+  <PD_SecurePirateDealConfirmation>보다 안전한 배송을 요청하시나요? 현재 보상은 {0}입니다. 더 안전한 조건을 수락하면이를 줄일 수 있습니다.</PD_SecurePirateDealConfirmation>
+  <PD_SecurePirateDealUnavailable>이러한 조건은 유효하고 안전한 계약으로 축소될 수 없습니다. 공개된 위험을 취소하거나 수락합니다.</PD_SecurePirateDealUnavailable>
+  <PD_SecurePirateDealSucceeded>더 안전한 배송 조건이 허용됩니다. 원본: {0}. 개정: {1}.</PD_SecurePirateDealSucceeded>
+  <PD_CeasefireRaidBlocked>{0}는 통제된 습격을 시도했지만 활성화된 휴전으로 인해 이를 차단했습니다. 남은 기간: {1}.</PD_CeasefireRaidBlocked>
+  <PD_CeasefireExpired>{0}와의 임시 휴전이 만료되었습니다.</PD_CeasefireExpired>
+  <PD_CeasefireBrokenLabel>휴전 파기: {0}</PD_CeasefireBrokenLabel>
+  <PD_CeasefireBrokenText>귀하의 군대는 {0} 대원 또는 재산({1})을 공격했습니다. {2}, 거래 {3}를 통해 획득한 휴전이 종료되었습니다. 당신의 신뢰도는 심각하게 손상되었고 분노가 커졌습니다.</PD_CeasefireBrokenText>
+  <PD_MemoryEventCeasefireBroken>{0}를 공격하여 약속된 휴전을 깨뜨렸습니다.</PD_MemoryEventCeasefireBroken>
+  <PD_IntelWarningLabel>조기 경고: {0} 급습</PD_IntelWarningLabel>
+  <PD_IntelWarningText>거래 {6}에 따른 {5}의 귀환과 관련된 정보는 {0} 급습에 대한 준비를 확인했습니다.\n\n추정 위협: {1}\n예상되는 무력 또는 공격 스타일: {2}\n대략적인 방향: {3}\n예상 도착: {4}\n\n이 인텔리전스는 이제 사용되었습니다. 정확한 장비와 스폰 위치는 아직 알려지지 않았습니다.</PD_IntelWarningText>
+  <PD_IntelThreatLow>제한된</PD_IntelThreatLow>
+  <PD_IntelThreatMedium>상당한</PD_IntelThreatMedium>
+  <PD_IntelThreatHigh>주요한</PD_IntelThreatHigh>
+  <PD_IntelStyleTribal>부족 전사와 근접 공격</PD_IntelStyleTribal>
+  <PD_IntelStyleIndustrial>산업용 무기와 재래식 공격</PD_IntelStyleIndustrial>
+  <PD_IntelStyleAdvanced>첨단 무기와 특수 공격자</PD_IntelStyleAdvanced>
+  <PD_IntelDirectionUnknown>아직 알려지지 않음</PD_IntelDirectionUnknown>
+  <PD_IntelDirectionNorth>북쪽</PD_IntelDirectionNorth>
+  <PD_IntelDirectionSouth>남쪽</PD_IntelDirectionSouth>
+  <PD_IntelDirectionEast>동쪽</PD_IntelDirectionEast>
+  <PD_IntelDirectionWest>서쪽</PD_IntelDirectionWest>
+  <PD_IntelExpired>{0}에 대한 사용되지 않은 조기 경고 인텔리전스가 60일 후에 만료되었습니다.</PD_IntelExpired>
+  <PD_StrategicStatus>전략적 계약:\n{0}</PD_StrategicStatus>
+  <PD_StrategicStatusCeasefire>휴전: {0} 남음(수감자 {1}, 거래 {2})</PD_StrategicStatusCeasefire>
+  <PD_StrategicStatusIntel>조기 경고 정보: {0} 남음(수감자 {1}, 거래 {2})</PD_StrategicStatusIntel>
+  <PD_StrategicStatusWarnedRaid>{0} 정도에 급습이 예상됩니다.</PD_StrategicStatusWarnedRaid>
+  <PD_StrategicStatusCareCredit>케어 크레딧: 일회성 10% 협상 예산 보너스 제공(수감자 {0}, 거래 {1})</PD_StrategicStatusCareCredit>
+  <PD_PirateRescueRaidLabel>해적 구출 시도: {0}</PD_PirateRescueRaidLabel>
+  <PD_PirateRescueRaidText>{0}는 {1}를 구출하려는 무장 시도의 엄폐물로 {2} 거래를 사용했습니다. 이 가능성은 출시 전에 공개되었습니다.</PD_PirateRescueRaidText>
+  <PD_PirateJailbreakLabel>탈옥 선동: {0}</PD_PirateJailbreakLabel>
+  <PD_PirateJailbreakText>{0}는 거래 {2}를 사용하여 {1}에 지시를 전달하여 탈옥을 유도했습니다. 이 가능성은 출시 전에 공개되었습니다.</PD_PirateJailbreakText>
+  <PD_PositiveReturnLabel>전직 죄수는 다음을 기억합니다: {0}</PD_PositiveReturnLabel>
+  <PD_PositiveReturnText>{0}는 {1}가 포로 상태에서 받은 의료 지원을 기억했다고 보고합니다. 거래 {2}에 대한 나중에 반환으로 해당 세력은 {3} 은을 보냈습니다.</PD_PositiveReturnText>
+  <PD_CareCreditLabel>{0}의 케어 크레딧</PD_CareCreditLabel>
+  <PD_CareCreditGrantedText>{0}는 {1}가 감금된 상태에서 적절한 치료를 받았음을 인정합니다. 적대 행위가 지속되는 동안에는 물리적 선물을 보내지 않지만 다음 협상에서는 일회성 10% 예산 양보({2} 거래)를 받습니다.</PD_CareCreditGrantedText>
+  <PD_RescueRaidLabel>구조작전: {0}</PD_RescueRaidLabel>
+  <PD_RescueRaidText>{0}는 중요한 죄수 {1}를 구출하기 위해 특별히 작전을 시작했습니다.</PD_RescueRaidText>
+  <PD_ImportantDeathWarningLabel>{0} 사망 후 경고</PD_ImportantDeathWarningLabel>
+  <PD_ImportantDeathWarningText>{0}는 중요한 죄수 {1}의 죽음에 대해 식민지에 책임을 묻습니다. 소스 거래: {2}. {3} 보복 준비가 감지되었습니다.</PD_ImportantDeathWarningText>
+  <PD_DeathWarningAgreementBroken>수락된 계약이 깨졌습니다.</PD_DeathWarningAgreementBroken>
+  <PD_DeathWarningPlayerResponsible>사망은 플레이어의 행동으로 추적되었습니다.</PD_DeathWarningPlayerResponsible>
+  <PD_RetaliationRaidLabel>{0}에 대한 보복</PD_RetaliationRaidLabel>
+  <PD_RetaliationRaidText>{0}는 {1}의 죽음에 대한 보복 공격을 하고 있습니다. 불만 사항은 {2} 거래와 연결되어 있습니다.</PD_RetaliationRaidText>
+  <PD_PirateAmbushLabel>공개된 해적 매복: {0}</PD_PirateAmbushLabel>
+  <PD_PirateAmbushText>{0}는 {1}에 대한 거래 {2} 중에 의심되는 매복을 시작했습니다. 죄수는 이미 인도되었으며 합의된 모든 보상은 인도된 상태로 유지됩니다.</PD_PirateAmbushText>
+  <PD_DebugCeasefireGranted>{0}로 디버그 10일 휴전을 허용했습니다.</PD_DebugCeasefireGranted>
+  <PD_DebugStrategicStateLogged>선택한 진영의 휴전 및 전략 상태가 게임 로그에 기록됩니다.</PD_DebugStrategicStateLogged>
+  <PD_DebugIntelGranted>{0}에 대한 디버그 조기 경고 인텔리전스가 부여되었습니다.</PD_DebugIntelGranted>
+  <PD_DebugPositiveGiftForced>선택한 세력의 긍정적인 보상 선물 테스트를 강제했습니다. 은방울과 문자를 확인해보세요.</PD_DebugPositiveGiftForced>
+  <PD_DebugCareCreditGranted>선택한 영구 적에게 일회성 케어 크레딧을 부여합니다. 진영의 전략 현황을 확인하세요.</PD_DebugCareCreditGranted>
+  <PD_DebugRaidSuppressed>테스트 레이드가 차단되었거나 생성될 수 없습니다. 이는 활성 휴전 또는 정보 차단 중에 예상됩니다.</PD_DebugRaidSuppressed>
+  <PD_DebugRaidNoPawnGroupMaker>{0}는 현재 상황에서 사용할 수 있는 전투 그룹이 없어 테스트 레이드가 무사히 취소되었습니다.</PD_DebugRaidNoPawnGroupMaker>
+  <PD_DebugRaidFactionNotHostile>{0} 팩션은 현재 플레이어에게 적대적이지 않으므로 바닐라는 적 공격에 이를 사용하지 않습니다. 대신 Wolfein과 같은 지원 세력이 지원 이벤트로 해결될 수 있습니다. 적대적인 세력을 이용해 실제 습격을 테스트해보세요.</PD_DebugRaidFactionNotHostile>
+  <PD_SettingCompatibilityLogging>자세한 호환성 로깅 활성화</PD_SettingCompatibilityLogging>
+  <PD_SettingCompatibilityLoggingDesc>활성 우선순위 모드, 다중 콜로니 상태, 제외된 특수 폰, 격리된 예외 및 자동 저장 복구를 기록합니다. API 키와 AI 응답 본문은 포함되지 않습니다.</PD_SettingCompatibilityLoggingDesc>
+  <PD_SettingPerformanceLogging>느린 외교 스캔을 기록합니다.</PD_SettingPerformanceLogging>
+  <PD_SettingPerformanceLoggingDesc>정기적인 포로 외교 스캔에 최소 100ms가 걸릴 경우 속도 제한 경고를 작성합니다. 대규모 저장을 진단하지 않는 한 비활성화된 상태로 두십시오.</PD_SettingPerformanceLoggingDesc>
+  <PD_SettingReduceUiMotion>인터페이스 동작 감소</PD_SettingReduceUiMotion>
+  <PD_SettingReduceUiMotionDesc>보다 정적인 인터페이스를 위해 AI 신호 펄스 및 결과 페이드를 비활성화합니다.</PD_SettingReduceUiMotionDesc>
+  <PD_CompatibilityRepairApplied>Prisoner Diplomacy는 로드하는 동안 호환되지 않거나 오래된 저장 데이터를 복구했습니다. 세부정보: {0}</PD_CompatibilityRepairApplied>
+  <PD_DebugCompatibilityLogged>죄수 외교 호환성 보고서가 게임 로그에 기록되었습니다.</PD_DebugCompatibilityLogged>
+  <PD_DebugRepairApplied>잘못된 포로 외교 저장 데이터가 복구되었습니다. 세부정보: {0}</PD_DebugRepairApplied>
+  <PD_DebugRepairNotNeeded>잘못된 죄수 외교 저장 데이터를 찾을 수 없습니다.</PD_DebugRepairNotNeeded>
+  <PD_SettingsGameplayHeading>죄수 외교 게임 플레이 설정</PD_SettingsGameplayHeading>
+  <PD_SettingEnemyInitiatedRansoms>적의 몸값 제안 활성화</PD_SettingEnemyInitiatedRansoms>
+  <PD_SettingEnemyInitiatedRansomsDesc>비활성화되면 새로운 세력이 시작한 제안이 생성되지 않습니다. 기존 거래는 여전히 원래 조건에 따라 종료되거나 만료됩니다.</PD_SettingEnemyInitiatedRansomsDesc>
+  <PD_SettingOfferFrequency>적 제안 빈도: {0}x</PD_SettingOfferFrequency>
+  <PD_SettingRansomValue>몸값 평가 승수: {0}x</PD_SettingRansomValue>
+  <PD_SettingFactionReserves>세력 외교 예비군 활성화</PD_SettingFactionReserves>
+  <PD_SettingFactionReservesDesc>비활성화되면 세력은 식민지 보상 상한선의 적용을 받지만 외교 예비력이 고갈된다는 이유로 법적 거래를 거부하지 않습니다.</PD_SettingFactionReservesDesc>
+  <PD_SettingFactionMemory>세력 처리 및 신뢰성 메모리 활성화</PD_SettingFactionMemory>
+  <PD_SettingFactionMemoryDesc>비활성화되면 신뢰성, 대우 및 분노가 더 이상 제안이나 위험에 영향을 미치지 않습니다. 기존 메모리 데이터는 삭제되지 않고 그대로 유지됩니다.</PD_SettingFactionMemoryDesc>
+  <PD_SettingMessageDetail>진영 메모리 메시지 세부정보</PD_SettingMessageDetail>
+  <PD_MessageDetailEssential>주요 변경 사항만</PD_MessageDetailEssential>
+  <PD_MessageDetailStandard>기준</PD_MessageDetailStandard>
+  <PD_MessageDetailDetailed>추가 변경사항</PD_MessageDetailDetailed>
+  <PD_CopyDiagnosticReport>진단 보고서 복사</PD_CopyDiagnosticReport>
+  <PD_DiagnosticReportCopied>진단 보고서가 클립보드에 복사되어 게임 로그에 기록되었습니다.</PD_DiagnosticReportCopied>
+  <PD_MemoryDisabled>세력 처리 및 신뢰성 메모리는 현재 비활성화되어 있습니다.</PD_MemoryDisabled>
+  <PD_FinancesDisabled>외교 예비군은 현재 비활성화되어 있습니다. 다른 보상 한도는 여전히 적용됩니다.</PD_FinancesDisabled>
+  <PD_DebugNoActiveDeal>선택한 폰에는 조작할 수 있는 활성 거래가 없습니다.</PD_DebugNoActiveDeal>
+  <PD_DebugNoMap>선택한 폰은 지도에 고정되어 있지 않습니다.</PD_DebugNoMap>
+  <PD_DebugNoNegotiatingFaction>기본 구성원인 PawnKind와 눈에 띄는 협상 세력이 발견되지 않았습니다.</PD_DebugNoNegotiatingFaction>
+  <PD_DebugNoHumanFaction>바닐라 인간 디버그 폰에 대해 활성 협상 세력이 발견되지 않았습니다.</PD_DebugNoHumanFaction>
+  <PD_DebugNoRoyaltySupport>제국 귀족 PawnKind 또는 제국 세력을 찾을 수 없습니다. Royalty DLC가 활성화되어 있고 이 지도에 제국이 존재하는지 확인하세요.</PD_DebugNoRoyaltySupport>
+  <PD_DebugSpawnFailed>디버그 폰을 안전하게 생성할 수 없습니다.</PD_DebugSpawnFailed>
+  <PD_DebugNoHostageFaction>선택한 폰의 세력은 납치된 폰을 보유할 수 없습니다.</PD_DebugNoHostageFaction>
+  <PD_DebugNoNegotiator>디버그 협상자로 사용할 수 있는 무료 플레이어 식민지 주민은 없습니다.</PD_DebugNoNegotiator>
+  <PD_DebugDemandRejectedByState>현재 협상 상태에서 디버그 요구가 거부되었습니다.</PD_DebugDemandRejectedByState>
+  <PD_DebugCounterUnavailable>결정론적 요구가 이 폰에 대한 반대 제안을 생성하지 않았습니다.</PD_DebugCounterUnavailable>
+  <PD_DebugNoCounteroffer>선택한 Pawn에는 활성 반대 제안이 없습니다.</PD_DebugNoCounteroffer>
+  <PD_DebugPrisonerSpawned>{1}에서 생성된 테스트 포로 {0}.</PD_DebugPrisonerSpawned>
+  <PD_DebugRoyalPrisonerSpawned>{1}에서 왕실 테스트 죄수 {0}가 생성되었습니다(중요도: {2}).</PD_DebugRoyalPrisonerSpawned>
+  <PD_DebugHostageGenerated>{1}에 대한 테스트 납치 식민지 주민 {0}를 생성했습니다.</PD_DebugHostageGenerated>
+  <PD_DebugCustomRacePrisonerSpawned>{1}({2})에서 생성된 커스텀 레이스 테스트 죄수 {0}.</PD_DebugCustomRacePrisonerSpawned>
+  <PD_DebugCustomRaceHostageGenerated>{1}({2})에 대해 맞춤 종족 납치된 식민지 주민 {0}를 생성했습니다.</PD_DebugCustomRaceHostageGenerated>
+  <PD_DebugCustomRacesLogged>감지된 사용자 지정 레이스가 게임 로그에 기록되었습니다.</PD_DebugCustomRacesLogged>
+  <PD_DebugNoMatchingRaceFaction>이 사용자 지정 종족과 일치하는 활성 협상 세력이 없습니다.</PD_DebugNoMatchingRaceFaction>
+  <PD_DebugInvalidRaceKind>이 사용자 지정 종족에는 인간과 같은 PawnKind를 사용할 수 없습니다.</PD_DebugInvalidRaceKind>
+  <PD_DebugCooldownReset>선택한 폰의 죄수 및 세력 협상 쿨다운을 재설정합니다.</PD_DebugCooldownReset>
+  <PD_DebugDemandResult>디버그 협상: {0}; {1}를 요청했습니다. 반대 제안 {2}; 수락 확률 {3}.</PD_DebugDemandResult>
+  <PD_DebugReserveEmptied>선택한 진영의 외교 예비비를 비웠습니다.</PD_DebugReserveEmptied>
+  <PD_DebugDeliveryPending>선택한 죄수를 지불 보류 상태로 배송된 것으로 표시했습니다.</PD_DebugDeliveryPending>
+  <PD_DebugReleaseOrdered>맵 종료를 시뮬레이션하지 않고 선택된 죄수의 몸값을 석방하도록 명령했습니다.</PD_DebugReleaseOrdered>
+  <PD_DebugTreatmentRecorded>선택한 죄수에게 가벼운 부상과 기록된 플레이어 치료를 추가했습니다.</PD_DebugTreatmentRecorded>
+  <PD_DebugDealCancelled>선택한 수락된 거래를 결제 없이 취소했습니다.</PD_DebugDealCancelled>
+  <PD_DebugPartialReward>다음 보류 보상인 {0}만 발행되었습니다. 거래는 부분적으로 이행된 상태로 유지됩니다.</PD_DebugPartialReward>
+  <PD_DebugNoRewardPending>선택한 거래에 대해 대기 중인 보상이 없습니다.</PD_DebugNoRewardPending>
+  <PD_DebugPaymentCompleted>선택한 거래의 보류 중인 결제를 강제로 완료했습니다.</PD_DebugPaymentCompleted>
+  <PD_DebugNoPendingPayment>선택한 거래에는 완료할 수 있는 보류 중인 결제가 없습니다.</PD_DebugNoPendingPayment>
+  <PD_DebugSaleFailed>선택된 수감자의 판매 또는 양도 실패를 시뮬레이션합니다.</PD_DebugSaleFailed>
+  <PD_DebugEnslavementFailed>선택된 죄수에 대한 시뮬레이션된 노예화 실패.</PD_DebugEnslavementFailed>
+  <PD_DebugDealAccepted>선택한 폰의 제안 또는 반대 제안을 수락했습니다.</PD_DebugDealAccepted>
+  <PD_DebugDealRejected>선택한 폰의 제안이나 반대 제안을 거부했습니다.</PD_DebugDealRejected>
+  <PD_DebugDealExpired>선택한 폰의 거래를 만료 처리로 진행합니다.</PD_DebugDealExpired>
+  <PD_DebugDealFailed>시뮬레이션된 거래 실패: {0}</PD_DebugDealFailed>
+  <PD_DebugMemoryAdjusted>선택한 폰의 원래 세력 메모리를 조정했습니다.</PD_DebugMemoryAdjusted>
+  <PD_DebugReserveRefilled>선택한 폰의 원래 세력 외교 예비비를 다시 채웠습니다.</PD_DebugReserveRefilled>
+  <PD_MemoryEventDebugAdjustment>디버그 도구는 {0}에 대한 죄수 치료 메모리를 조정했습니다.</PD_MemoryEventDebugAdjustment>
+  <PD_MemoryEventInfiltration>{0}는 의도적인 침투 시도로 사용되었습니다.</PD_MemoryEventInfiltration>
+  <PD_SettingAiAllowExternalContext>협상 요약이 외부 AI 서비스로 전송되도록 허용</PD_SettingAiAllowExternalContext>
+  <PD_SettingAiAllowExternalContextDesc>활성화된 경우에만 AI 내러티브가 다듬어진 세력, 수감자 건강 밴드, 정성적 기억 및 공식적인 결과를 외부 서비스로 보냅니다. API 키는 보고서에 포함되지 않습니다.</PD_SettingAiAllowExternalContextDesc>
+  <PD_AiStatusExternalContextDisabled>AI 내러티브는 활성화되지만 외부 협상-요약 전송은 비활성화됩니다. 표준 템플릿이 사용됩니다.</PD_AiStatusExternalContextDisabled>
+  <PD_EventUnavailable>이 외교 이벤트는 더 이상 진행되지 않습니다.</PD_EventUnavailable>
+  <PD_EventAccept>제안을 수락하세요</PD_EventAccept>
+  <PD_EventReject>감소</PD_EventReject>
+  <PD_SampleAddonEventLabel>중립 무역 포인트 제안</PD_SampleAddonEventLabel>
+  <PD_SampleAddonEventDescription>Prisoner Diplomacy 1.2 API를 통해 등록된 샘플 추가 기능 이벤트입니다.</PD_SampleAddonEventDescription>
+  <PD_SampleAddonRewardLabel>산업용 부품 캐시</PD_SampleAddonRewardLabel>
+  <PD_SampleAddonRewardDescription>샘플 레이스 어댑터에서 제공하는 특별한 보상입니다.</PD_SampleAddonRewardDescription>
+  <PD_EventNeutralTradeLabel>중립 교환 지점</PD_EventNeutralTradeLabel>
+  <PD_EventNeutralTradeText>{0}는 {1}에 대한 중립 거래 지점을 제안합니다. 교환은 일반적인 포로 외교 석방 및 지불 수표의 적용을 받습니다.</PD_EventNeutralTradeText>
+  <PD_EventNeutralMediator>중립적인 중개자</PD_EventNeutralMediator>
+  <PD_EventNeutralTradeCaravanArrived>{0}가 교환을 감독하기 위해 도착했습니다. 캐러밴이 남아 있는 동안에만 석방이 명령됩니다.</PD_EventNeutralTradeCaravanArrived>
+  <PD_EventNeutralTradeReleaseOrdered>{0}는 이제 일반적인 포로 석방 작업 흐름을 통해 호위되고 있습니다.</PD_EventNeutralTradeReleaseOrdered>
+  <PD_EventNeutralTradeCompletedLabel>중립 교환 완료</PD_EventNeutralTradeCompletedLabel>
+  <PD_EventNeutralTradeCompletedText>{0}는 {1}가 감독된 핸드오프를 완료했음을 확인합니다. 정상적인 거래 이행은 여전히 ​​신뢰할 수 있습니다.</PD_EventNeutralTradeCompletedText>
+  <PD_EventNeutralTradePointCreated>{1} 타일에 {0}에 대한 세계 지도 교환 지점을 만들었습니다. 죄수를 태운 캐러밴을 보내 인도를 시작하세요.</PD_EventNeutralTradePointCreated>
+  <PD_EventNeutralTradePointArrived>{0}는 중립 세계지도 교환 지점에서 {1}에게 넘겨졌습니다.</PD_EventNeutralTradePointArrived>
+  <PD_EventInfiltrationLabel>거짓 항복 경고</PD_EventInfiltrationLabel>
+  <PD_EventInfiltrationText>{0}는 의도적으로 {1}를 침입자로 항복했습니다. 죄수는 작전이 중단되기 전에 탈출 시도를 선동하거나 청사진을 타협할 수 있습니다.</PD_EventInfiltrationText>
+  <PD_EventTrialLabel>공개 전범재판</PD_EventTrialLabel>
+  <PD_EventTrialText>포획된 리더 {0}를 공개적으로 시험해 볼 수 있습니다. 연합군 관찰자들은 평결을 기억할 것이고, 원래 세력은 보복할 수도 있습니다.</PD_EventTrialText>
+  <PD_EventAmbushLabel>몸값 매복 보복</PD_EventAmbushLabel>
+  <PD_EventAmbushText>{0}는 {1}를 되찾기 위해 몸값 교환을 위반하고 {2} 거래와 관련된 매복 보복을 시작했습니다.</PD_EventAmbushText>
+  <PD_UnknownPrisoner>알려지지 않은 죄수</PD_UnknownPrisoner>
+  <PD_UnknownDeal>알 수 없는 거래</PD_UnknownDeal>
+  <PD_UiEventsTab>이벤트</PD_UiEventsTab>
+  <PD_UiEventsTitle>외교사건 이력</PD_UiEventsTitle>
+  <PD_UiEventsEmpty>이 세력에 대해서는 외교 확장 이벤트가 기록되지 않습니다.</PD_UiEventsEmpty>
+  <PD_UiEventDueIn>{0} 기한</PD_UiEventDueIn>
+  <PD_UiEventMeta>죄수: {0} | 거래: {1} | {2}</PD_UiEventMeta>
+  <PD_UiEventTechnical>스테이지 {0} | 재시도 {1} | 중개자: {2}</PD_UiEventTechnical>
+  <PD_UiEventStateScheduled>예정됨</PD_UiEventStateScheduled>
+  <PD_UiEventStateOffered>결정을 기다리는 중</PD_UiEventStateOffered>
+  <PD_UiEventStateActive>활동적인</PD_UiEventStateActive>
+  <PD_UiEventStateCompleted>완전한</PD_UiEventStateCompleted>
+  <PD_UiEventStateFailed>실패한</PD_UiEventStateFailed>
+  <PD_UiEventStateCancelled>취소</PD_UiEventStateCancelled>
+  <PD_DebugEventAlreadyActive>선택한 죄수에 대해 이 유형의 활성 이벤트가 이미 존재합니다.</PD_DebugEventAlreadyActive>
+  <PD_DebugEventNeedsAcceptedDeal>중립 교환 디버그 이벤트에는 승인된 몸값 거래가 필요합니다. 도구가 하나를 준비할 수 없습니다.</PD_DebugEventNeedsAcceptedDeal>
+  <PD_DebugEventScheduleFailed>외교행사 일정을 잡을 수 없었습니다.</PD_DebugEventScheduleFailed>
+  <PD_DebugEventForced>강제 이벤트 {0}; 현재 상태: {1}.</PD_DebugEventForced>
+  <PD_DebugEventAdvanced>고급 {0}; 상태: {1}; 단계: {2}.</PD_DebugEventAdvanced>
+  <PD_DebugNoActiveEvent>선택한 포로와 연결된 활성 외교 이벤트가 없습니다.</PD_DebugNoActiveEvent>
+  <PD_DebugEventsCancelled>{0} 활성 외교 이벤트가 취소되었습니다.</PD_DebugEventsCancelled>
+  <PD_DebugEventsLogged>외교 이벤트 상태가 게임 로그에 기록되었습니다.</PD_DebugEventsLogged>
+  <PD_DebugSpecialRewardToggled>디버그 특별 보상: {0}</PD_DebugSpecialRewardToggled>
+  <PD_WorldTradePointLabel>중립 포로 교환소</PD_WorldTradePointLabel>
+  <PD_WorldTradePointInspect>대상 포로 : {0}\n수신 진영 : {1}</PD_WorldTradePointInspect>
+  <PD_WorldTradePointVisit>{0}에서 교환 진행</PD_WorldTradePointVisit>
+  <PD_DebugWorldTradePointForced>{2} 타일 {1}에서 강제 세계 교환 {0}.</PD_DebugWorldTradePointForced>
+  <PD_DebugWorldTradePointsLogged>월드 교환 포인트 상태가 게임 로그에 기록되었습니다.</PD_DebugWorldTradePointsLogged>
+  <PD_DebugWorldTradePointCompleted>선택한 월드 교환소를 완료했습니다.</PD_DebugWorldTradePointCompleted>
+  <PD_DebugWorldTradePointNeedsCaravan>이 교환 지점에는 대상 포로를 태운 캐러밴이 없습니다.</PD_DebugWorldTradePointNeedsCaravan>
+  <PD_DebugWorldTradeCaravanSent>바닐라 캐러밴에 있는 {0}를 타일 {1} 방향으로 보냈습니다.</PD_DebugWorldTradeCaravanSent>
+  <PD_DebugWorldTradeCaravanFailed>테스트 캐러밴을 생성할 수 없거나 월드 교환 지점으로 이동할 수 없습니다.</PD_DebugWorldTradeCaravanFailed>
+  <PD_DebugNeutralTradeArrivalRejected>중립 거래소는 이 캐러밴을 받아들일 수 없었습니다. 이벤트, 대상 포로, 활성 거래를 확인합니다.</PD_DebugNeutralTradeArrivalRejected>
+  <PD_SettingEnableAiNegotiationAdjustments>제한된 AI 협상 조정 활성화</PD_SettingEnableAiNegotiationAdjustments>
+  <PD_SettingEnableAiNegotiationAdjustmentsDesc>AI가 긴급성을 반환하고 실시간 반대 제안에 대한 신호를 활용할 수 있도록 허용합니다. 결정론적 핵심은 법적 준비금, 재고, 보상 및 오래된 컨텍스트 규칙에 대한 모든 변경 사항을 고정합니다. 기본적으로 비활성화되어 있습니다.</PD_SettingEnableAiNegotiationAdjustmentsDesc>
+  <PD_AiPersonaHeading>팩션 페르소나 컨텍스트</PD_AiPersonaHeading>
+  <PD_AiPersonaDescription>AI 톤을 변경하는 데에만 사용되는 선택적 신뢰할 수 없는 역할극 컨텍스트입니다. 거래 규칙이나 보상은 변경할 수 없습니다. 최대 500자입니다.</PD_AiPersonaDescription>
+  <PD_AiDefaultFactionPersona>글로벌 페르소나 폴백</PD_AiDefaultFactionPersona>
+  <PD_AiFactionPersonaOverride>페르소나 재정의</PD_AiFactionPersonaOverride>
+  <PD_DebugAiContextCopied>AI 컨텍스트 미리보기가 클립보드에 복사되어 로그에 기록됩니다.</PD_DebugAiContextCopied>
+  <PD_AiAdvisoryApplied>이 라이브 반대 제안에 적용된 제한된 AI 권고: {0}</PD_AiAdvisoryApplied>
+  <PD_DebugAdvisoryApplied>디버그 AI 권고 적용: {0}</PD_DebugAdvisoryApplied>
+  <PD_DebugAdvisoryNoCounteroffer>이 자문 테스트에는 유효한 반대 제안이 없습니다.</PD_DebugAdvisoryNoCounteroffer>
+  <PD_SettingErrorTelemetry>익명 오류 보고서 전송 전에 묻기</PD_SettingErrorTelemetry>
+  <PD_SettingErrorTelemetryDesc>활성화하면 정리된 오류 보고서를 보내기 전에 확인합니다. 선택하기 전에는 보고서가 전송되지 않습니다.</PD_SettingErrorTelemetryDesc>
+  <PD_ErrorTelemetryDialogTitle>죄수 외교에서 오류를 감지했습니다</PD_ErrorTelemetryDialogTitle>
+  <PD_ErrorTelemetryDialogText>예상하지 못한 작업을 감지했습니다. 죄수 외교 개선을 위해 익명으로 정리된 오류 보고서를 보내시겠습니까? 저장 파일은 전송하지 않으며 로컬 경로와 인식 가능한 비밀 정보는 제거됩니다.</PD_ErrorTelemetryDialogText>
+  <PD_ErrorTelemetryAllowOnce>이 보고서 보내기</PD_ErrorTelemetryAllowOnce>
+  <PD_ErrorTelemetryAllowSession>이번 세션 동안 허용</PD_ErrorTelemetryAllowSession>
+  <PD_ErrorTelemetryReject>거부</PD_ErrorTelemetryReject>
+</LanguageData>

@@ -1,0 +1,91 @@
+[h1]A prisoner is more than a burden in a cell. They can be a ransom, an exchange, a ceasefire, or the spark that starts the next war.[/h1]
+
+[b]Prisoner Diplomacy[/b] expands RimWorld captivity into a complete system of negotiation, faction memory, and consequences.
+
+Enemy factions may contact your colony to recover their people, or you can open negotiations through the vanilla comms console. A prisoner's identity, health, importance, faction resources, your negotiator's Social skill, and your history with that faction all shape the deal.
+
+[h2]What can you negotiate?[/h2]
+[list]
+[*]Silver, faction-appropriate supplies, or goodwill
+[*]A captured enemy in exchange for a kidnapped colonist
+[*]A temporary ceasefire lasting 5 to 30 days
+[*]One-use early-warning intelligence for an eligible raid
+[*]Mixed legal rewards and structured counteroffers
+[*]Special item rewards and additional events registered by race adapters and add-ons
+[/list]
+
+Faction supplies expand by technology tier: low-tech factions can offer herbal medicine, pemmican, simple meals, and kibble; industrial factions can offer industrial medicine, components, fine meals, survival meals, chemfuel, steel, and cloth; spacer factions may offer glitterworld medicine, spacer components, lavish meals, plasteel, uranium, synthread, and hyperweave. Items from other mods are not inserted into the core list directly, but they can become special rewards through the public adapter API.
+
+Factions do not have infinite resources. Each one has its own negotiating capacity and diplomatic reserve. Excessive demands can produce a rejection, counteroffer, cooldown, or temporary suspension of negotiations.
+
+[h2]Accepting terms is not instant payment[/h2]
+
+Every transaction remains deterministic. After accepting a deal, you must use the dedicated release command on the correct prisoner and let the vanilla release workflow escort them safely off the assigned map before fulfillment can begin.
+
+[list]
+[*]Death, escape, recruitment, enslavement, sale, or an improper release can invalidate the agreement
+[*]Real medical care can extend the deadline when an injured prisoner cannot travel
+[*]Exactly-once reward guards prevent duplicated payment across save and reload
+[*]Multi-colony deals track the assigned map and intended prisoner
+[/list]
+
+[h2]Factions remember what you did[/h2]
+
+Each faction develops its own impression of your reliability, prisoner treatment, and accumulated resentment. Medical care, honored agreements, and unconditional release can improve that memory. Organ harvesting, cruelty, broken promises, and executions can leave lasting consequences.
+
+Pirate deals are especially dangerous. Payment may be delayed, prisoners may be incited to escape, rescue forces may arrive, or an ambush may follow a completed exchange. Risks are disclosed before release, letting you accept them, cancel the deal, or negotiate safer terms for a reduced reward.
+
+[h2]More than ransom offers[/h2]
+[list]
+[*]Neutral world-map exchange points with physical Caravan handoffs
+[*]False surrender and infiltration attempts
+[*]Public war-crime trials
+[*]Important-prisoner rescue operations and death retaliation
+[*]Ransom ambushes and follow-up consequences
+[*]Temporary ceasefires and one-use raid intelligence
+[/list]
+
+The diplomacy interface keeps separate case, agreement, history, and event views. Even when a faction has no current prisoners, you can return to review ceasefire time, available intelligence, and previous transactions.
+
+[h2]Optional AI faction replies[/h2]
+
+AI is disabled by default and is never required to play the mod. When enabled, it can use faction persona, ideology, battle injuries, relationships, historical grievances, and a short player note to create more distinctive faction replies.
+
+[b]AI text is narrative-only by default.[/b] Formal terms, payment, deadlines, Pawn state, and event outcomes remain owned by deterministic game code. A separate advanced opt-in can provide bounded advice for a still-unaccepted counteroffer, but every result is clamped and revalidated against faction reserves, inventory, legal reward rules, and stale context.
+
+Without an AI provider, Prisoner Diplomacy uses fully localized standard responses and continues to work offline.
+
+[h2]An extension API for mod authors[/h2]
+
+The mod exposes a versioned public API for race and faction adapters, special `ThingDef` rewards, faction personas, and event metadata. The core validates pricing, material caps, save persistence, prisoner release, and exactly-once fulfillment. Read `PrisonerDiplomacyApi.md`, `Docs/RewardCatalog.md`, and `Docs/AddonQuickstart.md` to build an add-on.
+
+[h2]Privacy-first error reporting[/h2]
+
+Anonymous error reporting is optional. A choice dialog can appear only when a receiver is available, prompts are enabled, and the mod detects a relevant error. You may send that report once, allow reports for the current session, or decline. Nothing is uploaded before you choose.
+
+A report may contain sanitized error details, game and mod versions, anonymous deal state, and active mod Package IDs with versions. Save names, Pawn names, local paths, API keys, tokens, and other secrets are excluded. Upload runs in the background, failure does not interrupt gameplay, and the system never modifies code or saves on the player's computer.
+
+[h2]Requirements and compatibility[/h2]
+[list]
+[*][b]RimWorld 1.6[/b]
+[*][b]Harmony is required[/b] and should load before Prisoner Diplomacy
+[*]RimChat, Humanoid Alien Races, Hospitality, Combat Extended, and other race or faction mods are optional integrations
+[*]The core mod has no required AI or RimChat dependency
+[*]Includes English, Traditional Chinese, Simplified Chinese, Japanese, and Korean localization
+[/list]
+
+Older deal data is migrated conservatively, but backing up important saves before any major mod update is still recommended.
+
+[h2]Reporting a problem[/h2]
+
+Enable developer mode and use [b]Prisoner Diplomacy → Copy diagnostic report[/b]. Include the deal stage, active mod list, and relevant Player.log excerpt. Never publish an API key.
+
+[b]A captive can be property or a hostage. From now on, they can also become a diplomatic crisis.[/b]
+
+[h2]Open source and community[/h2]
+
+The project is being prepared for open-source publication on GitHub before the Steam release. The public repository URL will be added after the initial upload. Extension authors are welcome to use the public guides to build race, faction, special-reward, persona, and event add-ons.
+
+QQ discussion group: [戰俘外交（Prisoner Diplomacy）模組討論群](https://qun.qq.com/universal-share/share?ac=1&authKey=kO4hgI4yAGKZaIMkgtwdF7V9G9aylRatK8pqb&busi_data=eyJncm91cENvZGUiOiIyMTE3ODQ2ODgiLCJ0b2tlbiI6InJMNDZ0VDd2RnhHSjhBbE51dVhQOUR6NTNhMlR4cjdhQUVNcmVlUzQybGJTMEg4MHd2ZGlxT1JLWXBYdDVNQXMiLCJ1aW4iOiIzODMxMDIzMDUwIn0%3D&data=ii_Z7GGfk0K0tX3nuOIWOG9w0Vt8TpomZx82ytn1-cooF1oRHAXYR8Nss77V5VBQER3K33djQUT_bNS6Lt1UXg&svctype=4&tempid=h5_group_info) (群號：`211784688`).
+
+[i]This mod was 100% produced by Codex (GPT-5.6 SOL); the project owner provided the ideas only.[/i]

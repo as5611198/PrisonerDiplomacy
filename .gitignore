@@ -1,0 +1,13 @@
+bin/
+obj/
+.vs/
+*.user
+*.suo
+*.pdb
+*.log
+$log/
+*.cpuprofile
+TestData/*
+!TestData/Config/
+TestData/Config/*
+!TestData/Config/ModsConfig.xml

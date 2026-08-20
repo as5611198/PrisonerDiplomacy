@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PD_RansomOfferLabel>身代金の申し出: {0}</PD_RansomOfferLabel>
+  <PD_RansomOfferText>{0} は、{2} の安全な帰還のために {1} を申し出ました。\n\n を受け入れると、この囚人を取引に保留します。囚人を選択し、「身代金のための解放」を使用して期限までに交換を完了してください。通常の釈放、逃亡、売却、募集、奴隷化、または死亡の場合は、支払いなしで取引がキャンセルされます。\n\n囚人分類: {3}\n外交価値: {4}\nオファーの有効期限: {5}</PD_RansomOfferText>
+  <PD_AcceptOffer>オファーを受け入れる</PD_AcceptOffer>
+  <PD_RejectOffer>申し出を拒否する</PD_RejectOffer>
+  <PD_RejectAndMuteFaction>この派閥を拒否して一時停止する</PD_RejectAndMuteFaction>
+  <PD_OfferUnavailable>このオファーはもう利用できません。</PD_OfferUnavailable>
+  <PD_DealAccepted>{0} に対する身代金取引が受け入れられました。期限までに専用の身代金リリースを注文してください。</PD_DealAccepted>
+  <PD_DealRejected>{0} に対する身代金の申し出は拒否されました。</PD_DealRejected>
+  <PD_DealRejectedAndFactionMuted>{0} に対する身代金の申し出は拒否されました。この派閥は 60 日間、別の一方的なオファーを送信しません。</PD_DealRejectedAndFactionMuted>
+  <PD_ReleaseForRansom>身代金のための釈放</PD_ReleaseForRansom>
+  <PD_ReleaseForRansomDesc>受け入れられた身代金取引に {0} をマークし、バニラの囚人のインタラクションを解放に切り替えます。支払いは解放が完了し、囚人が安全にマップから出た後にのみ発行されます。</PD_ReleaseForRansomDesc>
+  <PD_ReleaseAlreadyOrdered>身代金解放命令</PD_ReleaseAlreadyOrdered>
+  <PD_ReleaseAlreadyOrderedDesc>この囚人にはすでに身代金解放のマークが付けられています。バニラの監視員のジョブは、可能な限り彼らを護衛します。</PD_ReleaseAlreadyOrderedDesc>
+  <PD_NoSafeMap>この取引は有効なプレーヤー マップに割り当てられていません。</PD_NoSafeMap>
+  <PD_RansomReleaseOrdered>{0} は身代金解放の対象としてマークされています。</PD_RansomReleaseOrdered>
+  <PD_DealDeadlineExtended>{0} はまだ移動できないほどの負傷を負っている。医師が治療中であるため、陣営は釈放期限を {1} 日延長しました。</PD_DealDeadlineExtended>
+  <PD_DealCompletedLabel>身代金完了: {0}</PD_DealCompletedLabel>
+  <PD_DealCompletedText>{0} は身代金合意に基づいてコロニーを安全に去りました。 {1}は{2}シルバーを納品しました。</PD_DealCompletedText>
+  <PD_DealFailedLabel>身代金がキャンセルされました: {0}</PD_DealFailedLabel>
+  <PD_DealFailedText>{0} の身代金取引は支払いなしで終了しました。\n\n理由: {1}</PD_DealFailedText>
+  <PD_ReasonExpired>契約の期限が切れた</PD_ReasonExpired>
+  <PD_ReasonDead>囚人は死亡した</PD_ReasonDead>
+  <PD_ReasonEscaped>囚人が逃亡したか、身代金を解放せずに立ち去った</PD_ReasonEscaped>
+  <PD_ReasonRecruited>囚人はプレイヤーの派閥に加わった</PD_ReasonRecruited>
+  <PD_ReasonEnslaved>囚人は奴隷にされた</PD_ReasonEnslaved>
+  <PD_ReasonSold>囚人は売られたり移送されたりした</PD_ReasonSold>
+  <PD_ReasonFactionInvalid>元の派閥はもう無効です</PD_ReasonFactionInvalid>
+  <PD_ReasonHostageInvalid>派閥が保持している入植者は交換できなくなりました</PD_ReasonHostageInvalid>
+  <PD_ReasonPrisonerInvalid>囚人にはもう資格がない</PD_ReasonPrisonerInvalid>
+  <PD_ReasonCancelled>取引はキャンセルされました</PD_ReasonCancelled>
+  <PD_ClassRegular>正会員</PD_ClassRegular>
+  <PD_ClassSpecialist>主要なスペシャリスト</PD_ClassSpecialist>
+  <PD_ClassNotable>地元の著名人</PD_ClassNotable>
+  <PD_ClassCore>中心人物</PD_ClassCore>
+  <PD_ClassLeader>派閥リーダー</PD_ClassLeader>
+  <PD_DebugNoEligible>適格な囚人がいない。</PD_DebugNoEligible>
+  <PD_DebugOfferCreated>{0} に対する身代金オファーを作成しました。</PD_DebugOfferCreated>
+  <PD_DebugRecords>捕虜外交: {0} 記録、{1} アクティブ取引。</PD_DebugRecords>
+  <PD_IntroLabel>捕虜外交が可能</PD_IntroLabel>
+  <PD_IntroText>適格な囚人を拘束すると、数日後にその派閥が身代金の申し出で連絡してくる可能性があります。\n\nすぐに交渉して独自の身代金要求を設定できるように通信コンソールを構築して強化します。派閥が最初のオファーを行うまで待つこともできます。\n\n注: この説明は 1 回のみ表示されます。将来の囚人は引き続きこのシステムを使用しますが、このメッセージは再び表示されなくなります。</PD_IntroText>
+  <PD_CommTargetLabel>開かれた捕虜外交: {0}</PD_CommTargetLabel>
+  <PD_CommTargetInfo>積極的な身代金取引や戦略的合意など、{0} との囚人外交をオープンにします。</PD_CommTargetInfo>
+  <PD_NegotiationTitle>囚人の身代金交渉: {0}</PD_NegotiationTitle>
+  <PD_NegotiatorSummary>交渉人: {0} |ソーシャル: {1}</PD_NegotiatorSummary>
+  <PD_UiCases>事例</PD_UiCases>
+  <PD_UiFactionType>チャネル</PD_UiFactionType>
+  <PD_UiSignal>派閥の能力</PD_UiSignal>
+  <PD_UiPrisonerList>囚人事件</PD_UiPrisonerList>
+  <PD_UiWorkspace>交渉ワークスペース</PD_UiWorkspace>
+  <PD_UiStatus>ステータス: {0}</PD_UiStatus>
+  <PD_UiAgreementSummary>戦略的協定</PD_UiAgreementSummary>
+  <PD_UiNoActiveAgreements>有効な戦略的合意はありません。</PD_UiNoActiveAgreements>
+  <PD_UiFactionStanding>派閥の立場</PD_UiFactionStanding>
+  <PD_UiAgreementReviewStatus>派閥協定の見直し</PD_UiAgreementReviewStatus>
+  <PD_UiAgreementsTab>協定</PD_UiAgreementsTab>
+  <PD_UiHistoryTab>歴史</PD_UiHistoryTab>
+  <PD_UiHistoryTitle>取引履歴</PD_UiHistoryTitle>
+  <PD_UiHistoryEmpty>この派閥については、完了または拒否されたトランザクションは記録されません。</PD_UiHistoryEmpty>
+  <PD_UiHistoryEntry>{0} | {1} | {2}\n{3}</PD_UiHistoryEntry>
+  <PD_UiHistoryMeta>{0} | {1} | {2}</PD_UiHistoryMeta>
+  <PD_HistoryFactionOffer>派閥のオファー</PD_HistoryFactionOffer>
+  <PD_HistoryPlayerDemand>プレイヤーの需要</PD_HistoryPlayerDemand>
+  <PD_HistoryAgo>{0}前</PD_HistoryAgo>
+  <PD_HistoryUnknownDate>日付が不明</PD_HistoryUnknownDate>
+  <PD_UiAgreementAlertLabel>積極的な捕虜外交協定</PD_UiAgreementAlertLabel>
+  <PD_UiAgreementAlertExplanation>活発な停戦、情報、ケアクレジット、保留中の捕虜外交取引を確認します。</PD_UiAgreementAlertExplanation>
+  <PD_UiPortableTerminal>オープン携帯外交端末</PD_UiPortableTerminal>
+  <PD_UiPortableTerminalDesc>既知の派閥の連絡先、有効な契約、取引履歴を確認します。</PD_UiPortableTerminalDesc>
+  <PD_UiFactionContactsTitle>既知の外交関係者</PD_UiFactionContactsTitle>
+  <PD_UiFactionContactsEmpty>派閥との連絡先はまだ確立されていません。</PD_UiFactionContactsEmpty>
+  <PD_UiFactionContactSummary>{0}\nケース: {1} |履歴: {2}</PD_UiFactionContactSummary>
+  <PD_UiReadOnly>読み取り専用レビュー</PD_UiReadOnly>
+  <PD_HistoryExchangeSupplies>人質 {0}、{1} {2}</PD_HistoryExchangeSupplies>
+  <PD_HistoryExchangeSilver>人質 {0}、{1} シルバー</PD_HistoryExchangeSilver>
+  <PD_UiNoCases>この派閥には適格な囚人事件はありません。</PD_UiNoCases>
+  <PD_UiPrisonerProfile>囚人のプロフィール</PD_UiPrisonerProfile>
+  <PD_UiHealth>健康 {0}</PD_UiHealth>
+  <PD_UiFactionContext>派閥のコンテキスト</PD_UiFactionContext>
+  <PD_UiDealProgress>取引の進捗状況</PD_UiDealProgress>
+  <PD_UiAgreedTerms>用語: {0}</PD_UiAgreedTerms>
+  <PD_UiOfferDeadline>オファーの有効期限は {0} です</PD_UiOfferDeadline>
+  <PD_UiFulfillmentDeadline>リリース期限: 残り {0} |医療用内線: {1}</PD_UiFulfillmentDeadline>
+  <PD_UiPaymentDeadline>支払いは {0} に予定されています</PD_UiPaymentDeadline>
+  <PD_UiPirateRisk>海賊版取引のリスク</PD_UiPirateRisk>
+  <PD_UiPirateRiskMitigated>軽減された</PD_UiPirateRiskMitigated>
+  <PD_UiPirateRiskDisclosed>発売前に公開された</PD_UiPirateRiskDisclosed>
+  <PD_UiMaterialRewards>物質的な報酬</PD_UiMaterialRewards>
+  <PD_UiDiplomaticRewards>外交上の報酬</PD_UiDiplomaticRewards>
+  <PD_UiStrategicRewards>戦略的報酬</PD_UiStrategicRewards>
+  <PD_UiExchangeGive>あなたは解放します</PD_UiExchangeGive>
+  <PD_UiExchangeReceive>あなたは回復します</PD_UiExchangeReceive>
+  <PD_UiExchangeGiveText>{0}\n外交値: {1}</PD_UiExchangeGiveText>
+  <PD_UiExchangeReceiveText>{0}\n交換コスト: {1}</PD_UiExchangeReceiveText>
+  <PD_UiExchangeBalance>追加補償：{0}</PD_UiExchangeBalance>
+  <PD_Ui_PrisonerProfile>囚人のプロフィール</PD_Ui_PrisonerProfile>
+  <PD_Ui_Health>健康 {0}</PD_Ui_Health>
+  <PD_Ui_FactionContext>派閥のコンテキスト</PD_Ui_FactionContext>
+  <PD_Ui_MaterialRewards>物質的な報酬</PD_Ui_MaterialRewards>
+  <PD_Ui_DiplomaticRewards>外交上の報酬</PD_Ui_DiplomaticRewards>
+  <PD_Ui_StrategicRewards>戦略的報酬</PD_Ui_StrategicRewards>
+  <PD_UiEnabled>有効</PD_UiEnabled>
+  <PD_UiDisabled>無効</PD_UiDisabled>
+  <PD_ValueCompact>値 {0}</PD_ValueCompact>
+  <PD_SelectPrisoner>身代金要求を準備する資格のある囚人を選択します。</PD_SelectPrisoner>
+  <PD_NegotiationPrisonerDetails>分類: {0}\n推定外交価値: {1}\n健康: {2}</PD_NegotiationPrisonerDetails>
+  <PD_DemandSilver>銀の需要</PD_DemandSilver>
+  <PD_AssessmentText>評価: {0}\n{1}</PD_AssessmentText>
+  <PD_AssessmentVeryFavorable>派閥にとって非常に有利</PD_AssessmentVeryFavorable>
+  <PD_AssessmentReasonable>合理的</PD_AssessmentReasonable>
+  <PD_AssessmentAmbitious>野心的な</PD_AssessmentAmbitious>
+  <PD_AssessmentExtreme>過激</PD_AssessmentExtreme>
+  <PD_PreviewExact>推定合格確率: {0}</PD_PreviewExact>
+  <PD_PreviewApproximate>推定合格確率: 約 {0}%</PD_PreviewApproximate>
+  <PD_PreviewUncertain>交渉者は信頼できる確率を提供できません。</PD_PreviewUncertain>
+  <PD_SubmitDemand>需要 {0} シルバー</PD_SubmitDemand>
+  <PD_SubmitDemandInvalid>有効な銀需要を入力してください</PD_SubmitDemandInvalid>
+  <PD_InvalidDemand>{0} から {1} までの銀の金額を整数で入力します。</PD_InvalidDemand>
+  <PD_PlayerDemandAccepted>{0} の陣営は、{1} シルバーの要求を受け入れました。専用の身代金のリリースを完了します。</PD_PlayerDemandAccepted>
+  <PD_PlayerDemandRejected>{0} の派閥は、{1} 銀の要求を拒否しました。</PD_PlayerDemandRejected>
+  <PD_PlayerDemandAcceptedRewards>{0} の派閥は次の条件を受け入れました: {1}。専用の身代金のリリースを完了します。</PD_PlayerDemandAcceptedRewards>
+  <PD_PlayerDemandRejectedRewards>{0} の派閥は次の条件を拒否しました: {1}。</PD_PlayerDemandRejectedRewards>
+  <PD_PlayerDemandCountered>{0} の派閥は {1} という対抗案を出しました。現在の交渉ですぐに応答できます。</PD_PlayerDemandCountered>
+  <PD_PlayerDemandFinalCounter>派閥は最後の対案を出しました: {0}</PD_PlayerDemandFinalCounter>
+  <PD_CounterOfferRejected>{0}に関する交渉は終了しました。</PD_CounterOfferRejected>
+  <PD_CounterNoLongerAffordable>この派閥はもはやこの対抗案に資金を提供することができません。交渉を修正または終了します。</PD_CounterNoLongerAffordable>
+  <PD_NegotiationUnavailable>現在、囚人交渉は利用できません。</PD_NegotiationUnavailable>
+  <PD_NegotiationActiveDeal>この囚人はすでに身代金取引を行っています。</PD_NegotiationActiveDeal>
+  <PD_NegotiationPrisonerCooldown>この囚人は、{0} について再度交渉することはできません。</PD_NegotiationPrisonerCooldown>
+  <PD_NegotiationFactionCooldown>この派閥は、{0} に対する別の要求を考慮しません。</PD_NegotiationFactionCooldown>
+  <PD_NegotiationSuspended>この派閥は度重なる不当な要求を受けて{0}の交渉を中止した。</PD_NegotiationSuspended>
+  <PD_NegotiationCounterPending>派閥の対抗提案があなたの返答を待っています。</PD_NegotiationCounterPending>
+  <PD_NegotiationNoRewards>少なくとも 1 つの報酬を選択してください。</PD_NegotiationNoRewards>
+  <PD_NegotiationTooManyRewards>取引には最大 2 つの報酬タイプを含めることができます。</PD_NegotiationTooManyRewards>
+  <PD_NegotiationInvalidRewards>有効な報酬額を入力してください。</PD_NegotiationInvalidRewards>
+  <PD_NegotiationInvalidSupplies>選択された物資はこの陣営からは入手できません。</PD_NegotiationInvalidSupplies>
+  <PD_NegotiationGoodwillUnavailable>この派閥は報酬として善意を提供することはできません。</PD_NegotiationGoodwillUnavailable>
+  <PD_NegotiationGoodwillTooHigh>要求された善意は通常の関係の制限を超えるでしょう。</PD_NegotiationGoodwillTooHigh>
+  <PD_DemandSupplies>用品</PD_DemandSupplies>
+  <PD_DemandGoodwill>のれん</PD_DemandGoodwill>
+  <PD_SelectSupplies>消耗品の選択</PD_SelectSupplies>
+  <PD_RewardUnitValue>交渉時の1個あたり価値：{0} シルバー</PD_RewardUnitValue>
+  <PD_RewardTotalValue>現在の合計価値：{0} シルバー</PD_RewardTotalValue>
+  <PD_InvalidSilverReward>正の銀量を入力します。</PD_InvalidSilverReward>
+  <PD_InvalidSupplyReward>供給タイプを選択し、正の数量を入力します。</PD_InvalidSupplyReward>
+  <PD_InvalidGoodwillReward>プラスののれんの金額を入力します。</PD_InvalidGoodwillReward>
+  <PD_SubmitRewardDemand>条件を送信する</PD_SubmitRewardDemand>
+  <PD_SubmitRevisedDemand>改訂された規約を送信する</PD_SubmitRevisedDemand>
+  <PD_ReviseDemand>規約を一度見直してください</PD_ReviseDemand>
+  <PD_AcceptCounterOffer>反対提案を受け入れる</PD_AcceptCounterOffer>
+  <PD_RejectCounterOffer>交渉を終了する</PD_RejectCounterOffer>
+  <PD_FinalCounterOnly>これが派閥の最終提案です。それを受け入れることも、交渉を終了することもできます。</PD_FinalCounterOnly>
+  <PD_CounterOfferDetails>派閥の対抗案: {0}\n交渉ラウンド: {1}/2</PD_CounterOfferDetails>
+  <PD_CounterOfferHeading>派閥の対抗案</PD_CounterOfferHeading>
+  <PD_CounterOfferRound>ラウンド {0}/2</PD_CounterOfferRound>
+  <PD_CounterRevisionHint>オファーを修正するか、以下の報酬を調整してください。</PD_CounterRevisionHint>
+  <PD_UseFactionOffer>正確なオファー</PD_UseFactionOffer>
+  <PD_AddSilverToCounter>+{0} シルバー</PD_AddSilverToCounter>
+  <PD_CounterShortcutUnavailable>このオファーにはすでに 2 つのシルバー以外の報酬タイプが含まれており、そうでない場合、追加されたシルバーが制限を超えることになります。</PD_CounterShortcutUnavailable>
+  <PD_ModeRansom>身代金条件</PD_ModeRansom>
+  <PD_ModeExchange>捕虜交換</PD_ModeExchange>
+  <PD_ExchangeHostageLabel>入植者が回復する</PD_ExchangeHostageLabel>
+  <PD_ExchangeSelectHostage>誘拐された入植者を選択する</PD_ExchangeSelectHostage>
+  <PD_ExchangeHostageOption>{0} - 交換値 {1}</PD_ExchangeHostageOption>
+  <PD_ExchangeNoHostages>この勢力には現在、適格な入植者がいません。</PD_ExchangeNoHostages>
+  <PD_ExchangeTerms>オファー: {0} (価値 {1})\n回収: {2} (交換コスト {3})\n追加補償: {4}</PD_ExchangeTerms>
+  <PD_ExchangePaymentMethod>補償</PD_ExchangePaymentMethod>
+  <PD_ExchangePaySilver>銀</PD_ExchangePaySilver>
+  <PD_ExchangeCompensationSilver>{0} シルバー</PD_ExchangeCompensationSilver>
+  <PD_ExchangeCompensationSupplies>{0} {1}</PD_ExchangeCompensationSupplies>
+  <PD_ExchangeConfirm>交換を受け入れます - {0} を支払います</PD_ExchangeConfirm>
+  <PD_ExchangeHostageUnavailable>選択された入植者は、この派閥によって保持されなくなりました。</PD_ExchangeHostageUnavailable>
+  <PD_ExchangeHostageReserved>選択した入植者は、別のアクティブな交換によってすでに予約されています。</PD_ExchangeHostageReserved>
+  <PD_ExchangeInsufficientSilver>植民地にはこの交換に必要な十分な取引可能な銀がありません。</PD_ExchangeInsufficientSilver>
+  <PD_ExchangeInsufficientSupplies>コロニーには、この交換に必要な選択された物資が不足しています。</PD_ExchangeInsufficientSupplies>
+  <PD_ExchangeSupplyGapTooLarge>選択された供給は、交換数量制限内でこの値のギャップをカバーできません。</PD_ExchangeSupplyGapTooLarge>
+  <PD_ExchangeAccepted>交換を受け入れました: {1} を回復するための専用コマンドを使用して {0} を解放します。エスクローされた補償: {2}。</PD_ExchangeAccepted>
+  <PD_ReleaseForExchange>捕虜交換のため釈放される</PD_ReleaseForExchange>
+  <PD_ReleaseForExchangeDesc>交換協定により{0}を解放します。囚人が無事に出発すると、{1} はドロップポッドで戻ってきます。</PD_ReleaseForExchangeDesc>
+  <PD_ExchangeCompletedLabel>捕虜交換完了：{0}</PD_ExchangeCompletedLabel>
+  <PD_ExchangeCompletedText>{0}は交換協定に基づき無事退場しました。 {1} がコロニーに戻りました。追加の補償金が支払われました: {2}。</PD_ExchangeCompletedText>
+  <PD_ExchangeCompensationRefunded>交換に失敗した{0}シルバーが返却されました。</PD_ExchangeCompensationRefunded>
+  <PD_ExchangeCompensationRefundedSupplies>{0} 失敗した交換からの {1} が返されました。</PD_ExchangeCompensationRefundedSupplies>
+  <PD_HistoryExchangeCompleted>{0} を {1} に交換しました</PD_HistoryExchangeCompleted>
+  <PD_AssessmentRewardsText>評価: {0}\n{1}\n要求された報酬: {2}\n素材報酬上限: {3} 値</PD_AssessmentRewardsText>
+  <PD_FactionNegotiationSummary>派閥の財政: {0}\n{1}</PD_FactionNegotiationSummary>
+  <PD_FinancesStrong>資金が豊富な</PD_FinancesStrong>
+  <PD_FinancesCapable>交渉できる</PD_FinancesCapable>
+  <PD_FinancesLimited>資源は限られている</PD_FinancesLimited>
+  <PD_FinancesDepleted>現在、有意義な取引に資金を提供することができない</PD_FinancesDepleted>
+  <PD_HistoryNone>過去にこの派閥と取引した囚人はいない。</PD_HistoryNone>
+  <PD_HistorySummary>完了した取引: {0};終了した交渉: {1}.\n最終結果: {2}</PD_HistorySummary>
+  <PD_HistoryCompleted>{1} に対して {0} が返されました</PD_HistoryCompleted>
+  <PD_HistorySummaryWithMemory>完了した取引: {0}; ended negotiations: {1}.\nLast result: {2}\n{3}</PD_HistorySummaryWithMemory>
+  <PD_HistoryNoneWithMemory>以前にこの派閥と取引した囚人はいません。\n{0}</PD_HistoryNoneWithMemory>
+  <PD_MemoryNeutral>この派閥にはまだ強い捕虜外交の印象が形成されていない。</PD_MemoryNeutral>
+  <PD_MemorySummary>合意信頼: {0}\n囚人の扱い: {1}\n未解決の恨み: {2}</PD_MemorySummary>
+  <PD_ReliabilityTrusted>彼らはあなたが同意された合意を遵守することを期待しています</PD_ReliabilityTrusted>
+  <PD_ReliabilityNeutral>彼らはあなたの約束についてまだ決めていない</PD_ReliabilityNeutral>
+  <PD_ReliabilityDoubtful>彼らはあなたの約束に疑問を持っています</PD_ReliabilityDoubtful>
+  <PD_ReliabilityDistrusted>彼らはあなたの囚人協定は信頼できないと考えています</PD_ReliabilityDistrusted>
+  <PD_TreatmentHonorable>彼らはあなたが囚人を自制心と注意をもって扱っていると信じています</PD_TreatmentHonorable>
+  <PD_TreatmentNeutral>彼らはあなたの一般的な治療について強い見解を持っていません</PD_TreatmentNeutral>
+  <PD_TreatmentConcerned>劣悪な待遇の報告が彼らを懸念させる</PD_TreatmentConcerned>
+  <PD_TreatmentCruel>囚人に対する残虐行為の報告が広まった</PD_TreatmentCruel>
+  <PD_ResentmentLow>個人的な恨みはほとんど残っていない</PD_ResentmentLow>
+  <PD_ResentmentLasting>彼らは永続的な恨みを持ち続けている</PD_ResentmentLasting>
+  <PD_ResentmentSevere>彼らは政治的および個人的な激しい憤りを抱いています</PD_ResentmentSevere>
+  <PD_FactionMemorySection>捕虜外交\n{0}</PD_FactionMemorySection>
+  <PD_FactionMemorySectionWithEvent>囚人外交\n{0}\n最近の原因: {1}</PD_FactionMemorySectionWithEvent>
+  <PD_MemoryChanged>{0}の捕虜外交の印象が変わりました: {1}</PD_MemoryChanged>
+  <PD_MemoryEventCaptured>{0}は捕虜となった。</PD_MemoryEventCaptured>
+  <PD_MemoryEventEscaped>{0} は拘留から逃走した。</PD_MemoryEventEscaped>
+  <PD_MemoryEventCriticalRecovery>{0} はあなたの拘留下で生命を脅かす状態から回復しました。</PD_MemoryEventCriticalRecovery>
+  <PD_MemoryEventMalnutrition>{0} はあなたの拘留中に長期にわたる飢餓に苦しみました。</PD_MemoryEventMalnutrition>
+  <PD_MemoryEventPermanentHarm>{0} は拘留中にプレーヤーによって引き起こされた永久的な危害を被りました。</PD_MemoryEventPermanentHarm>
+  <PD_MemoryEventOrganHarvested>あなたの保管下にある{0}から体の一部が取り除かれました。</PD_MemoryEventOrganHarvested>
+  <PD_MemoryEventUnconditionalRelease>{0} は支払いを要求することなく解放されました。</PD_MemoryEventUnconditionalRelease>
+  <PD_MemoryEventReleasedAfterTreatment>{0}さんは重篤な状態だったが治療を受け、支払いなしで釈放された。</PD_MemoryEventReleasedAfterTreatment>
+  <PD_MemoryEventAgreementCompleted>{0} の合意は受け入れられました。</PD_MemoryEventAgreementCompleted>
+  <PD_MemoryEventExchangeCompleted>{0} に関する交換は合意どおりに完了しました。</PD_MemoryEventExchangeCompleted>
+  <PD_MemoryEventDeathBreach>{0} は、あなたが帰還の合意に同意した後に死亡しました。</PD_MemoryEventDeathBreach>
+  <PD_MemoryEventExecution>{0} は拘留中のプレイヤーの行為により死亡しました。</PD_MemoryEventExecution>
+  <PD_MemoryEventPrisonerDeath>{0} はあなたの拘留中に死亡しました。</PD_MemoryEventPrisonerDeath>
+  <PD_MemoryEventEnslavedBreach>{0} は帰還の合意が受け入れられた後、奴隷化されました。</PD_MemoryEventEnslavedBreach>
+  <PD_MemoryEventEnslaved>{0} はあなたの拘留中に奴隷にされました。</PD_MemoryEventEnslaved>
+  <PD_MemoryEventRecruitedBreach>{0} は復帰の合意が受理された後に採用されました。</PD_MemoryEventRecruitedBreach>
+  <PD_MemoryEventRecruited>{0} は飼育下から募集されました。</PD_MemoryEventRecruited>
+  <PD_MemoryEventSoldBreach>{0} は、返品の同意が受け入れられた後に販売または譲渡されました。</PD_MemoryEventSoldBreach>
+  <PD_MemoryEventSold>{0} は販売または保管から譲渡されました。</PD_MemoryEventSold>
+  <PD_MemoryEventAgreementExpired>{0} の受諾された契約は、配送前に期限切れになりました。</PD_MemoryEventAgreementExpired>
+  <PD_MemoryEventImproperRelease>{0} は、承認されたリリース手順を完了せずに退席しました。</PD_MemoryEventImproperRelease>
+  <PD_MemoryEventAbsurdDemand>極端な要求は侮辱として扱われました。</PD_MemoryEventAbsurdDemand>
+  <PD_RewardSilver>{0} シルバー</PD_RewardSilver>
+  <PD_RewardSupplies>{0} {1}</PD_RewardSupplies>
+  <PD_RewardGoodwill>+{0}のれん</PD_RewardGoodwill>
+  <PD_RewardNone>報酬なし</PD_RewardNone>
+  <PD_PrisonerStatus>外交上の地位</PD_PrisonerStatus>
+  <PD_PrisonerStatusDesc>この捕虜の派閥、外交上の価値、身代金の状態を表示します。</PD_PrisonerStatusDesc>
+  <PD_PrisonerStatusText>{0}\n\n開始派閥: {1}\n分類: {2}\n外交価値: {3}\n身代金要求状態: {4}</PD_PrisonerStatusText>
+  <PD_StatusNoDeal>有効な取引はありません</PD_StatusNoDeal>
+  <PD_StatusEstimatedContact>推定される派閥の連絡先: {0}</PD_StatusEstimatedContact>
+  <PD_StatusContactImminent>近いうちに派閥間の連絡が行われる予定です。</PD_StatusContactImminent>
+  <PD_StatusOffered>派閥のオファーが応答を待っています</PD_StatusOffered>
+  <PD_StatusNegotiating>返答待ちの反対提案</PD_StatusNegotiating>
+  <PD_StatusAccepted>受け入れられました。身代金解放命令を待っている</PD_StatusAccepted>
+  <PD_StatusReleaseOrdered>身代金解放命令</PD_StatusReleaseOrdered>
+  <PD_StatusPendingPayment>配達が確認されました。支払いが保留中</PD_StatusPendingPayment>
+  <PD_StatusExchange>{0};交換返品：{1}</PD_StatusExchange>
+  <PD_StatusCompleted>完了しました</PD_StatusCompleted>
+  <PD_StatusRejected>拒否されました</PD_StatusRejected>
+  <PD_StatusExpired>期限切れ</PD_StatusExpired>
+  <PD_StatusCancelled>キャンセル</PD_StatusCancelled>
+  <PD_StatusDownedRelease>囚人は倒れている。バニラの監視員は、彼らが再び移動できるようになるまで彼らを護衛することはできません。</PD_StatusDownedRelease>
+  <PD_DealCompletedRewardsText>{0} は身代金合意に基づいてコロニーを安全に去りました。 {1} が配信されました: {2}。</PD_DealCompletedRewardsText>
+  <PD_SettingsCategory>捕虜外交</PD_SettingsCategory>
+  <PD_SettingPermanentEnemyNegotiation>永続的に敵対する人間の派閥に交渉を許可する</PD_SettingPermanentEnemyNegotiation>
+  <PD_SettingPermanentEnemyNegotiationDesc>有効にすると、永続的に敵対する人間の派閥は取引上の捕虜外交を使用します。</PD_SettingPermanentEnemyNegotiationDesc>
+  <PD_SettingPirateRisks>海賊取引のリスクを有効にする</PD_SettingPirateRisks>
+  <PD_SettingPirateRisksDesc>危険な海賊版取引では、発売前に支払いが遅れる可能性が明らかになり、キャンセルされる可能性があります。</PD_SettingPirateRisksDesc>
+  <PD_SettingFactionOverrides>ファクションネゴシエーションタイプの上書き</PD_SettingFactionOverrides>
+  <PD_SettingFactionOverridesDesc>ファクション MOD が特定の交渉タイプを必要としない限り、自動を使用してください。</PD_SettingFactionOverridesDesc>
+  <PD_FactionTypeAutomatic>自動</PD_FactionTypeAutomatic>
+  <PD_FactionTypeNonNegotiating>交渉しない</PD_FactionTypeNonNegotiating>
+  <PD_FactionTypeTransactional>トランザクション</PD_FactionTypeTransactional>
+  <PD_FactionTypeDiplomatic>外交</PD_FactionTypeDiplomatic>
+  <PD_FactionNegotiationProfile>交渉タイプ: {0}\n資金能力: {1}</PD_FactionNegotiationProfile>
+  <PD_StatusFactionType>派閥交渉タイプ: {0}</PD_StatusFactionType>
+  <PD_StatusPirateRiskDelayed>海賊版条件には、明らかな支払い遅延リスクが伴います。</PD_StatusPirateRiskDelayed>
+  <PD_StatusPiratePaymentPending>海賊版の支払い期限は {0} です。</PD_StatusPiratePaymentPending>
+  <PD_PirateReleaseConfirmation>{0} 取引では {1} が提供され、開示されたリスク {2} が伴います。とにかく囚人を解放しますか？</PD_PirateReleaseConfirmation>
+  <PD_CancelRiskyDeal>危険な取引をキャンセルする</PD_CancelRiskyDeal>
+  <PD_CancelRiskyDealDesc>捕虜を釈放する前に、この受け入れられた海賊取引をキャンセルしてください。</PD_CancelRiskyDealDesc>
+  <PD_CancelRiskyDealConfirmation>{0} の承認された取引をキャンセルしますか?囚人は植民地に留まり、支払いは行われない。</PD_CancelRiskyDealConfirmation>
+  <PD_DealCancelledByPlayer>{0} の承認された取引をキャンセルしました。</PD_DealCancelledByPlayer>
+  <PD_PiratePaymentDelayed>{0} は安全なリリースを認めましたが、{1} の支払いは遅れます。リスクはリリース前に明らかにされました。</PD_PiratePaymentDelayed>
+  <PD_RimChatCompatibilityHeading>リムチャットの共存</PD_RimChatCompatibilityHeading>
+  <PD_RimChatDetectedStatus>リムチャット {0} が検出されました。互換性: {1}</PD_RimChatDetectedStatus>
+  <PD_RimChatEffectiveMode>有効なセーフティモード: {0}</PD_RimChatEffectiveMode>
+  <PD_RimChatStatusNotInstalled>リムチャットはアクティブではありません。捕虜外交は正常に機能します。</PD_RimChatStatusNotInstalled>
+  <PD_RimChatStatusCompatible>バージョン固有のランサム ガードが利用可能</PD_RimChatStatusCompatible>
+  <PD_RimChatStatusUnverified>検出されましたが、検証済みのランサム統合は利用できません</PD_RimChatStatusUnverified>
+  <PD_RimChatStatusIncompatible>不明なバージョンまたは互換性のないバージョン。ブリッジが無効になっています</PD_RimChatStatusIncompatible>
+  <PD_RansomOwnerSetting>囚人身代金システムの所有者</PD_RansomOwnerSetting>
+  <PD_RansomOwnerPrisonerDiplomacy>捕虜外交</PD_RansomOwnerPrisonerDiplomacy>
+  <PD_RansomOwnerRimChat>リムチャット</PD_RansomOwnerRimChat>
+  <PD_RansomOwnerSafeIsolation>安全な隔離</PD_RansomOwnerSafeIsolation>
+  <PD_RansomOwnerPrisonerDiplomacyDesc>囚人外交はあらゆる身代金取引を生み出します。検証済みのリムチャット バージョンでは、他のリムチャット機能は利用可能なままですが、重複する身代金アクションはブロックされます。</PD_RansomOwnerPrisonerDiplomacyDesc>
+  <PD_RansomOwnerRimChatDesc>rimChat は新たな身代金の支払いを作成する可能性があります。 Prisoner Diplomacy は、新しいオファーと通信コンソール取引の作成を停止しますが、既存の取引は維持して完了します。</PD_RansomOwnerRimChatDesc>
+  <PD_RansomOwnerSafeIsolationDesc>囚人外交は引き続き使用できますが、未検証のリムチャット ブリッジは試行されません。リムチャットを通じて同じ囚人と交渉しないでください。</PD_RansomOwnerSafeIsolationDesc>
+  <PD_RimChatRequired>リムチャットはアクティブではありません</PD_RimChatRequired>
+  <PD_RimChatSafeIsolationWarning>インストールされているRimChatのバージョンは安全にブリッジできません。既存の捕虜外交協定は引き続き有効である。それらの囚人に対して重複してRimChat身代金を開始することは避けてください。</PD_RimChatSafeIsolationWarning>
+  <PD_NegotiationOwnedByRimChat>現在、RimChat が囚人身代金システムの所有者として選ばれています。捕虜外交は新たな協定を生み出すものではない。</PD_NegotiationOwnedByRimChat>
+  <PD_RimChatBlockedActiveDeal>この囚人はすでに有効な囚人外交協定を結んでいます。重複した支払いや期限の競合を防ぐために、RimChat の身代金の支払いはブロックされました。</PD_RimChatBlockedActiveDeal>
+  <PD_RimChatBlockedOwnedByPD>プリズナー・ディプロマシーは現在、囚人の身代金取引を所有している。代わりにバニラの通信コンソールの捕虜外交交渉を使用してください。</PD_RimChatBlockedOwnedByPD>
+  <PD_RimChatBlockedSafeIsolation>安全な隔離により、RimChat の囚人身代金統合は無効になります。</PD_RimChatBlockedSafeIsolation>
+  <PD_RimChatWarningLabel>rimChat 身代金の互換性</PD_RimChatWarningLabel>
+  <PD_RimChatWarningText>rimChat {0} が検出されましたが、囚人身代金ブリッジを確認できませんでした。 Prisoner Diplomacy は、独自の取引とバニラの通信コンソール エントリを利用可能な状態に保っています。すでに囚人外交協定を結んでいる囚人に対して、RimChat の身代金交渉を行わないでください。 Mod 設定でシステム所有者を選択できます。注: この警告はコロニーごとに 1 回だけ表示されます。</PD_RimChatWarningText>
+  <PD_AiSettingsHeading>AI ナラティブ プロトタイプ (実験的)</PD_AiSettingsHeading>
+  <PD_SettingEnableAiNarratives>AI 生成の派閥返信を有効にする</PD_SettingEnableAiNarratives>
+  <PD_SettingEnableAiNarrativesDesc>AI はフレーバーテキストのみを書き込みます。捕虜外交は依然としてすべての結果、期間、支払い、締め切り、およびゲーム効果を決定します。</PD_SettingEnableAiNarrativesDesc>
+  <PD_AiProviderOpenAiCompatible>プロバイダー: OpenAI 互換のチャット補完</PD_AiProviderOpenAiCompatible>
+  <PD_AiProvider>AIプロバイダー</PD_AiProvider>
+  <PD_AiBaseUrl>ベースURL</PD_AiBaseUrl>
+  <PD_AiEndpoint>終点</PD_AiEndpoint>
+  <PD_AiModel>モデル</PD_AiModel>
+  <PD_AiApiKey>APIキー</PD_AiApiKey>
+  <PD_AiShowKey>見せる</PD_AiShowKey>
+  <PD_AiHideKey>隠れる</PD_AiHideKey>
+  <PD_AiEndpointRequiresKey>エンドポイントには API キーが必要です</PD_AiEndpointRequiresKey>
+  <PD_AiEndpointRequiresKeyDesc>これを無効にするのは、信頼できるローカル サービスまたはその他のキーレス OpenAI 互換サービスに対してのみです。</PD_AiEndpointRequiresKeyDesc>
+  <PD_AiTimeout>リクエストのタイムアウト: {0} 秒</PD_AiTimeout>
+  <PD_AiResolvedEndpoint>リクエストエンドポイント: {0}</PD_AiResolvedEndpoint>
+  <PD_AiFetchModels>モデルのフェッチ</PD_AiFetchModels>
+  <PD_AiFetchingModels>モデルを取得中...</PD_AiFetchingModels>
+  <PD_AiTestConnection>テスト接続</PD_AiTestConnection>
+  <PD_AiTestingConnection>接続をテストしています...</PD_AiTestingConnection>
+  <PD_AiNoModels>取得されたモデルのリストはありません。最初にモデルをフェッチするか、モデル名を手動で入力します。</PD_AiNoModels>
+  <PD_AiFetchModelsSuccess>{0}互換モデルを取得しました。</PD_AiFetchModelsSuccess>
+  <PD_AiConnectionSuccess>{0} 接続テストに成功しました。</PD_AiConnectionSuccess>
+  <PD_AiOperationFailed>AI プロバイダーの操作が失敗しました: {0}</PD_AiOperationFailed>
+  <PD_AiFailureMissingKey>API キーが空です</PD_AiFailureMissingKey>
+  <PD_AiFailureMissingModel>モデルが選択されていません</PD_AiFailureMissingModel>
+  <PD_AiFailureInvalidEndpoint>ベース URL が無効です</PD_AiFailureInvalidEndpoint>
+  <PD_AiFailureInsecureEndpoint>リモートの平文 HTTP エンドポイントがブロックされている</PD_AiFailureInsecureEndpoint>
+  <PD_AiFailureTimeout>リクエストがタイムアウトしたか、キャンセルされました</PD_AiFailureTimeout>
+  <PD_AiFailureEmptyModels>サービスから互換性のあるモデルが返されませんでした</PD_AiFailureEmptyModels>
+  <PD_AiFailureInvalidResponse>サービスに到達しましたが、無効な応答サイズまたは形式が返されました</PD_AiFailureInvalidResponse>
+  <PD_AiFailureIncompatibleResponse>サービスに到達しましたが、モデルは必要な JSON 形式を返しませんでした</PD_AiFailureIncompatibleResponse>
+  <PD_AiFailureRequestRejected>サービスに到達しましたが、モデルまたはリクエスト形式を拒否しました</PD_AiFailureRequestRejected>
+  <PD_AiFailureInternal>MOD は AI リクエストを構築できませんでした。ゲームログでサニタイズされた失敗コードを確認してください</PD_AiFailureInternal>
+  <PD_AiFailureUnauthorized>API キーが拒否されました</PD_AiFailureUnauthorized>
+  <PD_AiFailureRateLimit>サービスレート制限に達しました</PD_AiFailureRateLimit>
+  <PD_AiFailureServer>プロバイダーがサーバーエラーを報告しました</PD_AiFailureServer>
+  <PD_AiFailureNetwork>サービスにアクセスできませんでした</PD_AiFailureNetwork>
+  <PD_AiShowTechnicalErrors>技術的なフォールバックの理由を表示する</PD_AiShowTechnicalErrors>
+  <PD_AiShowTechnicalErrorsDesc>有効にすると、AI リクエストがフォールバックした後に、サニタイズされた短い理由が表示されます。 API キーと応答本文はログに記録されません。</PD_AiShowTechnicalErrorsDesc>
+  <PD_AiStatusReady>AI ナラティブ構成が準備できました。リクエストは、正式なネゴシエーション結果が存在した後にのみ発生します。</PD_AiStatusReady>
+  <PD_AiStatusDisabled>AI ナラティブは無効になっています。すべての外交では、標準の翻訳されたテンプレートが使用されます。</PD_AiStatusDisabled>
+  <PD_AiStatusMissingKey>AI ナラティブは有効ですが、必要な API キーが空です。標準テンプレートが使用されます。</PD_AiStatusMissingKey>
+  <PD_AiStatusMissingModel>AI ナラティブは有効になっていますが、モデルは構成されていません。標準テンプレートが使用されます。</PD_AiStatusMissingModel>
+  <PD_AiStatusInvalidEndpoint>AI ナラティブは有効ですが、エンドポイントが有効な HTTP または HTTPS URL ではありません。標準テンプレートが使用されます。</PD_AiStatusInvalidEndpoint>
+  <PD_AiStatusInsecureEndpoint>リモート HTTP エンドポイントは、ネゴシエーション データと API キーを保護するためにブロックされます。 HTTPS、またはローカル モデル サービスのループバック アドレスを使用します。</PD_AiStatusInsecureEndpoint>
+  <PD_AiPrivacyNotice>現在の派閥、イデオロギー信号、捕虜の身元と健康状態のカテゴリー、最近の戦闘状況、関係状況、定性的記憶、オプションのロールプレイメモ、および既に決定された結果のみが送信されます。 API キーは、RimWorld の MOD 設定にローカルに保存されます。</PD_AiPrivacyNotice>
+  <PD_AiPlayerNoteLabel>派閥応答のロールプレイメモ (AI トーンのみ。取引は変更されません)</PD_AiPlayerNoteLabel>
+  <PD_AiNarrativeHeading>AI が生成した派閥の応答</PD_AiNarrativeHeading>
+  <PD_AiDisableNow>AIを無効にする</PD_AiDisableNow>
+  <PD_AiNarrativeWaiting>物語文を待っています。以下の正式な対抗案はすでに修正されており、使用可能です。</PD_AiNarrativeWaiting>
+  <PD_AiNarrativeGenerated>{0}\n\nナラティブのみ。以下の正式な規約とボタンは、実際のゲーム規約です。</PD_AiNarrativeGenerated>
+  <PD_AiNarrativeFallback>AI の応答は利用できなかったか、このネゴシエーションと一致しませんでした。標準的な外交答弁が有効である。</PD_AiNarrativeFallback>
+  <PD_AiNarrativeReady>{0} からの AI ナラティブ応答が準備完了です。正式なゲーム規約が引き続き権威を持ちます。</PD_AiNarrativeReady>
+  <PD_AiNarrativeArrived>{0} からの AI 生成派閥返信:\n{1}\n\n正式なゲーム結果: {2}\nナラティブのみ。このテキストは、追加の支払い、期限、約束、ゲーム効果を生み出すものではありません。</PD_AiNarrativeArrived>
+  <PD_AiOfferLetterText>AI 生成の派閥返信:\n{0}\n\n正式オファー:\n{1}\n\nナラティブのみ。正式なオファーと文字ボタンは実際のゲーム契約です。</PD_AiOfferLetterText>
+  <PD_AiFallbackTechnical>AI ナラティブは標準テンプレートに戻りました: {0}</PD_AiFallbackTechnical>
+  <PD_RewardCeasefire>{0} 日の停戦</PD_RewardCeasefire>
+  <PD_RewardEarlyWarningIntel>60日間の早期警戒インテリジェンス</PD_RewardEarlyWarningIntel>
+  <PD_RewardSpecial>{0}x {1}</PD_RewardSpecial>
+  <PD_DemandCeasefire>停戦日（5～30日）</PD_DemandCeasefire>
+  <PD_DemandEarlyWarningIntel>早期警戒インテリジェンス</PD_DemandEarlyWarningIntel>
+  <PD_DemandSpecialReward>特別な報酬</PD_DemandSpecialReward>
+  <PD_SelectSpecialReward>特別な報酬を選択してください</PD_SelectSpecialReward>
+  <PD_SpecialRewardOption>{0}x {1}</PD_SpecialRewardOption>
+  <PD_NegotiationInvalidSpecialReward>選択された特典は無効であるか、安全にお届けできません。</PD_NegotiationInvalidSpecialReward>
+  <PD_NegotiationSpecialRewardUnavailable>この囚人は選択された特別報酬を受け取る資格がありません。</PD_NegotiationSpecialRewardUnavailable>
+  <PD_InvalidCeasefireReward>停戦期間を 5 ～ 30 日間で入力します。</PD_InvalidCeasefireReward>
+  <PD_NegotiationStrategicDisabled>停戦と諜報報酬はMOD設定で無効になっています。</PD_NegotiationStrategicDisabled>
+  <PD_SettingStrategicConsequences>停戦、諜報活動、フォローアップイベントを有効にする</PD_SettingStrategicConsequences>
+  <PD_SettingStrategicConsequencesDesc>決定的な戦略的報酬と因果関係のある囚人の追跡イベントを可能にします。既存の合意された戦略的報酬は引き続き有効です。</PD_SettingStrategicConsequencesDesc>
+  <PD_PirateRiskNone>特別なリスクは確認されていません。</PD_PirateRiskNone>
+  <PD_PirateRiskDelayed>受刑者が出所した後に支払いが意図的に遅れることもあります。</PD_PirateRiskDelayed>
+  <PD_PirateRiskRescue>この交渉は、引き渡し前の武力救助活動をカバーする可能性がある。</PD_PirateRiskRescue>
+  <PD_PirateRiskJailbreak>派閥は指定された囚人に脱獄を開始するよう扇動する可能性があります。</PD_PirateRiskJailbreak>
+  <PD_PirateRiskAmbush>完了した交換後に武装待ち伏せが行われる可能性がありますが、受け取った報酬をキャンセルすることはできません。</PD_PirateRiskAmbush>
+  <PD_StatusPirateRisk>公開された海賊版のリスク: {0}</PD_StatusPirateRisk>
+  <PD_SecurePirateDeal>より安全な条件で交渉する</PD_SecurePirateDeal>
+  <PD_SecurePirateDealDesc>公開前に公開された海賊行為のリスクを取り除くことと引き換えに、合意された報酬を約20％削減します。</PD_SecurePirateDealDesc>
+  <PD_SecurePirateDealConfirmation>より安全な配送手配をご希望ですか?現在の報酬は {0} です。より安全な条件を受け入れれば、その負担は軽減されます。</PD_SecurePirateDealConfirmation>
+  <PD_SecurePirateDealUnavailable>これらの条件を有効なより安全な契約に縮小することはできません。開示されたリスクをキャンセルまたは受け入れる。</PD_SecurePirateDealUnavailable>
+  <PD_SecurePirateDealSucceeded>より安全な配送条件を受け入れます。オリジナル: {0}。改訂版: {1}。</PD_SecurePirateDealSucceeded>
+  <PD_CeasefireRaidBlocked>{0} は制御された襲撃を試みたが、積極的な停戦によって阻止された。残りの期間: {1}。</PD_CeasefireRaidBlocked>
+  <PD_CeasefireExpired>{0}との一時停戦は終了しました。</PD_CeasefireExpired>
+  <PD_CeasefireBrokenLabel>停戦破棄: {0}</PD_CeasefireBrokenLabel>
+  <PD_CeasefireBrokenText>あなたの軍隊は {0} のメンバーまたは財産 ({1}) を攻撃しました。 {2}、取引 {3} を通じて得られた停​​戦は終了しました。あなたの信頼は著しく損なわれ、憤りは増大しました。</PD_CeasefireBrokenText>
+  <PD_MemoryEventCeasefireBroken>{0}を攻撃して約束の停戦を破った</PD_MemoryEventCeasefireBroken>
+  <PD_IntelWarningLabel>早期警告: {0} 襲撃</PD_IntelWarningLabel>
+  <PD_IntelWarningText>取引に基づく {5} の帰還に関連する情報機関 {6} は、{0} 襲撃の準備を特定しました。\n\n推定脅威: {1}\n推定される武力または攻撃スタイル: {2}\nおおよその方向: {3}\n推定到着: {4}\n\nこの知性は現在消費されています。正確な装備とスポーン位置は不明のままです。</PD_IntelWarningText>
+  <PD_IntelThreatLow>限定</PD_IntelThreatLow>
+  <PD_IntelThreatMedium>実質的な</PD_IntelThreatMedium>
+  <PD_IntelThreatHigh>選考科目</PD_IntelThreatHigh>
+  <PD_IntelStyleTribal>部族の戦闘員と近接攻撃</PD_IntelStyleTribal>
+  <PD_IntelStyleIndustrial>産業兵器と通常攻撃</PD_IntelStyleIndustrial>
+  <PD_IntelStyleAdvanced>先進的な兵器と特殊な攻撃者</PD_IntelStyleAdvanced>
+  <PD_IntelDirectionUnknown>まだ知られていない</PD_IntelDirectionUnknown>
+  <PD_IntelDirectionNorth>北</PD_IntelDirectionNorth>
+  <PD_IntelDirectionSouth>南</PD_IntelDirectionSouth>
+  <PD_IntelDirectionEast>東</PD_IntelDirectionEast>
+  <PD_IntelDirectionWest>西</PD_IntelDirectionWest>
+  <PD_IntelExpired>{0} の未使用の早期警告インテリジェンスは 60 日後に期限切れになりました。</PD_IntelExpired>
+  <PD_StrategicStatus>戦略的合意:\n{0}</PD_StrategicStatus>
+  <PD_StrategicStatusCeasefire>停戦: 残り {0} (捕虜 {1}、取引 {2})</PD_StrategicStatusCeasefire>
+  <PD_StrategicStatusIntel>早期警戒情報: {0} 残り (囚人 {1}、取引 {2})</PD_StrategicStatusIntel>
+  <PD_StrategicStatusWarnedRaid>警告を受けた襲撃はおよそ {0} 以内に予想されます</PD_StrategicStatusWarnedRaid>
+  <PD_StrategicStatusCareCredit>介護クレジット: 1 回限りの 10% 交渉予算ボーナスが利用可能 (囚人 {0}、取引 {1})</PD_StrategicStatusCareCredit>
+  <PD_PirateRescueRaidLabel>海賊救出の試み: {0}</PD_PirateRescueRaidLabel>
+  <PD_PirateRescueRaidText>{0}は、{1}を救出する武力攻撃の隠れ蓑として取引{2}を利用した。この可能性はリリース前に明らかにされていました。</PD_PirateRescueRaidText>
+  <PD_PirateJailbreakLabel>脱獄の扇動: {0}</PD_PirateJailbreakLabel>
+  <PD_PirateJailbreakText>{0} は取引 {2} を使用して {1} に指示を渡し、脱獄を扇動しました。この可能性はリリース前に明らかにされていました。</PD_PirateJailbreakText>
+  <PD_PositiveReturnLabel>元囚人の記憶: {0}</PD_PositiveReturnLabel>
+  <PD_PositiveReturnText>{0}は、{1}が監禁中に受けた医療を思い出したと報告している。取引 {2} に対する後の返品として、陣営は {3} シルバーを送信しました。</PD_PositiveReturnText>
+  <PD_CareCreditLabel>{0} からのケアクレジット</PD_CareCreditLabel>
+  <PD_CareCreditGrantedText>{0} は、{1} が飼育下で適切な医療を受けたことを認めます。敵対関係が永続的である間、彼らは物理的な贈り物を送ることはありませんが、次の交渉では1回限りの10％の予算譲歩を受け取ります（取引{2}）。</PD_CareCreditGrantedText>
+  <PD_RescueRaidLabel>救出作戦：{0}</PD_RescueRaidLabel>
+  <PD_RescueRaidText>{0} は、重要な囚人 {1} を救出するために特別な作戦を開始しました。</PD_RescueRaidText>
+  <PD_ImportantDeathWarningLabel>{0}死亡後の警告</PD_ImportantDeathWarningLabel>
+  <PD_ImportantDeathWarningText>{0} は、あなたの植民地が重要な囚人 {1} の死の責任を負っていると主張します。ソース取引: {2}。 {3} 報復準備が検知されました。</PD_ImportantDeathWarningText>
+  <PD_DeathWarningAgreementBroken>受け入れられた合意が破られた。</PD_DeathWarningAgreementBroken>
+  <PD_DeathWarningPlayerResponsible>死亡の原因はプレイヤーの行動にあると判明した。</PD_DeathWarningPlayerResponsible>
+  <PD_RetaliationRaidLabel>{0}への報復</PD_RetaliationRaidLabel>
+  <PD_RetaliationRaidText>{0} は、{1} の死に対する報復として攻撃しています。苦情は取引 {2} にリンクされています。</PD_RetaliationRaidText>
+  <PD_PirateAmbushLabel>公開された海賊の待ち伏せ: {0}</PD_PirateAmbushLabel>
+  <PD_PirateAmbushText>{0} は、{1} の取引 {2} 中に疑わしい待ち伏せ攻撃を開始しました。囚人はすでに引き渡されており、合意された報酬はすべて引き渡されたままです。</PD_PirateAmbushText>
+  <PD_DebugCeasefireGranted>{0} とのデバッグ 10 日間の停戦が認められました。</PD_DebugCeasefireGranted>
+  <PD_DebugStrategicStateLogged>選択した勢力の停戦と戦略状態がゲーム ログに書き込まれます。</PD_DebugStrategicStateLogged>
+  <PD_DebugIntelGranted>{0} のデバッグ早期警告インテリジェンスを付与しました。</PD_DebugIntelGranted>
+  <PD_DebugPositiveGiftForced>選択した派閥のポジティブリターンギフトテストを強制しました。銀のドロップと文字を確認してください。</PD_DebugPositiveGiftForced>
+  <PD_DebugCareCreditGranted>選択した永続的な敵に 1 回限りのケア クレジットを付与します。陣営の戦略状況を確認します。</PD_DebugCareCreditGranted>
+  <PD_DebugRaidSuppressed>テスト RAID がブロックされたか、生成できませんでした。これは、活発な停戦中または情報傍受中に予想されます。</PD_DebugRaidSuppressed>
+  <PD_DebugRaidNoPawnGroupMaker>{0} には現在の状況では使用可能な戦闘グループがないため、テスト レイドは安全にキャンセルされました。</PD_DebugRaidNoPawnGroupMaker>
+  <PD_DebugRaidFactionNotHostile>ファクション {0} は現在プレイヤーに対して敵対的ではないため、バニラでは敵の襲撃にそれを使用しません。 Wolfein などのサポート派閥は、代わりにサポート イベントとして解決される場合があります。敵対的な勢力を使用して実際の襲撃をテストします。</PD_DebugRaidFactionNotHostile>
+  <PD_SettingCompatibilityLogging>詳細な互換性ログを有効にする</PD_SettingCompatibilityLogging>
+  <PD_SettingCompatibilityLoggingDesc>アクティブな優先度 MOD、マルチコロニーの状態、除外された特別なポーン、孤立した例外、および自動保存修復をログに記録します。 API キーと AI 応答本文は決して含まれません。</PD_SettingCompatibilityLoggingDesc>
+  <PD_SettingPerformanceLogging>遅い外交スキャンをログに記録する</PD_SettingPerformanceLogging>
+  <PD_SettingPerformanceLoggingDesc>定期的な捕虜外交スキャンに少なくとも 100 ミリ秒かかる場合、レート制限付きの警告を書き込みます。大規模な保存を診断する場合を除き、無効のままにしておきます。</PD_SettingPerformanceLoggingDesc>
+  <PD_SettingReduceUiMotion>インターフェースの動きを減らす</PD_SettingReduceUiMotion>
+  <PD_SettingReduceUiMotionDesc>AI 信号パルスと結果のフェードを無効にして、より静的なインターフェイスを実現します。</PD_SettingReduceUiMotionDesc>
+  <PD_CompatibilityRepairApplied>囚人外交は、ロード中に互換性のない、または古いセーブデータを修復しました。詳細: {0}</PD_CompatibilityRepairApplied>
+  <PD_DebugCompatibilityLogged>囚人外交互換性レポートがゲームログに書き込まれました。</PD_DebugCompatibilityLogged>
+  <PD_DebugRepairApplied>無効な捕虜外交のセーブデータを修復しました。詳細: {0}</PD_DebugRepairApplied>
+  <PD_DebugRepairNotNeeded>無効な囚人外交セーブデータは見つかりませんでした。</PD_DebugRepairNotNeeded>
+  <PD_SettingsGameplayHeading>捕虜外交のゲームプレイ設定</PD_SettingsGameplayHeading>
+  <PD_SettingEnemyInitiatedRansoms>敵が開始した身代金提案を有効にする</PD_SettingEnemyInitiatedRansoms>
+  <PD_SettingEnemyInitiatedRansomsDesc>無効にすると、派閥によって開始された新しいオファーは作成されません。既存の取引は、元の条件に基づいて終了または期限切れになります。</PD_SettingEnemyInitiatedRansomsDesc>
+  <PD_SettingOfferFrequency>敵のオファー頻度: {0}x</PD_SettingOfferFrequency>
+  <PD_SettingRansomValue>身代金評価乗数: {0}x</PD_SettingRansomValue>
+  <PD_SettingFactionReserves>派閥の外交予備を有効にする</PD_SettingFactionReserves>
+  <PD_SettingFactionReservesDesc>無効化された場合、派閥は植民地の報酬上限の影響を受け続けますが、外交予備金が枯渇しているため、法的取引を拒否することはありません。</PD_SettingFactionReservesDesc>
+  <PD_SettingFactionMemory>派閥処理と信頼性メモリを有効にする</PD_SettingFactionMemory>
+  <PD_SettingFactionMemoryDesc>無効になると、信頼性、扱い、憤りはオファーやリスクに影響を与えなくなります。既存のメモリ データは削除されずに保持されます。</PD_SettingFactionMemoryDesc>
+  <PD_SettingMessageDetail>ファクションメモリーメッセージの詳細</PD_SettingMessageDetail>
+  <PD_MessageDetailEssential>大きな変更のみ</PD_MessageDetailEssential>
+  <PD_MessageDetailStandard>標準</PD_MessageDetailStandard>
+  <PD_MessageDetailDetailed>さらなる変更点</PD_MessageDetailDetailed>
+  <PD_CopyDiagnosticReport>診断レポートをコピーする</PD_CopyDiagnosticReport>
+  <PD_DiagnosticReportCopied>診断レポートはクリップボードにコピーされ、ゲーム ログに書き込まれました。</PD_DiagnosticReportCopied>
+  <PD_MemoryDisabled>ファクションの扱いと信頼性のメモリは現在無効になっています。</PD_MemoryDisabled>
+  <PD_FinancesDisabled>外交予備金は現在無効になっています。他の報酬上限は引き続き適用されます。</PD_FinancesDisabled>
+  <PD_DebugNoActiveDeal>選択されたポーンには、操作できるアクティブな取引がありません。</PD_DebugNoActiveDeal>
+  <PD_DebugNoMap>選択したポーンはマップ上に保持されません。</PD_DebugNoMap>
+  <PD_DebugNoNegotiatingFaction>基本メンバー PawnKind との交渉可能な派閥は見つかりませんでした。</PD_DebugNoNegotiatingFaction>
+  <PD_DebugNoHumanFaction>バニラ人間のデバッグ ポーンについては、積極的に交渉している派閥は見つかりませんでした。</PD_DebugNoHumanFaction>
+  <PD_DebugNoRoyaltySupport>帝国貴族 PawnKind または帝国派閥は見つかりませんでした。 Royaly DLC が有効になっていること、および帝国がこのマップ上に存在することを確認します。</PD_DebugNoRoyaltySupport>
+  <PD_DebugSpawnFailed>デバッグポーンを安全に生成できませんでした。</PD_DebugSpawnFailed>
+  <PD_DebugNoHostageFaction>選択したポーンの派閥は、誘拐されたポーンを保持することはできません。</PD_DebugNoHostageFaction>
+  <PD_DebugNoNegotiator>デバッグネゴシエーターとして利用できるフリープレイヤーの入植者はいません。</PD_DebugNoNegotiator>
+  <PD_DebugDemandRejectedByState>デバッグ要求は現在のネゴシエーション状態によって拒否されました。</PD_DebugDemandRejectedByState>
+  <PD_DebugCounterUnavailable>このポーンに対しては、決定的な要求が相殺案を生み出しませんでした。</PD_DebugCounterUnavailable>
+  <PD_DebugNoCounteroffer>選択されたポーンにはアクティブなカウンターオファーがありません。</PD_DebugNoCounteroffer>
+  <PD_DebugPrisonerSpawned>{1} からテスト囚人 {0} が生成されました。</PD_DebugPrisonerSpawned>
+  <PD_DebugRoyalPrisonerSpawned>{1} から王室試験の囚人 {0} を生成しました (重要: {2})。</PD_DebugRoyalPrisonerSpawned>
+  <PD_DebugHostageGenerated>{1} のテスト誘拐入植者 {0} を生成しました。</PD_DebugHostageGenerated>
+  <PD_DebugCustomRacePrisonerSpawned>{1} ({2}) からカスタム レースのテスト囚人 {0} を生成しました。</PD_DebugCustomRacePrisonerSpawned>
+  <PD_DebugCustomRaceHostageGenerated>{1} ({2}) 用にカスタム レースの誘拐された入植者 {0} を生成しました。</PD_DebugCustomRaceHostageGenerated>
+  <PD_DebugCustomRacesLogged>検出されたカスタム レースはゲーム ログに書き込まれます。</PD_DebugCustomRacesLogged>
+  <PD_DebugNoMatchingRaceFaction>このカスタム レースに一致する積極的な交渉勢力はありません。</PD_DebugNoMatchingRaceFaction>
+  <PD_DebugInvalidRaceKind>このカスタム種族には、使用可能な人間のような PawnKind がありません。</PD_DebugInvalidRaceKind>
+  <PD_DebugCooldownReset>選択したポーンの捕虜と派閥交渉のクールダウンをリセットします。</PD_DebugCooldownReset>
+  <PD_DebugDemandResult>デバッグネゴシエーション: {0}; {1} を要求しました。対抗案 {2};合格チャンス{3}。</PD_DebugDemandResult>
+  <PD_DebugReserveEmptied>選択した勢力の外交予備を空にしました。</PD_DebugReserveEmptied>
+  <PD_DebugDeliveryPending>選択した囚人に支払い保留中の引き渡しとしてマークを付けました。</PD_DebugDeliveryPending>
+  <PD_DebugReleaseOrdered>マップ終了をシミュレートせずに、選択した囚人の身代金解放を命令しました。</PD_DebugReleaseOrdered>
+  <PD_DebugTreatmentRecorded>起こりやすい怪我と、選択した囚人に対するプレイヤーの治療記録を追加しました。</PD_DebugTreatmentRecorded>
+  <PD_DebugDealCancelled>選択した承認された取引を支払いなしでキャンセルしました。</PD_DebugDealCancelled>
+  <PD_DebugPartialReward>次の保留中の報酬 {0} のみを発行しました。合意は部分的に履行されたままだ。</PD_DebugPartialReward>
+  <PD_DebugNoRewardPending>選択した取引で利用可能な保留中の報酬はありませんでした。</PD_DebugNoRewardPending>
+  <PD_DebugPaymentCompleted>選択した取引の保留中の支払いを強制的に完了させます。</PD_DebugPaymentCompleted>
+  <PD_DebugNoPendingPayment>選択した取引には、完了できる保留中の支払いはありません。</PD_DebugNoPendingPayment>
+  <PD_DebugSaleFailed>選択した囚人の販売または移送の失敗をシミュレートします。</PD_DebugSaleFailed>
+  <PD_DebugEnslavementFailed>選択した囚人の奴隷化の失敗をシミュレートします。</PD_DebugEnslavementFailed>
+  <PD_DebugDealAccepted>選択したポーンのオファーまたはカウンターオファーを受け入れました。</PD_DebugDealAccepted>
+  <PD_DebugDealRejected>選択したポーンのオファーまたはカウンターオファーを拒否しました。</PD_DebugDealRejected>
+  <PD_DebugDealExpired>選択したポーンの取引を期限切れ処理に進めました。</PD_DebugDealExpired>
+  <PD_DebugDealFailed>模擬取引失敗: {0}</PD_DebugDealFailed>
+  <PD_DebugMemoryAdjusted>選択したポーンの元の勢力の記憶を調整しました。</PD_DebugMemoryAdjusted>
+  <PD_DebugReserveRefilled>選択したポーンの元の派閥の外交予備を補充しました。</PD_DebugReserveRefilled>
+  <PD_MemoryEventDebugAdjustment>デバッグ ツールは、{0} の囚人治療メモリを調整しました。</PD_MemoryEventDebugAdjustment>
+  <PD_MemoryEventInfiltration>{0} は、意図的な侵入の試みとして使用されました。</PD_MemoryEventInfiltration>
+  <PD_SettingAiAllowExternalContext>交渉の概要を外部 AI サービスに送信できるようにする</PD_SettingAiAllowExternalContext>
+  <PD_SettingAiAllowExternalContextDesc>AI ナラティブが有効になっている場合にのみ、トリミングされた派閥、囚人の健康バンド、定性的記憶、および正式な結果が外部サービスに送信されます。 API キーがレポートに含まれることはありません。</PD_SettingAiAllowExternalContextDesc>
+  <PD_AiStatusExternalContextDisabled>AI ナラティブは有効ですが、外部ネゴシエーションサマリー転送は無効になっています。標準テンプレートが使用されます。</PD_AiStatusExternalContextDisabled>
+  <PD_EventUnavailable>この外交イベントはもう開催できません。</PD_EventUnavailable>
+  <PD_EventAccept>提案を受け入れる</PD_EventAccept>
+  <PD_EventReject>衰退</PD_EventReject>
+  <PD_SampleAddonEventLabel>中立的な貿易ポイントの提案</PD_SampleAddonEventLabel>
+  <PD_SampleAddonEventDescription>Prisoner Diplomacy 1.2 API を通じて登録されたサンプルのアドオン イベント。</PD_SampleAddonEventDescription>
+  <PD_SampleAddonRewardLabel>産業用コンポーネントのキャッシュ</PD_SampleAddonRewardLabel>
+  <PD_SampleAddonRewardDescription>サンプルレースアダプターによって提供される特別な報酬。</PD_SampleAddonRewardDescription>
+  <PD_EventNeutralTradeLabel>中立交換ポイント</PD_EventNeutralTradeLabel>
+  <PD_EventNeutralTradeText>{0} は、{1} の中立トレード ポイントを提案します。この交換は引き続き通常の囚人外交の釈放と支払いチェックの対象となる。</PD_EventNeutralTradeText>
+  <PD_EventNeutralMediator>中立的な仲介者</PD_EventNeutralMediator>
+  <PD_EventNeutralTradeCaravanArrived>{0} が交換を監督するために到着しました。リリースはキャラバンが存在している間のみ注文されます。</PD_EventNeutralTradeCaravanArrived>
+  <PD_EventNeutralTradeReleaseOrdered>{0} は現在、通常の捕虜釈放ワークフローに従って護送されています。</PD_EventNeutralTradeReleaseOrdered>
+  <PD_EventNeutralTradeCompletedLabel>ニュートラル交換完了</PD_EventNeutralTradeCompletedLabel>
+  <PD_EventNeutralTradeCompletedText>{0} は、{1} が監視付きハンドオフを完了したことを確認します。通常の取引履行には引き続き権威があります。</PD_EventNeutralTradeCompletedText>
+  <PD_EventNeutralTradePointCreated>{0} のワールドマップ交換ポイントをタイル {1} に作成しました。捕虜を乗せたキャラバンを派遣して引き渡しを開始します。</PD_EventNeutralTradePointCreated>
+  <PD_EventNeutralTradePointArrived>{0} は中立世界地図交換ポイントで {1} に引き渡されました。</PD_EventNeutralTradePointArrived>
+  <PD_EventInfiltrationLabel>偽りの降伏警告</PD_EventInfiltrationLabel>
+  <PD_EventInfiltrationText>{0} は {1} を侵入者として意図的に降伏させました。囚人は作戦が阻止される前に脱走を煽ったり、設計図を侵害したりする可能性があります。</PD_EventInfiltrationText>
+  <PD_EventTrialLabel>公開戦争犯罪裁判</PD_EventTrialLabel>
+  <PD_EventTrialText>捕らえられたリーダー{0}は公開で裁判を受けることができる。連合側の監視員たちは判決を覚えているだろうが、元の派閥は報復するかもしれない。</PD_EventTrialText>
+  <PD_EventAmbushLabel>身代金待ち伏せ報復</PD_EventAmbushLabel>
+  <PD_EventAmbushText>{0} は、{1} を取り戻すための身代金交換に違反し、{2} の取引に関連した待ち伏せ報復を開始しました。</PD_EventAmbushText>
+  <PD_UnknownPrisoner>見知らぬ囚人</PD_UnknownPrisoner>
+  <PD_UnknownDeal>不明な取引</PD_UnknownDeal>
+  <PD_UiEventsTab>イベント</PD_UiEventsTab>
+  <PD_UiEventsTitle>外交出来事の歴史</PD_UiEventsTitle>
+  <PD_UiEventsEmpty>この派閥については外交延長イベントは記録されていません。</PD_UiEventsEmpty>
+  <PD_UiEventDueIn>{0} に期限</PD_UiEventDueIn>
+  <PD_UiEventMeta>囚人: {0} |取引: {1} | {2}</PD_UiEventMeta>
+  <PD_UiEventTechnical>ステージ {0} |再試行 {1} |仲介者: {2}</PD_UiEventTechnical>
+  <PD_UiEventStateScheduled>予定されている</PD_UiEventStateScheduled>
+  <PD_UiEventStateOffered>決定待ち</PD_UiEventStateOffered>
+  <PD_UiEventStateActive>アクティブ</PD_UiEventStateActive>
+  <PD_UiEventStateCompleted>完了しました</PD_UiEventStateCompleted>
+  <PD_UiEventStateFailed>失敗した</PD_UiEventStateFailed>
+  <PD_UiEventStateCancelled>キャンセル</PD_UiEventStateCancelled>
+  <PD_DebugEventAlreadyActive>このタイプのアクティブなイベントは、選択した囚人に対してすでに存在します。</PD_DebugEventAlreadyActive>
+  <PD_DebugEventNeedsAcceptedDeal>中立交換デバッグ イベントには、身代金取引の承諾が必要です。ツールはそれを準備できませんでした。</PD_DebugEventNeedsAcceptedDeal>
+  <PD_DebugEventScheduleFailed>外交イベントは予定できなかった。</PD_DebugEventScheduleFailed>
+  <PD_DebugEventForced>強制イベント {0};現在の状態: {1}。</PD_DebugEventForced>
+  <PD_DebugEventAdvanced>高度な {0};状態: {1};ステージ：{2}。</PD_DebugEventAdvanced>
+  <PD_DebugNoActiveEvent>選択した捕虜に関連付けられているアクティブな外交イベントはありません。</PD_DebugNoActiveEvent>
+  <PD_DebugEventsCancelled>{0} のアクティブな外交イベントがキャンセルされました。</PD_DebugEventsCancelled>
+  <PD_DebugEventsLogged>外交イベントの状態がゲーム ログに書き込まれました。</PD_DebugEventsLogged>
+  <PD_DebugSpecialRewardToggled>デバッグ特別報酬: {0}</PD_DebugSpecialRewardToggled>
+  <PD_WorldTradePointLabel>中立捕虜交換所</PD_WorldTradePointLabel>
+  <PD_WorldTradePointInspect>対象囚人：{0}\n受領陣営：{1}</PD_WorldTradePointInspect>
+  <PD_WorldTradePointVisit>{0}で交換を行う</PD_WorldTradePointVisit>
+  <PD_DebugWorldTradePointForced>タイル {1} の {0} を {2} に強制的にワールド交換します。</PD_DebugWorldTradePointForced>
+  <PD_DebugWorldTradePointsLogged>ワールド交換ポイントの状態がゲームログに書き込まれます。</PD_DebugWorldTradePointsLogged>
+  <PD_DebugWorldTradePointCompleted>選択したワールド交換ポイントを完了しました。</PD_DebugWorldTradePointCompleted>
+  <PD_DebugWorldTradePointNeedsCaravan>この交換ポイントには、対象の捕虜を乗せたキャラバンは存在しません。</PD_DebugWorldTradePointNeedsCaravan>
+  <PD_DebugWorldTradeCaravanSent>バニラキャラバンで {0} をタイル {1} に向けて送信しました。</PD_DebugWorldTradeCaravanSent>
+  <PD_DebugWorldTradeCaravanFailed>テスト キャラバンを作成できなかったり、ワールド交換ポイントにルーティングできませんでした。</PD_DebugWorldTradeCaravanFailed>
+  <PD_DebugNeutralTradeArrivalRejected>中立取引所はこのキャラバンを受け入れることができませんでした。イベント、対象となる囚人、アクティブな取引を確認します。</PD_DebugNeutralTradeArrivalRejected>
+  <PD_SettingEnableAiNegotiationAdjustments>制限付き AI ネゴシエーション調整を有効にする</PD_SettingEnableAiNegotiationAdjustments>
+  <PD_SettingEnableAiNegotiationAdjustmentsDesc>AI が緊急性を返し、ライブのカウンターオファーのシグナルを活用できるようにします。決定論的コアは、法定準備金、在庫、報酬、および古いコンテキストのルールに対するあらゆる変更をクランプします。デフォルトでは無効になっています。</PD_SettingEnableAiNegotiationAdjustmentsDesc>
+  <PD_AiPersonaHeading>派閥ペルソナのコンテキスト</PD_AiPersonaHeading>
+  <PD_AiPersonaDescription>AI トーンを変化させるためにのみ使用される、オプションの信頼できないロールプレイ コンテキスト。取引ルールや報酬を変更することはできません。最大 500 文字。</PD_AiPersonaDescription>
+  <PD_AiDefaultFactionPersona>グローバルペルソナフォールバック</PD_AiDefaultFactionPersona>
+  <PD_AiFactionPersonaOverride>ペルソナオーバーライド</PD_AiFactionPersonaOverride>
+  <PD_DebugAiContextCopied>AI コンテキスト プレビューがクリップボードにコピーされ、ログに書き込まれます。</PD_DebugAiContextCopied>
+  <PD_AiAdvisoryApplied>このライブカウンターオファーに適用される制限付き AI アドバイザリー: {0}</PD_AiAdvisoryApplied>
+  <PD_DebugAdvisoryApplied>デバッグ AI アドバイザリを適用しました: {0}</PD_DebugAdvisoryApplied>
+  <PD_DebugAdvisoryNoCounteroffer>この勧告テストには有効な対抗案はありません。</PD_DebugAdvisoryNoCounteroffer>
+  <PD_SettingErrorTelemetry>匿名エラーレポートの送信前に確認する</PD_SettingErrorTelemetry>
+  <PD_SettingErrorTelemetryDesc>有効にすると、匿名化したエラーレポートを送信する前に確認します。選択するまで送信されません。</PD_SettingErrorTelemetryDesc>
+  <PD_ErrorTelemetryDialogTitle>囚人外交がエラーを検出しました</PD_ErrorTelemetryDialogTitle>
+  <PD_ErrorTelemetryDialogText>予期しない処理を検出しました。囚人外交の改善に役立つ匿名化済みエラーレポートを送信しますか？セーブファイルは送信せず、ローカルパスと認識できる秘密情報を削除します。</PD_ErrorTelemetryDialogText>
+  <PD_ErrorTelemetryAllowOnce>このレポートを送信</PD_ErrorTelemetryAllowOnce>
+  <PD_ErrorTelemetryAllowSession>このセッションで許可</PD_ErrorTelemetryAllowSession>
+  <PD_ErrorTelemetryReject>拒否</PD_ErrorTelemetryReject>
+</LanguageData>

@@ -1,0 +1,5 @@
+ADMIN_TOKEN="replace-with-a-long-random-admin-token"
+RATE_LIMIT_SALT="replace-with-a-long-random-rate-limit-salt"
+GEMINI_API_KEY=""
+REPAIR_AI_ENDPOINT="https://relay.example/v1/chat/completions"
+REPAIR_AI_API_KEY=""

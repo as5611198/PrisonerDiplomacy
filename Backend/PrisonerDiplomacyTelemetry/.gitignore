@@ -1,0 +1,8 @@
+node_modules/
+.wrangler/
+.dev.vars
+.staging-admin-token
+.staging-rate-limit-salt
+worker-configuration.d.ts
+coverage/
+*.cpuprofile

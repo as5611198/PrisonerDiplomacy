@@ -1,0 +1,6 @@
+<Project>
+  <PropertyGroup>
+    <RimWorldDir Condition="'$(RimWorldDir)' == ''">E:\SteamLibrary\steamapps\common\RimWorld</RimWorldDir>
+  </PropertyGroup>
+</Project>
+
