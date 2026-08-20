@@ -4,6 +4,7 @@ import {
   buildRepairPrompt,
   buildTriagePrompt,
   normalizeRepairEndpoint,
+  parseRepairCandidate,
   withImmediateRetries
 } from "../src/ai";
 import { TelemetryPayload } from "../src/validation";
@@ -99,5 +100,17 @@ describe("AI workflow guards", () => {
       .toBe("https://relay.example/v1/chat/completions");
     expect(() => normalizeRepairEndpoint("http://relay.example/v1"))
       .toThrowError(/HTTPS/);
+  });
+
+  it("normalizes a structured relay patch for human review", () => {
+    const candidate = parseRepairCandidate(JSON.stringify({
+      root_cause: "Null guard missing",
+      affected_files: ["Source/Deal.cs"],
+      patch: { file: "Source/Deal.cs", changes: ["add null guard"] },
+      tests: ["Run smoke test"],
+      risks: ["May hide invalid state"]
+    }));
+
+    expect(candidate.patch).toContain('"file": "Source/Deal.cs"');
   });
 });
