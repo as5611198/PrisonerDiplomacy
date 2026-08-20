@@ -8,7 +8,7 @@ import {
   callRepairAi,
   withImmediateRetries
 } from "./ai";
-import { parsePayloadJson } from "./validation";
+import { parsePayloadJson, sanitizeText } from "./validation";
 
 interface QueueIssue extends AiIssueContext {
   r2_log_key: string;
@@ -53,6 +53,11 @@ function safeErrorCode(error: unknown): string {
     return error.code.slice(0, 128);
   }
   return "unknown_provider_error";
+}
+
+function safeErrorDetail(error: unknown): string {
+  const message = error instanceof Error ? error.message : String(error);
+  return sanitizeText(message, 512);
 }
 
 async function sleep(milliseconds: number): Promise<void> {
@@ -278,6 +283,12 @@ export async function runDailyTriage(env: Env): Promise<void> {
         await updateTriageSuccess(env, issue, decision);
         await finishAttempt(env, attempt, true, null, JSON.stringify(decision), null);
       } catch (error) {
+        console.warn(JSON.stringify({
+          message: "triage_provider_failed",
+          hash: issue.hash,
+          code: safeErrorCode(error),
+          detail: safeErrorDetail(error)
+        }));
         await updateTriageFailure(env, issue.hash, error);
         await finishAttempt(env, attempt, false, safeErrorCode(error), null, isoAfterMinutes(24 * 60));
       }
@@ -392,6 +403,12 @@ export async function runRepairRetries(env: Env): Promise<void> {
         await storeRepairCandidate(env, issue, candidate);
         await finishAttempt(env, attempt, true, null, JSON.stringify(candidate), null);
       } catch (error) {
+        console.warn(JSON.stringify({
+          message: "repair_provider_failed",
+          hash: issue.hash,
+          code: safeErrorCode(error),
+          detail: safeErrorDetail(error)
+        }));
         const nextRetryAt = await markRepairRetry(env, issue.hash, error);
         await finishAttempt(env, attempt, false, safeErrorCode(error), null, nextRetryAt);
       }
