@@ -84,7 +84,7 @@ AI 功能預設關閉，而且不是遊玩本模組的必要條件。啟用後�
 
 [h2]開源與社群[/h2]
 
-本專案預計在 Steam 上線前公開至 GitHub；首次上傳完成後會補上正式 repository 連結。歡迎有興趣的作者參考擴展文件製作自己的種族、派系、特殊報酬與事件 Add-on。
+本專案已在 [url=https://github.com/as5611198/PrisonerDiplomacy]GitHub 開源[/url]。歡迎有興趣的作者參考擴展文件製作自己的種族、派系、特殊報酬與事件 Add-on。
 
 QQ群：[戰俘外交（Prisoner Diplomacy）模組討論群](https://qun.qq.com/universal-share/share?ac=1&authKey=kO4hgI4yAGKZaIMkgtwdF7V9G9aylRatK8pqb&busi_data=eyJncm91cENvZGUiOiIyMTE3ODQ2ODgiLCJ0b2tlbiI6InJMNDZ0VDd2RnhHSjhBbE51dVhQOUR6NTNhMlR4cjdhQUVNcmVlUzQybGJTMEg4MHd2ZGlxT1JLWXBYdDVNQXMiLCJ1aW4iOiIzODMxMDIzMDUwIn0%3D&data=ii_Z7GGfk0K0tX3nuOIWOG9w0Vt8TpomZx82ytn1-cooF1oRHAXYR8Nss77V5VBQER3K33djQUT_bNS6Lt1UXg&svctype=4&tempid=h5_group_info)（群號：`211784688`）。
 

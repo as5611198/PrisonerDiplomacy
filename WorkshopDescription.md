@@ -49,7 +49,7 @@ When reporting an issue, enable developer mode and use `Prisoner Diplomacy -> Co
 
 ## Open source and community
 
-The project is being prepared for open-source publication on GitHub. The public repository URL will be added when the initial GitHub upload is complete. Extension authors can already read `PrisonerDiplomacyApi.md`, `Docs/RewardCatalog.md`, and `Docs/AddonQuickstart.md` to build race adapters, special rewards, persona providers, and event metadata.
+The project is open source on [GitHub](https://github.com/as5611198/PrisonerDiplomacy). Extension authors can read `PrisonerDiplomacyApi.md`, `Docs/RewardCatalog.md`, and `Docs/AddonQuickstart.md` to build race adapters, special rewards, persona providers, and event metadata.
 
 QQ discussion group: [戰俘外交（Prisoner Diplomacy）模組討論群](https://qun.qq.com/universal-share/share?ac=1&authKey=kO4hgI4yAGKZaIMkgtwdF7V9G9aylRatK8pqb&busi_data=eyJncm91cENvZGUiOiIyMTE3ODQ2ODgiLCJ0b2tlbiI6InJMNDZ0VDd2RnhHSjhBbE51dVhQOUR6NTNhMlR4cjdhQUVNcmVlUzQybGJTMEg4MHd2ZGlxT1JLWXBYdDVNQXMiLCJ1aW4iOiIzODMxMDIzMDUwIn0%3D&data=ii_Z7GGfk0K0tX3nuOIWOG9w0Vt8TpomZx82ytn1-cooF1oRHAXYR8Nss77V5VBQER3K33djQUT_bNS6Lt1UXg&svctype=4&tempid=h5_group_info) (群號：`211784688`).
 
