@@ -160,7 +160,6 @@ function Invoke-SmokeTest {
     param(
         [Parameter(Mandatory)][string]$Worktree,
         [Parameter(Mandatory)][string[]]$CandidatePaths,
-        [Parameter(Mandatory)][string]$Hash,
         [Parameter(Mandatory)][string]$SmokeLogPath
     )
     $rimWorldExe = Join-Path $RimWorldRoot 'RimWorldWin64.exe'
@@ -182,16 +181,12 @@ function Invoke-SmokeTest {
     }
 
     $backupRoot = Join-Path ([IO.Path]::GetTempPath()) ("pd-repair-backup-" + [Guid]::NewGuid().ToString('N'))
-    $savedataRoot = Join-Path 'C:\CodexPDRepairTest' $Hash.Substring(0, 16)
+    $savedataRoot = 'C:\CodexPDTest'
     $configRoot = Join-Path $savedataRoot 'Config'
     New-Item -ItemType Directory -Path $backupRoot, $configRoot -Force | Out-Null
     Copy-Item -LiteralPath (Join-Path $RepositoryRoot 'TestData\Config\ModsConfig.xml') -Destination (Join-Path $configRoot 'ModsConfig.xml') -Force
 
     $relativeFiles = @('1.6/Assemblies/PrisonerDiplomacy.dll')
-    $candidatePdb = Join-Path $Worktree '1.6\Assemblies\PrisonerDiplomacy.pdb'
-    if (Test-Path -LiteralPath $candidatePdb -PathType Leaf) {
-        $relativeFiles += '1.6/Assemblies/PrisonerDiplomacy.pdb'
-    }
     $relativeFiles += @($CandidatePaths | Where-Object { $_ -like '1.6/Defs/*' -or $_ -like '1.6/Languages/*' })
     $relativeFiles = @($relativeFiles | Sort-Object -Unique)
     $restoreRecords = @()
@@ -227,7 +222,7 @@ function Invoke-SmokeTest {
             '-pdsmoketest',
             '-popupwindow'
         )
-        $process = Start-Process -FilePath $rimWorldExe -ArgumentList $arguments -WindowStyle Hidden -PassThru
+        $process = Start-Process -FilePath $rimWorldExe -ArgumentList $arguments -WindowStyle Normal -PassThru
         $deadline = (Get-Date).AddMinutes(5)
         $passed = $false
         while ((Get-Date) -lt $deadline) {
@@ -254,20 +249,39 @@ function Invoke-SmokeTest {
     finally {
         if ($null -ne $process -and -not $process.HasExited) {
             Stop-Process -Id $process.Id -Force -ErrorAction SilentlyContinue
+        }
+        if ($null -ne $process) {
             $process.WaitForExit(10000) | Out-Null
         }
+        $restoreErrors = @()
         for ($restoreIndex = $restoreRecords.Count - 1; $restoreIndex -ge 0; $restoreIndex--) {
             $record = $restoreRecords[$restoreIndex]
-            if ($record.Existed) {
-                Copy-Item -LiteralPath $record.Backup -Destination $record.Target -Force
-            }
-            elseif (Test-Path -LiteralPath $record.Target -PathType Leaf) {
-                Remove-Item -LiteralPath $record.Target -Force
+            for ($attempt = 1; $attempt -le 20; $attempt++) {
+                try {
+                    if ($record.Existed) {
+                        Copy-Item -LiteralPath $record.Backup -Destination $record.Target -Force
+                    }
+                    elseif (Test-Path -LiteralPath $record.Target -PathType Leaf) {
+                        Remove-Item -LiteralPath $record.Target -Force
+                    }
+                    break
+                }
+                catch {
+                    if ($attempt -lt 20) {
+                        Start-Sleep -Milliseconds 250
+                    }
+                    else {
+                        $restoreErrors += "$($record.Target): $($_.Exception.Message)"
+                    }
+                }
             }
         }
-        if (Test-Path -LiteralPath $backupRoot) {
+        if ($restoreErrors.Count -eq 0 -and (Test-Path -LiteralPath $backupRoot)) {
             Get-ChildItem -LiteralPath $backupRoot -File | Remove-Item -Force
             Remove-Item -LiteralPath $backupRoot -Force
+        }
+        if ($restoreErrors.Count -gt 0) {
+            throw "candidate test files could not be restored; backups retained at $backupRoot`n$($restoreErrors -join "`n")"
         }
     }
 }
@@ -357,8 +371,12 @@ function Invoke-Candidate {
                 [Text.UTF8Encoding]::new($false)
             )
         }
-        Assert-UnifiedPatch -Patch ([string]$candidate.patch)
-        [IO.File]::WriteAllText($patchPath, [string]$candidate.patch, [Text.UTF8Encoding]::new($false))
+        $patchText = [string]$candidate.patch
+        if (-not $patchText.EndsWith("`n")) {
+            $patchText += "`n"
+        }
+        Assert-UnifiedPatch -Patch $patchText
+        [IO.File]::WriteAllText($patchPath, $patchText, [Text.UTF8Encoding]::new($false))
         Invoke-NativeCommand -FilePath git -Arguments @('-C', $RepositoryRoot, 'worktree', 'add', '--detach', $worktree, 'HEAD') -WorkingDirectory $RepositoryRoot | Out-Null
         $worktreeAdded = $true
         Invoke-NativeCommand -FilePath git -Arguments @('-C', $worktree, 'apply', '--check', '--whitespace=error-all', $patchPath) -WorkingDirectory $worktree | Out-Null
@@ -369,7 +387,7 @@ function Invoke-Candidate {
         Invoke-NativeCommand -FilePath dotnet -Arguments @('build', '.\PrisonerDiplomacy.csproj', '-c', 'Release', '-t:Rebuild', '--nologo') -WorkingDirectory $worktree -LogPath $buildLogPath | Out-Null
         Invoke-NativeCommand -FilePath pwsh -Arguments @('-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', '.\Tools\ValidateLocalization.ps1') -WorkingDirectory $worktree -LogPath $localizationLogPath | Out-Null
         if (-not $SkipSmokeTest) {
-            Invoke-SmokeTest -Worktree $worktree -CandidatePaths $changedPaths -Hash $hash -SmokeLogPath $smokeLogPath
+            Invoke-SmokeTest -Worktree $worktree -CandidatePaths $changedPaths -SmokeLogPath $smokeLogPath
         }
 
         if ($ValidationOnly) {

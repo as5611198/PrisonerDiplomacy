@@ -13,7 +13,7 @@ This checklist separates repository and package checks from the final in-game ac
 - [x] Source is organized by responsibility and contains no remaining `Widgets.ButtonText` calls.
 - [x] Apache 2.0 source notice, Non-Commercial Exception, and CC BY-NC-ND 4.0 asset notice are present.
 - [x] The bilingual telemetry privacy notice documents collected fields, redaction limits, Cloudflare processing, Google Gemini triage, the AI-HUB repair relay, current production AI state, and 30/180-day retention.
-- [x] The repair verifier rejects non-unified or unsafe candidates, stores private review context outside Git, uses an isolated worktree, and requires human approval before `resolved`; its staging rejection path was verified with the synthetic smoke candidate.
+- [x] The repair verifier rejects non-unified or unsafe candidates, stores private review context outside Git, uses an isolated worktree, and requires human approval before `resolved`; both the staging rejection path and a local positive unified-diff path through build/localization/`PASS cases=127` were verified.
 - [x] English and Traditional Chinese promotional covers are prepared under `Workshop/Artwork`; the English cover is synchronized to `About/Preview.png` and can be regenerated with `Tools/GenerateWorkshopPreview.ps1`.
 
 ## Author acceptance and post-release QA
