@@ -31,11 +31,11 @@ Required secrets when the corresponding stage is enabled:
 
 ```text
 GEMINI_API_KEY             # official Google Gemini API key
-REPAIR_AI_ENDPOINT         # OpenAI-compatible /chat/completions relay URL
+REPAIR_AI_ENDPOINT         # HTTPS OpenAI-compatible base URL or /chat/completions URL
 REPAIR_AI_API_KEY          # relay credential
 ```
 
-The repair relay must return an OpenAI-compatible JSON response with `choices[0].message.content` containing an object with `root_cause`, `affected_files`, `patch`, `tests`, and `risks`. Keep the relay credential server-side; it is never sent to the mod.
+The repair relay may be configured as a host, a `/v1` base URL, or a complete `/chat/completions` URL. It must return an OpenAI-compatible JSON response with `choices[0].message.content` containing an object with `root_cause`, `affected_files`, `patch`, `tests`, and `risks`. Keep the relay credential server-side; it is never sent to the mod.
 
 ## Local smoke
 

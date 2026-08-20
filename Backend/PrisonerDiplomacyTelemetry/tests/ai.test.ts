@@ -3,6 +3,7 @@ import {
   AiProviderError,
   buildRepairPrompt,
   buildTriagePrompt,
+  normalizeRepairEndpoint,
   withImmediateRetries
 } from "../src/ai";
 import { TelemetryPayload } from "../src/validation";
@@ -87,5 +88,16 @@ describe("AI workflow guards", () => {
     expect(triagePrompt.length).toBeLessThan(50_000);
     expect(repairPrompt.length).toBeLessThan(50_000);
     expect(triagePrompt).toContain("UNTRUSTED TELEMETRY DATA START");
+  });
+
+  it("accepts a relay base URL or a complete chat-completions URL", () => {
+    expect(normalizeRepairEndpoint("https://relay.example/v1"))
+      .toBe("https://relay.example/v1/chat/completions");
+    expect(normalizeRepairEndpoint("https://relay.example/v1/chat/completions"))
+      .toBe("https://relay.example/v1/chat/completions");
+    expect(normalizeRepairEndpoint("https://relay.example"))
+      .toBe("https://relay.example/v1/chat/completions");
+    expect(() => normalizeRepairEndpoint("http://relay.example/v1"))
+      .toThrowError(/HTTPS/);
   });
 });

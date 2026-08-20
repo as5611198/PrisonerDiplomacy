@@ -285,6 +285,28 @@ function extractOpenAiText(response: Record<string, unknown>): string {
   throw new AiProviderError("empty_provider_response", "Repair provider returned empty content", true);
 }
 
+export function normalizeRepairEndpoint(value: string): string {
+  let url: URL;
+  try {
+    url = new URL(value);
+  } catch {
+    throw new AiProviderError("invalid_repair_endpoint", "Repair AI endpoint is not a valid URL", false);
+  }
+  if (url.protocol !== "https:") {
+    throw new AiProviderError("invalid_repair_endpoint", "Repair AI endpoint must use HTTPS", false);
+  }
+  url.hash = "";
+  const path = url.pathname.replace(/\/+$/, "");
+  if (!path) {
+    url.pathname = "/v1/chat/completions";
+  } else if (path.endsWith("/v1")) {
+    url.pathname = `${path}/chat/completions`;
+  } else {
+    url.pathname = path;
+  }
+  return url.toString();
+}
+
 export async function callGeminiTriage(
   env: Env,
   issue: AiIssueContext,
@@ -318,7 +340,7 @@ export async function callRepairAi(
   if (!env.REPAIR_AI_ENDPOINT || !env.REPAIR_AI_API_KEY) {
     throw new AiProviderError("missing_repair_credentials", "Repair AI endpoint or key is not configured", false);
   }
-  const response = await fetchJson(env.REPAIR_AI_ENDPOINT, {
+  const response = await fetchJson(normalizeRepairEndpoint(env.REPAIR_AI_ENDPOINT), {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
