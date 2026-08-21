@@ -19,7 +19,8 @@ describe("admin provider metadata", () => {
       REPAIR_MODEL: "gpt-5.6-sol",
       REPAIR_AI_PROVIDER: "AI-HUB",
       REPAIR_AI_ENDPOINT: "https://relay.example.com/v1",
-      REPAIR_AI_API_KEY: "repair-secret"
+      REPAIR_AI_API_KEY: "repair-secret",
+      REPAIR_SOURCE_REF: "0123456789abcdef0123456789abcdef01234567"
     } as Env);
 
     expect(summary).toEqual({
@@ -35,7 +36,8 @@ describe("admin provider metadata", () => {
         configured: true,
         provider: "AI-HUB",
         endpoint_host: "relay.example.com",
-        model: "gpt-5.6-sol"
+        model: "gpt-5.6-sol",
+        source_ref: "0123456789abcdef0123456789abcdef01234567"
       }
     });
     expect(JSON.stringify(summary)).not.toContain("secret");

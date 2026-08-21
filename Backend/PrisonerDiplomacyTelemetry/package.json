@@ -5,10 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "wrangler dev",
+    "generate-source-index": "node scripts/generate-repair-source-index.mjs",
+    "check-source-index": "node scripts/generate-repair-source-index.mjs --check",
     "generate-types": "wrangler types",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "check": "npm run generate-types && npm run typecheck && npm test",
+    "check": "npm run check-source-index && npm run generate-types && npm run typecheck && npm test",
     "deploy:dry": "wrangler deploy --dry-run"
   },
   "devDependencies": {

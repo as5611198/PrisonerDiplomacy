@@ -12,6 +12,7 @@ export interface AiProviderSummary {
     provider: string;
     endpoint_host: string | null;
     model: string;
+    source_ref: string | null;
   };
 }
 
@@ -33,6 +34,9 @@ export function publicHttpsHost(value: string | undefined): string | null {
 
 export function describeAiProviders(env: Env): AiProviderSummary {
   const endpointHost = publicHttpsHost(env.REPAIR_AI_ENDPOINT);
+  const sourceRef = /^[a-f0-9]{40}$/i.test(env.REPAIR_SOURCE_REF ?? "")
+    ? env.REPAIR_SOURCE_REF
+    : null;
   return {
     environment: env.ENVIRONMENT ?? "unknown",
     triage: {
@@ -43,10 +47,11 @@ export function describeAiProviders(env: Env): AiProviderSummary {
     },
     repair: {
       enabled: isEnabled(env.REPAIR_ENABLED),
-      configured: Boolean(endpointHost && env.REPAIR_AI_API_KEY),
+      configured: Boolean(endpointHost && env.REPAIR_AI_API_KEY && sourceRef),
       provider: env.REPAIR_AI_PROVIDER || "Unspecified relay",
       endpoint_host: endpointHost,
-      model: env.REPAIR_MODEL || "gpt-5.6-sol"
+      model: env.REPAIR_MODEL || "gpt-5.6-sol",
+      source_ref: sourceRef
     }
   };
 }

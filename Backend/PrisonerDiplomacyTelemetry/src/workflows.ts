@@ -9,6 +9,8 @@ import {
   withImmediateRetries
 } from "./ai";
 import { parsePayloadJson, sanitizeText } from "./validation";
+import { loadRepairSourceContext } from "./repair-source-context";
+import type { RepairSourceContext } from "./repair-source-context";
 
 interface QueueIssue extends AiIssueContext {
   r2_log_key: string;
@@ -330,15 +332,27 @@ async function markRepairStarted(env: Env, hash: string): Promise<void> {
   ).bind(now, now, hash).run();
 }
 
-async function storeRepairCandidate(env: Env, issue: QueueIssue, candidate: RepairCandidate): Promise<void> {
+async function storeRepairCandidate(
+  env: Env,
+  issue: QueueIssue,
+  candidate: RepairCandidate,
+  sourceContext: RepairSourceContext
+): Promise<void> {
   const now = new Date().toISOString();
   const key = `repair-candidates/${issue.hash}/${now.replace(/[^0-9]/g, "").slice(0, 14)}-${issue.repair_attempt_count + 1}.json`;
+  const persistedCandidate = {
+    ...candidate,
+    source_ref: sourceContext.ref,
+    source_files: sourceContext.files
+  };
   const body = JSON.stringify({
     schema_version: 1,
     generated_at: now,
     error_hash: issue.hash,
     model: env.REPAIR_MODEL || "gpt-5.6-sol",
-    candidate
+    source_ref: sourceContext.ref,
+    source_files: sourceContext.files,
+    candidate: persistedCandidate
   });
   await env.LOGS.put(key, body, {
     httpMetadata: { contentType: "application/json", cacheControl: "no-store" },
@@ -354,7 +368,7 @@ async function storeRepairCandidate(env: Env, issue: QueueIssue, candidate: Repa
             repair_last_error = NULL,
             updated_at = ?
       WHERE hash = ?`
-  ).bind(JSON.stringify(candidate), key, now, issue.hash).run();
+  ).bind(JSON.stringify(persistedCandidate), key, now, issue.hash).run();
 }
 
 async function markRepairRetry(env: Env, hash: string, error: unknown): Promise<string> {
@@ -392,15 +406,9 @@ export async function runRepairRetries(env: Env): Promise<void> {
       const attempt = await beginAttempt(env, issue.hash, "repair", "gpt-5.6-sol");
       try {
         const samples = await loadSamples(env, issue.hash);
-        const candidate = await withImmediateRetries(
-          () => callRepairAi(env, issue, samples),
-          2,
-          async (error, retryAttempt) => {
-            console.warn(JSON.stringify({ message: "repair_provider_retry", hash: issue.hash, code: error.code, attempt: retryAttempt }));
-            await sleep(Math.min(3_000, retryAttempt * 1_000));
-          }
-        );
-        await storeRepairCandidate(env, issue, candidate);
+        const sourceContext = await loadRepairSourceContext(env, issue, samples);
+        const candidate = await callRepairAi(env, issue, samples, sourceContext.text);
+        await storeRepairCandidate(env, issue, candidate, sourceContext);
         await finishAttempt(env, attempt, true, null, JSON.stringify(candidate), null);
       } catch (error) {
         console.warn(JSON.stringify({

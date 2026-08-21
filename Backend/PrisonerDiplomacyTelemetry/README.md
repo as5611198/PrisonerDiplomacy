@@ -15,10 +15,10 @@ This is the independent Cloudflare Worker project used by the RimWorld mod assem
 - Short-lived rate-limit and job-lock cleanup on every Cron invocation.
 - Daily retention cleanup: detailed event/R2 logs after 30 days and aggregate/AI records after 180 days.
 - Optional daily Gemini 3.7 Flash triage, guarded by a daily issue budget and confidence/severity gate.
-- Optional GPT 5.6 Sol repair-candidate generation through an OpenAI-compatible relay.
-- Bounded immediate provider retries plus a persisted 30-minute retry schedule for relay failures.
+- Optional GPT 5.6 Sol repair-candidate generation through an OpenAI-compatible relay, using bounded excerpts from a fixed public Git commit selected from stack symbols.
+- One repair-provider call per run, a hard 24-call daily ceiling, and a persisted 30-minute retry schedule for relay failures.
 
-The AI workflow is deliberately separate from ingestion. The public endpoint never waits for a provider, and AI is disabled by default. A successful repair response is stored as `fix_candidate`. The Worker itself never edits the repository or marks an issue `resolved`. The separate local verifier can apply a bounded unified diff in an isolated Git worktree, build it, run localization and RimWorld Smoke Test, and open a review PR; human approval is still required before `resolved`.
+The AI workflow is deliberately separate from ingestion. The public endpoint never waits for a provider, and AI is disabled by default. Before calling the repair model, the Worker matches stack-frame type and method names against a generated source index, fetches only the top matching C# files from the immutable `REPAIR_SOURCE_REF` commit in the public GitHub repository, and bounds the excerpts by `REPAIR_SOURCE_MAX_CHARACTERS`. If source cannot be identified or fetched, the repair call is not made. A successful response must contain a Git unified diff and is stored as `fix_candidate`. The Worker itself never edits the repository or marks an issue `resolved`. The separate local verifier applies the diff in an isolated Git worktree, builds it, runs localization and RimWorld Smoke Test, and opens a review PR; human approval is still required before `resolved`.
 
 The production environment launches with both AI stages disabled. The disclosed providers are the official Google Gemini API for triage and AI-HUB (`ai.aiyuhub.com`) as the OpenAI-compatible repair relay. See [`../../Docs/TelemetryPrivacy.md`](../../Docs/TelemetryPrivacy.md) before enabling AI or changing data processing.
 
@@ -31,7 +31,7 @@ The Worker has two Cron schedules:
 
 The daily schedule also removes detailed reports older than `DETAIL_LOG_RETENTION_DAYS` (30), then removes aggregate statistics and related AI records older than `AGGREGATE_RETENTION_DAYS` (180). Retention uses the server receipt time, not the client clock. Cleanup is bounded by `RETENTION_BATCH_SIZE` and `RETENTION_MAX_BATCHES_PER_RUN` and safely resumes on the next run.
 
-Enable each stage explicitly with `TRIAGE_ENABLED=true` or `REPAIR_ENABLED=true`. The default limits are 20 triage issues/day, 24 repair runs/day, one repair issue per 30-minute run, and a 30-minute retry delay. Immediate transient failures are retried once in the same run; persistent failures remain in D1 and are retried by Cron on later runs without an automatic stop date.
+Enable each stage explicitly with `TRIAGE_ENABLED=true` or `REPAIR_ENABLED=true`. The default limits are 20 triage issues/day, 24 repair-provider calls/day, one repair issue per 30-minute run, and a 30-minute retry delay. Gemini triage may retry a transient failure once immediately. Repair uses exactly one provider call per run, so its hard daily maximum is 24 rather than 48. Persistent repair failures remain in D1 and resume on later Cron runs and future days without an automatic stop date.
 
 Required secrets when the corresponding stage is enabled:
 
@@ -39,9 +39,18 @@ Required secrets when the corresponding stage is enabled:
 GEMINI_API_KEY             # official Google Gemini API key
 REPAIR_AI_ENDPOINT         # HTTPS OpenAI-compatible base URL or /chat/completions URL
 REPAIR_AI_API_KEY          # relay credential
+REPAIR_SOURCE_REF          # full immutable Git commit SHA for public repair source
+REPAIR_SOURCE_MAX_CHARACTERS # total trusted source-context bound
 ```
 
-The repair relay may be configured as a host, a `/v1` base URL, or a complete `/chat/completions` URL. It must return an OpenAI-compatible JSON response with `choices[0].message.content` containing an object with `root_cause`, `affected_files`, `patch`, `tests`, and `risks`. Keep the relay credential server-side; it is never sent to the mod.
+The repair relay may be configured as a host, a `/v1` base URL, or a complete `/chat/completions` URL. It must return an OpenAI-compatible JSON response with `choices[0].message.content` containing an object with `root_cause`, `affected_files`, `patch`, `tests`, and `risks`; `patch` must be one Git unified diff. Keep the relay credential server-side; it is never sent to the mod.
+
+Regenerate and commit the symbol index whenever C# source changes. The check command fails if the committed index is stale:
+
+```powershell
+npm run generate-source-index
+npm run check
+```
 
 ## Isolated repair verification
 
@@ -66,6 +75,7 @@ pwsh -NoProfile -ExecutionPolicy Bypass -File .\Tools\Install-TelemetryRepairTas
 
 ```powershell
 npm install
+npm run generate-source-index
 npm run generate-types
 npx wrangler d1 migrations apply prisoner-diplomacy-telemetry --local
 npx wrangler dev --local --port 8790
@@ -76,7 +86,7 @@ In another terminal, send a schema-valid payload to `http://127.0.0.1:8790/api/r
 ```powershell
 npm run typecheck
 npm test
-npm run deploy:dry
+npx wrangler deploy --dry-run --env production
 ```
 
 `.dev.vars` is local-only and is ignored by git. Use a different random value for `ADMIN_TOKEN` outside local development.
@@ -114,7 +124,7 @@ npx wrangler secret put REPAIR_AI_ENDPOINT --env staging
 npx wrangler secret put REPAIR_AI_API_KEY --env staging
 ```
 
-Production follows the same sequence with `--env production`. Verify `/healthz`, then send one synthetic report before any mod endpoint is enabled.
+Production follows the same sequence with `--env production`. Run `npm run generate-source-index` and `npm run check` before deployment, verify `/healthz` and `/api/admin/provider-info`, then send one synthetic report before treating the AI workflow as active.
 
 ## Admin API
 

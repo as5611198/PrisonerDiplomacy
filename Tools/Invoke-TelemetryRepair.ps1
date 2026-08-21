@@ -326,6 +326,50 @@ function Write-RepairReport {
     [IO.File]::WriteAllLines($Path, $body, [Text.UTF8Encoding]::new($false))
 }
 
+function Write-PullRequestBody {
+    param(
+        [Parameter(Mandatory)][string]$Path,
+        [Parameter(Mandatory)][string]$Hash,
+        [Parameter(Mandatory)][string]$CandidateSha,
+        [Parameter(Mandatory)][string[]]$ChangedPaths
+    )
+    $body = @(
+        '# Telemetry Repair Candidate',
+        '',
+        "- Error group: ``$($Hash.Substring(0, 12))``",
+        "- Candidate SHA-256: ``$CandidateSha``",
+        '- Validation: Release build, localization validation, and RimWorld Smoke Test passed',
+        '',
+        '## Changed Files',
+        ''
+    )
+    $body += if ($ChangedPaths.Count -gt 0) { @($ChangedPaths | ForEach-Object { "- ``$_``" }) } else { '- None' }
+    $body += @(
+        '',
+        'Private telemetry samples and model-generated diagnosis are intentionally omitted from this public pull request.',
+        'A human must review the code diff before merge; this PR does not mark the issue resolved.'
+    )
+    [IO.File]::WriteAllLines($Path, $body, [Text.UTF8Encoding]::new($false))
+}
+
+function Assert-SourceRefCompatible {
+    param([Parameter(Mandatory)][string]$SourceRef)
+    if ($SourceRef -notmatch '^[0-9a-f]{40}$') {
+        throw 'candidate source_ref is missing or is not a full Git commit SHA'
+    }
+    & git -C $RepositoryRoot cat-file -e "${SourceRef}^{commit}" 2>$null
+    if ($LASTEXITCODE -ne 0) {
+        throw "candidate source_ref is not available locally: $SourceRef"
+    }
+    & git -C $RepositoryRoot diff --quiet $SourceRef HEAD -- Source/PrisonerDiplomacy 1.6/Defs 1.6/Languages
+    if ($LASTEXITCODE -eq 1) {
+        throw "mod source changed after candidate source_ref; regenerate the repair candidate against current HEAD"
+    }
+    if ($LASTEXITCODE -ne 0) {
+        throw 'git failed while comparing candidate source_ref to current HEAD'
+    }
+}
+
 function Invoke-Candidate {
     param([Parameter(Mandatory)][object]$Issue)
     $hash = [string]$Issue.hash
@@ -350,6 +394,7 @@ function Invoke-Candidate {
     $branch = "codex/telemetry-$($hash.Substring(0, 12))-$($candidateSha.Substring(0, 8))"
     $worktree = Join-Path ([IO.Path]::GetTempPath()) ("pd-repair-worktree-" + [Guid]::NewGuid().ToString('N'))
     $patchPath = Join-Path ([IO.Path]::GetTempPath()) ("pd-repair-patch-" + [Guid]::NewGuid().ToString('N') + '.diff')
+    $prBodyPath = Join-Path ([IO.Path]::GetTempPath()) ("pd-repair-pr-" + [Guid]::NewGuid().ToString('N') + '.md')
     $changedPaths = @()
     $pullRequestUrl = ''
     $worktreeAdded = $false
@@ -376,6 +421,11 @@ function Invoke-Candidate {
             $patchText += "`n"
         }
         Assert-UnifiedPatch -Patch $patchText
+        if (-not $script:LocalCandidateMode) {
+            $sourceRefProperty = $candidate.PSObject.Properties['source_ref']
+            $sourceRef = if ($null -ne $sourceRefProperty) { [string]$sourceRefProperty.Value } else { '' }
+            Assert-SourceRefCompatible -SourceRef $sourceRef
+        }
         [IO.File]::WriteAllText($patchPath, $patchText, [Text.UTF8Encoding]::new($false))
         Invoke-NativeCommand -FilePath git -Arguments @('-C', $RepositoryRoot, 'worktree', 'add', '--detach', $worktree, 'HEAD') -WorkingDirectory $RepositoryRoot | Out-Null
         $worktreeAdded = $true
@@ -409,7 +459,8 @@ function Invoke-Candidate {
         Write-RepairReport -Path $reportPath -Issue $Issue -Candidate $candidate -CandidateSha $candidateSha -Outcome 'validated; awaiting human review' -ChangedPaths $changedPaths -Branch $branch
         if ($PublishPullRequest) {
             Invoke-NativeCommand -FilePath git -Arguments @('-C', $worktree, 'push', '-u', 'origin', $branch) -WorkingDirectory $worktree | Out-Null
-            $prOutput = Invoke-NativeCommand -FilePath gh -Arguments @('pr', 'create', '--base', 'main', '--head', $branch, '--title', "Telemetry repair: $($Issue.exception_type) [$($hash.Substring(0, 12))]", '--body-file', $reportPath) -WorkingDirectory $worktree
+            Write-PullRequestBody -Path $prBodyPath -Hash $hash -CandidateSha $candidateSha -ChangedPaths $changedPaths
+            $prOutput = Invoke-NativeCommand -FilePath gh -Arguments @('pr', 'create', '--base', 'main', '--head', $branch, '--title', "Telemetry repair [$($hash.Substring(0, 12))]", '--body-file', $prBodyPath) -WorkingDirectory $worktree
             $pullRequestUrl = [string]($prOutput | Select-Object -Last 1)
             Write-RepairReport -Path $reportPath -Issue $Issue -Candidate $candidate -CandidateSha $candidateSha -Outcome 'validated; pull request awaiting human review' -ChangedPaths $changedPaths -Branch $branch -PullRequestUrl $pullRequestUrl
         }
@@ -438,6 +489,9 @@ function Invoke-Candidate {
         if (Test-Path -LiteralPath $patchPath -PathType Leaf) {
             Remove-Item -LiteralPath $patchPath -Force
         }
+        if (Test-Path -LiteralPath $prBodyPath -PathType Leaf) {
+            Remove-Item -LiteralPath $prBodyPath -Force
+        }
     }
 }
 
@@ -455,12 +509,26 @@ function Invoke-SelfTest {
     catch {
         if ($_.Exception.Message -eq 'dangerous addition accepted') { throw }
     }
+    $head = [string](& git -C $RepositoryRoot rev-parse HEAD)
+    if ($LASTEXITCODE -ne 0) { throw 'could not resolve HEAD during self-test' }
+    Assert-SourceRefCompatible -SourceRef $head.Trim()
+    $selfTestPrBody = Join-Path ([IO.Path]::GetTempPath()) ("pd-repair-pr-selftest-" + [Guid]::NewGuid().ToString('N') + '.md')
+    try {
+        Write-PullRequestBody -Path $selfTestPrBody -Hash ('a' * 64) -CandidateSha ('b' * 64) -ChangedPaths @('Source/PrisonerDiplomacy/Core/Test.cs')
+        $publicBody = Get-Content -Raw -LiteralPath $selfTestPrBody
+        if ($publicBody -notmatch 'Private telemetry samples.+intentionally omitted') {
+            throw 'public PR body did not disclose telemetry omission'
+        }
+        if ($publicBody.Contains(('a' * 64))) {
+            throw 'public PR body exposed the full error hash'
+        }
+    }
+    finally {
+        if (Test-Path -LiteralPath $selfTestPrBody) {
+            Remove-Item -LiteralPath $selfTestPrBody -Force
+        }
+    }
     Write-Output 'PASS telemetry repair executor self-test'
-}
-
-if ($SelfTest) {
-    Invoke-SelfTest
-    exit 0
 }
 
 if (-not $RepositoryRoot) {
@@ -471,6 +539,10 @@ else {
 }
 if (-not (Test-Path -LiteralPath (Join-Path $RepositoryRoot '.git'))) {
     throw "repository root is invalid: $RepositoryRoot"
+}
+if ($SelfTest) {
+    Invoke-SelfTest
+    exit 0
 }
 if (-not $ReportRoot) {
     $ReportRoot = Join-Path $RepositoryRoot 'TelemetryRepairReports'

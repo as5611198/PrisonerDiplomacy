@@ -21,7 +21,7 @@ The mod does not upload saves, screenshots, Pawn records, colony data or hardwar
 
 Reports are used only to group crashes, diagnose Prisoner Diplomacy defects and prepare human-reviewed repair candidates. Cloudflare Workers validates requests, D1 stores indexes and aggregates, and R2 stores detailed JSON reports.
 
-When AI analysis is enabled, representative samples from an error group are sent first to the official Google Gemini API using Gemini 3.7 Flash for classification. Only reports classified as likely internal Prisoner Diplomacy defects with the configured confidence and severity are sent to **AI-HUB** (`ai.aiyuhub.com`), an OpenAI-compatible third-party API relay, for a GPT 5.6 Sol repair candidate. AI-HUB may forward the request to upstream model infrastructure under its own service terms. The model receives the sanitized exception, stack trace, anonymous deal snapshot, versions and bounded active-mod summary described above. It does not receive an account identifier from this system. Provider changes require this notice to be updated before the new provider handles production reports.
+When AI analysis is enabled, representative samples from an error group are sent first to the official Google Gemini API using Gemini 3.7 Flash for classification. Only reports classified as likely internal Prisoner Diplomacy defects with the configured confidence and severity are sent to **AI-HUB** (`ai.aiyuhub.com`), an OpenAI-compatible third-party API relay, for a GPT 5.6 Sol repair candidate. AI-HUB may forward the request to upstream model infrastructure under its own service terms. The model receives the sanitized exception, stack trace, anonymous deal snapshot, versions and bounded active-mod summary described above, plus bounded excerpts of the matching source files fetched from a fixed commit in the project's public GitHub repository. The public source excerpts add no player data. The model does not receive an account identifier from this system. Provider changes require this notice to be updated before the new provider handles production reports.
 
 The production AI stages are currently disabled until their production-only credentials are installed. Error collection and retention continue to work without either AI provider.
 
@@ -54,7 +54,7 @@ Cleanup is automatic. Because reports contain no account or stable player identi
 
 回報只用於彙整錯誤、診斷《戰俘外交》的缺陷，以及準備需人工審查的修復候選。Cloudflare Workers 負責驗證請求，D1 保存索引與統計，R2 保存詳細 JSON。
 
-啟用 AI 分析後，每個錯誤群組的代表樣本會先傳送至 Google 官方 Gemini API，由 Gemini 3.7 Flash 進行分類。只有被判定為《戰俘外交》內部問題，且達到設定信心與嚴重度門檻的回報，才會再傳送至 **AI-HUB**（`ai.aiyuhub.com`）這個相容 OpenAI API 的第三方中轉服務，由 GPT 5.6 Sol 產生修復候選。AI-HUB 可能依其服務條款把請求轉送至上游模型基礎設施。模型會收到前述經清理的例外、堆疊、匿名交易快照、版本與有上限的啟用模組摘要；本系統不會提供玩家帳號識別碼。日後更換供應商時，必須先更新本說明，新的供應商才可處理正式回報。
+啟用 AI 分析後，每個錯誤群組的代表樣本會先傳送至 Google 官方 Gemini API，由 Gemini 3.7 Flash 進行分類。只有被判定為《戰俘外交》內部問題，且達到設定信心與嚴重度門檻的回報，才會再傳送至 **AI-HUB**（`ai.aiyuhub.com`）這個相容 OpenAI API 的第三方中轉服務，由 GPT 5.6 Sol 產生修復候選。AI-HUB 可能依其服務條款把請求轉送至上游模型基礎設施。模型會收到前述經清理的例外、堆疊、匿名交易快照、版本與有上限的啟用模組摘要，另加上從本專案公開 GitHub 倉庫固定 commit 取得的相關原始碼片段；公開原始碼片段不會增加玩家資料。本系統不會提供玩家帳號識別碼。日後更換供應商時，必須先更新本說明，新的供應商才可處理正式回報。
 
 正式環境的 AI 階段目前仍關閉，直到正式環境專用憑證完成設定。即使不啟用任何 AI 供應商，錯誤接收與保存期限機制仍會正常運作。
 

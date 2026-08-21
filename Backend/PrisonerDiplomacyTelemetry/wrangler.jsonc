@@ -26,10 +26,12 @@
     "REPAIR_ENABLED": "false",
     "REPAIR_AI_PROVIDER": "AI-HUB",
     "REPAIR_MODEL": "gpt-5.6-sol",
+    "REPAIR_SOURCE_REF": "0863051fa40482e396a47e0255dc0107b336a43d",
+    "REPAIR_SOURCE_MAX_CHARACTERS": "180000",
     "REPAIR_MAX_ATTEMPTS_PER_DAY": "24",
     "REPAIR_ATTEMPTS_PER_RUN": "1",
     "REPAIR_RETRY_MINUTES": "30",
-    "AI_REQUEST_TIMEOUT_MS": "30000"
+    "AI_REQUEST_TIMEOUT_MS": "120000"
   },
   "d1_databases": [
     {
@@ -67,10 +69,12 @@
         "REPAIR_ENABLED": "true",
         "REPAIR_AI_PROVIDER": "AI-HUB",
         "REPAIR_MODEL": "gpt-5.6-sol",
+        "REPAIR_SOURCE_REF": "0863051fa40482e396a47e0255dc0107b336a43d",
+        "REPAIR_SOURCE_MAX_CHARACTERS": "180000",
         "REPAIR_MAX_ATTEMPTS_PER_DAY": "24",
         "REPAIR_ATTEMPTS_PER_RUN": "1",
         "REPAIR_RETRY_MINUTES": "30",
-        "AI_REQUEST_TIMEOUT_MS": "30000"
+        "AI_REQUEST_TIMEOUT_MS": "120000"
       },
       "secrets": { "required": ["ADMIN_TOKEN", "RATE_LIMIT_SALT"] },
       "d1_databases": [
@@ -109,10 +113,12 @@
         "REPAIR_ENABLED": "false",
         "REPAIR_AI_PROVIDER": "AI-HUB",
         "REPAIR_MODEL": "gpt-5.6-sol",
+        "REPAIR_SOURCE_REF": "0863051fa40482e396a47e0255dc0107b336a43d",
+        "REPAIR_SOURCE_MAX_CHARACTERS": "180000",
         "REPAIR_MAX_ATTEMPTS_PER_DAY": "24",
         "REPAIR_ATTEMPTS_PER_RUN": "1",
         "REPAIR_RETRY_MINUTES": "30",
-        "AI_REQUEST_TIMEOUT_MS": "30000"
+        "AI_REQUEST_TIMEOUT_MS": "120000"
       },
       "secrets": { "required": ["ADMIN_TOKEN", "RATE_LIMIT_SALT"] },
       "d1_databases": [
