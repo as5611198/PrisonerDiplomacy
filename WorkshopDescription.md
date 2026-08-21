@@ -4,6 +4,8 @@ Prisoner Diplomacy turns captured enemies into a long-term diplomatic decision i
 
 After a prisoner is safely held, their faction may contact the colony with a ransom offer. The player can also use a powered comms console to negotiate silver, safe faction supplies, goodwill, hostage exchanges, temporary ceasefires, or one-use early-warning intelligence. Every agreement is deterministic and only becomes complete after the prisoner is released through the marked vanilla release flow and safely leaves the assigned map.
 
+New players can follow the complete five-step walkthrough in the [`Docs/PlayerGuide`](Docs/PlayerGuide/README.md) hub, available in Traditional Chinese, English, Simplified Chinese, Japanese, and Korean.
+
 ## Features
 
 - Enemy-initiated ransom offers and player-initiated comms negotiations
@@ -29,7 +31,7 @@ AI narratives are disabled by default. External negotiation-summary transfer req
 
 ## Compatibility
 
-RimWorld 1.6 is required. Harmony is required. RimChat, Humanoid Alien Races, Hospitality, Combat Extended, Vanilla Factions Expanded, and custom race/faction mods are optional. See `Compatibility.md` and `KnownIssues.md` for the current matrix and limitations.
+RimWorld 1.6 is required. Harmony is required. RimChat, Humanoid Alien Races, Hospitality, Combat Extended, Vanilla Factions Expanded, and custom race/faction mods are optional. Prisoner Realism 1.6 has been loaded with Prisoner Diplomacy 1.2.0 in both mod orders; it owns prison-break behavior while Prisoner Diplomacy owns diplomatic triggers and deal outcomes. See [`Compatibility.md`](Compatibility.md) and [`KnownIssues.md`](KnownIssues.md) for the current matrix, the Prisoner Realism overlap details, and limitations.
 
 ## Save safety
 
@@ -51,7 +53,7 @@ When reporting an issue, enable developer mode and use `Prisoner Diplomacy -> Co
 
 The project is open source on [GitHub](https://github.com/as5611198/PrisonerDiplomacy). Extension authors can read `PrisonerDiplomacyApi.md`, `Docs/RewardCatalog.md`, and `Docs/AddonQuickstart.md` to build race adapters, special rewards, persona providers, and event metadata.
 
-QQ discussion group: [戰俘外交（Prisoner Diplomacy）模組討論群](https://qun.qq.com/universal-share/share?ac=1&authKey=kO4hgI4yAGKZaIMkgtwdF7V9G9aylRatK8pqb&busi_data=eyJncm91cENvZGUiOiIyMTE3ODQ2ODgiLCJ0b2tlbiI6InJMNDZ0VDd2RnhHSjhBbE51dVhQOUR6NTNhMlR4cjdhQUVNcmVlUzQybGJTMEg4MHd2ZGlxT1JLWXBYdDVNQXMiLCJ1aW4iOiIzODMxMDIzMDUwIn0%3D&data=ii_Z7GGfk0K0tX3nuOIWOG9w0Vt8TpomZx82ytn1-cooF1oRHAXYR8Nss77V5VBQER3K33djQUT_bNS6Lt1UXg&svctype=4&tempid=h5_group_info) (群號：`211784688`).
+QQ discussion group: [戰俘外交（Prisoner Diplomacy）模組討論群](https://qun.qq.com/universal-share/share?ac=1&authKey=kO4hgI4yAGKZaIMkDgtwdF7V9G9aylRatK8pqb&busi_data=eyJncm91cENvZGUiOiIyMTE3ODQ2ODgiLCJ0b2tlbiI6InJMNDZ0VDd2RnhHSjhBbE51dVhQOUR6NTNhMlR4cjdhQUVNcmVlUzQybGJTMEg4MHd2ZGlxT1JLWXBYdDVNQXMiLCJ1aW4iOiIzODMxMDIzMDUwIn0%3D&data=ii_Z7GGfk0K0tX3nuOIWOG9w0Vt8TpomZx82ytn1-cooF1oRHAXYR8Nss77V5VBQER3K33djQUT_bNS6Lt1UXg&svctype=4&tempid=h5_group_info) (群號：`211784688`).
 
 ## Authorship
 

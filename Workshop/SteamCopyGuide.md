@@ -2,6 +2,20 @@
 
 This file contains the short copy, screenshot order, and final publication checks that sit around the full BBCode descriptions.
 
+## Description file
+
+Paste one of the following files directly into the Steam Workshop description field. They already use Steam BBCode and include the current release, feature boundaries, privacy notice, GitHub link, QQ group, and authorship statement. Keep the full compatibility report in [`Compatibility.md`](../Compatibility.md) as the canonical matrix; the Steam description should stay concise and link back to the repository:
+
+- International page: `Workshop/SteamDescription.en.txt`
+- Traditional Chinese page: `Workshop/SteamDescription.zh-TW.txt`
+- Simplified Chinese page: `Workshop/SteamDescription.zh-CN.txt`
+- Japanese page: `Workshop/SteamDescription.ja.txt`
+- Korean page: `Workshop/SteamDescription.ko.txt`
+
+Use the English file as the default Workshop description for the English cover. Use one localized file when publishing a language-specific community presentation. Steam provides one description field per Workshop item, so do not paste all five versions unless you intentionally want a long multilingual page. `WorkshopDescription.md` is the longer Markdown document for GitHub and documentation; do not paste it into Steam unchanged.
+
+The GitHub documentation entry for new players is [`Docs/PlayerGuide/README.md`](../Docs/PlayerGuide/README.md). It routes to separate Traditional Chinese, English, Simplified Chinese, Japanese, and Korean walkthroughs. Link to the matching page when answering Workshop questions instead of pasting the full tutorial into a comment.
+
 ## Workshop title
 
 English storefront title:
@@ -41,7 +55,7 @@ Traditional Chinese:
 3. Counteroffer workflow: `About/螢幕擷取畫面 2026-08-20 172414.png`
 4. Strategic agreement review: `About/螢幕擷取畫面 2026-08-20 172250.png`
 5. Add a neutral world-map exchange screenshot after the final manual Caravan test.
-6. Add one settings or consent-dialog screenshot only after the production telemetry receiver is verified.
+6. Add one settings or consent-dialog screenshot now that the production telemetry receiver is verified, after the final visual QA pass.
 
 The Chinese cover can be used as the second promotional image for Chinese community posts. The Workshop preview remains the English cover so the mod is immediately identifiable in an international mod list.
 
@@ -64,7 +78,7 @@ Agreement review:
 
 ## Telemetry wording boundary
 
-The public description may state that reports are optional, consent-gated, sanitized, asynchronous, and unable to modify the player's installation. It must not claim that the production receiver is live until all of the following are confirmed:
+The public description may state that reports are optional, consent-gated, sanitized, asynchronous, and unable to modify the player's installation. The production receiver is now verified for the release candidate:
 
 - `ProductionReportEndpoint` contains the final HTTPS endpoint.
 - Worker schema validation, payload limits, rate limiting, and event-id deduplication are deployed.
@@ -73,7 +87,7 @@ The public description may state that reports are optional, consent-gated, sanit
 - A real opt-in test report reaches the receiver without exposing save names, Pawn names, local paths, or secrets.
 - The AI repair pipeline produces isolated repair candidates only; it cannot push directly to the release branch or modify a player's game.
 
-Until those checks pass, the repository release candidate should continue to describe telemetry as offline or pending receiver configuration.
+Public descriptions may therefore describe the receiver as live and optional. Production AI triage and repair remain disabled until their separate provider credentials and rollout checks are complete.
 
 ## Final upload pass
 
@@ -81,6 +95,8 @@ Until those checks pass, the repository release candidate should continue to des
 - Confirm the displayed version and save schema.
 - Confirm all five localization files have the same key set and placeholders.
 - Run the final release build and isolated smoke test with the exact Workshop payload.
+- Run `pwsh -NoProfile -ExecutionPolicy Bypass -File .\Tools\ValidateWorkshopDescriptions.ps1` before submitting the item update.
+- Confirm `About/Preview.png` is strictly smaller than 1 MB; RimWorld's in-game uploader returns `LimitExceeded` for a larger preview even when the mod content upload succeeds.
 - Complete the real neutral trade-point Caravan handoff.
 - Capture the final telemetry consent dialog at the longest localization.
 - Add the Workshop URL, source repository URL, and issue-report URL once public.

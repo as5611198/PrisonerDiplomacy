@@ -132,7 +132,7 @@
   <PD_NegotiationSuspended>この派閥は度重なる不当な要求を受けて{0}の交渉を中止した。</PD_NegotiationSuspended>
   <PD_NegotiationCounterPending>派閥の対抗提案があなたの返答を待っています。</PD_NegotiationCounterPending>
   <PD_NegotiationNoRewards>少なくとも 1 つの報酬を選択してください。</PD_NegotiationNoRewards>
-  <PD_NegotiationTooManyRewards>取引には最大 2 つの報酬タイプを含めることができます。</PD_NegotiationTooManyRewards>
+  <PD_NegotiationTooManyRewards>取引には最大 3 つの報酬タイプを含めることができます。</PD_NegotiationTooManyRewards>
   <PD_NegotiationInvalidRewards>有効な報酬額を入力してください。</PD_NegotiationInvalidRewards>
   <PD_NegotiationInvalidSupplies>選択された物資はこの陣営からは入手できません。</PD_NegotiationInvalidSupplies>
   <PD_NegotiationGoodwillUnavailable>この派閥は報酬として善意を提供することはできません。</PD_NegotiationGoodwillUnavailable>

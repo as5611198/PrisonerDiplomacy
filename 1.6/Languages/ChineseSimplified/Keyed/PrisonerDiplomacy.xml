@@ -132,7 +132,7 @@
   <PD_NegotiationSuspended>该派在多次提出无理要求后，已暂停了{0}的谈判。</PD_NegotiationSuspended>
   <PD_NegotiationCounterPending>派系还价正在等待您的回应。</PD_NegotiationCounterPending>
   <PD_NegotiationNoRewards>至少选择一项奖励。</PD_NegotiationNoRewards>
-  <PD_NegotiationTooManyRewards>一笔交易最多可以包含两种奖励类型。</PD_NegotiationTooManyRewards>
+  <PD_NegotiationTooManyRewards>一笔交易最多可以包含三种奖励类型。</PD_NegotiationTooManyRewards>
   <PD_NegotiationInvalidRewards>输入有效的奖励金额。</PD_NegotiationInvalidRewards>
   <PD_NegotiationInvalidSupplies>所选补给品无法从该派系获得。</PD_NegotiationInvalidSupplies>
   <PD_NegotiationGoodwillUnavailable>该派系不能提供善意作为奖励。</PD_NegotiationGoodwillUnavailable>

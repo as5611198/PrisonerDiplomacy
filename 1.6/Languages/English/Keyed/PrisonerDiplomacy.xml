@@ -132,7 +132,7 @@
   <PD_NegotiationSuspended>This faction has suspended negotiations for {0} after repeated unreasonable demands.</PD_NegotiationSuspended>
   <PD_NegotiationCounterPending>A faction counteroffer is awaiting your response.</PD_NegotiationCounterPending>
   <PD_NegotiationNoRewards>Select at least one reward.</PD_NegotiationNoRewards>
-  <PD_NegotiationTooManyRewards>A deal may contain at most two reward types.</PD_NegotiationTooManyRewards>
+  <PD_NegotiationTooManyRewards>A deal may contain at most three reward types.</PD_NegotiationTooManyRewards>
   <PD_NegotiationInvalidRewards>Enter valid reward amounts.</PD_NegotiationInvalidRewards>
   <PD_NegotiationInvalidSupplies>The selected supplies are not available from this faction.</PD_NegotiationInvalidSupplies>
   <PD_NegotiationGoodwillUnavailable>This faction cannot offer goodwill as a reward.</PD_NegotiationGoodwillUnavailable>

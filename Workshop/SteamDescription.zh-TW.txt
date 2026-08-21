@@ -2,6 +2,8 @@
 
 [b]Prisoner Diplomacy（戰俘外交）[/b]將 RimWorld 的俘虜系統擴展為一套完整的交涉、記憶與後果機制。
 
+[b]目前版本：1.2.0[/b]，支援 RimWorld 1.6。
+
 敵對派系可能主動來信要求贖回成員；玩家也能透過原版通訊台主動提出條件。俘虜的身分、健康、重要性、派系財力、談判者社交能力，以及你過去如何對待該派系，都會影響交易。
 
 [h2]你可以談什麼？[/h2]
@@ -14,9 +16,15 @@
 [*]透過種族 Adapter 與 Add-on 取得特殊物品報酬或擴展事件
 [/list]
 
-派系物資會隨科技層級增加：低科技派系可提供草藥醫藥、肉乾、簡單餐與飼料；工業派系可提供工業醫藥、工業零件、精緻餐、包裝生存餐、化合燃料、鋼材與布料；太空時代派系則可能提供超科技醫藥、太空零件、奢華餐、塑鋼、鈾、合成纖維與超織物。外部模組的物品不能直接塞入核心清單，但可以透過公開 Adapter API 成為特殊報酬。
+[h2]與其他俘虜／外交模組有何不同？[/h2]
 
-派系不會無限供應資源。每個派系都有自己的交涉能力與外交儲備；要求過於誇張可能招致拒絕、還價、冷卻期，甚至暫停交涉。
+現有模組多半專注於單次白銀贖金、一對一換俘或宏觀派系戰爭。Prisoner Diplomacy 則以具名 Pawn 為核心，將其擴展為可追蹤、有後果的戰俘外交流程。
+
+從提出條件、還價、實際釋放和安全離圖，到付款、派系記憶與後續事件，每一步都由遊戲狀態驗證。AI 只增添派系個性，不會取代規則。
+
+派系物資會隨科技層級增加，從醫藥與食物到工業／太空時代材料；外部模組物品只能透過公開 Adapter API 成為特殊報酬。
+
+派系儲備有限；要求過高可能招致拒絕、還價、冷卻期或暫停交涉。
 
 [h2]接受條件，不代表立刻收錢[/h2]
 
@@ -51,7 +59,7 @@
 
 AI 功能預設關閉，而且不是遊玩本模組的必要條件。啟用後，AI 可以根據派系 Persona、意識形態、戰鬥傷勢、人際關係、歷史恩怨與玩家附言，產生更有個性的派系回覆。
 
-[b]AI 文字預設只負責敘事。[/b]正式條件、付款、期限、Pawn 狀態與事件結果仍由模組核心決定。另一個獨立的進階選項可以讓 AI 對尚未接受的還價提供受限建議，但所有結果仍會受到派系儲備、物資上限、合法報酬與過期脈絡檢查。
+[b]AI 文字預設只負責敘事。[/b]正式條件、付款、期限、Pawn 狀態與事件結果仍由模組核心決定。另一個獨立選項可對尚未接受的還價提供有限建議，但仍由核心驗證結果。
 
 不設定 AI 供應商時，模組會使用完整的本地化範本文字並維持離線運作。
 
@@ -61,11 +69,11 @@ AI 功能預設關閉，而且不是遊玩本模組的必要條件。啟用後�
 
 [h2]隱私優先的錯誤回報[/h2]
 
-匿名錯誤回報是可選功能。只有接收服務可用、設定啟用且模組偵測到相關錯誤時，才會顯示選擇視窗；玩家可以只傳送本次、允許本次遊戲期間傳送、之後一律傳送，或直接拒絕。永久同意可隨時在模組設定中撤銷；玩家第一次做出選擇前不會送出回報。
+匿名錯誤回報是可選且須經同意。玩家可選擇只傳送本次、允許本次遊戲、之後一律傳送或拒絕；永久同意可在設定撤銷，選擇前不會上傳。
 
-回報可能包含經過清理的錯誤資訊、遊戲／模組版本、匿名交易階段，以及啟用模組的 Package ID 與版本。模組不會刻意收集存檔、Pawn 紀錄、殖民地資料或硬體識別碼，並會嘗試移除本機路徑、系統使用者／機器名稱、API Key、權杖與其他可辨識的秘密資訊；但由遊戲或模組程式產生的例外文字仍可能含有非預期文字。上傳在背景執行，失敗不會中斷遊戲，也不會在玩家電腦上自動修改程式碼或存檔。
+回報會經過清理、在背景非同步傳送，且不能修改安裝內容。可能包含錯誤／版本、匿名交易階段與啟用模組 Package ID，但不會刻意收集存檔、Pawn、殖民地、硬體識別碼或 API Key；系統會盡可能移除路徑與秘密資訊。
 
-詳細回報會在 30 天後自動刪除；彙整統計與修復稽核資料會在 180 天後刪除。正式環境目前停用 AI 分析。啟用後，代表樣本會先送至 Google 官方 Gemini API（Gemini 3.7 Flash）；只有高信心的模組內部問題才會送至第三方 AI-HUB 中轉服務（`ai.aiyuhub.com`），由 GPT 5.6 Sol 產生修復候選。AI-HUB 可能把請求轉送至上游模型基礎設施。完整說明位於模組套件內的 Docs/TelemetryPrivacy.md。
+詳細回報 30 天後刪除，彙整與修復稽核資料 180 天後刪除。正式 AI 分析目前停用；若啟用，樣本會先送 Gemini 3.7 Flash，高信心內部問題才會送 AI-HUB（`ai.aiyuhub.com`）產生 GPT 5.6 Sol 修復候選。詳見 Docs/TelemetryPrivacy.md。
 
 [h2]相容性與需求[/h2]
 [list]
@@ -88,6 +96,8 @@ AI 功能預設關閉，而且不是遊玩本模組的必要條件。啟用後�
 
 本專案已在 [url=https://github.com/as5611198/PrisonerDiplomacy]GitHub 開源[/url]。歡迎有興趣的作者參考擴展文件製作自己的種族、派系、特殊報酬與事件 Add-on。
 
-QQ群：[戰俘外交（Prisoner Diplomacy）模組討論群](https://qun.qq.com/universal-share/share?ac=1&authKey=kO4hgI4yAGKZaIMkgtwdF7V9G9aylRatK8pqb&busi_data=eyJncm91cENvZGUiOiIyMTE3ODQ2ODgiLCJ0b2tlbiI6InJMNDZ0VDd2RnhHSjhBbE51dVhQOUR6NTNhMlR4cjdhQUVNcmVlUzQybGJTMEg4MHd2ZGlxT1JLWXBYdDVNQXMiLCJ1aW4iOiIzODMxMDIzMDUwIn0%3D&data=ii_Z7GGfk0K0tX3nuOIWOG9w0Vt8TpomZx82ytn1-cooF1oRHAXYR8Nss77V5VBQER3K33djQUT_bNS6Lt1UXg&svctype=4&tempid=h5_group_info)（群號：`211784688`）。
+五語新手指南：[url=https://github.com/as5611198/PrisonerDiplomacy/tree/main/Docs/PlayerGuide]Player Guide[/url]。
+
+QQ群：[url=https://qun.qq.com/universal-share/share?ac=1&authKey=kO4hgI4yAGKZaIMkDgtwdF7V9G9aylRatK8pqb&busi_data=eyJncm91cENvZGUiOiIyMTE3ODQ2ODgiLCJ0b2tlbiI6InJMNDZ0VDd2RnhHSjhBbE51dVhQOUR6NTNhMlR4cjdhQUVNcmVlUzQybGJTMEg4MHd2ZGlxT1JLWXBYdDVNQXMiLCJ1aW4iOiIzODMxMDIzMDUwIn0%3D&data=ii_Z7GGfk0K0tX3nuOIWOG9w0Vt8TpomZx82ytn1-cooF1oRHAXYR8Nss77V5VBQER3K33djQUT_bNS6Lt1UXg&svctype=4&tempid=h5_group_info]戰俘外交（Prisoner Diplomacy）模組討論群[/url]（群號：211784688）。
 
 [i]本模組 100% 由 Codex（GPT-5.6 SOL）製作；本人只提供想法。[/i]

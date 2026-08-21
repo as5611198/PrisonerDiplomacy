@@ -2,6 +2,8 @@
 
 [b]Prisoner Diplomacy[/b] expands RimWorld captivity into a complete system of negotiation, faction memory, and consequences.
 
+[b]Current release: 1.2.0[/b] for RimWorld 1.6.
+
 Enemy factions may contact your colony to recover their people, or you can open negotiations through the vanilla comms console. A prisoner's identity, health, importance, faction resources, your negotiator's Social skill, and your history with that faction all shape the deal.
 
 [h2]What can you negotiate?[/h2]
@@ -14,9 +16,15 @@ Enemy factions may contact your colony to recover their people, or you can open 
 [*]Special item rewards and additional events registered by race adapters and add-ons
 [/list]
 
-Faction supplies expand by technology tier: low-tech factions can offer herbal medicine, pemmican, simple meals, and kibble; industrial factions can offer industrial medicine, components, fine meals, survival meals, chemfuel, steel, and cloth; spacer factions may offer glitterworld medicine, spacer components, lavish meals, plasteel, uranium, synthread, and hyperweave. Items from other mods are not inserted into the core list directly, but they can become special rewards through the public adapter API.
+[h2]How is this different from other prisoner or diplomacy mods?[/h2]
 
-Factions do not have infinite resources. Each one has its own negotiating capacity and diplomatic reserve. Excessive demands can produce a rejection, counteroffer, cooldown, or temporary suspension of negotiations.
+Existing mods often focus on one-time silver ransoms, one-for-one exchanges, or large faction wars. Prisoner Diplomacy instead tracks named pawns through a consequence-driven diplomatic lifecycle.
+
+Demands, counteroffers, actual release, safe exit, payment, faction memory, and follow-up events remain verified game state. AI adds characterful replies; it does not replace the rules.
+
+Faction supplies scale by technology, from medicine and food to industrial or spacer materials. Other mod items require the public adapter API.
+
+Faction reserves are finite; excessive demands can cause rejection, counteroffer, cooldown, or suspension.
 
 [h2]Accepting terms is not instant payment[/h2]
 
@@ -51,7 +59,7 @@ The diplomacy interface keeps separate case, agreement, history, and event views
 
 AI is disabled by default and is never required to play the mod. When enabled, it can use faction persona, ideology, battle injuries, relationships, historical grievances, and a short player note to create more distinctive faction replies.
 
-[b]AI text is narrative-only by default.[/b] Formal terms, payment, deadlines, Pawn state, and event outcomes remain owned by deterministic game code. A separate advanced opt-in can provide bounded advice for a still-unaccepted counteroffer, but every result is clamped and revalidated against faction reserves, inventory, legal reward rules, and stale context.
+[b]AI text is narrative-only by default.[/b] Formal terms, payment, deadlines, Pawn state, and event outcomes remain owned by deterministic game code. A separate opt-in may advise on an unaccepted counteroffer, but core validation still applies.
 
 Without an AI provider, Prisoner Diplomacy uses fully localized standard responses and continues to work offline.
 
@@ -61,11 +69,11 @@ The mod exposes a versioned public API for race and faction adapters, special `T
 
 [h2]Privacy-first error reporting[/h2]
 
-Anonymous error reporting is optional. A choice dialog can appear only when a receiver is available, reporting is enabled, and the mod detects a relevant error. You may send that report once, allow reports for the current session, always send future reports, or decline. Persistent consent can be revoked at any time in the mod settings. Nothing is uploaded before you first choose.
+Anonymous error reporting is optional and consent-gated. You may send once, allow it for the session, always allow, or decline; persistent consent can be revoked in settings. Nothing is uploaded before your choice.
 
-A report may contain sanitized error details, game and mod versions, anonymous deal state, and active mod Package IDs with versions. The mod does not intentionally collect saves, Pawn records, colony data, or hardware IDs. It attempts to remove local paths, system user/machine names, API keys, tokens, and other recognized secrets, but exception text can contain unexpected text created by game or mod code. Upload runs in the background, failure does not interrupt gameplay, and the system never modifies code or saves on the player's computer.
+Reports are sanitized, asynchronous, and cannot modify the installation. They may contain error/version data, anonymous deal state, and active mod Package IDs, but not saves, Pawns, colonies, hardware IDs, or API keys. Recognized paths and secrets are removed when possible.
 
-Detailed reports are automatically removed after 30 days; aggregate statistics and repair audit data are removed after 180 days. Production AI analysis is currently disabled. When enabled, representative samples go first to the official Google Gemini API (Gemini 3.7 Flash); only high-confidence internal defects go to the third-party AI-HUB relay (`ai.aiyuhub.com`) for a GPT 5.6 Sol repair candidate. AI-HUB may forward requests to upstream model infrastructure. Full privacy details are included in Docs/TelemetryPrivacy.md in the mod package.
+Detailed reports expire after 30 days; aggregate and repair-audit data after 180 days. Production AI analysis is disabled. If enabled, samples go to Gemini 3.7 Flash; high-confidence internal defects may go to AI-HUB (`ai.aiyuhub.com`) for a GPT 5.6 Sol repair candidate. See Docs/TelemetryPrivacy.md.
 
 [h2]Requirements and compatibility[/h2]
 [list]
@@ -88,6 +96,8 @@ Enable developer mode and use [b]Prisoner Diplomacy → Copy diagnostic report[/
 
 The project is open source on [url=https://github.com/as5611198/PrisonerDiplomacy]GitHub[/url]. Extension authors are welcome to use the public guides to build race, faction, special-reward, persona, and event add-ons.
 
-QQ discussion group: [戰俘外交（Prisoner Diplomacy）模組討論群](https://qun.qq.com/universal-share/share?ac=1&authKey=kO4hgI4yAGKZaIMkgtwdF7V9G9aylRatK8pqb&busi_data=eyJncm91cENvZGUiOiIyMTE3ODQ2ODgiLCJ0b2tlbiI6InJMNDZ0VDd2RnhHSjhBbE51dVhQOUR6NTNhMlR4cjdhQUVNcmVlUzQybGJTMEg4MHd2ZGlxT1JLWXBYdDVNQXMiLCJ1aW4iOiIzODMxMDIzMDUwIn0%3D&data=ii_Z7GGfk0K0tX3nuOIWOG9w0Vt8TpomZx82ytn1-cooF1oRHAXYR8Nss77V5VBQER3K33djQUT_bNS6Lt1UXg&svctype=4&tempid=h5_group_info) (群號：`211784688`).
+Five-language beginner guide: [url=https://github.com/as5611198/PrisonerDiplomacy/tree/main/Docs/PlayerGuide]Player Guide[/url].
+
+QQ discussion group: [url=https://qun.qq.com/universal-share/share?ac=1&authKey=kO4hgI4yAGKZaIMkDgtwdF7V9G9aylRatK8pqb&busi_data=eyJncm91cENvZGUiOiIyMTE3ODQ2ODgiLCJ0b2tlbiI6InJMNDZ0VDd2RnhHSjhBbE51dVhQOUR6NTNhMlR4cjdhQUVNcmVlUzQybGJTMEg4MHd2ZGlxT1JLWXBYdDVNQXMiLCJ1aW4iOiIzODMxMDIzMDUwIn0%3D&data=ii_Z7GGfk0K0tX3nuOIWOG9w0Vt8TpomZx82ytn1-cooF1oRHAXYR8Nss77V5VBQER3K33djQUT_bNS6Lt1UXg&svctype=4&tempid=h5_group_info]戰俘外交（Prisoner Diplomacy）模組討論群[/url] (群號：211784688).
 
 [i]This mod was 100% produced by Codex (GPT-5.6 SOL); the project owner provided the ideas only.[/i]

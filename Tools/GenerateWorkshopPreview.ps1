@@ -68,7 +68,9 @@ function New-CorrectedCover {
         [int]$BandY = 116,
         [int]$BandHeight = 72,
         [float]$FirstLineY = 121,
-        [float]$SecondLineY = 151
+        [float]$SecondLineY = 151,
+        [int]$OutputWidth = 860,
+        [int]$OutputHeight = 480
     )
 
     $resolvedSource = [System.IO.Path]::GetFullPath($SourcePath)
@@ -121,7 +123,26 @@ function New-CorrectedCover {
             $font.Dispose()
         }
 
-        $bitmap.Save($resolvedOutput, [System.Drawing.Imaging.ImageFormat]::Png)
+        $outputBitmap = New-Object System.Drawing.Bitmap($OutputWidth, $OutputHeight, [System.Drawing.Imaging.PixelFormat]::Format24bppRgb)
+        $outputGraphics = [System.Drawing.Graphics]::FromImage($outputBitmap)
+        try {
+            $outputGraphics.CompositingMode = [System.Drawing.Drawing2D.CompositingMode]::SourceCopy
+            $outputGraphics.CompositingQuality = [System.Drawing.Drawing2D.CompositingQuality]::HighQuality
+            $outputGraphics.InterpolationMode = [System.Drawing.Drawing2D.InterpolationMode]::HighQualityBicubic
+            $outputGraphics.SmoothingMode = [System.Drawing.Drawing2D.SmoothingMode]::HighQuality
+            $outputGraphics.PixelOffsetMode = [System.Drawing.Drawing2D.PixelOffsetMode]::HighQuality
+            $outputGraphics.DrawImage($bitmap, 0, 0, $OutputWidth, $OutputHeight)
+            $outputBitmap.Save($resolvedOutput, [System.Drawing.Imaging.ImageFormat]::Png)
+        }
+        finally {
+            $outputGraphics.Dispose()
+            $outputBitmap.Dispose()
+        }
+
+        $outputLength = (Get-Item -LiteralPath $resolvedOutput).Length
+        if ($outputLength -ge 1MB) {
+            throw "Steam Workshop preview must be smaller than 1 MB: $resolvedOutput ($outputLength bytes)"
+        }
     }
     finally {
         $graphics.Dispose()
@@ -167,6 +188,6 @@ $resolvedPreview = [System.IO.Path]::GetFullPath($PreviewPath)
 New-Item -ItemType Directory -Force -Path (Split-Path -Parent $resolvedPreview) | Out-Null
 Copy-Item -LiteralPath $englishOutput -Destination $resolvedPreview -Force
 
-Write-Output "English cover: $englishOutput"
-Write-Output "Chinese cover: $chineseOutput"
-Write-Output "RimWorld preview: $resolvedPreview"
+Write-Output "English cover: $englishOutput ($((Get-Item -LiteralPath $englishOutput).Length) bytes)"
+Write-Output "Chinese cover: $chineseOutput ($((Get-Item -LiteralPath $chineseOutput).Length) bytes)"
+Write-Output "RimWorld preview: $resolvedPreview ($((Get-Item -LiteralPath $resolvedPreview).Length) bytes)"

@@ -31,6 +31,10 @@ Prisoner Diplomacy is a RimWorld 1.6 mod for deterministic prisoner ransom, exch
 
 The repository's build output targets `1.6/Assemblies`. The checked-in XML definitions and language files are the runtime content for RimWorld 1.6.
 
+## Player guide
+
+New players should start at [`Docs/PlayerGuide/README.md`](Docs/PlayerGuide/README.md). The complete guide is maintained as separate pages for [Traditional Chinese](Docs/PlayerGuide/PlayerGuide.zh-TW.md), [English](Docs/PlayerGuide/PlayerGuide.en.md), [Simplified Chinese](Docs/PlayerGuide/PlayerGuide.zh-CN.md), [Japanese](Docs/PlayerGuide/PlayerGuide.ja.md), and [Korean](Docs/PlayerGuide/PlayerGuide.ko.md). It covers entry points, eligible prisoners, reward limits, counteroffers, the required release workflow, agreements, neutral exchange points, optional AI, and diagnostics.
+
 ## Localization
 
 The mod ships complete keyed localization for English, Traditional Chinese, Simplified Chinese, Japanese, and Korean. All language files contain the same 573 keys, including negotiation UI, reward-value hints, debug tools, AI advisory text, strategic agreements, extension events, and telemetry consent text. Run `pwsh -NoProfile -ExecutionPolicy Bypass -File .\Tools\ValidateLocalization.ps1` after changing a keyed file. `Tools/GenerateLocalization.ps1` can regenerate the three additional translations from the English source when needed.
@@ -85,7 +89,7 @@ See [`Source/README.md`](Source/README.md) for the folder map and authoritative 
 
 ## Modder documentation
 
-[`PrisonerDiplomacyApi.md`](PrisonerDiplomacyApi.md) is the public v1.2 guide. It documents registration, version checks, read-only snapshots, race and special-reward adapters, persona providers, bounded AI advisory signals, deterministic validation, and event add-ons. [`Compatibility.md`](Compatibility.md) covers optional DefModExtensions and integration boundaries. [`Docs/TelemetryPrivacy.md`](Docs/TelemetryPrivacy.md) documents optional error-report contents, Google Gemini and AI-HUB processing, and retention. The local telemetry repair verifier creates isolated, tested review candidates and never marks an issue resolved automatically. [`FAQ.md`](FAQ.md), [`KnownIssues.md`](KnownIssues.md), and [`WorkshopDescription.md`](WorkshopDescription.md) contain player-facing release material.
+[`PrisonerDiplomacyApi.md`](PrisonerDiplomacyApi.md) is the public v1.2 guide. It documents registration, version checks, read-only snapshots, race and special-reward adapters, persona providers, bounded AI advisory signals, deterministic validation, and event add-ons. [`Compatibility.md`](Compatibility.md) is the player-facing compatibility report: it mirrors the current Prisoner Realism integration list, records the verified Prisoner Realism load-order checks, and explains optional DefModExtensions and integration boundaries. [`Docs/TelemetryPrivacy.md`](Docs/TelemetryPrivacy.md) documents optional error-report contents, Google Gemini and AI-HUB processing, and retention. The local telemetry repair verifier creates isolated, tested review candidates and never marks an issue resolved automatically. [`FAQ.md`](FAQ.md), [`KnownIssues.md`](KnownIssues.md), and [`WorkshopDescription.md`](WorkshopDescription.md) contain player-facing release material.
 
 The reward catalog is documented in [`Docs/RewardCatalog.md`](Docs/RewardCatalog.md). New authors can start with the step-by-step [`Docs/AddonQuickstart.md`](Docs/AddonQuickstart.md), then use sections 10-14 of the API guide for the complete adapter, event, persona, and compatibility contract. The project is open source on [GitHub](https://github.com/as5611198/PrisonerDiplomacy); the Steam Workshop release will link back to this canonical repository.
 
@@ -93,7 +97,7 @@ The API is intentionally fail-closed: duplicate IDs, incompatible major versions
 
 ## Community
 
-QQ discussion group: [戰俘外交（Prisoner Diplomacy）模組討論群](https://qun.qq.com/universal-share/share?ac=1&authKey=kO4hgI4yAGKZaIMkgtwdF7V9G9aylRatK8pqb&busi_data=eyJncm91cENvZGUiOiIyMTE3ODQ2ODgiLCJ0b2tlbiI6InJMNDZ0VDd2RnhHSjhBbE51dVhQOUR6NTNhMlR4cjdhQUVNcmVlUzQybGJTMEg4MHd2ZGlxT1JLWXBYdDVNQXMiLCJ1aW4iOiIzODMxMDIzMDUwIn0%3D&data=ii_Z7GGfk0K0tX3nuOIWOG9w0Vt8TpomZx82ytn1-cooF1oRHAXYR8Nss77V5VBQER3K33djQUT_bNS6Lt1UXg&svctype=4&tempid=h5_group_info) (群號：`211784688`).
+QQ discussion group: [戰俘外交（Prisoner Diplomacy）模組討論群](https://qun.qq.com/universal-share/share?ac=1&authKey=kO4hgI4yAGKZaIMkDgtwdF7V9G9aylRatK8pqb&busi_data=eyJncm91cENvZGUiOiIyMTE3ODQ2ODgiLCJ0b2tlbiI6InJMNDZ0VDd2RnhHSjhBbE51dVhQOUR6NTNhMlR4cjdhQUVNcmVlUzQybGJTMEg4MHd2ZGlxT1JLWXBYdDVNQXMiLCJ1aW4iOiIzODMxMDIzMDUwIn0%3D&data=ii_Z7GGfk0K0tX3nuOIWOG9w0Vt8TpomZx82ytn1-cooF1oRHAXYR8Nss77V5VBQER3K33djQUT_bNS6Lt1UXg&svctype=4&tempid=h5_group_info) (群號：`211784688`).
 
 ## Authorship
 

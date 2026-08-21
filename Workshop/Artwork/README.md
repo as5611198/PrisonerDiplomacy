@@ -13,4 +13,6 @@ Original inputs are retained under `Source/`. Regenerate the corrected covers wi
 & .\Tools\GenerateWorkshopPreview.ps1
 ```
 
+The generated covers use a `860x480` 16:9 derivative and must remain smaller than Steamworks' strict 1 MB preview-file limit. The generator fails instead of replacing the release preview with an oversized file. Keep the full-resolution originals under `Source/`; do not use them directly as `About/Preview.png`.
+
 Artwork terms are defined in `ASSET-LICENSE.md` at the repository root.

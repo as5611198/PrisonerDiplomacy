@@ -132,7 +132,7 @@
   <PD_NegotiationSuspended>由於多次不合理要求，此派系暫停交涉 {0}。</PD_NegotiationSuspended>
   <PD_NegotiationCounterPending>目前有一項派系還價等待你的回覆。</PD_NegotiationCounterPending>
   <PD_NegotiationNoRewards>請至少選擇一種報酬。</PD_NegotiationNoRewards>
-  <PD_NegotiationTooManyRewards>單筆交易最多只能包含兩種報酬。</PD_NegotiationTooManyRewards>
+  <PD_NegotiationTooManyRewards>單筆交易最多只能包含三種報酬。</PD_NegotiationTooManyRewards>
   <PD_NegotiationInvalidRewards>請輸入有效的報酬數量。</PD_NegotiationInvalidRewards>
   <PD_NegotiationInvalidSupplies>此派系無法提供所選物資。</PD_NegotiationInvalidSupplies>
   <PD_NegotiationGoodwillUnavailable>此派系無法以好感作為報酬。</PD_NegotiationGoodwillUnavailable>
