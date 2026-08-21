@@ -73,7 +73,7 @@ Anonymous error reporting is optional and consent-gated. You may send once, allo
 
 Reports are sanitized, asynchronous, and cannot modify the installation. They may contain error/version data, anonymous deal state, and active mod Package IDs, but not saves, Pawns, colonies, hardware IDs, or API keys. Recognized paths and secrets are removed when possible.
 
-Detailed reports expire after 30 days; aggregate and repair-audit data after 180 days. Production AI analysis is disabled. If enabled, samples go to Gemini 3.7 Flash; high-confidence internal defects may go to AI-HUB (`ai.aiyuhub.com`) for a GPT 5.6 Sol repair candidate. See Docs/TelemetryPrivacy.md.
+Detailed reports expire after 30 days; aggregate and repair-audit data after 180 days. Production AI analysis is enabled: samples go to Gemini 3.7 Flash, and only high-confidence internal defects may go to AI-HUB (`ai.aiyuhub.com`) for a GPT 5.6 Sol repair candidate. Provider failures never affect gameplay. See Docs/TelemetryPrivacy.md.
 
 [h2]Requirements and compatibility[/h2]
 [list]

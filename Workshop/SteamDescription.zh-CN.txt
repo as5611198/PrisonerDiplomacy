@@ -73,7 +73,7 @@ AI 默认关闭，游玩本模组也完全不需要 AI。启用后，它可以�
 
 回报会经过清理、在后台异步发送，且不会修改安装内容。可能包含错误／版本、匿名交易状态和启用模组 Package ID，但不会主动收集存档、Pawn、殖民地、硬件 ID 或 API 密钥；系统会尽量移除路径和秘密信息。
 
-详细回报 30 天后删除，汇总和修复审计数据 180 天后删除。正式 AI 分析目前停用；若启用，样本会先发送至 Gemini 3.7 Flash，只有高置信度内部问题才会发送至 AI-HUB（`ai.aiyuhub.com`）生成 GPT 5.6 Sol 修复候选。详见 Docs/TelemetryPrivacy.md。
+详细回报 30 天后删除，汇总和修复审计数据 180 天后删除。正式 AI 分析已启用：样本会先发送至 Gemini 3.7 Flash，只有高置信度内部问题才会发送至 AI-HUB（`ai.aiyuhub.com`）生成 GPT 5.6 Sol 修复候选。供应商故障不会影响游戏。详见 Docs/TelemetryPrivacy.md。
 
 [h2]需求与兼容性[/h2]
 [list]

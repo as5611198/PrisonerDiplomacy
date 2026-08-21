@@ -47,7 +47,7 @@ The vanilla comms console and Prisoner Diplomacy deterministic state machine are
 
 ## Feedback
 
-When reporting an issue, enable developer mode and use `Prisoner Diplomacy -> Copy diagnostic report`. Include the copied report, the save schema, the exact deal state, the active mod list, and the relevant `Player.log` excerpt. Never include API Keys. Error telemetry is optional and asks before first sending; persistent consent can be revoked in the mod settings, and declining it does not affect gameplay. Production AI analysis is currently disabled; when enabled, Google Gemini performs triage and only qualifying internal defects go through the third-party AI-HUB relay for a GPT 5.6 Sol repair candidate. See `Docs/TelemetryPrivacy.md` for exact fields, redaction limits, providers, processing and retention.
+When reporting an issue, enable developer mode and use `Prisoner Diplomacy -> Copy diagnostic report`. Include the copied report, the save schema, the exact deal state, the active mod list, and the relevant `Player.log` excerpt. Never include API Keys. Error telemetry is optional and asks before first sending; persistent consent can be revoked in the mod settings, and declining it does not affect gameplay. Production AI analysis is enabled: Google Gemini performs triage and only qualifying internal defects go through the third-party AI-HUB relay for a GPT 5.6 Sol repair candidate. Provider failures never affect gameplay. See `Docs/TelemetryPrivacy.md` for exact fields, redaction limits, providers, processing and retention.
 
 ## Open source and community
 

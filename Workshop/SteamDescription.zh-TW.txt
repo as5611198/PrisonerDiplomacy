@@ -73,7 +73,7 @@ AI 功能預設關閉，而且不是遊玩本模組的必要條件。啟用後�
 
 回報會經過清理、在背景非同步傳送，且不能修改安裝內容。可能包含錯誤／版本、匿名交易階段與啟用模組 Package ID，但不會刻意收集存檔、Pawn、殖民地、硬體識別碼或 API Key；系統會盡可能移除路徑與秘密資訊。
 
-詳細回報 30 天後刪除，彙整與修復稽核資料 180 天後刪除。正式 AI 分析目前停用；若啟用，樣本會先送 Gemini 3.7 Flash，高信心內部問題才會送 AI-HUB（`ai.aiyuhub.com`）產生 GPT 5.6 Sol 修復候選。詳見 Docs/TelemetryPrivacy.md。
+詳細回報 30 天後刪除，彙整與修復稽核資料 180 天後刪除。正式 AI 分析已啟用：樣本會先送 Gemini 3.7 Flash，只有高信心內部問題才會送 AI-HUB（`ai.aiyuhub.com`）產生 GPT 5.6 Sol 修復候選。供應商故障不影響遊戲。詳見 Docs/TelemetryPrivacy.md。
 
 [h2]相容性與需求[/h2]
 [list]

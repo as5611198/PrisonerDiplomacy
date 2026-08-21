@@ -20,7 +20,7 @@ This is the independent Cloudflare Worker project used by the RimWorld mod assem
 
 The AI workflow is deliberately separate from ingestion. The public endpoint never waits for a provider, and AI is disabled by default. Before calling the repair model, the Worker matches stack-frame type and method names against a generated source index, fetches only the top matching C# files from the immutable `REPAIR_SOURCE_REF` commit in the public GitHub repository, and bounds the excerpts by `REPAIR_SOURCE_MAX_CHARACTERS`. If source cannot be identified or fetched, the repair call is not made. A successful response must contain a Git unified diff and is stored as `fix_candidate`. The Worker itself never edits the repository or marks an issue `resolved`. The separate local verifier applies the diff in an isolated Git worktree, builds it, runs localization and RimWorld Smoke Test, and opens a review PR; human approval is still required before `resolved`.
 
-The production environment launches with both AI stages disabled. The disclosed providers are the official Google Gemini API for triage and AI-HUB (`ai.aiyuhub.com`) as the OpenAI-compatible repair relay. See [`../../Docs/TelemetryPrivacy.md`](../../Docs/TelemetryPrivacy.md) before enabling AI or changing data processing.
+The production environment has both AI stages enabled after separate production credentials and a full staging verification were completed on 2026-08-21. The disclosed providers are the official Google Gemini API for triage and AI-HUB (`ai.aiyuhub.com`) as the OpenAI-compatible repair relay. See [`../../Docs/TelemetryPrivacy.md`](../../Docs/TelemetryPrivacy.md) before changing providers or data processing.
 
 ## AI workflow configuration
 

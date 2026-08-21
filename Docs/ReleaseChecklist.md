@@ -34,4 +34,4 @@ The author completed the primary gameplay pass and accepted the remaining edge-c
 
 ## Upload gate
 
-Upload after the automated checks above pass on the final package and the Workshop page, credits, and privacy text are reviewed. Keep unchecked edge cases visible for post-release QA instead of marking them as tested. Production telemetry ingestion is ready, but production AI remains disabled until its separate Gemini and AI-HUB credentials are installed; this does not block the Workshop upload.
+Upload after the automated checks above pass on the final package and the Workshop page, credits, and privacy text are reviewed. Keep unchecked edge cases visible for post-release QA instead of marking them as tested. Production telemetry ingestion and the separately budgeted Gemini/AI-HUB analysis pipeline are enabled; provider failures remain isolated from gameplay and report ingestion.

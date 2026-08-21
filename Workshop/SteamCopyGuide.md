@@ -87,7 +87,7 @@ The public description may state that reports are optional, consent-gated, sanit
 - A real opt-in test report reaches the receiver without exposing save names, Pawn names, local paths, or secrets.
 - The AI repair pipeline produces isolated repair candidates only; it cannot push directly to the release branch or modify a player's game.
 
-Public descriptions may therefore describe the receiver as live and optional. Production AI triage and repair remain disabled until their separate provider credentials and rollout checks are complete.
+Public descriptions may therefore describe the receiver as live and optional. Production AI triage and repair are enabled after their separate provider credentials and full staging rollout checks were completed on 2026-08-21; provider failures remain isolated from gameplay and report ingestion.
 
 ## Final upload pass
 
