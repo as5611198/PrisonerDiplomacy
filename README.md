@@ -98,6 +98,8 @@ The reward catalog is documented in [`Docs/RewardCatalog.md`](Docs/RewardCatalog
 
 The API is intentionally fail-closed: duplicate IDs, incompatible major versions, adapter exceptions, invalid ThingDefs, and stale event context do not get to mutate gameplay state. Add-ons should use public contracts only and must not reflect into save lists or call internal GameComponent methods.
 
+Future development is intentionally in an observation phase. The bilingual [`Docs/Roadmap.md`](Docs/Roadmap.md) records the 1.2.x stabilization gate, the proposed 1.3 validated event-request API, and later batch-negotiation, Reward API 2.0, and AI-memory candidates without treating them as committed scope.
+
 ## Community
 
 QQ discussion group: [戰俘外交（Prisoner Diplomacy）模組討論群](https://qun.qq.com/universal-share/share?ac=1&authKey=kO4hgI4yAGKZaIMkDgtwdF7V9G9aylRatK8pqb&busi_data=eyJncm91cENvZGUiOiIyMTE3ODQ2ODgiLCJ0b2tlbiI6InJMNDZ0VDd2RnhHSjhBbE51dVhQOUR6NTNhMlR4cjdhQUVNcmVlUzQybGJTMEg4MHd2ZGlxT1JLWXBYdDVNQXMiLCJ1aW4iOiIzODMxMDIzMDUwIn0%3D&data=ii_Z7GGfk0K0tX3nuOIWOG9w0Vt8TpomZx82ytn1-cooF1oRHAXYR8Nss77V5VBQER3K33djQUT_bNS6Lt1UXg&svctype=4&tempid=h5_group_info) (群號：`211784688`).

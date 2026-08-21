@@ -91,6 +91,8 @@ dotnet build .\PrisonerDiplomacy.csproj -c Release -p:RimWorldDir="D:\Games\RimW
 
 [`Compatibility.md`](Compatibility.md) 是玩家相容性報告；[`Docs/RewardCatalog.md`](Docs/RewardCatalog.md) 是報酬目錄；[`Docs/AddonQuickstart.md`](Docs/AddonQuickstart.md) 是最小擴展教學；[`ExampleAddon`](ExampleAddon) 則是可直接遊玩、附五語本地化、API Inspector、可複製範本與發佈工具的完整示範模組，另有[繁中 API 導讀](ExampleAddon/Docs/API-Cookbook.zh-TW.md)。[`Docs/TelemetryPrivacy.md`](Docs/TelemetryPrivacy.md) 說明錯誤回報隱私。擴展 API 採 fail-closed 設計，Add-on 不得反射存檔清單或呼叫內部 GameComponent 方法。
 
+後續開發目前進入觀察期。雙語 [`Docs/Roadmap.md`](Docs/Roadmap.md) 與[繁中計畫書](Docs/Roadmap.zh-TW.md)記錄 `1.2.x` 穩定門檻、`1.3` 受驗證事件 Request API，以及更後期批次交涉、Reward API 2.0 與 AI 記憶候選；候選不等於已承諾製作。
+
 ## 社群
 
 QQ 討論群：[戰俘外交（Prisoner Diplomacy）模組討論群](https://qun.qq.com/universal-share/share?ac=1&authKey=kO4hgI4yAGKZaIMkDgtwdF7V9G9aylRatK8pqb&busi_data=eyJncm91cENvZGUiOiIyMTE3ODQ2ODgiLCJ0b2tlbiI6InJMNDZ0VDd2RnhHSjhBbE51dVhQOUR6NTNhMlR4cjdhQUVNcmVlUzQybGJTMEg4MHd2ZGlxT1JLWXBYdDVNQXMiLCJ1aW4iOiIzODMxMDIzMDUwIn0%3D&data=ii_Z7GGfk0K0tX3nuOIWOG9w0Vt8TpomZx82ytn1-cooF1oRHAXYR8Nss77V5VBQER3K33djQUT_bNS6Lt1UXg&svctype=4&tempid=h5_group_info)（群號：`211784688`）。
