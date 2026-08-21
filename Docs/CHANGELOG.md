@@ -82,6 +82,7 @@ The repair pass is conservative: it never edits vanilla Pawn ownership, removes 
 - Adds enabled production Gemini 3.7 Flash triage, GPT 5.6 Sol repair candidates through AI-HUB, fixed-commit source excerpts, 30-minute persisted relay retries, and a hard 24-provider-call daily repair ceiling.
 - Recovers interrupted Cloudflare repair executions from stale `in_progress` state after their lease window so the next scheduled run can continue retrying instead of leaving an issue stranded.
 - Keeps authenticated manual AI job requests open until completion instead of relying on Cloudflare's 30-second post-response `waitUntil()` window.
+- Normalizes common model-added diff fences and trailing patch markers before strict unified-diff checks, while retaining isolated `git apply --check` as the authority.
 - Adds an admin-only repair queue/provider summary and a local isolated verifier that accepts only bounded mod-path unified diffs, runs Release build/localization/RimWorld Smoke Test, opens `codex/telemetry-*` review PRs, and never marks an issue resolved automatically.
 - Keeps the 0.6.5 AI provider implementation and RimChat isolation contract unchanged apart from the explicit external-context consent gate.
 

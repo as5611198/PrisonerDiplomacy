@@ -164,8 +164,16 @@ export function parseTriageDecision(text: string): TriageDecision {
 
 export function parseRepairCandidate(text: string): RepairCandidate {
   const object = parseJsonObject(text);
-  const patch = boundedText(object.patch, 200_000, "patch");
-  if (!/^diff --git a\/.+ b\/.+$/m.test(patch) || !/^@@ /m.test(patch)) {
+  let patch = boundedText(object.patch, 200_000, "patch").replace(/\r\n?/g, "\n").trim();
+  const fence = /^```(?:diff|patch)?\s*\n([\s\S]*?)\n```$/i.exec(patch);
+  if (fence) {
+    patch = fence[1].trim();
+  }
+  patch = patch.replace(/\n\*\*\* End Patch\s*$/i, "").trimEnd();
+  if (!/^diff --git a\/.+ b\/.+$/m.test(patch)
+      || !patch.startsWith("diff --git ")
+      || !/^@@ /m.test(patch)
+      || /^\*\*\* (?:Begin|End|Update|Add|Delete) /m.test(patch)) {
     throw new AiProviderError("invalid_patch", "Repair candidate patch must be a Git unified diff", false);
   }
   return {
@@ -218,6 +226,7 @@ export function buildRepairPrompt(issue: AiIssueContext, samples: AiSample[], so
     "Do not claim that a patch was tested or released. Produce a candidate diagnosis and a bounded patch for human review.",
     "Required JSON shape: {root_cause, affected_files, patch, tests, risks}.",
     "The patch field must be one Git unified diff that applies to the exact trusted source below.",
+    "The patch value must begin with diff --git and contain no Markdown fences, apply_patch markers, or prose before or after the diff.",
     "Use only repository-relative paths beginning with Source/PrisonerDiplomacy/, 1.6/Defs/, or 1.6/Languages/.",
     "Do not invent omitted source. If the trusted excerpts are insufficient, return an empty affected_files array and a minimal unified diff that makes no unsafe assumptions.",
     "TRUSTED PUBLIC REPOSITORY SOURCE START",

@@ -155,6 +155,17 @@ describe("AI workflow guards", () => {
     expect(candidate.affected_files[0]).toContain('"path": "Source/Deal.cs"');
     expect(candidate.patch).toContain("diff --git a/Source/Deal.cs");
 
+    const wrappedCandidate = parseRepairCandidate(JSON.stringify({
+      root_cause: "Null guard missing",
+      affected_files: ["Source/Deal.cs"],
+      patch: "```diff\ndiff --git a/Source/Deal.cs b/Source/Deal.cs\n--- a/Source/Deal.cs\n+++ b/Source/Deal.cs\n@@ -1 +1 @@\n-old\n+new\n*** End Patch\n```",
+      tests: ["Run smoke test"],
+      risks: []
+    }));
+    expect(wrappedCandidate.patch).toBe(
+      "diff --git a/Source/Deal.cs b/Source/Deal.cs\n--- a/Source/Deal.cs\n+++ b/Source/Deal.cs\n@@ -1 +1 @@\n-old\n+new"
+    );
+
     const withoutKnownFiles = parseRepairCandidate(JSON.stringify({
       root_cause: "Insufficient source context",
       affected_files: [],
@@ -170,6 +181,14 @@ describe("AI workflow guards", () => {
       root_cause: "Null guard missing",
       affected_files: ["Source/Deal.cs"],
       patch: "Add a null guard to Deal.Accept",
+      tests: ["Run smoke test"],
+      risks: []
+    }))).toThrowError(/unified diff/);
+
+    expect(() => parseRepairCandidate(JSON.stringify({
+      root_cause: "Null guard missing",
+      affected_files: ["Source/Deal.cs"],
+      patch: "Explanation first\ndiff --git a/Source/Deal.cs b/Source/Deal.cs\n--- a/Source/Deal.cs\n+++ b/Source/Deal.cs\n@@ -1 +1 @@\n-old\n+new",
       tests: ["Run smoke test"],
       risks: []
     }))).toThrowError(/unified diff/);
