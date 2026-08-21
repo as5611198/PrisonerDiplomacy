@@ -1,5 +1,7 @@
 # Prisoner Diplomacy
 
+[English](README.md) | [繁體中文](README.zh-TW.md) | [简体中文](README.zh-CN.md) | [日本語](README.ja.md) | [한국어](README.ko.md)
+
 Prisoner Diplomacy is a RimWorld 1.6 mod for deterministic prisoner ransom, exchange, and faction diplomacy. It adds a complete negotiation workflow while keeping vanilla comms, prisoner release, caravan movement, and the mod's `PrisonerDiplomacyGameComponent` authoritative.
 
 **Current version:** `1.2.0`  
