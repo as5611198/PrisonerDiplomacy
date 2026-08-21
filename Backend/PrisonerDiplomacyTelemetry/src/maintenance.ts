@@ -2,12 +2,14 @@ import { parsePositiveLimit } from "./validation";
 
 export const DEFAULT_DETAIL_LOG_RETENTION_DAYS = 30;
 export const DEFAULT_AGGREGATE_RETENTION_DAYS = 180;
+export const STALE_REPAIR_ATTEMPT_MINUTES = 20;
 
 const DEFAULT_RETENTION_BATCH_SIZE = 100;
 const MAXIMUM_RETENTION_BATCH_SIZE = 100;
 const DEFAULT_RETENTION_BATCHES_PER_RUN = 10;
 const MAXIMUM_RETENTION_BATCHES_PER_RUN = 20;
 const MILLISECONDS_PER_DAY = 24 * 60 * 60 * 1_000;
+const MILLISECONDS_PER_MINUTE = 60 * 1_000;
 
 interface RetentionConfig {
   DETAIL_LOG_RETENTION_DAYS?: string;
@@ -78,6 +80,12 @@ export function buildRetentionCutoffs(now: Date, policy: RetentionPolicy): {
     detailCutoff: new Date(now.getTime() - policy.detailLogDays * MILLISECONDS_PER_DAY).toISOString(),
     aggregateCutoff: new Date(now.getTime() - policy.aggregateDays * MILLISECONDS_PER_DAY).toISOString()
   };
+}
+
+export function buildStaleRepairCutoff(now: Date): string {
+  return new Date(
+    now.getTime() - STALE_REPAIR_ATTEMPT_MINUTES * MILLISECONDS_PER_MINUTE
+  ).toISOString();
 }
 
 function numberedPlaceholders(count: number): string {
@@ -173,9 +181,32 @@ async function deleteExpiredAggregates(
 }
 
 export async function runTransientMaintenance(env: Env, now = new Date()): Promise<void> {
+  const nowIso = now.toISOString();
+  const staleRepairCutoff = buildStaleRepairCutoff(now);
   await env.DB.batch([
     env.DB.prepare("DELETE FROM ingest_rate_limits WHERE expires_at < ?").bind(now.getTime()),
-    env.DB.prepare("DELETE FROM ai_job_locks WHERE locked_until < ?").bind(now.toISOString())
+    env.DB.prepare(
+      `UPDATE error_reports
+          SET repair_status = 'retry_wait',
+              repair_next_attempt_at = ?,
+              repair_last_error = 'worker_execution_interrupted',
+              updated_at = ?
+        WHERE repair_status = 'in_progress'
+          AND repair_last_attempt_at IS NOT NULL
+          AND repair_last_attempt_at < ?
+          AND status NOT IN ('ignored', 'resolved', 'fix_candidate')`
+    ).bind(nowIso, nowIso, staleRepairCutoff),
+    env.DB.prepare(
+      `UPDATE ai_attempts
+          SET status = 'failed',
+              finished_at = ?,
+              next_retry_at = ?,
+              error_code = 'worker_execution_interrupted'
+        WHERE stage = 'repair'
+          AND status = 'started'
+          AND started_at < ?`
+    ).bind(nowIso, nowIso, staleRepairCutoff),
+    env.DB.prepare("DELETE FROM ai_job_locks WHERE locked_until < ?").bind(nowIso)
   ]);
 }
 

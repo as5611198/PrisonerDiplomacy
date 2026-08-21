@@ -637,12 +637,13 @@ export default {
   },
 
   async scheduled(controller: ScheduledController, env: Env, ctx: ExecutionContext): Promise<void> {
-    const jobs: Promise<void>[] = [runTransientMaintenance(env)];
+    const transientMaintenance = runTransientMaintenance(env);
+    const jobs: Promise<void>[] = [transientMaintenance];
     if (controller.cron === "0 3 * * *") {
-      jobs.push(runRetentionCleanup(env).then(() => runDailyTriage(env)));
+      jobs.push(transientMaintenance.then(() => runRetentionCleanup(env)).then(() => runDailyTriage(env)));
     }
     if (controller.cron === "*/30 * * * *") {
-      jobs.push(runRepairRetries(env));
+      jobs.push(transientMaintenance.then(() => runRepairRetries(env)));
     }
     ctx.waitUntil(Promise.all(jobs).then(() => undefined));
   }

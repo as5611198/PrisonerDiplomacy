@@ -80,6 +80,7 @@ The repair pass is conservative: it never edits vanilla Pawn ownership, removes 
 - Adds opt-in, PrisonerDiplomacy-only error telemetry with explicit transaction sentinels, sanitized snapshots, bounded session deduplication, asynchronous finite-retry upload, and documented 30/180-day retention. Unrelated global RimWorld log errors are not intercepted.
 - Restyles the telemetry consent dialog with the Prisoner Diplomacy theme and adds persistent "always send" consent. Players can revoke that choice at any time in the mod settings; report deduplication and session limits still apply.
 - Adds enabled production Gemini 3.7 Flash triage, GPT 5.6 Sol repair candidates through AI-HUB, fixed-commit source excerpts, 30-minute persisted relay retries, and a hard 24-provider-call daily repair ceiling.
+- Recovers interrupted Cloudflare repair executions from stale `in_progress` state after their lease window so the next scheduled run can continue retrying instead of leaving an issue stranded.
 - Adds an admin-only repair queue/provider summary and a local isolated verifier that accepts only bounded mod-path unified diffs, runs Release build/localization/RimWorld Smoke Test, opens `codex/telemetry-*` review PRs, and never marks an issue resolved automatically.
 - Keeps the 0.6.5 AI provider implementation and RimChat isolation contract unchanged apart from the explicit external-context consent gate.
 

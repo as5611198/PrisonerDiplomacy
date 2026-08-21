@@ -2,8 +2,11 @@ import { describe, expect, it } from "vitest";
 import {
   DEFAULT_AGGREGATE_RETENTION_DAYS,
   DEFAULT_DETAIL_LOG_RETENTION_DAYS,
+  STALE_REPAIR_ATTEMPT_MINUTES,
   buildRetentionCutoffs,
-  resolveRetentionPolicy
+  buildStaleRepairCutoff,
+  resolveRetentionPolicy,
+  runTransientMaintenance
 } from "../src/maintenance";
 
 describe("telemetry retention policy", () => {
@@ -38,5 +41,45 @@ describe("telemetry retention policy", () => {
 
     expect(cutoffs.detailCutoff).toBe("2026-07-21T12:00:00.000Z");
     expect(cutoffs.aggregateCutoff).toBe("2026-02-21T12:00:00.000Z");
+  });
+
+  it("recovers interrupted repair attempts only after their worker lease window", () => {
+    expect(STALE_REPAIR_ATTEMPT_MINUTES).toBe(20);
+    expect(buildStaleRepairCutoff(new Date("2026-08-21T14:40:00.000Z")))
+      .toBe("2026-08-21T14:20:00.000Z");
+  });
+
+  it("requeues stale repair rows and closes their unfinished audit attempts", async () => {
+    const statements: Array<{ sql: string; values: unknown[] }> = [];
+    const db = {
+      prepare(sql: string) {
+        return {
+          bind(...values: unknown[]) {
+            statements.push({ sql, values });
+            return this;
+          }
+        };
+      },
+      async batch() {
+        return [];
+      }
+    } as unknown as D1Database;
+
+    await runTransientMaintenance(
+      { DB: db } as Env,
+      new Date("2026-08-21T14:40:00.000Z")
+    );
+
+    expect(statements).toHaveLength(4);
+    expect(statements[1].sql).toContain("repair_status = 'retry_wait'");
+    expect(statements[1].sql).toContain("repair_last_error = 'worker_execution_interrupted'");
+    expect(statements[1].values).toEqual([
+      "2026-08-21T14:40:00.000Z",
+      "2026-08-21T14:40:00.000Z",
+      "2026-08-21T14:20:00.000Z"
+    ]);
+    expect(statements[2].sql).toContain("status = 'failed'");
+    expect(statements[2].sql).toContain("error_code = 'worker_execution_interrupted'");
+    expect(statements[3].sql).toContain("DELETE FROM ai_job_locks");
   });
 });

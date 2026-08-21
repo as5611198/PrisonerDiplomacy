@@ -31,7 +31,7 @@ The Worker has two Cron schedules:
 
 The daily schedule also removes detailed reports older than `DETAIL_LOG_RETENTION_DAYS` (30), then removes aggregate statistics and related AI records older than `AGGREGATE_RETENTION_DAYS` (180). Retention uses the server receipt time, not the client clock. Cleanup is bounded by `RETENTION_BATCH_SIZE` and `RETENTION_MAX_BATCHES_PER_RUN` and safely resumes on the next run.
 
-Enable each stage explicitly with `TRIAGE_ENABLED=true` or `REPAIR_ENABLED=true`. The default limits are 20 triage issues/day, 24 repair-provider calls/day, one repair issue per 30-minute run, and a 30-minute retry delay. Gemini triage may retry a transient failure once immediately. Repair uses exactly one provider call per run, so its hard daily maximum is 24 rather than 48. Persistent repair failures remain in D1 and resume on later Cron runs and future days without an automatic stop date.
+Enable each stage explicitly with `TRIAGE_ENABLED=true` or `REPAIR_ENABLED=true`. The default limits are 20 triage issues/day, 24 repair-provider calls/day, one repair issue per 30-minute run, and a 30-minute retry delay. Gemini triage may retry a transient failure once immediately. Repair uses exactly one provider call per run, so its hard daily maximum is 24 rather than 48. Persistent repair failures remain in D1 and resume on later Cron runs and future days without an automatic stop date. If a Worker execution is interrupted before it can write the provider result, transient maintenance recovers the stale `in_progress` attempt after its 20-minute lease window and returns it to the persisted retry queue.
 
 Required secrets when the corresponding stage is enabled:
 
