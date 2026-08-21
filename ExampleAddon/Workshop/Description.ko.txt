@@ -1,0 +1,55 @@
+[h1]포로 외교: 예제 애드온[/h1]
+
+[b]Prisoner Diplomacy 1.2 공개 API[/b]를 실제 게임에서 확인할 수 있는 소스 포함 예제 Add-on입니다. 구독하여 확장 기능을 직접 사용하거나, 소스와 템플릿으로 자신만의 종족, 세력, 특수 보상, Persona 또는 UI 연동을 만들 수 있습니다.
+
+[b]이 Add-on은 선택 사항입니다.[/b] 일반 Prisoner Diplomacy 플레이에는 필요하지 않습니다.
+
+[h2]플레이어용 콘텐츠[/h2]
+
+[list]
+[*]저기술 세력은 특수 보상으로 [b]외교 인장[/b] 2개를 제시할 수 있습니다.
+[*]산업／우주 기술 세력은 [b]암호화 외교 장부[/b] 1개를 제시할 수 있습니다.
+[*]바닐라 인간에게 외교 가치 +10, 제국 포로에게 추가 +25 예제 보정을 적용합니다.
+[*]제국, 해적, 부족 세력에 서로 다른 서사 Persona 예제를 제공합니다.
+[*]협상 Header에 작은 읽기 전용 Adapter 정보 표시줄을 추가합니다.
+[*]공개 API Inspector에서 포로, 세력, 거래, 보상, 등록, 이벤트 Snapshot을 변경 없이 확인할 수 있습니다.
+[*]개발자 모드에 Snapshot, Context, 조건 Preview, 전체 Report 도구를 추가합니다.
+[/list]
+
+[h2]Modder용 예제[/h2]
+
+[list]
+[*][code]IPrisonerDiplomacyExtension[/code] 등록과 API 버전 검사.
+[*]종족／세력／기술 수준 Context Adapter와 제한된 가치 조정.
+[*]Core가 검증하고 저장에 안전하며 한 번만 지급하는 사용자 정의 ThingDef 보상.
+[*]게임 수치를 바꾸지 않고 서사에만 영향을 주는 Persona Provider.
+[*]API 1.2의 네 가지 이벤트 계열 Metadata.
+[*]읽기 전용 Snapshot, [code]PreviewDemand[/code], UI Extension 영역.
+[*]진단, 번역 일치 검사, Build, Validate, Deploy, Package 스크립트.
+[/list]
+
+[h2]중요한 API 권한 경계[/h2]
+
+거래 상태의 유일한 권한은 Prisoner Diplomacy Core에 있습니다. 이 Add-on은 Pawn 석방／이송, 거래 수정／완료, 협상 보상 생성, 세력 Reserve 변경, 비공개 이벤트 Scheduler 호출을 하지 않습니다.
+
+API 1.2의 외부 이벤트 정의는 검색 가능한 Catalog Metadata입니다. 등록해도 Core 이벤트가 [b]예약되거나 실행되지 않습니다[/b]. 완전한 사용자 이벤트는 공개 Scheduler／Executor 계약이 제공될 때까지 Add-on 자체가 상태를 소유해야 합니다.
+
+[h2]요구 사항[/h2]
+
+[list]
+[*]RimWorld 1.6
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3787243156]Prisoner Diplomacy[/url] 1.2 또는 호환 API 1.x
+[*]Prisoner Diplomacy 뒤에 로드
+[/list]
+
+[h2]지원 언어[/h2]
+
+English, 繁體中文, 简体中文, 日本語, 한국어.
+
+[h2]소스와 문서[/h2]
+
+[url=https://github.com/as5611198/PrisonerDiplomacy/tree/main/ExampleAddon]GitHub: 전체 소스, API Cookbook, 복사 가능한 템플릿, Test Guide, Release Tools[/url]
+
+C# 소스: Apache 2.0 + 프로젝트 Non-Commercial Exception. 아트／홍보 자료: CC BY-NC-ND 4.0.
+
+이 Add-on은 Codex(GPT-5.6 SOL)가 100% 제작했으며 프로젝트 소유자는 아이디어만 제공했습니다.

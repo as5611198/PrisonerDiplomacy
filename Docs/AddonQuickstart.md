@@ -121,11 +121,11 @@ For a fully custom event loop, keep the state in the add-on and use Prisoner Dip
 
 ## 6. Test checklist
 
-1. Load the add-on without Prisoner Diplomacy and confirm it disables its optional integration cleanly.
+1. Confirm `About.xml` declares Prisoner Diplomacy as required and places the add-on after it. A direct compile-time API integration is not expected to run without the core assembly.
 2. Load with Prisoner Diplomacy 1.2 and verify the extension ID, API version, adapter ID, and translated labels.
 3. Test matching and non-matching races, missing reward definitions, no-stock fulfillment, invalid ThingDefs, and mixed demands.
 4. Save and reload after an offer, accepted deal, release order, and fulfilled reward.
 5. Enable the core debug special-reward toggle and verify the reward is delivered exactly once.
 6. Run the core smoke test and inspect the log for `PASS cases=127`, exceptions, and missing definitions.
 
-The planned standalone Steam sample add-on will use this quickstart as its README, with a complete tiny build that modders can copy without depending on private core code.
+The complete standalone [`ExampleAddon`](../ExampleAddon) implements this quickstart as a playable, source-included project. Its [API Cookbook](../ExampleAddon/Docs/API-Cookbook.md), [Traditional Chinese guide](../ExampleAddon/Docs/API-Cookbook.zh-TW.md), templates, diagnostics, test matrix, five-language Workshop copy, and packaging scripts can be copied without depending on private core code.

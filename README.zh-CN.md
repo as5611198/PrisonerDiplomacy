@@ -78,7 +78,7 @@ dotnet build .\PrisonerDiplomacy.csproj -c Release -p:RimWorldDir="D:\Games\RimW
 
 [`PrisonerDiplomacyApi.md`](PrisonerDiplomacyApi.md) 是公开 v1.2 API 指南，涵盖注册、版本检查、只读快照、种族／特殊奖励适配器、Persona、有限 AI 建议、确定性验证与事件 Add-on。正式 API 签名以英文文档为准。
 
-[`Compatibility.md`](Compatibility.md) 是玩家兼容性报告；[`Docs/RewardCatalog.md`](Docs/RewardCatalog.md) 是奖励目录；[`Docs/AddonQuickstart.md`](Docs/AddonQuickstart.md) 是最小扩展教程；[`Docs/TelemetryPrivacy.md`](Docs/TelemetryPrivacy.md) 说明错误回报隐私。扩展 API 采用 fail-closed 设计，Add-on 不得反射存档列表或调用内部 GameComponent 方法。
+[`Compatibility.md`](Compatibility.md) 是玩家兼容性报告；[`Docs/RewardCatalog.md`](Docs/RewardCatalog.md) 是奖励目录；[`Docs/AddonQuickstart.md`](Docs/AddonQuickstart.md) 是最小扩展教程；[`ExampleAddon`](ExampleAddon) 是可直接游玩、附五语本地化、API Inspector、可复制模板和发布工具的完整示例；[`Docs/TelemetryPrivacy.md`](Docs/TelemetryPrivacy.md) 说明错误回报隐私。扩展 API 采用 fail-closed 设计，Add-on 不得反射存档列表或调用内部 GameComponent 方法。
 
 ## 社区
 

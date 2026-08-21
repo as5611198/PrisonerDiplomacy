@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PDX_SettingsCategory>Prisoner Diplomacy: 예제 Add-on</PDX_SettingsCategory>
+  <PDX_SettingsIntro>소스가 포함된 이 예제는 공개 API만 사용합니다. 보상, Pawn 상태, 거래와 이벤트는 Prisoner Diplomacy가 관리합니다.</PDX_SettingsIntro>
+  <PDX_ShowHeaderWidget>API 예제 헤더 표시</PDX_ShowHeaderWidget>
+  <PDX_ShowHeaderWidgetDesc>Prisoner Diplomacy 세력 헤더에 작고 읽기 전용인 정보 줄을 추가합니다.</PDX_ShowHeaderWidgetDesc>
+  <PDX_EnablePersonas>세력 Persona 예제 활성화</PDX_EnablePersonas>
+  <PDX_EnablePersonasDesc>제국, 해적, 부족 세력에 제한된 서사 기본값을 제공합니다. 게임 결과는 바꾸지 않습니다.</PDX_EnablePersonasDesc>
+  <PDX_VerboseLogging>상세 예제 로그 활성화</PDX_VerboseLogging>
+  <PDX_VerboseLoggingDesc>이 예제를 확장하는 제작자용입니다. 일반 사용자는 끈 상태로 두어도 됩니다.</PDX_VerboseLoggingDesc>
+  <PDX_OpenInspector>읽기 전용 API Inspector 열기</PDX_OpenInspector>
+  <PDX_InspectorTitle>Prisoner Diplomacy 공개 API Inspector</PDX_InspectorTitle>
+  <PDX_TabOverview>개요</PDX_TabOverview>
+  <PDX_TabPrisoners>포로</PDX_TabPrisoners>
+  <PDX_TabFactions>세력</PDX_TabFactions>
+  <PDX_TabEvents>이벤트</PDX_TabEvents>
+  <PDX_CopyReport>전체 보고서 복사</PDX_CopyReport>
+  <PDX_ReportCopied>공개 API 보고서를 복사하고 게임 로그에 기록했습니다.</PDX_ReportCopied>
+  <PDX_HeaderStatus>API 예제 | 가치 {0} | 특수 보상 {1}</PDX_HeaderStatus>
+  <PDX_HeaderStatusTooltip>IPrisonerDiplomacyUiExtension이 읽기 전용 스냅샷과 어댑터 데이터로 표시합니다.</PDX_HeaderStatusTooltip>
+  <PDX_NoPrisonerSnapshot>선택한 Pawn에 공개 Prisoner Diplomacy 스냅샷이 없습니다.</PDX_NoPrisonerSnapshot>
+  <PDX_NoNegotiator>미리보기에 사용할 정착민이 없습니다.</PDX_NoNegotiator>
+  <PDX_PreviewFailed>읽기 전용 조건 미리보기에 실패했습니다: {0}</PDX_PreviewFailed>
+  <PDX_PreviewLogged>읽기 전용 조건 미리보기를 게임 로그에 기록했습니다.</PDX_PreviewLogged>
+  <PDX_RewardSealLabel>외교 인장</PDX_RewardSealLabel>
+  <PDX_RewardSealDescription>저기술 조약 증표 2개입니다. 코어가 ThingDef, 가치, 수량, 저장과 1회 지급을 검증합니다.</PDX_RewardSealDescription>
+  <PDX_RewardLedgerLabel>암호화 외교 원장</PDX_RewardLedgerLabel>
+  <PDX_RewardLedgerDescription>고기술 거래 원장입니다. 코어가 포로 인계를 확인한 뒤에만 가격을 계산하고 지급합니다.</PDX_RewardLedgerDescription>
+  <PDX_EventNeutralLabel>중립 교환 Metadata 예제</PDX_EventNeutralLabel>
+  <PDX_EventNeutralDescription>코어 중립 거래 계열을 선택하는 카탈로그 Metadata입니다. API 1.2에서는 Add-on이 예약할 수 없습니다.</PDX_EventNeutralDescription>
+  <PDX_EventInfiltrationLabel>침투 Metadata 예제</PDX_EventInfiltrationLabel>
+  <PDX_EventInfiltrationDescription>코어 위장 항복 계열을 선택하는 Metadata입니다. 이벤트 권한은 코어에 있습니다.</PDX_EventInfiltrationDescription>
+  <PDX_EventTrialLabel>공개 재판 Metadata 예제</PDX_EventTrialLabel>
+  <PDX_EventTrialDescription>코어 공개 재판 계열을 선택하는 Metadata입니다. Add-on은 결과를 적용할 수 없습니다.</PDX_EventTrialDescription>
+  <PDX_EventAmbushLabel>몸값 매복 Metadata 예제</PDX_EventAmbushLabel>
+  <PDX_EventAmbushDescription>코어 몸값 매복 계열을 선택하는 Metadata입니다. 원본 거래와 보복은 코어가 검증합니다.</PDX_EventAmbushDescription>
+</LanguageData>

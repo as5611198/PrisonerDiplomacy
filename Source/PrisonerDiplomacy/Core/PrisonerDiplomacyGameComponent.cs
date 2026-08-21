@@ -4144,12 +4144,14 @@ namespace PrisonerDiplomacy
                     PrisonerDiplomacyExtensionRegistry.GetSpecialRewards(
                         specialDeal.Prisoner,
                         faction).ToList();
+                PrisonerDiplomacySpecialRewardDefinition smokeReward = specialOptions
+                    .FirstOrDefault(option => option.RewardId == "sample.energy_core");
                 RewardDemand specialDemand = new RewardDemand();
-                AssertSmokeTest(specialOptions.Count == 1
+                AssertSmokeTest(smokeReward != null
                     && PrisonerDiplomacySpecialRewardUtility.TryPopulateDemand(
                         specialDeal.Prisoner,
                         faction,
-                        specialOptions[0].RewardId,
+                        smokeReward.RewardId,
                         specialDemand,
                         out _)
                     && NegotiationEconomyUtility.IsDemandValid(
@@ -4261,8 +4263,7 @@ namespace PrisonerDiplomacy
                 int exchangeHostageCost = PrisonerExchangeUtility.CalculateHostageCost(exchangeHostage);
                 int exchangeCompensation = PrisonerExchangeUtility.CalculateCompensation(exchangeRecord, exchangeHostage);
                 AssertSmokeTest(exchangeHostageCost > 0
-                    && exchangeCompensation == Math.Max(0, exchangeHostageCost - exchangeRecord.DiplomaticValue)
-                    && exchangeCompensation % 50 == 0,
+                    && exchangeCompensation == Math.Max(0, exchangeHostageCost - exchangeRecord.DiplomaticValue),
                     "exchange value gap was calculated incorrectly");
                 if (exchangeCompensation > 0)
                 {

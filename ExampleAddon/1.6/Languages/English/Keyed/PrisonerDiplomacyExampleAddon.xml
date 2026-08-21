@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PDX_SettingsCategory>Prisoner Diplomacy: Example Add-on</PDX_SettingsCategory>
+  <PDX_SettingsIntro>This source-included example demonstrates only documented public APIs. Reward delivery, Pawn state, deals, and events remain owned by Prisoner Diplomacy.</PDX_SettingsIntro>
+  <PDX_ShowHeaderWidget>Show the example API header strip</PDX_ShowHeaderWidget>
+  <PDX_ShowHeaderWidgetDesc>Adds one compact, read-only strip to the Prisoner Diplomacy faction header.</PDX_ShowHeaderWidgetDesc>
+  <PDX_EnablePersonas>Enable example faction personas</PDX_EnablePersonas>
+  <PDX_EnablePersonasDesc>Provides bounded narrative defaults for Empire, pirate, and tribal factions. This cannot change gameplay.</PDX_EnablePersonasDesc>
+  <PDX_VerboseLogging>Enable verbose example logging</PDX_VerboseLogging>
+  <PDX_VerboseLoggingDesc>Reserved for authors extending this sample. Normal users can leave it disabled.</PDX_VerboseLoggingDesc>
+  <PDX_OpenInspector>Open read-only API inspector</PDX_OpenInspector>
+  <PDX_InspectorTitle>Prisoner Diplomacy public API inspector</PDX_InspectorTitle>
+  <PDX_TabOverview>Overview</PDX_TabOverview>
+  <PDX_TabPrisoners>Prisoners</PDX_TabPrisoners>
+  <PDX_TabFactions>Factions</PDX_TabFactions>
+  <PDX_TabEvents>Events</PDX_TabEvents>
+  <PDX_CopyReport>Copy full report</PDX_CopyReport>
+  <PDX_ReportCopied>The public API report was copied and written to the game log.</PDX_ReportCopied>
+  <PDX_HeaderStatus>Example API | value {0} | special rewards {1}</PDX_HeaderStatus>
+  <PDX_HeaderStatusTooltip>This strip is drawn by IPrisonerDiplomacyUiExtension using read-only snapshot and adapter data.</PDX_HeaderStatusTooltip>
+  <PDX_NoPrisonerSnapshot>The selected Pawn has no public Prisoner Diplomacy snapshot.</PDX_NoPrisonerSnapshot>
+  <PDX_NoNegotiator>No available colonist can be used for the preview.</PDX_NoNegotiator>
+  <PDX_PreviewFailed>The read-only demand preview failed: {0}</PDX_PreviewFailed>
+  <PDX_PreviewLogged>The read-only demand preview was written to the game log.</PDX_PreviewLogged>
+  <PDX_RewardSealLabel>diplomatic seals</PDX_RewardSealLabel>
+  <PDX_RewardSealDescription>Two low-technology treaty tokens. The core validates their ThingDef, value, quantity, persistence, and exactly-once delivery.</PDX_RewardSealDescription>
+  <PDX_RewardLedgerLabel>encrypted diplomatic ledger</PDX_RewardLedgerLabel>
+  <PDX_RewardLedgerDescription>A high-technology trade ledger. The core prices and delivers it only after a verified prisoner handoff.</PDX_RewardLedgerDescription>
+  <PDX_EventNeutralLabel>Example neutral exchange metadata</PDX_EventNeutralLabel>
+  <PDX_EventNeutralDescription>Catalog metadata selecting the core neutral trade family. API 1.2 does not let this add-on schedule it.</PDX_EventNeutralDescription>
+  <PDX_EventInfiltrationLabel>Example infiltration metadata</PDX_EventInfiltrationLabel>
+  <PDX_EventInfiltrationDescription>Catalog metadata selecting the core false-surrender family. The core remains the event authority.</PDX_EventInfiltrationDescription>
+  <PDX_EventTrialLabel>Example public-trial metadata</PDX_EventTrialLabel>
+  <PDX_EventTrialDescription>Catalog metadata selecting the core public-trial family. The add-on cannot apply its outcome.</PDX_EventTrialDescription>
+  <PDX_EventAmbushLabel>Example ransom-ambush metadata</PDX_EventAmbushLabel>
+  <PDX_EventAmbushDescription>Catalog metadata selecting the core ransom-ambush family. The core validates source deals and retaliation.</PDX_EventAmbushDescription>
+</LanguageData>

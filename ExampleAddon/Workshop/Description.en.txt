@@ -1,0 +1,55 @@
+[h1]Prisoner Diplomacy: Example Add-on[/h1]
+
+A playable, source-included reference add-on for the public [b]Prisoner Diplomacy 1.2 API[/b]. Subscribe to see the extension system working in game, or open the source and templates to build your own race, faction, reward, persona, or UI integration.
+
+[b]This add-on is optional.[/b] Normal Prisoner Diplomacy players do not need it.
+
+[h2]What it adds for players[/h2]
+
+[list]
+[*]Low-tech factions can offer two [b]diplomatic seals[/b] as a special reward.
+[*]Industrial and spacer factions can offer one [b]encrypted diplomatic ledger[/b].
+[*]Vanilla humans receive a small +10 diplomatic-value example; Empire prisoners receive another +25.
+[*]Empire, pirate, and tribal factions receive distinct narrative persona examples.
+[*]A compact read-only strip appears in the negotiation Header.
+[*]A public API Inspector shows prisoners, factions, deals, rewards, registrations, and event snapshots without changing them.
+[*]Developer mode adds snapshot, context, demand-preview, and report tools.
+[/list]
+
+[h2]What it teaches modders[/h2]
+
+[list]
+[*][code]IPrisonerDiplomacyExtension[/code] registration and API-version guards.
+[*]Race/faction/technology Context Adapters and bounded value adjustments.
+[*]Core-validated custom ThingDef rewards with save-safe, exactly-once delivery.
+[*]Faction Persona providers that affect narrative only.
+[*]All four API 1.2 event-family metadata definitions.
+[*]Read-only snapshots, [code]PreviewDemand[/code], and UI extension regions.
+[*]Diagnostics, localization parity, build, validation, deployment, and packaging scripts.
+[/list]
+
+[h2]Important API boundary[/h2]
+
+Prisoner Diplomacy remains the only transaction authority. This add-on never releases or transfers Pawns, edits or completes deals, spawns negotiated rewards, changes faction reserves, or calls private event scheduling code.
+
+In API 1.2, external event definitions are discoverable catalog metadata. Registering one does [b]not[/b] schedule or execute a core event. Fully custom event state must stay inside the add-on until a public scheduler/executor contract exists.
+
+[h2]Requirements[/h2]
+
+[list]
+[*]RimWorld 1.6
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3787243156]Prisoner Diplomacy[/url] 1.2 or compatible API 1.x
+[*]Load this add-on after Prisoner Diplomacy
+[/list]
+
+[h2]Languages[/h2]
+
+English, 繁體中文, 简体中文, 日本語, 한국어.
+
+[h2]Source and documentation[/h2]
+
+[url=https://github.com/as5611198/PrisonerDiplomacy/tree/main/ExampleAddon]Complete source, API Cookbook, copyable templates, test guide, and release tools on GitHub[/url]
+
+C# source: Apache 2.0 plus the project Non-Commercial Exception. Artwork and promotional assets: CC BY-NC-ND 4.0.
+
+This add-on was 100% produced by Codex (GPT-5.6 SOL); the project owner provided the ideas only.

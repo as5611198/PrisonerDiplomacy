@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef ParentName="ResourceBase">
+    <defName>PDX_DiplomaticSeal</defName>
+    <label>diplomatic seal</label>
+    <description>A stamped token used by low-technology factions to certify a prisoner agreement. It is valuable mainly because the issuing faction recognizes it.</description>
+    <graphicData>
+      <texPath>Things/Item/PDX_DiplomaticSeal</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>0.78</drawSize>
+    </graphicData>
+    <techLevel>Neolithic</techLevel>
+    <tradeability>Sellable</tradeability>
+    <stackLimit>20</stackLimit>
+    <healthAffectsPrice>false</healthAffectsPrice>
+    <statBases>
+      <MaxHitPoints>80</MaxHitPoints>
+      <MarketValue>90</MarketValue>
+      <Mass>0.05</Mass>
+      <Flammability>0.20</Flammability>
+      <DeteriorationRate>0</DeteriorationRate>
+    </statBases>
+    <thingCategories>
+      <li>Manufactured</li>
+    </thingCategories>
+  </ThingDef>
+
+  <ThingDef ParentName="ResourceBase">
+    <defName>PDX_EncryptedDiplomaticLedger</defName>
+    <label>encrypted diplomatic ledger</label>
+    <description>A hardened data ledger containing authenticated trade warrants and diplomatic credit records. Its value depends on the issuing faction honoring the embedded signatures.</description>
+    <graphicData>
+      <texPath>Things/Item/PDX_EncryptedDiplomaticLedger</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>0.82</drawSize>
+    </graphicData>
+    <techLevel>Industrial</techLevel>
+    <tradeability>Sellable</tradeability>
+    <tradeTags>
+      <li>ExoticMisc</li>
+    </tradeTags>
+    <stackLimit>10</stackLimit>
+    <healthAffectsPrice>false</healthAffectsPrice>
+    <statBases>
+      <MaxHitPoints>120</MaxHitPoints>
+      <MarketValue>600</MarketValue>
+      <Mass>0.30</Mass>
+      <Flammability>0.10</Flammability>
+      <DeteriorationRate>0</DeteriorationRate>
+    </statBases>
+    <thingCategories>
+      <li>Manufactured</li>
+    </thingCategories>
+  </ThingDef>
+</Defs>

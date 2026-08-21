@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PDX_DiplomaticSeal.label>외교 인장</PDX_DiplomaticSeal.label>
+  <PDX_DiplomaticSeal.description>저기술 세력이 포로 계약을 인증하는 데 사용하는 각인 증표입니다. 발행 세력이 인정하기 때문에 가치가 있습니다.</PDX_DiplomaticSeal.description>
+  <PDX_EncryptedDiplomaticLedger.label>암호화 외교 원장</PDX_EncryptedDiplomaticLedger.label>
+  <PDX_EncryptedDiplomaticLedger.description>인증된 거래 허가와 외교 신용을 기록한 강화 데이터 원장입니다. 발행 세력이 내장 서명을 인정할 때 가치가 생깁니다.</PDX_EncryptedDiplomaticLedger.description>
+</LanguageData>

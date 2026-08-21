@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PDX_SettingsCategory>Prisoner Diplomacy：示範 Add-on</PDX_SettingsCategory>
+  <PDX_SettingsIntro>這個附原始碼的範例只示範正式公開 API。報酬發放、Pawn 狀態、交易與事件仍由 Prisoner Diplomacy 掌管。</PDX_SettingsIntro>
+  <PDX_ShowHeaderWidget>顯示 API 示範 Header 列</PDX_ShowHeaderWidget>
+  <PDX_ShowHeaderWidgetDesc>在 Prisoner Diplomacy 派系 Header 加入一條精簡、唯讀的資訊列。</PDX_ShowHeaderWidgetDesc>
+  <PDX_EnablePersonas>啟用派系 Persona 範例</PDX_EnablePersonas>
+  <PDX_EnablePersonasDesc>為帝國、海盜與部落提供有限的敘事預設，不會改動遊戲結果。</PDX_EnablePersonasDesc>
+  <PDX_VerboseLogging>啟用詳細範例日誌</PDX_VerboseLogging>
+  <PDX_VerboseLoggingDesc>保留給擴充此範例的作者，一般玩家可維持關閉。</PDX_VerboseLoggingDesc>
+  <PDX_OpenInspector>開啟唯讀 API Inspector</PDX_OpenInspector>
+  <PDX_InspectorTitle>Prisoner Diplomacy 公開 API Inspector</PDX_InspectorTitle>
+  <PDX_TabOverview>總覽</PDX_TabOverview>
+  <PDX_TabPrisoners>俘虜</PDX_TabPrisoners>
+  <PDX_TabFactions>派系</PDX_TabFactions>
+  <PDX_TabEvents>事件</PDX_TabEvents>
+  <PDX_CopyReport>複製完整報告</PDX_CopyReport>
+  <PDX_ReportCopied>已複製公開 API 報告並寫入遊戲日誌。</PDX_ReportCopied>
+  <PDX_HeaderStatus>API 範例｜價值 {0}｜特殊報酬 {1}</PDX_HeaderStatus>
+  <PDX_HeaderStatusTooltip>此資訊列由 IPrisonerDiplomacyUiExtension 使用唯讀快照與 Adapter 資料繪製。</PDX_HeaderStatusTooltip>
+  <PDX_NoPrisonerSnapshot>選定 Pawn 沒有公開的 Prisoner Diplomacy 快照。</PDX_NoPrisonerSnapshot>
+  <PDX_NoNegotiator>沒有可用於預覽的殖民者。</PDX_NoNegotiator>
+  <PDX_PreviewFailed>唯讀條件預覽失敗：{0}</PDX_PreviewFailed>
+  <PDX_PreviewLogged>唯讀條件預覽已寫入遊戲日誌。</PDX_PreviewLogged>
+  <PDX_RewardSealLabel>外交印信</PDX_RewardSealLabel>
+  <PDX_RewardSealDescription>兩枚低科技條約信物。核心會驗證 ThingDef、價值、數量、存檔與一次性發放。</PDX_RewardSealDescription>
+  <PDX_RewardLedgerLabel>加密外交帳冊</PDX_RewardLedgerLabel>
+  <PDX_RewardLedgerDescription>高科技交易帳冊；只有核心確認俘虜交接後才會計價並發放。</PDX_RewardLedgerDescription>
+  <PDX_EventNeutralLabel>中立交換 Metadata 範例</PDX_EventNeutralLabel>
+  <PDX_EventNeutralDescription>選擇核心中立交易事件家族的目錄 Metadata；API 1.2 不允許 Add-on 自行排程。</PDX_EventNeutralDescription>
+  <PDX_EventInfiltrationLabel>滲透事件 Metadata 範例</PDX_EventInfiltrationLabel>
+  <PDX_EventInfiltrationDescription>選擇核心假投降事件家族的目錄 Metadata；核心仍是事件權威。</PDX_EventInfiltrationDescription>
+  <PDX_EventTrialLabel>公開審判 Metadata 範例</PDX_EventTrialLabel>
+  <PDX_EventTrialDescription>選擇核心公開審判事件家族的目錄 Metadata；Add-on 不能套用結果。</PDX_EventTrialDescription>
+  <PDX_EventAmbushLabel>贖金伏擊 Metadata 範例</PDX_EventAmbushLabel>
+  <PDX_EventAmbushDescription>選擇核心贖金伏擊事件家族的目錄 Metadata；核心會驗證來源交易與報復。</PDX_EventAmbushDescription>
+</LanguageData>

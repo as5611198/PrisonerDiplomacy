@@ -2,6 +2,18 @@
 
 RimWorld 1.6 mod implementing Prisoner Diplomacy 1.2.0: ransom, exchange, strategic ceasefire and intelligence, causal follow-up events, pirate-risk, faction-memory, dynamic deadlines, a versioned extension API, staged neutral handoffs, core-fulfilled special rewards, infiltration, public trials, RimChat coexistence, and optional AI narratives. The automated release gates are complete; remaining edge cases are accepted for post-release community QA.
 
+## 1.2 Example Add-on reference release
+
+- Added the independent `g1061.prisonerdiplomacy.exampleaddon` project as an optional, playable Steam package with complete source.
+- Demonstrates stable extension/version registration, a technology-aware race/faction Adapter, two core-validated special items, Empire/pirate/tribal Persona providers, four event-family Metadata records, read-only snapshots, `PreviewDemand`, and a bounded negotiation Header extension.
+- Adds a read-only API Inspector plus four developer diagnostics for registrations, prisoner/faction/deal/event snapshots, Adapter Context, and deterministic demand previews.
+- Ships English, Traditional Chinese, Simplified Chinese, Japanese, and Korean UI/item localization plus five localized Steam descriptions.
+- Adds an English API Cookbook, Traditional Chinese orientation, test guide, copyable extension/Adapter/Persona/UI templates, artwork generator, validator, builder, safe deployer, isolated RimWorld load smoke, and release packager.
+- Adds a distinct 860x480 Workshop cover and transparent diplomatic-seal/encrypted-ledger item artwork derived from project-owned visual assets.
+- Separates the root and Example Add-on SDK compile globs so each assembly builds independently.
+- Hardens the core smoke suite for real third-party coexistence: it selects the internal test reward by stable ID and permits arbitrary integer Adapter value adjustments in exchange compensation.
+- Verified both assemblies at zero warnings/errors; Example Add-on validation passes 231 checks across 12 XML files, five game languages, and five Workshop descriptions; isolated core + Add-on load ends with `PASS cases=127` and all three Add-on registrations true.
+
 ## 1.2 formal release candidate (offline)
 
 - Delivers the complete deterministic transaction loop: enemy proposals, comms-console player demands, acceptance, rejection, counteroffers, marked vanilla release, safe map exit, and exactly-once fulfillment.

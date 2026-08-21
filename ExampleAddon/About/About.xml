@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Prisoner Diplomacy: Example Add-on</name>
+  <author>g1061</author>
+  <packageId>g1061.prisonerdiplomacy.exampleaddon</packageId>
+  <modVersion>1.0.0</modVersion>
+  <url>https://github.com/as5611198/PrisonerDiplomacy/tree/main/ExampleAddon</url>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>g1061.prisonerdiplomacy</packageId>
+      <displayName>Prisoner Diplomacy</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/3787243156</steamWorkshopUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+    <li>g1061.prisonerdiplomacy</li>
+  </loadAfter>
+  <description>A playable, source-included SDK example for Prisoner Diplomacy 1.2. Adds two special rewards and demonstrates context adapters, faction personas, event metadata, read-only snapshots, demand previews, UI extensions, diagnostics, localization, and safe failure boundaries. Requires Prisoner Diplomacy.</description>
+</ModMetaData>

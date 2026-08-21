@@ -77,7 +77,8 @@ dotnet build .\PrisonerDiplomacy.csproj -c Release -p:RimWorldDir="D:\Games\RimW
 | 區域 | 路徑 |
 | --- | --- |
 | 核心交易、報酬、紀錄與經濟 | [`Source/PrisonerDiplomacy/Core`](Source/PrisonerDiplomacy/Core) |
-| 公開 API 與範例 Add-on | [`Source/PrisonerDiplomacy/Api`](Source/PrisonerDiplomacy/Api) |
+| 公開 API 契約 | [`Source/PrisonerDiplomacy/Api`](Source/PrisonerDiplomacy/Api) |
+| 可遊玩、附原始碼的示範 Add-on | [`ExampleAddon`](ExampleAddon) |
 | 事件與中立世界地圖交換 | [`Source/PrisonerDiplomacy/Events`](Source/PrisonerDiplomacy/Events) |
 | 策略後果與襲擊 | [`Source/PrisonerDiplomacy/Strategic`](Source/PrisonerDiplomacy/Strategic) |
 | UI 與主題 | [`Source/PrisonerDiplomacy/UI`](Source/PrisonerDiplomacy/UI) |
@@ -88,7 +89,7 @@ dotnet build .\PrisonerDiplomacy.csproj -c Release -p:RimWorldDir="D:\Games\RimW
 
 [`PrisonerDiplomacyApi.md`](PrisonerDiplomacyApi.md) 是公開 v1.2 API 指南，涵蓋註冊、版本檢查、唯讀快照、種族／特殊報酬 Adapter、Persona、有限 AI 建議、確定性驗證與事件 Add-on。正式 API 簽名以英文文件為準。
 
-[`Compatibility.md`](Compatibility.md) 是玩家相容性報告；[`Docs/RewardCatalog.md`](Docs/RewardCatalog.md) 是報酬目錄；[`Docs/AddonQuickstart.md`](Docs/AddonQuickstart.md) 是最小擴展教學；[`Docs/TelemetryPrivacy.md`](Docs/TelemetryPrivacy.md) 說明錯誤回報隱私。擴展 API 採 fail-closed 設計，Add-on 不得反射存檔清單或呼叫內部 GameComponent 方法。
+[`Compatibility.md`](Compatibility.md) 是玩家相容性報告；[`Docs/RewardCatalog.md`](Docs/RewardCatalog.md) 是報酬目錄；[`Docs/AddonQuickstart.md`](Docs/AddonQuickstart.md) 是最小擴展教學；[`ExampleAddon`](ExampleAddon) 則是可直接遊玩、附五語本地化、API Inspector、可複製範本與發佈工具的完整示範模組，另有[繁中 API 導讀](ExampleAddon/Docs/API-Cookbook.zh-TW.md)。[`Docs/TelemetryPrivacy.md`](Docs/TelemetryPrivacy.md) 說明錯誤回報隱私。擴展 API 採 fail-closed 設計，Add-on 不得反射存檔清單或呼叫內部 GameComponent 方法。
 
 ## 社群
 

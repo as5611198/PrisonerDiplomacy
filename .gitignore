@@ -9,6 +9,8 @@ $log/
 *.cpuprofile
 .wrangler/
 TelemetryRepairReports/
+ExampleAddon/Dist/
+ExampleAddon/About/PublishedFileId.txt
 TestData/*
 !TestData/Config/
 TestData/Config/*

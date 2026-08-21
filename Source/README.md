@@ -5,7 +5,7 @@ The C# project keeps one `PrisonerDiplomacy` namespace while separating files by
 | Folder | Ownership |
 | --- | --- |
 | `AI/` | Optional narrative providers, prompt context, bounded roleplay notes, Persona providers, and opt-in advisory signals. The deterministic core remains authoritative. |
-| `Api/` | Versioned public contracts, read-only snapshots, extension registry, and the minimal sample add-on. |
+| `Api/` | Versioned public contracts, read-only snapshots, extension registry, and the internal smoke-test sample Adapter. The independent playable reference project is under [`../ExampleAddon`](../ExampleAddon). |
 | `Compatibility/` | Harmony entry points, save repair, diagnostics, and compatibility extensions. |
 | `Core/` | Authoritative prisoner records, deals, rewards, negotiation economy, faction memory, and the base GameComponent. |
 | `Debug/` | Developer-mode actions and deterministic test helpers. |

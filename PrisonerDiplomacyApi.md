@@ -238,6 +238,20 @@ Register it once from the add-on's `Mod` constructor with `PrisonerDiplomacyExte
 
 AI negotiation adjustments are opt-in and disabled by default. When enabled, the model may return only three categorical signals for a live counteroffer: `urgency`, `concession`, and `leverageResponse`. The core applies a small bounded cost adjustment to the existing counteroffer, then re-validates reward types, faction reserve, material cap, prisoner context, and negotiation state. Accepted deals and completed transactions are never rewritten. A stale, malformed, cancelled, or unavailable response falls back to the deterministic terms.
 
+## 15. Read-only UI extensions
+
+Add-ons can register presentation-only content in the negotiation window through `IPrisonerDiplomacyUiExtension`:
+
+```csharp
+PrisonerDiplomacyUiExtensionRegistry.Register(new MyHeaderExtension());
+```
+
+The three regions are `FactionHeader`, `PrisonerSummary`, and `NegotiationBody`. `GetHeight` is called before drawing; return `0` when the extension does not apply, otherwise return a stable bounded height and draw only inside the provided Rect.
+
+`PrisonerDiplomacyUiContext` exposes read-only faction, prisoner, and deal snapshots plus `CompactLayout`. Add-on UI must not mutate referenced Pawn/Faction objects, create transaction buttons, claim a transition completed, or use reflection to call the internal window/controller. Restore `GUI.color`, `Text.Anchor`, and `Text.Font` after drawing. Exceptions are isolated per extension, but repeated layout or drawing failures remain an add-on defect.
+
+The core `PrisonerDiplomacyUiTheme` is internal and not part of the public compatibility contract. Add-ons should own their colors and controls. A complete working Header strip is in [`ExampleAddon/Source/ExampleHeaderUiExtension.cs`](ExampleAddon/Source/ExampleHeaderUiExtension.cs); the copyable minimal version is [`ExampleAddon/Templates/ReadOnlyUiExtension.cs`](ExampleAddon/Templates/ReadOnlyUiExtension.cs).
+
 ## Compatibility summary
 
-Use only the types in this guide. Keep the dependency optional, fail closed on a major-version mismatch, preserve stable IDs, and let the core remain the sole transaction authority. See [`Source/README.md`](Source/README.md), [`Docs/Architecture.md`](Docs/Architecture.md), [`Docs/RewardCatalog.md`](Docs/RewardCatalog.md), and [`Docs/AddonQuickstart.md`](Docs/AddonQuickstart.md) for the implementation boundary and starter examples.
+Use only the types in this guide. Declare a required dependency for direct compile-time integration (or isolate a genuinely optional integration behind reflection), fail closed on a major-version mismatch, preserve stable IDs, and let the core remain the sole transaction authority. See [`Source/README.md`](Source/README.md), [`Docs/Architecture.md`](Docs/Architecture.md), [`Docs/RewardCatalog.md`](Docs/RewardCatalog.md), [`Docs/AddonQuickstart.md`](Docs/AddonQuickstart.md), and the complete [`ExampleAddon`](ExampleAddon) for the implementation boundary and working examples.

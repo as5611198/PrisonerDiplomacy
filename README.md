@@ -82,7 +82,8 @@ See [`Source/README.md`](Source/README.md) for the folder map and authoritative 
 | Area | Location |
 | --- | --- |
 | Core deals, rewards, records, economy | [`Source/PrisonerDiplomacy/Core`](Source/PrisonerDiplomacy/Core) |
-| Public API and sample add-on | [`Source/PrisonerDiplomacy/Api`](Source/PrisonerDiplomacy/Api) |
+| Public API contracts | [`Source/PrisonerDiplomacy/Api`](Source/PrisonerDiplomacy/Api) |
+| Playable, source-included Example Add-on | [`ExampleAddon`](ExampleAddon) |
 | Events and neutral world-map exchange | [`Source/PrisonerDiplomacy/Events`](Source/PrisonerDiplomacy/Events) |
 | Strategic consequences and raids | [`Source/PrisonerDiplomacy/Strategic`](Source/PrisonerDiplomacy/Strategic) |
 | UI and theme | [`Source/PrisonerDiplomacy/UI`](Source/PrisonerDiplomacy/UI) |
@@ -93,7 +94,7 @@ See [`Source/README.md`](Source/README.md) for the folder map and authoritative 
 
 [`PrisonerDiplomacyApi.md`](PrisonerDiplomacyApi.md) is the public v1.2 guide. It documents registration, version checks, read-only snapshots, race and special-reward adapters, persona providers, bounded AI advisory signals, deterministic validation, and event add-ons. [`Compatibility.md`](Compatibility.md) is the player-facing compatibility report: it mirrors the current Prisoner Realism integration list, records the verified Prisoner Realism load-order checks, and explains optional DefModExtensions and integration boundaries. [`Docs/TelemetryPrivacy.md`](Docs/TelemetryPrivacy.md) documents optional error-report contents, Google Gemini and AI-HUB processing, and retention. The local telemetry repair verifier creates isolated, tested review candidates and never marks an issue resolved automatically. [`FAQ.md`](FAQ.md), [`KnownIssues.md`](KnownIssues.md), and [`WorkshopDescription.md`](WorkshopDescription.md) contain player-facing release material.
 
-The reward catalog is documented in [`Docs/RewardCatalog.md`](Docs/RewardCatalog.md). New authors can start with the step-by-step [`Docs/AddonQuickstart.md`](Docs/AddonQuickstart.md), then use sections 10-14 of the API guide for the complete adapter, event, persona, and compatibility contract. The project is open source on [GitHub](https://github.com/as5611198/PrisonerDiplomacy); the Steam Workshop release will link back to this canonical repository.
+The reward catalog is documented in [`Docs/RewardCatalog.md`](Docs/RewardCatalog.md). New authors can start with the step-by-step [`Docs/AddonQuickstart.md`](Docs/AddonQuickstart.md), run the complete [`ExampleAddon`](ExampleAddon), and use its [API Cookbook](ExampleAddon/Docs/API-Cookbook.md), copyable templates, diagnostics, and release scripts. Sections 10-15 of the API guide define the complete adapter, event, persona, UI-extension, and compatibility contract. The project is open source on [GitHub](https://github.com/as5611198/PrisonerDiplomacy); the Steam Workshop releases link back to this canonical repository.
 
 The API is intentionally fail-closed: duplicate IDs, incompatible major versions, adapter exceptions, invalid ThingDefs, and stale event context do not get to mutate gameplay state. Add-ons should use public contracts only and must not reflect into save lists or call internal GameComponent methods.
 

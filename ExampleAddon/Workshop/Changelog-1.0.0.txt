@@ -1,0 +1,9 @@
+[h1]1.0.0 - Initial release[/h1]
+
+- Added a playable Prisoner Diplomacy API 1.2 reference add-on.
+- Added technology-aware diplomatic seals and encrypted diplomatic ledgers.
+- Added vanilla human/Empire diplomatic-value examples.
+- Added Empire, pirate, and tribal narrative personas.
+- Added four event-family metadata examples.
+- Added a read-only negotiation Header extension and API Inspector.
+- Added developer diagnostics, five-language localization, full source, templates, tests, and API Cookbook.

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PDX_DiplomaticSeal.label>diplomatic seal</PDX_DiplomaticSeal.label>
+  <PDX_DiplomaticSeal.description>A stamped token used by low-technology factions to certify a prisoner agreement. It is valuable mainly because the issuing faction recognizes it.</PDX_DiplomaticSeal.description>
+  <PDX_EncryptedDiplomaticLedger.label>encrypted diplomatic ledger</PDX_EncryptedDiplomaticLedger.label>
+  <PDX_EncryptedDiplomaticLedger.description>A hardened data ledger containing authenticated trade warrants and diplomatic credit records. Its value depends on the issuing faction honoring the embedded signatures.</PDX_EncryptedDiplomaticLedger.description>
+</LanguageData>

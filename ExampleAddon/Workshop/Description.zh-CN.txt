@@ -1,0 +1,55 @@
+[h1]战俘外交：示范扩展模组[/h1]
+
+这是一个可实际游玩、附完整源代码的 [b]Prisoner Diplomacy 1.2 公共 API[/b] 示例 Add-on。你可以订阅后直接查看扩展系统如何在游戏中运行，也可以参考源代码与模板，制作自己的种族、派系、特殊奖励、Persona 或 UI 集成。
+
+[b]本 Add-on 是可选内容。[/b]普通 Prisoner Diplomacy 玩家不需要安装。
+
+[h2]为玩家添加的内容[/h2]
+
+[list]
+[*]低科技派系可提供 2 枚[b]外交印信[/b]作为特殊奖励。
+[*]工业／太空派系可提供 1 份[b]加密外交账册[/b]。
+[*]原版人类提供 +10 外交价值示例；帝国俘虏再额外 +25。
+[*]帝国、海盗与部落派系拥有不同的叙事 Persona 示例。
+[*]谈判 Header 会显示一条精简、只读的 Adapter 信息栏。
+[*]公共 API Inspector 可查看俘虏、派系、交易、奖励、注册与事件快照，不会修改它们。
+[*]开发者模式提供快照、Context、条件预览与完整报告工具。
+[/list]
+
+[h2]Modder 可以学习的内容[/h2]
+
+[list]
+[*][code]IPrisonerDiplomacyExtension[/code] 注册与 API 版本防护。
+[*]按种族／派系／科技等级判断的 Context Adapter 与有限价值修正。
+[*]由核心验证、可安全存档且只发放一次的自定义 ThingDef 奖励。
+[*]只影响叙事、不改变游戏数字的派系 Persona Provider。
+[*]API 1.2 四类事件家族的 Metadata 示例。
+[*]只读快照、[code]PreviewDemand[/code] 与 UI Extension 区域。
+[*]诊断、本地化一致性、构建、验证、部署与打包脚本。
+[/list]
+
+[h2]重要 API 边界[/h2]
+
+Prisoner Diplomacy 是唯一交易权威。本 Add-on 不会释放／转移 Pawn、改写／完成交易、自行生成谈妥奖励、修改派系储备或调用私有事件调度器。
+
+API 1.2 的外部事件定义只是可发现的目录 Metadata；注册[b]不等于[/b]调度或执行核心事件。完全自定义事件必须把状态保存在自己的 Add-on 中，直到公共 Scheduler／Executor 契约推出。
+
+[h2]需求[/h2]
+
+[list]
+[*]RimWorld 1.6
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3787243156]Prisoner Diplomacy[/url] 1.2 或兼容 API 1.x
+[*]加载顺序位于 Prisoner Diplomacy 之后
+[/list]
+
+[h2]语言[/h2]
+
+English、繁體中文、简体中文、日本語、한국어。
+
+[h2]源代码与文档[/h2]
+
+[url=https://github.com/as5611198/PrisonerDiplomacy/tree/main/ExampleAddon]GitHub：完整源代码、API Cookbook、可复制模板、测试指南与发布工具[/url]
+
+C# 源代码：Apache 2.0 加项目非商业例外。美术与宣传素材：CC BY-NC-ND 4.0。
+
+本 Add-on 100% 由 Codex（GPT-5.6 SOL）制作；本人只提供想法。

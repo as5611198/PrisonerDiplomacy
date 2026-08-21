@@ -60,8 +60,13 @@ The core repository contains a developer-only sample add-on entry:
 
 This sample exists for adapter and exactly-once fulfillment testing. It is not intended to be a permanent balance reward in ordinary play.
 
-## Future add-on examples
+## Standalone playable example
 
-The planned standalone Steam sample add-on will demonstrate a custom race persona, one special item reward, one translated event definition, registration from a `Mod` constructor, and a safe dependency on the public API. It will remain separate from the core so modders can inspect the smallest practical extension without copying internal transaction code.
+The standalone [`ExampleAddon`](../ExampleAddon) demonstrates two real custom items, technology-aware availability, vanilla race/faction value adjustments, three persona families, four event-definition metadata records, a read-only UI extension, an API Inspector, developer diagnostics, and five-language localization. It remains separate from the core so players can subscribe optionally and modders can inspect or copy it without using internal transaction code.
 
-See [`PrisonerDiplomacyApi.md`](../PrisonerDiplomacyApi.md), especially sections 10-14, for the version contract, adapter rules, event metadata, persona providers, and test checklist.
+- `PDX_DiplomaticSeal`: 2 items for Neolithic through Medieval factions, market value 90 each.
+- `PDX_EncryptedDiplomaticLedger`: 1 item for Industrial or higher factions, market value 600.
+
+The core still prices, validates, persists, and delivers these items exactly once. The Example Add-on only supplies metadata and ThingDefs.
+
+See [`PrisonerDiplomacyApi.md`](../PrisonerDiplomacyApi.md), especially sections 10-15, and the Example Add-on [API Cookbook](../ExampleAddon/Docs/API-Cookbook.md) for the version contract, adapter rules, event metadata, persona providers, UI extensions, and test checklist.

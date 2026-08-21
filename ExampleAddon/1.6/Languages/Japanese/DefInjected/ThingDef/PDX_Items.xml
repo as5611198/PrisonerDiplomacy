@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PDX_DiplomaticSeal.label>外交印章</PDX_DiplomaticSeal.label>
+  <PDX_DiplomaticSeal.description>低技術派閥が捕虜協定を認証するために使う刻印トークン。価値は発行派閥が承認することから生まれる。</PDX_DiplomaticSeal.description>
+  <PDX_EncryptedDiplomaticLedger.label>暗号化外交台帳</PDX_EncryptedDiplomaticLedger.label>
+  <PDX_EncryptedDiplomaticLedger.description>認証済み取引許可と外交信用を記録した強化データ台帳。価値は発行派閥が埋め込み署名を認めるかどうかに左右される。</PDX_EncryptedDiplomaticLedger.description>
+</LanguageData>

@@ -1,0 +1,55 @@
+[h1]捕虜外交：サンプル・アドオン[/h1]
+
+[b]Prisoner Diplomacy 1.2 公開 API[/b] を実際のゲーム内で確認できる、ソースコード同梱のサンプル Add-on です。購読して拡張機能を試すだけでなく、ソースとテンプレートを使って独自の種族、派閥、特殊報酬、Persona、UI 連携を作成できます。
+
+[b]この Add-on は任意です。[/b]通常の Prisoner Diplomacy プレイヤーには必須ではありません。
+
+[h2]プレイヤー向けの追加内容[/h2]
+
+[list]
+[*]低技術派閥は特殊報酬として 2 個の[b]外交印章[/b]を提示できます。
+[*]工業／宇宙技術派閥は 1 個の[b]暗号化外交台帳[/b]を提示できます。
+[*]バニラ人間に外交価値 +10、帝国の捕虜に追加 +25 のサンプル補正を適用します。
+[*]帝国、海賊、部族派閥に異なる物語 Persona の例を追加します。
+[*]交渉 Header に小型の読み取り専用 Adapter 情報欄を表示します。
+[*]公開 API Inspector で捕虜、派閥、取引、報酬、登録、イベント Snapshot を変更せず確認できます。
+[*]開発者モードに Snapshot、Context、条件 Preview、Report ツールを追加します。
+[/list]
+
+[h2]Modder 向けのサンプル[/h2]
+
+[list]
+[*][code]IPrisonerDiplomacyExtension[/code] の登録と API バージョン確認。
+[*]種族／派閥／技術レベルを使う Context Adapter と制限付き価値補正。
+[*]Core が検証し、セーブに対応して一度だけ配達するカスタム ThingDef 報酬。
+[*]ゲーム数値を変えず、物語表現だけに影響する Persona Provider。
+[*]API 1.2 の 4 種類のイベント系統 Metadata。
+[*]読み取り専用 Snapshot、[code]PreviewDemand[/code]、UI Extension 領域。
+[*]診断、翻訳検証、Build、Validate、Deploy、Package スクリプト。
+[/list]
+
+[h2]重要な API 境界[/h2]
+
+取引状態の唯一の権限は Prisoner Diplomacy Core にあります。この Add-on は Pawn の解放／移送、取引の変更／完了、交渉報酬の生成、派閥 Reserve の変更、非公開イベント Scheduler の呼び出しを行いません。
+
+API 1.2 の外部イベント定義は検索可能な Catalog Metadata です。登録しても Core イベントは[b]予定・実行されません[/b]。完全な独自イベントは、公開 Scheduler／Executor 契約が提供されるまで Add-on 自身が状態を所有する必要があります。
+
+[h2]必要環境[/h2]
+
+[list]
+[*]RimWorld 1.6
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3787243156]Prisoner Diplomacy[/url] 1.2 または互換 API 1.x
+[*]Prisoner Diplomacy の後に読み込んでください
+[/list]
+
+[h2]対応言語[/h2]
+
+English、繁體中文、简体中文、日本語、한국어。
+
+[h2]ソースとドキュメント[/h2]
+
+[url=https://github.com/as5611198/PrisonerDiplomacy/tree/main/ExampleAddon]GitHub：完全なソース、API Cookbook、テンプレート、Test Guide、Release Tools[/url]
+
+C# ソース：Apache 2.0 + プロジェクトの Non-Commercial Exception。アート／宣伝素材：CC BY-NC-ND 4.0。
+
+この Add-on は Codex（GPT-5.6 SOL）が 100% 制作し、プロジェクト所有者はアイデアのみを提供しました。

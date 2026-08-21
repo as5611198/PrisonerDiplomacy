@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PDX_SettingsCategory>Prisoner Diplomacy：サンプル Add-on</PDX_SettingsCategory>
+  <PDX_SettingsIntro>このソース付きサンプルは公開 API だけを使用します。報酬、Pawn、取引、イベントの状態は Prisoner Diplomacy が管理します。</PDX_SettingsIntro>
+  <PDX_ShowHeaderWidget>API サンプルのヘッダー行を表示</PDX_ShowHeaderWidget>
+  <PDX_ShowHeaderWidgetDesc>Prisoner Diplomacy の派閥ヘッダーに小さな読み取り専用の行を追加します。</PDX_ShowHeaderWidgetDesc>
+  <PDX_EnablePersonas>派閥 Persona サンプルを有効化</PDX_EnablePersonas>
+  <PDX_EnablePersonasDesc>帝国、海賊、部族に限定された物語上の初期 Persona を提供します。ゲーム結果は変更しません。</PDX_EnablePersonasDesc>
+  <PDX_VerboseLogging>詳細なサンプルログを有効化</PDX_VerboseLogging>
+  <PDX_VerboseLoggingDesc>このサンプルを拡張する作者向けです。通常は無効のままで構いません。</PDX_VerboseLoggingDesc>
+  <PDX_OpenInspector>読み取り専用 API Inspector を開く</PDX_OpenInspector>
+  <PDX_InspectorTitle>Prisoner Diplomacy 公開 API Inspector</PDX_InspectorTitle>
+  <PDX_TabOverview>概要</PDX_TabOverview>
+  <PDX_TabPrisoners>捕虜</PDX_TabPrisoners>
+  <PDX_TabFactions>派閥</PDX_TabFactions>
+  <PDX_TabEvents>イベント</PDX_TabEvents>
+  <PDX_CopyReport>完全なレポートをコピー</PDX_CopyReport>
+  <PDX_ReportCopied>公開 API レポートをコピーし、ゲームログに出力しました。</PDX_ReportCopied>
+  <PDX_HeaderStatus>API サンプル｜価値 {0}｜特殊報酬 {1}</PDX_HeaderStatus>
+  <PDX_HeaderStatusTooltip>IPrisonerDiplomacyUiExtension が読み取り専用スナップショットとアダプター情報から描画しています。</PDX_HeaderStatusTooltip>
+  <PDX_NoPrisonerSnapshot>選択した Pawn に公開 Prisoner Diplomacy スナップショットがありません。</PDX_NoPrisonerSnapshot>
+  <PDX_NoNegotiator>プレビューに使える入植者がいません。</PDX_NoNegotiator>
+  <PDX_PreviewFailed>読み取り専用条件プレビューに失敗しました：{0}</PDX_PreviewFailed>
+  <PDX_PreviewLogged>読み取り専用条件プレビューをゲームログに出力しました。</PDX_PreviewLogged>
+  <PDX_RewardSealLabel>外交印章</PDX_RewardSealLabel>
+  <PDX_RewardSealDescription>低技術の条約トークン 2 個。ThingDef、価値、数量、セーブ、一度きりの支給はコアが検証します。</PDX_RewardSealDescription>
+  <PDX_RewardLedgerLabel>暗号化外交台帳</PDX_RewardLedgerLabel>
+  <PDX_RewardLedgerDescription>高技術の取引台帳。コアが捕虜の引き渡しを確認した後にだけ価格計算と支給を行います。</PDX_RewardLedgerDescription>
+  <PDX_EventNeutralLabel>中立交換 Metadata サンプル</PDX_EventNeutralLabel>
+  <PDX_EventNeutralDescription>コアの中立取引ファミリーを選ぶカタログ Metadata。API 1.2 では Add-on から予定を作成できません。</PDX_EventNeutralDescription>
+  <PDX_EventInfiltrationLabel>潜入 Metadata サンプル</PDX_EventInfiltrationLabel>
+  <PDX_EventInfiltrationDescription>コアの偽装降伏ファミリーを選ぶ Metadata。イベントの権限はコアにあります。</PDX_EventInfiltrationDescription>
+  <PDX_EventTrialLabel>公開裁判 Metadata サンプル</PDX_EventTrialLabel>
+  <PDX_EventTrialDescription>コアの公開裁判ファミリーを選ぶ Metadata。Add-on は結果を適用できません。</PDX_EventTrialDescription>
+  <PDX_EventAmbushLabel>身代金待ち伏せ Metadata サンプル</PDX_EventAmbushLabel>
+  <PDX_EventAmbushDescription>コアの身代金待ち伏せファミリーを選ぶ Metadata。元取引と報復はコアが検証します。</PDX_EventAmbushDescription>
+</LanguageData>

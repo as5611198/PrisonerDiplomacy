@@ -63,7 +63,7 @@ Smoke テストは外部 AI を呼び出さず、成功時に `Prisoner Diplomac
 
 [`PrisonerDiplomacyApi.md`](PrisonerDiplomacyApi.md) は公開 v1.2 API ガイドです。登録、バージョン、読み取り専用スナップショット、種族／特殊報酬アダプター、ペルソナ、制限付き AI アドバイス、決定論的検証、イベント Add-on を説明します。正式な API シグネチャは英語版を正とします。
 
-[`Compatibility.md`](Compatibility.md)、[`Docs/RewardCatalog.md`](Docs/RewardCatalog.md)、[`Docs/AddonQuickstart.md`](Docs/AddonQuickstart.md)、[`Docs/TelemetryPrivacy.md`](Docs/TelemetryPrivacy.md) も参照してください。API は fail-closed で、Add-on はセーブ一覧を反射したり内部 GameComponent を呼び出したりしてはいけません。
+[`Compatibility.md`](Compatibility.md)、[`Docs/RewardCatalog.md`](Docs/RewardCatalog.md)、[`Docs/AddonQuickstart.md`](Docs/AddonQuickstart.md)、[`Docs/TelemetryPrivacy.md`](Docs/TelemetryPrivacy.md) も参照してください。実際に動作する [`ExampleAddon`](ExampleAddon) には 5 言語、API Inspector、コピー可能なテンプレート、テスト／公開ツールが含まれます。API は fail-closed で、Add-on はセーブ一覧を反射したり内部 GameComponent を呼び出したりしてはいけません。
 
 ## コミュニティ
 

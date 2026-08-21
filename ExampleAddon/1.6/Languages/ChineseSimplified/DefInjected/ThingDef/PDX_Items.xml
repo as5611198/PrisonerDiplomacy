@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PDX_DiplomaticSeal.label>外交印信</PDX_DiplomaticSeal.label>
+  <PDX_DiplomaticSeal.description>低科技派系用于认证俘虏协议的压印信物；其价值主要来自发行派系的承认。</PDX_DiplomaticSeal.description>
+  <PDX_EncryptedDiplomaticLedger.label>加密外交账册</PDX_EncryptedDiplomaticLedger.label>
+  <PDX_EncryptedDiplomaticLedger.description>记录已认证交易许可与外交信用的加固数据账册；其价值取决于发行派系是否承认内嵌签名。</PDX_EncryptedDiplomaticLedger.description>
+</LanguageData>
