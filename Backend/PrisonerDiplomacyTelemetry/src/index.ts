@@ -521,21 +521,22 @@ async function handleStatusPatch(request: Request, env: Env, hash: string): Prom
 async function handleAiJob(
   request: Request,
   env: Env,
-  ctx: ExecutionContext,
   job: "triage" | "repair"
 ): Promise<Response> {
   if (!(await verifyAdmin(request, env))) {
     return jsonResponse({ error: "unauthorized" }, env.ADMIN_TOKEN ? 401 : 503);
   }
   const requestedAt = new Date().toISOString();
-  const task = job === "triage" ? runDailyTriage(env) : runRepairRetries(env);
-  ctx.waitUntil(task.catch(error => {
+  try {
+    await (job === "triage" ? runDailyTriage(env) : runRepairRetries(env));
+  } catch (error) {
     logError("manual_ai_job_failed", {
       job,
       error: error instanceof Error ? error.message : String(error)
     });
-  }));
-  return jsonResponse({ accepted: true, job, requested_at: requestedAt }, 202);
+    return jsonResponse({ error: "ai_job_failed", job, requested_at: requestedAt }, 500);
+  }
+  return jsonResponse({ accepted: true, completed: true, job, requested_at: requestedAt });
 }
 
 async function handleMaintenanceJob(request: Request, env: Env): Promise<Response> {
@@ -547,7 +548,7 @@ async function handleMaintenanceJob(request: Request, env: Env): Promise<Respons
   return jsonResponse({ ok: true, ...summary });
 }
 
-async function route(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
+async function route(request: Request, env: Env): Promise<Response> {
   const url = new URL(request.url);
   if (url.pathname === "/healthz") {
     if (request.method !== "GET") {
@@ -585,7 +586,7 @@ async function route(request: Request, env: Env, ctx: ExecutionContext): Promise
     if (request.method !== "POST") {
       return methodNotAllowed("POST");
     }
-    return handleAiJob(request, env, ctx, aiJobMatch[1] as "triage" | "repair");
+    return handleAiJob(request, env, aiJobMatch[1] as "triage" | "repair");
   }
 
   if (url.pathname === "/api/admin/jobs/maintenance") {
@@ -618,9 +619,9 @@ async function route(request: Request, env: Env, ctx: ExecutionContext): Promise
 }
 
 export default {
-  async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
+  async fetch(request: Request, env: Env): Promise<Response> {
     try {
-      return await route(request, env, ctx);
+      return await route(request, env);
     } catch (error) {
       if (error instanceof HttpError) {
         return jsonResponse({ error: error.code }, error.status);

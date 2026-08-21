@@ -136,8 +136,10 @@ Admin requests require `Authorization: Bearer <ADMIN_TOKEN>`:
 - `GET /api/admin/issues/{error_hash}`
 - `GET /api/admin/events/{event_id}`
 - `PATCH /api/admin/issues/{error_hash}` with a bounded status or triage JSON object
-- `POST /api/admin/jobs/triage` to run the budgeted triage job immediately
-- `POST /api/admin/jobs/repair` to run the budgeted repair job immediately
+- `POST /api/admin/jobs/triage` to run the budgeted triage job immediately and return after it completes
+- `POST /api/admin/jobs/repair` to run the budgeted repair job immediately and return after it completes
 - `POST /api/admin/jobs/maintenance` to run transient and retention cleanup and return deletion counts
 
 The admin token is never accepted on the public report endpoint and is never embedded in the mod.
+
+The manual AI job endpoints deliberately keep their authenticated HTTP request open until the provider work and D1 state update finish. HTTP `waitUntil()` is not used for these jobs because Cloudflare cancels unfinished post-response work after 30 seconds. Cron executions remain the normal unattended path and have their own longer scheduled-event lifetime.
