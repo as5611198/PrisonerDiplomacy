@@ -62,7 +62,8 @@ namespace PrisonerDiplomacy
 
             Rect viewport = new Rect(inRect.x + 8f, inRect.y + 68f, inRect.width - 16f,
                 inRect.height - 116f);
-            float rowHeight = 70f;
+            // Leave enough vertical room for the two-line contact summary at Tiny font size.
+            float rowHeight = 78f;
             float sectionHeight = 30f;
             int sectionCount = entries.Select(entry => entry.Section).Distinct().Count();
             float contentHeight = Math.Max(viewport.height,
@@ -141,11 +142,16 @@ namespace PrisonerDiplomacy
         private void DrawFactionRow(Rect rect, ContactEntry entry)
         {
             Faction faction = entry.Faction;
-            if (Mouse.IsOver(rect))
+            bool hovered = Mouse.IsOver(rect);
+            PrisonerDiplomacyUiTheme.DrawPanel(rect, false, hovered);
+            if (hovered)
             {
-                Widgets.DrawHighlight(rect);
+                // Keep the hover state visible above the panel and aligned with the theme.
+                Widgets.DrawHighlight(rect.ContractedBy(1f));
+                Widgets.DrawBoxSolid(
+                    new Rect(rect.x, rect.y, 3f, rect.height),
+                    PrisonerDiplomacyUiTheme.Accent);
             }
-            PrisonerDiplomacyUiTheme.DrawPanel(rect, false);
             Texture2D icon = faction?.def?.FactionIcon;
             Rect iconRect = new Rect(rect.x + 10f, rect.y + 11f, 42f, 42f);
             if (icon != null)
@@ -158,7 +164,7 @@ namespace PrisonerDiplomacy
             Widgets.Label(new Rect(rect.x + 62f, rect.y + 8f, rect.width - 74f, 24f), faction.NameColored);
             Text.Font = GameFont.Tiny;
             GUI.color = PrisonerDiplomacyUiTheme.TextMuted;
-            Widgets.Label(new Rect(rect.x + 62f, rect.y + 32f, rect.width - 74f, 26f),
+            Widgets.Label(new Rect(rect.x + 62f, rect.y + 32f, rect.width - 74f, 36f),
                 "PD_UiFactionContactSummary".Translate(
                     FactionNegotiationUtility.TypeLabel(faction), entry.Cases, entry.History));
             GUI.color = Color.white;

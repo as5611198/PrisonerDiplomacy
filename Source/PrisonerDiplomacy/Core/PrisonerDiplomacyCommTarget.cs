@@ -91,8 +91,8 @@ namespace PrisonerDiplomacy
             FloatMenuOption option = new FloatMenuOption(
                 label,
                 () => console.GiveUseCommsJob(negotiator, this),
-                isHub ? TexCommand.OpenLinkedQuestTex : Faction.def?.FactionIcon,
-                isHub ? Color.white : Faction.Color,
+                isHub ? TexButton.IconBook : Faction.def?.FactionIcon,
+                isHub ? PrisonerDiplomacyUiTheme.Accent : Faction.Color,
                 MenuOptionPriority.InitiateSocial);
             return FloatMenuUtility.DecoratePrioritizedTask(option, negotiator, console, "ReservedBy");
         }

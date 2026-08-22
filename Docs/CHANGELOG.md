@@ -8,6 +8,9 @@ RimWorld 1.6 mod implementing Prisoner Diplomacy 1.2.1: ransom, exchange, strate
 - Keeps released-prisoner factions available inside the faction browser for ceasefire, intelligence, agreement, and transaction-history review without cluttering the vanilla comms menu.
 - Groups known contacts by prisoner cases requiring attention, active agreements, and past contacts while preserving direct faction links from letters and alerts.
 - Retains old per-faction communication targets in save data for compatibility, but no longer injects them into the comms-console menu.
+- Replaces the Hub's vanilla question-mark icon with a cyan diplomatic dossier icon in the comms menu.
+- Adds a themed hover state to faction rows with a brighter panel, cyan outline, and left-edge selection marker.
+- Increases faction-row layout height so the two-line case/history summary is no longer clipped in supported UI scales.
 
 ## 1.2 Example Add-on reference release
 
