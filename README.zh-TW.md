@@ -4,7 +4,7 @@
 
 Prisoner Diplomacy 是 RimWorld 1.6 的確定性戰俘贖金、換俘與派系外交模組。它提供完整交涉流程，同時讓原版通訊台、俘虜釋放、旅隊移動與模組自己的 `PrisonerDiplomacyGameComponent` 保持最終權威。
 
-**目前版本：** `1.2.0`  
+**目前版本：** `1.2.1`
 **存檔 Schema：** `17`  
 **狀態：** 可發布候選版。剩餘極端情況交由發布後社群 QA 回報；建置、本地化、Smoke 與遙測閘門仍是必要檢查。
 
@@ -34,7 +34,7 @@ Prisoner Diplomacy 是 RimWorld 1.6 的確定性戰俘贖金、換俘與派系�
 
 ## 本地化
 
-模組提供 English、繁體中文、简体中文、日本語與 한국어 五種完整 Keyed 本地化，共 573 個 Key。修改語言檔後執行：
+模組提供 English、繁體中文、简体中文、日本語與 한국어 五種完整 Keyed 本地化，共 578 個 Key。修改語言檔後執行：
 
 ```powershell
 pwsh -NoProfile -ExecutionPolicy Bypass -File .\Tools\ValidateLocalization.ps1
@@ -42,7 +42,7 @@ pwsh -NoProfile -ExecutionPolicy Bypass -File .\Tools\ValidateLocalization.ps1
 
 ## 玩家入口
 
-原版通訊台是完整的主動交涉入口；派系信件可在沒有通訊台時帶來主動提案。攜帶 `PD_PortableDiplomacyTerminal` 的殖民者可透過裝備 Gizmo 開啟已知派系聯絡人。開發者模式的 **Prisoner Diplomacy** 分類提供可重現的俘虜、提案、還價、交換、事件、世界交易點、獎勵與診斷測試。
+原版通訊台只增加一個**開啟戰俘外交**入口，不再為每個已知派系永久增加一列；入口內的派系瀏覽器會將俘虜案件、有效協議與歷史聯絡分組顯示。派系信件仍可在沒有通訊台時帶來主動提案。攜帶 `PD_PortableDiplomacyTerminal` 的殖民者可透過裝備 Gizmo 開啟相同的已知派系聯絡人。開發者模式的 **Prisoner Diplomacy** 分類提供可重現的俘虜、提案、還價、交換、事件、世界交易點、獎勵與診斷測試。
 
 AI 與 RimChat 都是選配層，不能繞過交易狀態機或直接宣稱付款、改動 Pawn、期限或事件結果。
 

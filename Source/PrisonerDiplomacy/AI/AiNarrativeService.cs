@@ -767,7 +767,7 @@ namespace PrisonerDiplomacy
             using (HttpRequestMessage message = new HttpRequestMessage(HttpMethod.Post, config.Endpoint))
             {
                 client.Timeout = Timeout.InfiniteTimeSpan;
-                message.Headers.UserAgent.ParseAdd("PrisonerDiplomacy/1.2.0");
+                message.Headers.UserAgent.ParseAdd("PrisonerDiplomacy/1.2.1");
                 if (!string.IsNullOrWhiteSpace(config.ApiKey))
                 {
                     message.Headers.Authorization = new AuthenticationHeaderValue("Bearer", config.ApiKey);
@@ -1080,7 +1080,7 @@ namespace PrisonerDiplomacy
             using (HttpRequestMessage message = new HttpRequestMessage(HttpMethod.Post, endpoint))
             {
                 client.Timeout = Timeout.InfiniteTimeSpan;
-                message.Headers.UserAgent.ParseAdd("PrisonerDiplomacy/1.2.0");
+                message.Headers.UserAgent.ParseAdd("PrisonerDiplomacy/1.2.1");
                 message.Content = new StringContent(requestJson, Encoding.UTF8, "application/json");
                 using (HttpResponseMessage response = await client.SendAsync(message, cancellationToken).ConfigureAwait(false))
                 {

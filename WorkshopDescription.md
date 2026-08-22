@@ -1,4 +1,4 @@
-# Prisoner Diplomacy 1.2.0 Event and Extension Release Candidate
+# Prisoner Diplomacy 1.2.1
 
 Prisoner Diplomacy turns captured enemies into a long-term diplomatic decision instead of a one-click sale.
 
@@ -31,13 +31,13 @@ AI narratives are disabled by default. External negotiation-summary transfer req
 
 ## Compatibility
 
-RimWorld 1.6 is required. Harmony is required. RimChat, Humanoid Alien Races, Hospitality, Combat Extended, Vanilla Factions Expanded, and custom race/faction mods are optional. Prisoner Realism 1.6 has been loaded with Prisoner Diplomacy 1.2.0 in both mod orders; it owns prison-break behavior while Prisoner Diplomacy owns diplomatic triggers and deal outcomes. See [`Compatibility.md`](Compatibility.md) and [`KnownIssues.md`](KnownIssues.md) for the current matrix, the Prisoner Realism overlap details, and limitations.
+RimWorld 1.6 is required. Harmony is required. RimChat, Humanoid Alien Races, Hospitality, Combat Extended, Vanilla Factions Expanded, and custom race/faction mods are optional. Prisoner Realism 1.6 has been loaded with Prisoner Diplomacy 1.2.x in both mod orders; it owns prison-break behavior while Prisoner Diplomacy owns diplomatic triggers and deal outcomes. See [`Compatibility.md`](Compatibility.md) and [`KnownIssues.md`](KnownIssues.md) for the current matrix, the Prisoner Realism overlap details, and limitations.
 
 ## Save safety
 
 Version 1.2 uses save schema 17 and migrates schema 16 and older data to it. The migration is conservative: it repairs missing links, preserves transaction outcomes, and initializes staged-event and special-reward fields without changing vanilla Pawn ownership or inventing a missing transaction result. Back up important saves before installing any mod update.
 
-The vanilla comms console remains the full negotiation entry point. Incoming letters still work without a console, active agreements remain reviewable through a persistent alert, and the optional portable diplomacy terminal opens known faction contacts from a selected colonist's equipment gizmo.
+The vanilla comms console remains the full negotiation entry point through one consolidated **Open prisoner diplomacy** option. Its faction browser groups prisoner cases, active agreements, and past contacts instead of permanently adding one comms-menu row per faction. Incoming letters still work without a console, active agreements remain reviewable through a persistent alert, and the optional portable diplomacy terminal opens the same known faction contacts from a selected colonist's equipment gizmo.
 
 The built-in supply catalog expands by faction technology: medicine, meals, kibble, components, chemfuel, steel, cloth, plasteel, uranium, synthread, and hyperweave. Compatible race or faction add-ons can also register their own item `ThingDef` as a special reward through the public adapter API. The core validates the item and delivers it exactly once; add-ons never mutate the transaction state directly.
 

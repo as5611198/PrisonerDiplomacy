@@ -42,6 +42,8 @@
   <PD_IntroText>適格な囚人を拘束すると、数日後にその派閥が身代金の申し出で連絡してくる可能性があります。\n\nすぐに交渉して独自の身代金要求を設定できるように通信コンソールを構築して強化します。派閥が最初のオファーを行うまで待つこともできます。\n\n注: この説明は 1 回のみ表示されます。将来の囚人は引き続きこのシステムを使用しますが、このメッセージは再び表示されなくなります。</PD_IntroText>
   <PD_CommTargetLabel>開かれた捕虜外交: {0}</PD_CommTargetLabel>
   <PD_CommTargetInfo>積極的な身代金取引や戦略的合意など、{0} との囚人外交をオープンにします。</PD_CommTargetInfo>
+  <PD_CommHubLabel>捕虜外交を開く</PD_CommHubLabel>
+  <PD_CommHubInfo>捕虜案件、有効な協定、既知の派閥との取引履歴を確認します。</PD_CommHubInfo>
   <PD_NegotiationTitle>囚人の身代金交渉: {0}</PD_NegotiationTitle>
   <PD_NegotiatorSummary>交渉人: {0} |ソーシャル: {1}</PD_NegotiatorSummary>
   <PD_UiCases>事例</PD_UiCases>
@@ -71,6 +73,9 @@
   <PD_UiFactionContactsTitle>既知の外交関係者</PD_UiFactionContactsTitle>
   <PD_UiFactionContactsEmpty>派閥との連絡先はまだ確立されていません。</PD_UiFactionContactsEmpty>
   <PD_UiFactionContactSummary>{0}\nケース: {1} |履歴: {2}</PD_UiFactionContactSummary>
+  <PD_UiFactionContactsAction>要対応</PD_UiFactionContactsAction>
+  <PD_UiFactionContactsAgreements>有効な協定</PD_UiFactionContactsAgreements>
+  <PD_UiFactionContactsHistory>過去の連絡先</PD_UiFactionContactsHistory>
   <PD_UiReadOnly>読み取り専用レビュー</PD_UiReadOnly>
   <PD_HistoryExchangeSupplies>人質 {0}、{1} {2}</PD_HistoryExchangeSupplies>
   <PD_HistoryExchangeSilver>人質 {0}、{1} シルバー</PD_HistoryExchangeSilver>

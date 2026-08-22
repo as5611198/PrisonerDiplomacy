@@ -1,6 +1,13 @@
 # Prisoner Diplomacy
 
-RimWorld 1.6 mod implementing Prisoner Diplomacy 1.2.0: ransom, exchange, strategic ceasefire and intelligence, causal follow-up events, pirate-risk, faction-memory, dynamic deadlines, a versioned extension API, staged neutral handoffs, core-fulfilled special rewards, infiltration, public trials, RimChat coexistence, and optional AI narratives. The automated release gates are complete; remaining edge cases are accepted for post-release community QA.
+RimWorld 1.6 mod implementing Prisoner Diplomacy 1.2.1: ransom, exchange, strategic ceasefire and intelligence, causal follow-up events, pirate-risk, faction-memory, dynamic deadlines, a versioned extension API, staged neutral handoffs, core-fulfilled special rewards, infiltration, public trials, RimChat coexistence, and optional AI narratives. The automated release gates are complete; remaining edge cases are accepted for post-release community QA.
+
+## 1.2.1 stabilization
+
+- Replaces the growing per-faction comms-console list with one persistent **Open prisoner diplomacy** hub entry.
+- Keeps released-prisoner factions available inside the faction browser for ceasefire, intelligence, agreement, and transaction-history review without cluttering the vanilla comms menu.
+- Groups known contacts by prisoner cases requiring attention, active agreements, and past contacts while preserving direct faction links from letters and alerts.
+- Retains old per-faction communication targets in save data for compatibility, but no longer injects them into the comms-console menu.
 
 ## 1.2 Example Add-on reference release
 

@@ -42,6 +42,8 @@
   <PD_IntroText>When you hold an eligible prisoner, their originating faction may contact you with a ransom offer after several days.\n\nBuild and power a comms console to negotiate immediately and set your own ransom demand. You can also wait for the faction to make the first offer.\n\nNote: This explanation appears only once. Future prisoners still use this system, but this message will not appear again.</PD_IntroText>
   <PD_CommTargetLabel>Open prisoner diplomacy: {0}</PD_CommTargetLabel>
   <PD_CommTargetInfo>Open prisoner diplomacy with {0}, including active ransom deals and strategic agreements.</PD_CommTargetInfo>
+  <PD_CommHubLabel>Open prisoner diplomacy</PD_CommHubLabel>
+  <PD_CommHubInfo>Review prisoner cases, active agreements, and known faction history.</PD_CommHubInfo>
   <PD_NegotiationTitle>Prisoner ransom negotiation: {0}</PD_NegotiationTitle>
   <PD_NegotiatorSummary>Negotiator: {0} | Social: {1}</PD_NegotiatorSummary>
   <PD_UiCases>Cases</PD_UiCases>
@@ -71,6 +73,9 @@
   <PD_UiFactionContactsTitle>Known diplomatic contacts</PD_UiFactionContactsTitle>
   <PD_UiFactionContactsEmpty>No faction contacts have been established yet.</PD_UiFactionContactsEmpty>
   <PD_UiFactionContactSummary>{0}\nCases: {1} | History: {2}</PD_UiFactionContactSummary>
+  <PD_UiFactionContactsAction>Needs attention</PD_UiFactionContactsAction>
+  <PD_UiFactionContactsAgreements>Active agreements</PD_UiFactionContactsAgreements>
+  <PD_UiFactionContactsHistory>Past contacts</PD_UiFactionContactsHistory>
   <PD_UiReadOnly>Read-only review</PD_UiReadOnly>
   <PD_HistoryExchangeSupplies>hostage {0}, {1} {2}</PD_HistoryExchangeSupplies>
   <PD_HistoryExchangeSilver>hostage {0}, {1} silver</PD_HistoryExchangeSilver>

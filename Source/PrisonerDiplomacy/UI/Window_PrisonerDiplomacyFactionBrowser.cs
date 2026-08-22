@@ -9,6 +9,21 @@ namespace PrisonerDiplomacy
 {
     public sealed class Window_PrisonerDiplomacyFactionBrowser : Window
     {
+        private enum ContactSection
+        {
+            ActionRequired,
+            ActiveAgreement,
+            History
+        }
+
+        private sealed class ContactEntry
+        {
+            public Faction Faction;
+            public int Cases;
+            public int History;
+            public ContactSection Section;
+        }
+
         private readonly Pawn negotiator;
         private readonly Map map;
         private Vector2 scrollPosition;
@@ -30,8 +45,14 @@ namespace PrisonerDiplomacy
         public override void DoWindowContents(Rect inRect)
         {
             PrisonerDiplomacyGameComponent component = PrisonerDiplomacyGameComponent.Current;
-            List<Faction> factions = component?.GetKnownNegotiationFactions(map).ToList()
-                ?? new List<Faction>();
+            HashSet<Faction> activeAgreements = new HashSet<Faction>(
+                component?.GetActiveAgreementFactions() ?? new List<Faction>());
+            List<ContactEntry> entries = (component?.GetKnownNegotiationFactions(map)
+                    ?? new List<Faction>())
+                .Select(faction => CreateEntry(faction, component, map, activeAgreements))
+                .OrderBy(entry => entry.Section)
+                .ThenBy(entry => entry.Faction.Name)
+                .ToList();
             Widgets.DrawBoxSolid(inRect, PrisonerDiplomacyUiTheme.Canvas);
             PrisonerDiplomacyUiTheme.DrawPanel(new Rect(inRect.x, inRect.y, inRect.width, 58f), true);
             Text.Font = GameFont.Medium;
@@ -42,10 +63,13 @@ namespace PrisonerDiplomacy
             Rect viewport = new Rect(inRect.x + 8f, inRect.y + 68f, inRect.width - 16f,
                 inRect.height - 116f);
             float rowHeight = 70f;
-            float contentHeight = Math.Max(viewport.height, factions.Count * rowHeight);
+            float sectionHeight = 30f;
+            int sectionCount = entries.Select(entry => entry.Section).Distinct().Count();
+            float contentHeight = Math.Max(viewport.height,
+                entries.Count * rowHeight + sectionCount * sectionHeight);
             Rect view = new Rect(0f, 0f, viewport.width - 18f, contentHeight);
             Widgets.BeginScrollView(viewport, ref scrollPosition, view);
-            if (factions.Count == 0)
+            if (entries.Count == 0)
             {
                 GUI.color = PrisonerDiplomacyUiTheme.TextMuted;
                 Widgets.Label(new Rect(12f, 18f, view.width - 24f, 32f),
@@ -54,9 +78,19 @@ namespace PrisonerDiplomacy
             }
 
             float y = 0f;
-            foreach (Faction faction in factions)
+            ContactSection? currentSection = null;
+            foreach (ContactEntry entry in entries)
             {
-                DrawFactionRow(new Rect(0f, y, view.width, rowHeight - 6f), faction, component);
+                if (currentSection != entry.Section)
+                {
+                    currentSection = entry.Section;
+                    PrisonerDiplomacyUiTheme.DrawSectionHeading(
+                        new Rect(4f, y, view.width - 8f, sectionHeight - 4f),
+                        SectionLabel(entry.Section));
+                    y += sectionHeight;
+                }
+
+                DrawFactionRow(new Rect(0f, y, view.width, rowHeight - 6f), entry);
                 y += rowHeight;
             }
             Widgets.EndScrollView();
@@ -71,8 +105,42 @@ namespace PrisonerDiplomacy
             PrisonerDiplomacyUiTheme.ResetText();
         }
 
-        private void DrawFactionRow(Rect rect, Faction faction, PrisonerDiplomacyGameComponent component)
+        private static ContactEntry CreateEntry(
+            Faction faction,
+            PrisonerDiplomacyGameComponent component,
+            Map map,
+            HashSet<Faction> activeAgreements)
         {
+            int cases = component?.GetNegotiableRecords(faction, map).Count ?? 0;
+            return new ContactEntry
+            {
+                Faction = faction,
+                Cases = cases,
+                History = component?.GetDealHistory(faction).Count ?? 0,
+                Section = cases > 0
+                    ? ContactSection.ActionRequired
+                    : activeAgreements.Contains(faction)
+                        ? ContactSection.ActiveAgreement
+                        : ContactSection.History
+            };
+        }
+
+        private static string SectionLabel(ContactSection section)
+        {
+            switch (section)
+            {
+                case ContactSection.ActionRequired:
+                    return "PD_UiFactionContactsAction".Translate();
+                case ContactSection.ActiveAgreement:
+                    return "PD_UiFactionContactsAgreements".Translate();
+                default:
+                    return "PD_UiFactionContactsHistory".Translate();
+            }
+        }
+
+        private void DrawFactionRow(Rect rect, ContactEntry entry)
+        {
+            Faction faction = entry.Faction;
             if (Mouse.IsOver(rect))
             {
                 Widgets.DrawHighlight(rect);
@@ -88,13 +156,11 @@ namespace PrisonerDiplomacy
             }
             Text.Font = GameFont.Small;
             Widgets.Label(new Rect(rect.x + 62f, rect.y + 8f, rect.width - 74f, 24f), faction.NameColored);
-            int cases = component?.GetNegotiableRecords(faction, map).Count ?? 0;
-            int history = component?.GetDealHistory(faction).Count ?? 0;
             Text.Font = GameFont.Tiny;
             GUI.color = PrisonerDiplomacyUiTheme.TextMuted;
             Widgets.Label(new Rect(rect.x + 62f, rect.y + 32f, rect.width - 74f, 26f),
                 "PD_UiFactionContactSummary".Translate(
-                    FactionNegotiationUtility.TypeLabel(faction), cases, history));
+                    FactionNegotiationUtility.TypeLabel(faction), entry.Cases, entry.History));
             GUI.color = Color.white;
             if (Widgets.ButtonInvisible(rect))
             {

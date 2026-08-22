@@ -79,7 +79,7 @@ AI 預設只負責敘事，不會擅自改動贖金、期限、報酬、俘虜�
 - Harmony：https://steamcommunity.com/sharedfiles/filedetails/?id=2009463077
 - QQ 討論群：211784688
 
-目前版本為 1.2.0。如果遇到問題，可以在開發者模式中使用 Prisoner Diplomacy → Copy diagnostic report，回報時請一併附上交易階段、模組清單與相關 Player.log 片段，並記得移除任何 API Key。
+目前版本為 1.2.1。如果遇到問題，可以在開發者模式中使用 Prisoner Diplomacy → Copy diagnostic report，回報時請一併附上交易階段、模組清單與相關 Player.log 片段，並記得移除任何 API Key。
 
 【製作說明】
 

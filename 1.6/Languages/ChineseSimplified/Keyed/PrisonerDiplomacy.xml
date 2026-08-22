@@ -42,6 +42,8 @@
   <PD_IntroText>当您扣留符合条件的囚犯时，他们的原始派系可能会在几天后与您联系并提出赎金要求。\n\n构建并启动通信控制台以立即进行谈判并设置您自己的赎金要求。您也可以等待派系首次报价。\n\n注：此说明仅出现一次。未来的囚犯仍然使用这个系统，但这个信息不会再出现。</PD_IntroText>
   <PD_CommTargetLabel>开放囚徒外交：{0}</PD_CommTargetLabel>
   <PD_CommTargetInfo>与 {0} 开展囚犯外交，包括积极的赎金交易和战略协议。</PD_CommTargetInfo>
+  <PD_CommHubLabel>打开战俘外交</PD_CommHubLabel>
+  <PD_CommHubInfo>查看俘虏案件、生效协议和已知派系的交易历史。</PD_CommHubInfo>
   <PD_NegotiationTitle>囚犯赎金谈判：{0}</PD_NegotiationTitle>
   <PD_NegotiatorSummary>谈判者：{0} |社交：{1}</PD_NegotiatorSummary>
   <PD_UiCases>案例</PD_UiCases>
@@ -71,6 +73,9 @@
   <PD_UiFactionContactsTitle>已知的外交联系</PD_UiFactionContactsTitle>
   <PD_UiFactionContactsEmpty>尚未建立派别联系。</PD_UiFactionContactsEmpty>
   <PD_UiFactionContactSummary>{0}\n案例：{1} |历史记录：{2}</PD_UiFactionContactSummary>
+  <PD_UiFactionContactsAction>需要处理</PD_UiFactionContactsAction>
+  <PD_UiFactionContactsAgreements>生效协议</PD_UiFactionContactsAgreements>
+  <PD_UiFactionContactsHistory>历史联系</PD_UiFactionContactsHistory>
   <PD_UiReadOnly>只读评论</PD_UiReadOnly>
   <PD_HistoryExchangeSupplies>人质 {0}、{1} {2}</PD_HistoryExchangeSupplies>
   <PD_HistoryExchangeSilver>人质 {0}、{1} 银色</PD_HistoryExchangeSilver>

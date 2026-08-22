@@ -31,7 +31,7 @@ namespace PrisonerDiplomacy
             PrisonerDiplomacySettings settings = PrisonerDiplomacyMod.Settings;
 
             builder.AppendLine("Prisoner Diplomacy diagnostic report");
-            builder.AppendLine("modVersion=1.2.0");
+            builder.AppendLine("modVersion=1.2.1");
             builder.AppendLine("apiVersion=" + PrisonerDiplomacyBackendApi.ApiVersion);
             builder.AppendLine("gameVersion=" + SafeGameVersion());
             builder.AppendLine("saveSchema=" + (component?.SaveSchemaVersion.ToString() ?? "no-game"));

@@ -55,7 +55,7 @@ function Translate-Text([string]$value, [string]$language) {
 
 [xml]$source = Get-Content -Raw -Encoding UTF8 $SourcePath
 $sourceNodes = @($source.LanguageData.ChildNodes | Where-Object { $_.NodeType -eq [System.Xml.XmlNodeType]::Element })
-if ($sourceNodes.Count -ne 570) { throw "Expected 570 source keys, found $($sourceNodes.Count)." }
+if ($sourceNodes.Count -ne 578) { throw "Expected 578 source keys, found $($sourceNodes.Count)." }
 
 foreach ($target in $targets) {
     $targetDir = Join-Path $languageRoot "$($target.Name)\Keyed"

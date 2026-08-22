@@ -4,7 +4,7 @@
 
 Prisoner Diplomacy is a RimWorld 1.6 mod for deterministic prisoner ransom, exchange, and faction diplomacy. It adds a complete negotiation workflow while keeping vanilla comms, prisoner release, caravan movement, and the mod's `PrisonerDiplomacyGameComponent` authoritative.
 
-**Current version:** `1.2.0`  
+**Current version:** `1.2.1`
 **Save schema:** `17`  
 **Status:** release-ready candidate. The author accepts remaining edge-case risk for post-release community QA; automated build, localization, smoke, and telemetry gates remain mandatory.
 
@@ -39,11 +39,11 @@ New players should start at [`Docs/PlayerGuide/README.md`](Docs/PlayerGuide/READ
 
 ## Localization
 
-The mod ships complete keyed localization for English, Traditional Chinese, Simplified Chinese, Japanese, and Korean. All language files contain the same 573 keys, including negotiation UI, reward-value hints, debug tools, AI advisory text, strategic agreements, extension events, and telemetry consent text. Run `pwsh -NoProfile -ExecutionPolicy Bypass -File .\Tools\ValidateLocalization.ps1` after changing a keyed file. `Tools/GenerateLocalization.ps1` can regenerate the three additional translations from the English source when needed.
+The mod ships complete keyed localization for English, Traditional Chinese, Simplified Chinese, Japanese, and Korean. All language files contain the same 578 keys, including negotiation UI, reward-value hints, debug tools, AI advisory text, strategic agreements, extension events, and telemetry consent text. Run `pwsh -NoProfile -ExecutionPolicy Bypass -File .\Tools\ValidateLocalization.ps1` after changing a keyed file. `Tools/GenerateLocalization.ps1` can regenerate the three additional translations from the English source when needed.
 
 ## Player entry points
 
-The vanilla comms console is the complete entry point. A player can negotiate immediately when an eligible prisoner and negotiator are available; no additional console or AI service is required. Faction letters remain available for unsolicited offers and event choices. Developer mode exposes repeatable actions under the **Prisoner Diplomacy** category for creating prisoners, offers, counteroffers, exchanges, event stages, world trade points, rewards, raid consequences, save-repair cases, and diagnostic reports.
+The vanilla comms console exposes one **Open prisoner diplomacy** hub instead of adding a permanent option for every known faction. The hub groups prisoner cases, active agreements, and past contacts in the persistent faction browser. A player can negotiate immediately when an eligible prisoner and negotiator are available; no additional console or AI service is required. Faction letters remain available for unsolicited offers and event choices. Developer mode exposes repeatable actions under the **Prisoner Diplomacy** category for creating prisoners, offers, counteroffers, exchanges, event stages, world trade points, rewards, raid consequences, save-repair cases, and diagnostic reports.
 
 AI narratives and RimChat integrations are optional presentation or ownership layers. The opt-in AI advisory can only adjust an unaccepted counteroffer inside deterministic reserve, inventory, reward, and stale-context limits; neither integration can bypass the transaction state machine.
 

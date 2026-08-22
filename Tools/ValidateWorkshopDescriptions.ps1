@@ -17,7 +17,7 @@ $required = @(
     '[h2]',
     '[list]',
     '[url=https://github.com/as5611198/PrisonerDiplomacy]',
-    '1.2.0',
+    '1.2.1',
     'ai.aiyuhub.com',
     '211784688',
     'GPT-5.6 SOL'

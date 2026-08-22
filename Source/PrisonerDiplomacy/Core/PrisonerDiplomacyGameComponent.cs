@@ -39,6 +39,7 @@ namespace PrisonerDiplomacy
         private List<PrisonerDeal> deals = new List<PrisonerDeal>();
         private List<PrisonerDealHistoryEntry> dealHistory = new List<PrisonerDealHistoryEntry>();
         private List<FactionNegotiationMemory> factionNegotiationMemories = new List<FactionNegotiationMemory>();
+        // Legacy per-faction targets remain serialized so old in-progress comms jobs can resolve.
         private List<PrisonerDiplomacyCommTarget> commTargets = new List<PrisonerDiplomacyCommTarget>();
         private List<AiNarrativeRecord> aiNarratives = new List<AiNarrativeRecord>();
         private List<FactionStrategicState> factionStrategicStates = new List<FactionStrategicState>();
@@ -536,56 +537,18 @@ namespace PrisonerDiplomacy
         public IEnumerable<PrisonerDiplomacyCommTarget> GetCommTargets(Map map)
         {
             ScanAndUpdate();
-            HashSet<Faction> factions = new HashSet<Faction>();
-            if (RimChatIntegration.AllowsNewPrisonerDiplomacyDeals)
+            if (GetKnownNegotiationFactions(map).Count > 0)
             {
-                foreach (Faction faction in GetNegotiableFactions(map))
-                {
-                    factions.Add(faction);
-                }
-            }
-
-            foreach (Faction faction in GetPersistentCommTargetFactions(map))
-            {
-                factions.Add(faction);
-            }
-
-            foreach (Faction faction in factions.OrderBy(item => item.Name))
-            {
-                yield return GetOrCreateCommTarget(faction);
+                yield return GetOrCreateCommHubTarget();
             }
         }
 
-        private IEnumerable<Faction> GetPersistentCommTargetFactions(Map map)
+        private PrisonerDiplomacyCommTarget GetOrCreateCommHubTarget()
         {
-            IEnumerable<Faction> activeDealFactions = deals
-                .Where(deal => deal?.IsActive == true && deal.Map == map && deal.Faction != null)
-                .Select(deal => deal.Faction);
-            int now = Find.TickManager?.TicksGame ?? 0;
-            IEnumerable<Faction> strategicFactions = factionStrategicStates
-                .Where(state => HasActiveStrategicStatus(state, now))
-                .Select(state => state.Faction);
-            IEnumerable<Faction> historicalFactions = dealHistory
-                .Where(entry => entry?.Faction != null)
-                .Select(entry => entry.Faction);
-            IEnumerable<Faction> contactedFactions = factionNegotiationMemories
-                .Where(memory => memory?.Faction != null && (memory.LastPlayerNegotiationTick >= 0
-                    || memory.SuccessfulDeals > 0 || memory.RejectedNegotiations > 0))
-                .Select(memory => memory.Faction);
-            return activeDealFactions
-                .Concat(strategicFactions)
-                .Concat(historicalFactions)
-                .Concat(contactedFactions)
-                .Where(faction => faction != null)
-                .Distinct();
-        }
-
-        private PrisonerDiplomacyCommTarget GetOrCreateCommTarget(Faction faction)
-        {
-            PrisonerDiplomacyCommTarget target = commTargets.FirstOrDefault(item => item.Faction == faction);
+            PrisonerDiplomacyCommTarget target = commTargets.FirstOrDefault(item => item?.IsHub == true);
             if (target == null)
             {
-                target = new PrisonerDiplomacyCommTarget(faction);
+                target = PrisonerDiplomacyCommTarget.CreateHub();
                 commTargets.Add(target);
             }
             return target;
@@ -3448,7 +3411,7 @@ namespace PrisonerDiplomacy
             strategicFollowups.RemoveAll(followup => followup == null
                 || string.IsNullOrEmpty(followup.EventId)
                 || followup.Faction == null);
-            commTargets.RemoveAll(target => target == null || target.Faction == null);
+            commTargets.RemoveAll(target => target == null || !target.IsHub && target.Faction == null);
             aiNarratives.RemoveAll(narrative => narrative == null || string.IsNullOrEmpty(narrative.ContextId));
             foreach (PrisonerRecord record in records)
             {
@@ -3974,8 +3937,13 @@ namespace PrisonerDiplomacy
                     && strategicState?.CeasefireExpiresTick > Find.TickManager.TicksGame
                     && strategicState.IntelAvailable,
                     "verified delivery did not activate ceasefire and intelligence exactly once");
-                AssertSmokeTest(GetPersistentCommTargetFactions(map).Contains(faction),
-                    "a faction with an active strategic agreement disappeared from the comms console");
+                List<PrisonerDiplomacyCommTarget> visibleCommTargets = GetCommTargets(map).ToList();
+                AssertSmokeTest(visibleCommTargets.Count == 1
+                    && visibleCommTargets[0].IsHub
+                    && visibleCommTargets[0].Faction == null
+                    && visibleCommTargets[0].GetFaction() == null
+                    && !string.IsNullOrWhiteSpace(visibleCommTargets[0].GetCallLabel()),
+                    "the comms console did not consolidate known factions into one diplomacy hub");
                 int originalCeasefireExpiry = strategicState.CeasefireExpiresTick;
                 int originalIntelExpiry = strategicState.IntelExpiresTick;
                 FulfillDeal(strategicDeal);

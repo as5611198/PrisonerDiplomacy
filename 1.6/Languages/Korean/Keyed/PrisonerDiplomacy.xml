@@ -42,6 +42,8 @@
   <PD_IntroText>적격 죄수를 구금하면 며칠 후 원래 세력이 몸값 제안으로 연락할 수 있습니다. \n\n통신 콘솔을 구축하고 전원을 공급하여 즉시 협상하고 몸값 요구 사항을 직접 설정하세요. 해당 세력이 첫 번째 제안을 할 때까지 기다릴 수도 있습니다.\n\n참고: 이 설명은 한 번만 나타납니다. 미래의 죄수들은 여전히 ​​이 시스템을 사용하지만 이 메시지는 다시 나타나지 않을 것입니다.</PD_IntroText>
   <PD_CommTargetLabel>개방형 포로 외교: {0}</PD_CommTargetLabel>
   <PD_CommTargetInfo>적극적인 몸값 거래 및 전략적 합의를 포함하여 {0}를 통해 포로 외교를 공개하세요.</PD_CommTargetInfo>
+  <PD_CommHubLabel>포로 외교 열기</PD_CommHubLabel>
+  <PD_CommHubInfo>포로 사건, 활성 협정 및 알려진 세력과의 거래 기록을 검토합니다.</PD_CommHubInfo>
   <PD_NegotiationTitle>죄수 몸값 협상: {0}</PD_NegotiationTitle>
   <PD_NegotiatorSummary>협상가: {0} | 소셜: {1}</PD_NegotiatorSummary>
   <PD_UiCases>사례</PD_UiCases>
@@ -71,6 +73,9 @@
   <PD_UiFactionContactsTitle>알려진 외교 접촉</PD_UiFactionContactsTitle>
   <PD_UiFactionContactsEmpty>아직 파벌 접촉이 확립되지 않았습니다.</PD_UiFactionContactsEmpty>
   <PD_UiFactionContactSummary>{0}\n사례: {1} | 역사: {2}</PD_UiFactionContactSummary>
+  <PD_UiFactionContactsAction>처리 필요</PD_UiFactionContactsAction>
+  <PD_UiFactionContactsAgreements>활성 협정</PD_UiFactionContactsAgreements>
+  <PD_UiFactionContactsHistory>이전 연락처</PD_UiFactionContactsHistory>
   <PD_UiReadOnly>읽기 전용 검토</PD_UiReadOnly>
   <PD_HistoryExchangeSupplies>인질 {0}, {1} {2}</PD_HistoryExchangeSupplies>
   <PD_HistoryExchangeSilver>인질 {0}, {1} 실버</PD_HistoryExchangeSilver>

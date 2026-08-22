@@ -2,7 +2,9 @@
 
 [b]Prisoner Diplomacy[/b] expands RimWorld captivity into a complete system of negotiation, faction memory, and consequences.
 
-[b]Current release: 1.2.0[/b] for RimWorld 1.6.
+[b]Current release: 1.2.1[/b] for RimWorld 1.6.
+
+Version 1.2.1 consolidates known factions into one comms-console diplomacy hub, with prisoner cases, active agreements, and past contacts grouped inside.
 
 Enemy factions may contact your colony to recover their people, or you can open negotiations through the vanilla comms console. A prisoner's identity, health, importance, faction resources, your negotiator's Social skill, and your history with that faction all shape the deal.
 

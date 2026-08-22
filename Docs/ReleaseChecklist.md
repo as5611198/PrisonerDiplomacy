@@ -2,13 +2,13 @@
 
 This checklist separates repository and package checks from the final in-game acceptance pass. A green automated check is package/load evidence; it is not a substitute for clicking through the UI or completing a world-map event in a real save.
 
-## Completed for the 1.2.0 candidate
+## Completed for the 1.2.1 stabilization build
 
 - [x] Release build completes with zero warnings and zero errors.
 - [x] Deployed `1.6/Assemblies/PrisonerDiplomacy.dll` matches the release build hash.
 - [x] Isolated `-quicktest -pdsmoketest` reaches `PASS cases=127`, including the offline-safe telemetry contract self-test.
 - [x] Smoke log has no `SmokeTest FAIL`, Prisoner Diplomacy exception, or missing required Def.
-- [x] English, Traditional Chinese, Simplified Chinese, Japanese, and Korean keyed files each contain 573 keys with matching placeholders and newline markers (`Tools/ValidateLocalization.ps1`).
+- [x] English, Traditional Chinese, Simplified Chinese, Japanese, and Korean keyed files each contain 578 keys with matching placeholders and newline markers (`Tools/ValidateLocalization.ps1`).
 - [x] About, Def, and language XML files parse successfully.
 - [x] Source is organized by responsibility and contains no remaining `Widgets.ButtonText` calls.
 - [x] Apache 2.0 source notice, Non-Commercial Exception, and CC BY-NC-ND 4.0 asset notice are present.
@@ -20,8 +20,8 @@ This checklist separates repository and package checks from the final in-game ac
 
 The author completed the primary gameplay pass and accepted the remaining edge-case checks for post-release community QA on 2026-08-21. Unchecked items below are tracked release risks, not Workshop upload blockers.
 
-- [ ] Open the negotiation window from the vanilla comms console with active prisoner cases.
-- [ ] Open the persistent faction browser when a faction has no prisoners; verify agreements, history, and event tabs remain usable.
+- [ ] Open the vanilla comms console with several known factions; verify Prisoner Diplomacy adds exactly one hub option and its **Needs attention** group opens an active case.
+- [ ] Release the final prisoner, reopen the hub, and verify active agreements and past contacts remain reviewable without per-faction comms-menu entries.
 - [ ] Click every themed action button, including submit, revised terms, accept, reject, close, and end negotiation.
 - [ ] Verify long Traditional Chinese labels, warning markers, input rows, and bottom evaluation text at UI scales 1.0, 1.25, and 1.5.
 - [ ] Verify a low-resolution layout has no clipped text or unnecessary vertical scrollbar.

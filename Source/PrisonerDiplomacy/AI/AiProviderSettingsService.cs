@@ -281,7 +281,7 @@ namespace PrisonerDiplomacy
             using (HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, endpoint))
             {
                 client.Timeout = Timeout.InfiniteTimeSpan;
-                request.Headers.UserAgent.ParseAdd("PrisonerDiplomacy/1.2.0");
+                request.Headers.UserAgent.ParseAdd("PrisonerDiplomacy/1.2.1");
                 request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 if (config.Provider != AiNarrativeProviderKind.Google && !string.IsNullOrWhiteSpace(config.ApiKey))
                 {

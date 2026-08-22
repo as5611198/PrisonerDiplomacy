@@ -35,7 +35,7 @@ namespace PrisonerDiplomacy
             harmony.PatchAll();
             RimChatHarmonyPatches.TryInstall(harmony);
             PrisonerDiplomacyExtensionCatalog.RegisterBuiltIns();
-            Log.Message("[Prisoner Diplomacy] 1.2.0 initialized. RimChat="
+            Log.Message("[Prisoner Diplomacy] 1.2.1 initialized. RimChat="
                 + (RimChatIntegration.IsInstalled ? RimChatIntegration.Version : "not installed")
                 + " status=" + RimChatIntegration.Status
                 + " bridge=" + RimChatHarmonyPatches.IsInstalled + ".");

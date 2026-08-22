@@ -322,7 +322,8 @@ namespace PrisonerDiplomacy
             {
                 orphanedPoint.Destroy();
             }
-            summary.RemovedCommTargets += commTargets.RemoveAll(target => target == null || target.Faction == null);
+            summary.RemovedCommTargets += commTargets.RemoveAll(target =>
+                target == null || !target.IsHub && target.Faction == null);
             summary.RemovedNarratives += aiNarratives.RemoveAll(narrative => narrative == null
                 || string.IsNullOrEmpty(narrative.ContextId));
             foreach (AiNarrativeRecord narrative in aiNarratives)
@@ -342,6 +343,15 @@ namespace PrisonerDiplomacy
                     commTargets.Remove(duplicate);
                     summary.RemovedCommTargets++;
                 }
+            }
+
+            foreach (PrisonerDiplomacyCommTarget duplicate in commTargets
+                .Where(target => target.IsHub)
+                .Skip(1)
+                .ToList())
+            {
+                commTargets.Remove(duplicate);
+                summary.RemovedCommTargets++;
             }
 
             foreach (IGrouping<string, StrategicFollowupEvent> group in strategicFollowups

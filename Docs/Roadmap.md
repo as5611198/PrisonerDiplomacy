@@ -2,11 +2,11 @@
 
 [English](Roadmap.md) | [繁體中文](Roadmap.zh-TW.md)
 
-Status: observation and community QA. Prisoner Diplomacy 1.2.0 is the current public baseline. This document records candidate work; it is not a promise that every item will ship or that the listed version numbers are fixed.
+Status: observation and community QA. Prisoner Diplomacy 1.2.1 is the current stabilization baseline. This document records candidate work; it is not a promise that every item will ship or that the listed version numbers are fixed.
 
 ## 1. Current decision
 
-Let 1.2.0 run in real player environments before changing its save schema, transaction state machine, or public mutation surface.
+Let 1.2.1 run in real player environments before changing its save schema, transaction state machine, or public mutation surface.
 
 The initial observation window is 7-14 days from the public release or latest stability hotfix. During this period:
 
@@ -204,7 +204,7 @@ During the observation window, maintain one triage table with:
 
 At the end of the window, make one explicit decision:
 
-1. release 1.2.1;
+1. release another justified 1.2.x stabilization patch;
 2. extend observation because the baseline changed;
 3. freeze 1.2 and begin the 1.3 API specification;
 4. defer feature development because evidence is insufficient.

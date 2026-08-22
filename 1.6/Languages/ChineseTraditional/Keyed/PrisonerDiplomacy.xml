@@ -42,6 +42,8 @@
   <PD_IntroText>當你關押符合資格的戰俘時，其原屬派系可能會在數日後主動聯絡，提出贖金提案。\n\n建造並供電給通訊台，即可立即開始交涉並自行決定贖金要求；你也可以等待對方先提出條件。\n\n註：這段機制說明只會顯示一次。之後取得的戰俘仍適用此機制，但不會再次跳出這封訊息。</PD_IntroText>
   <PD_CommTargetLabel>開啟戰俘外交：{0}</PD_CommTargetLabel>
   <PD_CommTargetInfo>開啟與 {0} 的戰俘外交，可查看進行中的贖金交易與策略協議。</PD_CommTargetInfo>
+  <PD_CommHubLabel>開啟戰俘外交</PD_CommHubLabel>
+  <PD_CommHubInfo>查看俘虜案件、有效協議與已知派系的交易歷史。</PD_CommHubInfo>
   <PD_NegotiationTitle>戰俘贖金交涉：{0}</PD_NegotiationTitle>
   <PD_NegotiatorSummary>談判者：{0}｜社交：{1}</PD_NegotiatorSummary>
   <PD_UiCases>案件</PD_UiCases>
@@ -71,6 +73,9 @@
   <PD_UiFactionContactsTitle>已知外交聯絡</PD_UiFactionContactsTitle>
   <PD_UiFactionContactsEmpty>目前還沒有建立任何派系聯絡。</PD_UiFactionContactsEmpty>
   <PD_UiFactionContactSummary>{0}\n案件：{1}｜歷史：{2}</PD_UiFactionContactSummary>
+  <PD_UiFactionContactsAction>需要處理</PD_UiFactionContactsAction>
+  <PD_UiFactionContactsAgreements>有效協議</PD_UiFactionContactsAgreements>
+  <PD_UiFactionContactsHistory>歷史聯絡</PD_UiFactionContactsHistory>
   <PD_UiReadOnly>唯讀檢視</PD_UiReadOnly>
   <PD_HistoryExchangeSupplies>人質 {0}、{1} {2}</PD_HistoryExchangeSupplies>
   <PD_HistoryExchangeSilver>人質 {0}、{1} 銀</PD_HistoryExchangeSilver>

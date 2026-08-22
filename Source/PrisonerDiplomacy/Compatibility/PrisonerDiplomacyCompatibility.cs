@@ -197,7 +197,7 @@ namespace PrisonerDiplomacy
                 }
             }
 
-            Log.Message(LogPrefix + "report version=1.2.0 maps=" + mapCount
+            Log.Message(LogPrefix + "report version=1.2.1 maps=" + mapCount
                 + " playerMaps=" + playerMapCount
                 + " spawnedPrisoners=" + prisonerCount
                 + " records=" + (records?.Count ?? 0)

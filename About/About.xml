@@ -3,7 +3,7 @@
   <name>Prisoner Diplomacy</name>
   <author>g1061</author>
   <packageId>g1061.prisonerdiplomacy</packageId>
-  <modVersion>1.2.0</modVersion>
+  <modVersion>1.2.1</modVersion>
   <supportedVersions>
     <li>1.6</li>
   </supportedVersions>
@@ -18,5 +18,5 @@
     <li>brrainz.harmony</li>
     <li>yancy.rimchat</li>
   </loadAfter>
-  <description>Prisoner Diplomacy 1.2.0 adds staged neutral handoffs, technology-tier faction supplies, core-validated special reward fulfillment, event history, complete event debug controls, race adapters, infiltration, public trials, and causal ransom ambush retaliation. This mod was 100% produced by Codex (GPT-5.6 SOL); the project owner provided the ideas only.</description>
+  <description>Prisoner Diplomacy 1.2.1 adds staged neutral handoffs, technology-tier faction supplies, core-validated special reward fulfillment, event history, complete event debug controls, race adapters, infiltration, public trials, causal ransom ambush retaliation, and a consolidated comms-console diplomacy hub. This mod was 100% produced by Codex (GPT-5.6 SOL); the project owner provided the ideas only.</description>
 </ModMetaData>
