@@ -1,6 +1,6 @@
 [h1]Prisoner Diplomacy: Example Add-on[/h1]
 
-A playable, source-included reference add-on for the public [b]Prisoner Diplomacy 1.2 API[/b]. Subscribe to see the extension system working in game, or open the source and templates to build your own race, faction, reward, persona, or UI integration.
+A playable, source-included reference add-on for the public [b]Prisoner Diplomacy 1.2 API[/b], compatible with the core mod's 1.2.1 release. Subscribe to see the extension system working in game, or open the source and templates to build your own race, faction, reward, persona, or UI integration.
 
 [b]This add-on is optional.[/b] Normal Prisoner Diplomacy players do not need it.
 
@@ -38,7 +38,7 @@ In API 1.2, external event definitions are discoverable catalog metadata. Regist
 
 [list]
 [*]RimWorld 1.6
-[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3787243156]Prisoner Diplomacy[/url] 1.2 or compatible API 1.x
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3787243156]Prisoner Diplomacy[/url] 1.2.1 (API 1.2) or compatible API 1.x
 [*]Load this add-on after Prisoner Diplomacy
 [/list]
 

@@ -19,5 +19,5 @@
     <li>brrainz.harmony</li>
     <li>g1061.prisonerdiplomacy</li>
   </loadAfter>
-  <description>A playable, source-included SDK example for Prisoner Diplomacy 1.2. Adds two special rewards and demonstrates context adapters, faction personas, event metadata, read-only snapshots, demand previews, UI extensions, diagnostics, localization, and safe failure boundaries. Requires Prisoner Diplomacy.</description>
+  <description>A playable, source-included SDK example compatible with Prisoner Diplomacy 1.2.1 and its public API 1.2. Adds two special rewards and demonstrates context adapters, faction personas, event metadata, read-only snapshots, demand previews, UI extensions, diagnostics, localization, and safe failure boundaries. Requires Prisoner Diplomacy.</description>
 </ModMetaData>

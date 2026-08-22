@@ -1,6 +1,6 @@
 [h1]戰俘外交：示範擴展模組[/h1]
 
-這是一個可實際遊玩、附完整原始碼的 [b]Prisoner Diplomacy 1.2 公開 API[/b] 示範 Add-on。你可以訂閱後直接看擴展系統如何在遊戲中運作，也可以參考原始碼與範本，製作自己的種族、派系、特殊報酬、Persona 或 UI 整合。
+這是一個可實際遊玩、附完整原始碼的 [b]Prisoner Diplomacy 1.2 公開 API[/b] 示範 Add-on，與核心模組 1.2.1 版本相容。你可以訂閱後直接看擴展系統如何在遊戲中運作，也可以參考原始碼與範本，製作自己的種族、派系、特殊報酬、Persona 或 UI 整合。
 
 [b]本 Add-on 是選用內容。[/b]一般 Prisoner Diplomacy 玩家不需要安裝。
 
@@ -38,7 +38,7 @@ API 1.2 的外部事件定義是可發現的目錄 Metadata；註冊[b]不等於
 
 [list]
 [*]RimWorld 1.6
-[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3787243156]Prisoner Diplomacy[/url] 1.2 或相容 API 1.x
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3787243156]Prisoner Diplomacy[/url] 1.2.1（API 1.2）或相容 API 1.x
 [*]載入順序排在 Prisoner Diplomacy 後方
 [/list]
 
